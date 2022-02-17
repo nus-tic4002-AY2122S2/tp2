@@ -17,8 +17,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/l-shihao)]
 [[portfolio](team/l-shihao.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Developer
+* Responsibilities: UI/Documentation
 
 ### CHENG HUI YUAN
 
@@ -27,7 +27,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/chenghuiyuan)] [[portfolio](team/chenghuiyuan.md)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Data/ Documentation
 
 ### LIM YIN YIN
 
@@ -37,14 +37,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/yinyin377.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Dev Ops/Documentation
 
 ### Lim Chun Yong
 
 
-<img src="https://avatars.githubusercontent.com/u/45939235?v=4" width="100">
+<img src="https://avatars.githubusercontent.com/u/45939235?v=4" width="200">
 
 [[github](http://github.com/jr-mojito)] [[portfolio](team/jr-mojito.md)]
 
 * Role: Developer
-* Responsibilities: UI/Testing
+* Responsibilities: UI/Documentation
