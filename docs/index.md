@@ -1,9 +1,9 @@
 ---
 layout: page
-title: AddressBook Level-3
+title: project BUDDY 
 ---
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
+[![CI Status](https://github.com/AY2122S2-TIC4002-F18-3/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-TIC4002-F18-3/tp2/actions)
 [![codecov](https://codecov.io/gh/AY2122S2-TIC4002-F18-3/tp2/branch/master/graph/badge.svg?token=BDFDIPVJ34)](https://codecov.io/gh/AY2122S2-TIC4002-F18-3/tp2)
 
 ![Ui](images/Ui.png)
