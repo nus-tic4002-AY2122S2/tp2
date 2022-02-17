@@ -48,12 +48,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Lim Chun Yong
 
-<img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+<img src="https://avatars.githubusercontent.com/u/45939235?v=4" width="100">
+
+[[github](http://github.com/jr-mojito)] [[portfolio](team/jr-mojito.md)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: UI/Testing
