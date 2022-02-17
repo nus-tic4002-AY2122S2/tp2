@@ -9,51 +9,42 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
 
-<img src="images/johndoe.png" width="200px">
+### LI SHI HAO
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+<img src="images/l-shihao.png" width="200px">
 
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/l-shihao)]
+[[portfolio](team/l-shihao.md)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: UI/Documentation
 
-### Jean Doe
+### CHENG HUI YUAN
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/chenghuiyuan.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/chenghuiyuan)] [[portfolio](team/chenghuiyuan.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Data/ Documentation
+
+### LIM YIN YIN
+
+<img src="images/yinyin377.png" width="200px">
+
+[[github](http://github.com/yinyin377)]
+[[portfolio](team/yinyin377.md)]
+
+* Role: Developer
+* Responsibilities: Dev Ops/Documentation
 
 ### Lim Chun Yong
 
 
-<img src="https://avatars.githubusercontent.com/u/45939235?v=4" width="100">
+<img src="https://avatars.githubusercontent.com/u/45939235?v=4" width="200">
 
 [[github](http://github.com/jr-mojito)] [[portfolio](team/jr-mojito.md)]
 
 * Role: Developer
-* Responsibilities: UI/Testing
+* Responsibilities: UI/Documentation
