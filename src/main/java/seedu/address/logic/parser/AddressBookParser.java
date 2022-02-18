@@ -68,7 +68,13 @@ public class AddressBookParser {
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
 
-        default:
+        case RemarkCommand.COMMAND_WORD:
+            return new RemarkCommand().parse(userInput);
+
+        case DescriptionCommand.COMMAND_WORD:
+            return new DescriptionCommand().parse(userInput);
+
+            default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
