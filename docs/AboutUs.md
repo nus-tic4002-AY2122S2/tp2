@@ -31,7 +31,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### LIM WAN YIN
 
-<img src="images/yinyin377.jpg" width="200px">
+<img src="images/yinyin377.png" width="200px">
 
 [[Github Profile](http://github.com/yinyin377)]
 [[Portfolio](team/yinyin377.md)]
