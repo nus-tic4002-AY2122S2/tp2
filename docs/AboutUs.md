@@ -16,7 +16,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/zyjarvis)]
 [[portfolio](team/zhangyun.md)]
 
-* Role: Project Advisor
+* Role: Developer
 
 ### Jane Doe
 
