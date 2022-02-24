@@ -1,4 +1,4 @@
-title: "AB-3"
+title: "Project BUDDY"
 theme: minima
 
 header_pages:
@@ -8,7 +8,7 @@ header_pages:
 
 markdown: kramdown
 
-repository: "se-edu/addressbook-level3"
+repository: "AY2122S2-TIC4002-F18-3/tp2"
 github_icon: "images/github-icon.png"
 
 plugins:
