@@ -29,7 +29,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Soh Weng Kit James
 
-<img src="images/james.jpeg" width="200px">
+<img src="images/james.jpg" width="200px">
 
 [[github](http://github.com/sohwkjames)] [[portfolio](team/james.md)]
 
