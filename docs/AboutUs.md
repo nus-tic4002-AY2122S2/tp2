@@ -21,7 +21,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Gwee Yeu Chai
 
-<img src="images/github_gweeyeuchai.png" width="200px">
+<img src="images/github_gweeyc.png" width="200px">
 
 [[github](https://github.com/gweeyc)]
 [[portfolio](team/gweeyc.md)]
