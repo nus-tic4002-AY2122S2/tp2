@@ -27,7 +27,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
    * **`list`** : Lists all contacts.
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male` : Adds a contact named `John Doe` to the Address Book.
-
+   
+   * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list. 
+   
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
    * **`clear`** : Deletes all contacts.
@@ -86,6 +88,23 @@ A person can have any number of tags (including 0)
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567  r/some comments t/criminal g/female`
+
+### Logging a brief note or communication update : `log`
+
+Logs a brief memo or intercourse update to a person in the address book.
+
+Format: `log INDEX l/Some brief log note on the contact`
+
+* Logs a log note on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Command format must be strictly adhered to, else invalid format exception will be shown instead.
+* Existing values will be updated to the input values.
+* When entering a log note, the existing log of the person will be removed i.e. adding of logs is not cumulative.
+* You can remove a person’s log note by typing `l/` without
+  specifying any tags after it.
+
+Examples:
+*  `log 1 l/John informed of Sprint Exercise 01 closure: 3pm YDA.` Logs a communication done the day before with the 1st person.
+*  `log 2 l/to hold meeting with Sponsor Dave: 2pm Fri.` Logs a pending meeting with the 2nd person on display list and clear previous log if it exists.
 
 ### Listing all persons : `list`
 
@@ -184,6 +203,7 @@ _Details coming soon ..._
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Log** | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
