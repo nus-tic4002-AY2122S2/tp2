@@ -264,17 +264,17 @@ _{Explain here how the data archiving feature will be implemented}_
 **Target user profile**
 
 Karen, secondary school teacher with work commitments
-As a typical teacher managing 40 students in a class and in charge of 
-other co-curricular activities, it is always a hassle to manage the contacts of students’ 
-and parents’ information. In addition, manage contact information of external vendors that are involved 
+As a typical teacher managing 40 students in a class and in charge of
+other co-curricular activities, it is always a hassle to manage the contacts of students’
+and parents’ information. In addition, manage contact information of external vendors that are involved
 in co-curricular activities and school’s event.
 
 
 **Value proposition**
 
-Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands. 
-Teachers can enter contact information for a swift search and retrieve desired contact information 
-within a few keystrokes. The application provides an all-in-one display of the contacts related information 
+Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands.
+Teachers can enter contact information for a swift search and retrieve desired contact information
+within a few keystrokes. The application provides an all-in-one display of the contacts related information
 and their details are presented in a beautiful scrolling view.
 
 ### User stories

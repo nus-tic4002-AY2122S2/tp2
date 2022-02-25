@@ -1,7 +1,7 @@
 # Lim Wan Yin - Project Portfolio Page
 
 ## Project: JustBook App v3.0 Overview
-JustBook - Version 3.0 is a desktop application typically designed for use by a modern poly or JC student, in 
+JustBook - Version 3.0 is a desktop application typically designed for use by a modern poly or JC student, in
 registering his or her personal bookings or appointments. It leverages on an online database storage facility, backed by
 an offline backup file. The user interacts with it using a CLI. It is written in Java(ver. 11), and has about 702 LoC.
 
@@ -43,7 +43,7 @@ an offline backup file. The user interacts with it using a CLI. It is written in
 - Documentation:
   - **User Guide**:
     - Added documentation for the features: `Load Application`, `show range`, `delete range` and `save`.
-    - FAQ 
+    - FAQ
     - Command Summary
   - **Developer Guide**:
     - Target User Profile
@@ -63,4 +63,4 @@ an offline backup file. The user interacts with it using a CLI. It is written in
     [#20](https://github.com/AY2122S1-TIC4001-F18-4/tp/pull/20),
     [#21](https://github.com/AY2122S1-TIC4001-F18-4/tp/pull/21),
     [#28](https://github.com/AY2122S1-TIC4001-F18-4/tp/pull/28),
-    [#58](https://github.com/AY2122S1-TIC4001-F18-4/tp/pull/58)) 
+    [#58](https://github.com/AY2122S1-TIC4001-F18-4/tp/pull/58))
