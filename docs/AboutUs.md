@@ -5,7 +5,7 @@ title: About Us
 
 We are a final-year undergrad SE team of 2022, based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You are welcome to browse our respective GitHub sites or connect with us by emails.   
+You are welcome to browse our respective GitHub sites or connect with us by emails.
 
 ## Project team
 
