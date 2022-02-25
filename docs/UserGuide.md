@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Project Buddy is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Project BUDDY can get your contact management tasks done faster than traditional GUI apps.
+Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands. Teachers can enter contact information for a swift search and retrieve desired contact information within a few keystrokes. The application provides an all-in-one display of the contacts related information and their details are presented in a beautiful scrolling view.
 
 * Table of Contents
 {:toc}
@@ -38,7 +38,7 @@ Project Buddy is a **desktop app for managing contacts, optimized for use via a 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## Command corresponding to Feature
 
 <div markdown="block" class="alert alert-info">
 
@@ -59,9 +59,9 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a contact: `add`
 
-Adds a person to the project BUDDY.
+Create a new contact with info such as name, hp, email, address and optional number of tags.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
@@ -70,12 +70,56 @@ A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/Nana Park p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02`
+```
+add n/Nana Park p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
+```
+
+### Delete a contact: `delete`
+
+Format:      `delete SEQ_NO_OF_CONTACT`
+
++ SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
++ SEQ_NO_OF_CONTACT must be a positive integer.
+
+Example:     
+```
+delete 2
+```
+
+### View a list of contacts: `list`
+
+Format:      `list`
++ All contacts’ name, phone number, email and address will be displayed.
+
+Example: 
+```
+list
+```
+
+### Search contact by name: `find`
+
+Format:      `find NAME`
+
++ NAME is case-insensitive. I.e. `find DUKE` will return `Duke`’s contact.
++ NAME has to be a full word. I.e. `find DUK` will not return `Duke`’s contact.
++ If NAME consists of two words, the sequence of words will not affect the search result. I.e. `find Duke John` will return both `John Duke`’s and `Duke John`’s contacts.
++ Contacts matching either one of the NAME will be returned. I.e. `find Duke John` will return both `Duke Mark` and `Charles Duke`’s contacts.
+
+Example: 
+```
+find Duke
+```
+
+### Exit the program:
+Format:      `exit`
++ The contact list will not be deleted after exiting.
+
+Example:     
+```
+exit
+```
 
 
-### Archiving data files `[coming in v1.2]`
-
-_Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -88,7 +132,10 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-
+| Action     | Format, Examples                                                                                                                                                          |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
+| **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
+| **Fine**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Exit**   | `exit`                                                                                                                                                                    | 
