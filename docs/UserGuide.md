@@ -81,7 +81,7 @@ Format:      `delete SEQ_NO_OF_CONTACT`
 + SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
 + SEQ_NO_OF_CONTACT must be a positive integer.
 
-Example:     
+Example:
 ```
 delete 2
 ```
@@ -91,7 +91,7 @@ delete 2
 Format:      `list`
 + All contacts’ name, phone number, email and address will be displayed.
 
-Example: 
+Example:
 ```
 list
 ```
@@ -105,7 +105,7 @@ Format:      `find NAME`
 + If NAME consists of two words, the sequence of words will not affect the search result. I.e. `find Duke John` will return both `John Duke`’s and `Duke John`’s contacts.
 + Contacts matching either one of the NAME will be returned. I.e. `find Duke John` will return both `Duke Mark` and `Charles Duke`’s contacts.
 
-Example: 
+Example:
 ```
 find Duke
 ```
@@ -114,7 +114,7 @@ find Duke
 Format:      `exit`
 + The contact list will not be deleted after exiting.
 
-Example:     
+Example:
 ```
 exit
 ```
@@ -138,4 +138,4 @@ exit
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
 | **Fine**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
-| **Exit**   | `exit`                                                                                                                                                                    | 
+| **Exit**   | `exit`                                                                                                                                                                    |
