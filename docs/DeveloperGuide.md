@@ -257,13 +257,15 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* User is secondary school teacher
+* Keeps track of multiple classes, keeps tracks of students grades
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+
+**Value proposition**: GreatBook helps our user keep track of all the students he teaches, which class they are under, which subjects they are taking, and current grade for the subjects. He can use the product to update student’s current grades, and personal information such as address, phone number as well.
 
 
 ### User stories
@@ -272,26 +274,60 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `* * *`  | As a teacher exploring the app                                   | I can see the app with sample data, and some user interface         | so I can easily see how the app will look and feel after I input my own data                 |
+| `* *`  | As a teacher who just started the app                                       | I can load in my sample data in json form               |   so I do not need to key in data individually.
+|
+| `* *`  | As a teacher who just started the app                                       | I can load in my sample data in csv format                |  so I do not need to key in data individually.                                   |
+| `* * *`  | As a teacher who just started using the app                                       | I can add student information such as name, contact details, and what class they are in          | so I can look this information up in the future.
+|
+| `* * `    | As a teacher who just started using the app                                       | when adding students, I pre-select a class to add to   |  so that I can save time when entering all students data from the same class.
+|
+| `* * *`      | As a teacher who is currently using the app | I can update info such as the grade and class of a student           | so that I can ensure student data is always updated                      |
+| `*`      | As a teacher who is currently using the app | I can turn on “student mode”           |  so I can ask students to come to my computer to enter their own information |
+| `* * *`      | As a teacher who is currently using the app |  I can view a master list of all the students I have saved before          |  so I can have a clear overview of all my students |
+| `* * *`      | As a teacher who is currently using the app |  in my master list view, I can sort the student by fields such as Age          |  so I do not have to sort students manaully |
+| `* * *`      | As a teacher who is currently using the app |   I can use a graphical User Interface to interact with the app          |  so that I am not restricted to just input from the keyboard |
+| `* *`      | As a teacher who is currently using the app |  I should be able to access the add student feature from the main menu. |  so I can add students with ease |
+| `* * *`      | As a teacher who is currently using the app |  I should be able to also view the CLI input field at all times in the app          |  so I can key in commands anytime I need |
+| `* * *`      | As a teacher who is currently using the app |   I can see usage instructions          |  so that I can refer to instructions when I forget how to use the App.
+|
+| `* * *`      | As a teacher who is currently using the app |  I can delete the student          |  so that I can remove the students who have left the class.|
+| `* * *`      | As a teacher who is currently using the app |  I can add a new student with their information          |  so that I can update the list when there are new students.|
+| `* * *`      | As a teacher who is currently using the app |   I can find the student by name          |  so that I can locate details of persons without having to go through the entire list.|
+| `* *`      | As a teacher who is currently using the app |  I can hide private contact details          |  so that I can minimize the chance of someone else seeing them by accident.|
+| `* * *`      | As a teacher who is currently using the app |  I can edit the information of existing students          |  so that I can update the entries without deleting them.|
+| `* * *`      | As a teacher who is currently using the app |   I can classify my students into different classes          |  so I can group students by class |
+| `* *`      | As a teacher who is currently using the app |   I am able to search for student by using different field with keywords          |  so I can search for students with more detail |
+| `* *`      | As a teacher who is currently using the app |  I can export selected student info into a csv file          |  so I can use this with spreadsheet software easily |
+| `* *`      | As a teacher who is currently using the app |  in the graphical UI, I should be able to filter students by Class, from a dropdown menu or a text input          |  so I can view students by Class |
+| `* *`      | As a teacher who is currently using the app |  in the graphical UI, when I view a list of students, I should be able to set a toggle to highlight students that are failing the class (Eg: Students grade is currently 50 marks or worse)
+|  so I can easily view students who need more attention |
+| `* *`      | As a teacher who is currently using the app |  I can highlight the top 10% or bottom 10% students of a subject          |  so I can assign well performing student to student who need more attention |
+| `* * *`      | As a teacher who is currently using the app |  I can save data automatically when I add or update data          |  so I do not accidentally lose my progress |
+| `* *`      | As a teacher who is currently using the app |  I can write remarks for each student          |  so I can note students who need special attention |
+| `* * *`      | As a teacher who is currently using the app |  when I click on the student in the list it can bring me to the student’s detail page.
+|  so I can use mouse to navigate |
+| `* * *`      | As a teacher who is currently using the app |  I can record the method that students select to receive their results (e.g. mailing, e-mail or sms)          |  so that I can send the result to students according to their preference|
+| `* * *`      | As a teacher who is currently using the app |   I can add in the marks to each student          |  so that I can keep track of the student's result |
+
+
+
+
+
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `GreatBook` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
+1.  User requests to list students
+2.  AddressBook shows a list of students
+3.  User requests to delete a specific student in the list
 4.  AddressBook deletes the person
 
     Use case ends.
@@ -307,6 +343,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Add a student**
+
+**MSS**
+
+1.  User keys in add student command with student info
+2.  GreatBook saves student to list, shows success message.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. Format is incorrect.
+
+  GreatBook shows a error message..
 
 *{More to be added}*
 
