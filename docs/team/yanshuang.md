@@ -24,9 +24,9 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Update documentation to include `remark` in the add and edit functions. 
+    * Update documentation to include `remark` in the add and edit functions.
   * Developer Guide:
-    * Update documentation to include `remark` in the add and edit implementions. 
+    * Update documentation to include `remark` in the add and edit implementions.
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments)
