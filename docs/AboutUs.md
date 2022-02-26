@@ -27,7 +27,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 [[portfolio](team/gweeyc.md)]
 
 * Role: Team Lead / Programmer
-* Responsibilities: Admin + Command Code extensions
+* Responsibilities: Admin + Log Command Code extensions + JavaFx Login Screen
 
 ### Low Yan Shuang
 
