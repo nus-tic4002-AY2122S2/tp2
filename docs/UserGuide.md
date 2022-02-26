@@ -14,7 +14,7 @@ Contact Manager is a **desktop app for managing contacts, optimized for use via 
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `contactmanager.jar` from [here](https://github.com/AY2122S2-TIC4002-F18-4/tp2/releases).
+1. Download the latest `addressbook.jar` from [here](https://github.com/AY2122S2-TIC4002-F18-4/tp2/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Contact Manager.
 
@@ -94,7 +94,7 @@ Shows a list of all persons in the Contact Manager.
 Format: `list [f]`
 
 Examples:
-* `list f` Shows a list of money owed to persons in the address book.
+* `list f` Shows a list of money owed to persons in the Contact Manager.
 
 ### Editing a person : `edit`
 
@@ -160,14 +160,14 @@ Format: `exit`
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Contact Manager data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+Contact Manager data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
+If your changes to the data file makes its format invalid, Contact Manager will discard all data and start with an empty data file at the next run.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
@@ -179,7 +179,7 @@ _Details coming soon ..._
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Contact Manager home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
