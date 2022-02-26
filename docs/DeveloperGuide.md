@@ -234,10 +234,19 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### \[Proposed\] Login GUI front Screen security feature
+
+![Sample Login Screen](images/loginScreen.png)
+
+#### Proposed Implementation
+_{coming feature v1.2 - v1.3}_
+
+### \[Proposed\] Logout shortcut key security feature
+_{coming feature v1.3 - v1.4}_
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
-
 
 --------------------------------------------------------------------------------------------------------------------
 
