@@ -38,6 +38,13 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 * Role: Developer
 * Responsibilities: UI + Data
 
+### Yang Shuogeng
+
+<img srcc="images/github_YangShuogeng.png" width="200px">
+
+[[github](https://github.com/YangShuogeng)] 
+[[portfolio](team/yangshuogeng.md)]
+
 ### Jean Doe
 
 <img src="images/johndoe.png" width="200px">
