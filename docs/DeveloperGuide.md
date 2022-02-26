@@ -312,6 +312,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+<br>
+
+**Use case: Add money owed to a person**
+
+1. User requests to list persons
+2. ContactManager shows a list of persons
+3. User requests to add money owed to a specific person in the list
+4. ContactManager update money owed to the person
+
 *{More to be added}*
 
 ### Non-Functional Requirements
