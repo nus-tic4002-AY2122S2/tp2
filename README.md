@@ -12,8 +12,10 @@
 
 ## User Guide
 * [User Guide](https://ay2122s2-tic4002-f18-6.github.io/tp2/UserGuide.html)
+
 ## Developer Guide
 * [Developer Guide](https://ay2122s2-tic4002-f18-6.github.io/tp2/DeveloperGuide.html)
+
 ## About Us
 * [About Us](https://ay2122s2-tic4002-f18-6.github.io/tp2/AboutUs.html)
 
