@@ -35,12 +35,12 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 [[github](https://github.com/YangShuogeng)] 
 [[portfolio](team/yangshuogeng.md)]
 
-### Jean Doe
+### Tan Wei Hua
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/github_thisisdax.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/thisisdax)]
+[[portfolio](team/thisisdax.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
