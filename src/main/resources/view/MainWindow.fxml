@@ -57,12 +57,12 @@
                           </padding>
                           <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                       </VBox>
-                  <VBox fx:id="contentList" minWidth="340" prefWidth="340" styleClass="pane-with-border">
+                  <VBox fx:id="postList" minWidth="340" prefWidth="340" styleClass="pane-with-border">
                      <padding>
                         <Insets bottom="10" left="10" right="10" top="10" />
                      </padding>
                      <children>
-                        <StackPane fx:id="contentListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                        <StackPane fx:id="postListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
               </items>
