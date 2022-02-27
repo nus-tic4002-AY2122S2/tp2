@@ -45,9 +45,9 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Ng Xin Yi
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/github_elxyng.png" width="200px">
 
 [[github](http://github.com/elxyng)]
 [[portfolio](team/elxyng.md)]
