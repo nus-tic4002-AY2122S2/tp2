@@ -30,10 +30,13 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Yang Shuogeng
 
-<img srcc="images/github_YangShuogeng.png" width="200px">
+<img src="images/github_yangshuogeng.png" width="200" height="200">
 
-[[github](https://github.com/YangShuogeng)] 
+[[github](https://github.com/YangShuogeng)]     
 [[portfolio](team/yangshuogeng.md)]
+
+* Role: Developer
+* Responsibilities: Upgrade existing command + Add new command
 
 ### Tan Wei Hua
 
