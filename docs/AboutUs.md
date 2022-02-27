@@ -11,7 +11,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Gwee Yeu Chai
 
-<img src="images/github_gweeyc.png" width="200px">
+<img src="images/gweeyc.png" width="200px">
 
 [[github](https://github.com/gweeyc)]
 [[portfolio](team/gweeyc.md)]
@@ -21,7 +21,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Low Yan Shuang
 
-<img src="images/github_lowyanshuang.png" width="200px">
+<img src="images/lowyanshuang.png" width="200px">
 
 [[github](http://github.com/lowyanshuang)] [[portfolio](team/yanshuang.md)]
 
@@ -30,7 +30,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Yang Shuogeng
 
-<img src="images/github_yangshuogeng.png" width="200" height="200">
+<img src="images/yangshuogeng.png" width="200" height="200">
 
 [[github](https://github.com/YangShuogeng)]     
 [[portfolio](team/yangshuogeng.md)]
@@ -40,17 +40,17 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ### Tan Wei Hua
 
-<img src="images/github_thisisdax.png" width="200px">
+<img src="images/thisisdax.png" width="200px">
 
 [[github](http://github.com/thisisdax)]
 [[portfolio](team/thisisdax.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: DevOps + Threading
 
 ### Ng Xin Yi
 
-<img src="images/github_elxyng.png" width="200px">
+<img src="images/elxyng.png" width="200px">
 
 [[github](http://github.com/elxyng)]
 [[portfolio](team/elxyng.md)]
