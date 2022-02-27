@@ -49,8 +49,8 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/elxyng)]
+[[portfolio](team/elxyng.md)]
 
 * Role: Developer
 * Responsibilities: UI
