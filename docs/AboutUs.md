@@ -9,16 +9,6 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 ## Project team
 
-### John Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
 ### Gwee Yeu Chai
 
 <img src="images/github_gweeyc.png" width="200px">
