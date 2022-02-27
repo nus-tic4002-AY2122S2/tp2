@@ -23,3 +23,4 @@ Given below are my contributions to the project.
   * User Guide:
     * Update documentation to include `Find the person’s contact or team by any part of the name.` in find function.
     * Update documentation to include `Shows a list of all contact names and contact details (contact name, team name, mobile number, email address) in the list` in list function.
+    
