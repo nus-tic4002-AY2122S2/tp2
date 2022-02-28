@@ -98,8 +98,9 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        String task = editPersonDescriptor.getTask().equals("") ? personToEdit.getTask() : editPersonDescriptor.getTask();
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, task);
     }
 
     @Override
@@ -130,6 +131,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private String task = "";
 
         public EditPersonDescriptor() {}
 
@@ -143,13 +145,14 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setTask(toCopy.task);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return !task.equals("") || CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
         }
 
         public void setName(Name name) {
@@ -200,6 +203,12 @@ public class EditCommand extends Command {
         public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
+
+        public void setTask(String task) {
+            this.task = task;
+        }
+
+        public String getTask() { return this.task; }
 
         @Override
         public boolean equals(Object other) {
