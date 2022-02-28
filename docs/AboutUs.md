@@ -28,7 +28,9 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 * Role: Developer
 * Responsibilities: UI + Data
 
+<<<<<<< master
 ### Yang Shuogeng
+>>>>>>> add-remarks
 
 <img src="images/yangshuogeng.png" width="200" height="200">
 
