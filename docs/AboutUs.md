@@ -31,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Low Yan Shuang
 
-<img src="images/github_lowyanshuang.png" width="200px">
+<img src="images/lowyanshuang.png" width="200px">
 
 [[github](http://github.com/lowyanshuang)] [[portfolio](team/yanshuang.md)]
 
