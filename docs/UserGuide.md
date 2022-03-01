@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+**MyContentPlanner** is a desktop app for social media managers to manage the posts and clients, optimized for use via a **Command Line Interface (CLI)** while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, MyContentPlanner can get your social media management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -14,9 +14,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `mycontentplanner.jar` from [here](https://github.com/AY2122S2-TIC4002-F18-6/tp2/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your Content Planner.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -24,13 +24,13 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+   * **`list`** : Lists all clients and posts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`** **`client`** `n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a client named `John Doe` to the **Client List**.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   * **`delete`** **`post`**`3 5` : Deletes the 3rd and 5th post shown in the **Post List**.
 
-   * **`clear`** : Deletes all contacts.
+   * **`clear`** **`client`**: Deletes all clients in the **Client List**.
 
    * **`exit`** : Exits the app.
 
@@ -64,14 +64,104 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 </div>
 
-### Viewing help : `help`
+### `add` - Add a client or a post
+
+Add a client into the **Client List** or add a post into the **Post List**
+
+Syntax: `add client|c n/NAME p/PHONE ...` or `add post|p t/TITLE c/CONTENT ...`
+
+Example: `add client n/John Doe p/12345678 ...`
+
+Expected outcome:
+
+```
+
+```
+
+
+
+### `delete` - Delete a client or a post
+
+Delete a client from the **Client List** or delete a post from the **Post List** based on the specified INDEX in each list.
+
+* Deletes the client or the post at the specified `INDEX`.
+* The index refers to the index number shown in the displayed **Client List** or **Post List**.
+* The index **must be a positive integer** 1, 2, 3, …​
+* The index can be a single index or multiple index(index list)
+
+Syntax: `delete client|c INDEX1 INDEX2 ...` or `delete post|p INDEX1 INDEX2 ...`
+
+Example: `delete post 3 5`
+
+Expected outcome:
+
+```
+
+```
+
+### `edit` - Edit a client or a post
+
+Edit an existing client in the **Client List** or an existing post in the **Post List** based on the specified INDEX in each list.
+
+* Edits the client or the post at the specified `INDEX`. 
+* The index refers to the index number shown in the displayed **Client List** or **Post List**.
+* The index **must be a positive integer** 1, 2, 3, …​
+* The index must be a single index.
+
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the client will be removed i.e adding of tags is not cumulative.
+* You can remove all the client's tags by typing `t/` without
+  specifying any tags after it.
+
+Syntax: `edit client|c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` or 
+`delete post|p INDEX [t/TITLE] [c/CONTENT]...`
+
+Example: `edit c 3 a/a new address`
+
+Expected outcome:
+
+```
+
+```
+
+### `list` - List the clients and posts
+
+List all the clients in the **Client List** and all the posts in the **Post List**.
+
+Syntax: `list` 
+
+Expected outcome:
+
+```
+
+```
+
+
+###  `help` - Viewing help 
 
 Shows a message explaning how to access the help page.
 
 ![help message](images/helpMessage.png)
 
-Format: `help`
+Syntax: `help`
 
+
+### `clear` - Clearing all entries
+
+Clears all entries from the Content Planner.
+
+Syntax: `clear`
+
+### `exit` - Exiting the program
+
+Exits the program.
+
+Syntax: `exit`
+
+
+--------------------
+## Original AB3 part
 
 ### Adding a person: `add`
 
@@ -142,17 +232,6 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-### Clearing all entries : `clear`
-
-Clears all entries from the address book.
-
-Format: `clear`
-
-### Exiting the program : `exit`
-
-Exits the program.
-
-Format: `exit`
 
 ### Saving the data
 
@@ -175,11 +254,11 @@ _Details coming soon ..._
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous MyContentPlanner home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command summary - pending update
 
 Action | Format, Examples
 --------|------------------
