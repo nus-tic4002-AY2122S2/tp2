@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.post.*;
+import seedu.address.model.post.Category;
+import seedu.address.model.post.Content;
+import seedu.address.model.post.Notes;
+import seedu.address.model.post.Post;
+import seedu.address.model.post.PostDate;
+import seedu.address.model.post.Title;
 
 
 public class JsonAdaptedPost {
@@ -40,6 +45,11 @@ public class JsonAdaptedPost {
         notes = source.getNotes().value;
     }
 
+    /**
+     * Converts this Jackson-friendly adapted post object into the model's {@code Post} object.
+     *
+     * @throws IllegalValueException if there were any data constraints violated in the adapted post.
+     */
     public Post toModelType() throws IllegalValueException {
         final Title modelTitle = new Title(title);
         final Content modelContent = new Content(content);

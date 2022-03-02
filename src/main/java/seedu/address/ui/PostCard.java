@@ -4,10 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.person.Person;
 import seedu.address.model.post.Post;
 
-import java.util.Comparator;
 
 /**
  * A UI component that displays information of a {@code Post}.
