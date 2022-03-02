@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
+import seedu.address.model.post.Post;
 
 /**
  * An Immutable AddressBook that is serializable to JSON format.
@@ -20,6 +21,7 @@ import seedu.address.model.person.Person;
 class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_POST = "Posts list contains duplicate post(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
@@ -43,6 +45,7 @@ class JsonSerializableAddressBook {
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
         persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+        posts.addAll(source.getPostList().stream().map(JsonAdaptedPost::new).collect(Collectors.toList()));
     }
 
     /**
@@ -58,6 +61,14 @@ class JsonSerializableAddressBook {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
             addressBook.addPerson(person);
+        }
+
+        for (JsonAdaptedPost jsonAdaptedPost : posts) {
+            Post post = jsonAdaptedPost.toModelType();
+            if (addressBook.hasPost(post)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_POST);
+            }
+            addressBook.addPost(post);
         }
         return addressBook;
     }

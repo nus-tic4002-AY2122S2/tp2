@@ -14,6 +14,7 @@ import seedu.address.model.post.Post;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Post> PREDICATE_SHOW_ALL_POSTS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -59,10 +60,21 @@ public interface Model {
     boolean hasPerson(Person person);
 
     /**
+     * Returns true if a post with the same identity as {@code post} exists in the address book.
+     */
+    boolean hasPost(Post post);
+
+    /**
      * Deletes the given person.
      * The person must exist in the address book.
      */
     void deletePerson(Person target);
+
+    /**
+     * Deletes the given post.
+     * The post must exist in the address book.
+     */
+    void deletePost(Post target);
 
     /**
      * Adds the given person.
@@ -71,11 +83,26 @@ public interface Model {
     void addPerson(Person person);
 
     /**
+     * Adds the given post.
+     * {@code post} must not already exist in the address book.
+     */
+    void addPost(Post post);
+
+
+    /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
     void setPerson(Person target, Person editedPerson);
+
+    /**
+     * Replaces the given post {@code target} with {@code editedPost}.
+     * {@code target} must exist in the address book.
+     * The post identity of {@code editedPost} must not be the same as another existing post in the address book.
+     */
+    void setPost(Post target, Post editedPost);
+
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
@@ -89,4 +116,10 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Updates the filter of the filtered post list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredPostList(Predicate<Post> predicate);
 }

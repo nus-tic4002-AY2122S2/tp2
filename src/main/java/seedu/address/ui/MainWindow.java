@@ -117,7 +117,7 @@ public class MainWindow extends UiPart<Stage> {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
 
-        postListPanel = new PostListPanel()
+        postListPanel = new PostListPanel(logic.getFilteredPostList());
         postListPanelPlaceholder.getChildren().add(postListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -172,6 +172,10 @@ public class MainWindow extends UiPart<Stage> {
 
     public PersonListPanel getPersonListPanel() {
         return personListPanel;
+    }
+
+    public PostListPanel getPostListPanel() {
+        return postListPanel;
     }
 
     /**

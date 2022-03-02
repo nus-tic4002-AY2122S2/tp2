@@ -3,7 +3,8 @@ package seedu.address.storage;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import seedu.address.model.post.Post;
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.post.*;
 
 
 public class JsonAdaptedPost {
@@ -19,7 +20,7 @@ public class JsonAdaptedPost {
      */
     @JsonCreator
     public JsonAdaptedPost(@JsonProperty("title") String title, @JsonProperty("content") String content,
-                             @JsonProperty("postdate") String postDate, @JsonProperty("category") String category,
+                           @JsonProperty("postdate") String postDate, @JsonProperty("category") String category,
                            @JsonProperty("notes") String notes) {
         this.title = title;
         this.content = content;
@@ -37,6 +38,16 @@ public class JsonAdaptedPost {
         postDate = source.getPostDate().value;
         category = source.getCategory().value;
         notes = source.getNotes().value;
+    }
+
+    public Post toModelType() throws IllegalValueException {
+        final Title modelTitle = new Title(title);
+        final Content modelContent = new Content(content);
+        final PostDate modelPostdate = new PostDate(postDate);
+        final Category modelCategory = new Category(category);
+        final Notes modelNotes = new Notes(notes);
+        return new Post(modelTitle, modelContent, modelPostdate, modelCategory, modelNotes);
+
     }
 
 }

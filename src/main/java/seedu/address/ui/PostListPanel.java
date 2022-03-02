@@ -6,7 +6,7 @@ import javafx.scene.control.ListCell;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.post.Post;
 
-import javax.swing.plaf.synth.Region;
+import javafx.scene.layout.Region;
 import javafx.scene.control.ListView;
 import java.util.logging.Logger;
 
