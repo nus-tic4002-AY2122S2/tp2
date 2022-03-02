@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
+import seedu.address.model.post.Post;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -22,7 +23,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private final FilteredList<Person> filteredPosts;
+    private final FilteredList<Post> filteredPosts;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
