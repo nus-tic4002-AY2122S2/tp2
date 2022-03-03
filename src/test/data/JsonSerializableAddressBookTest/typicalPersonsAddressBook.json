@@ -42,5 +42,18 @@
     "email" : "anna@example.com",
     "address" : "4th street",
     "tagged" : [ ]
+  } ],
+  "posts" : [ {
+    "title" : "title1",
+    "content" : "content1",
+    "postdate" : "date1",
+    "category" : "category1",
+    "notes" : "notes1"
+  }, {
+    "title" : "title2",
+    "content" : "content2",
+    "postdate" : "date2",
+    "category" : "category2",
+    "notes" : "notes1"
   } ]
 }
