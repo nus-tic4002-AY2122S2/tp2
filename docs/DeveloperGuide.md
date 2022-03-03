@@ -284,7 +284,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | Priority | As a …​                                 | I want to …​                               | So that I can…​                 |
 | -------- | ------------------------------------------ | --------------------------------------------- | -----------------------------------|
 | `* * *`  | forgetful user                             | record down people’s number and address       | contact them later                 |
-|                                              |
+|`* * *` |forgetful user|record down people’s number and address|contact them later|
+|`* * *` |organized user|group contacts into different labels|quickly filter out the category I want |
+|`* * *` |productive user|search contact by name or number |find a contact easily |
+|`* * *` |school teacher|know which student and parents belong to the same family |call the parents of the student|
+|`* * *` |contacts user|copy a particular contact info|paste it in other app to make use of the info|
+|`* * *` |school teacher|know which students belong to which class |use the filtered list to take attendance |
+|`* * *` |contacts user|take notes for a particular contact|record down happenings involving this contact|
+|`* * *` |GUI user|have different tags in different colors|be visually pleased and easily distinguish them |
+|`* * *` |contacts user|quickly filter out all contacts without a tag|assign at least one tag to them |
+|`* * *` |contacts user|batch select a list of contacts for editing |assign tags to multiple contacts at once |
+|`* * *` |careless user|undo the previous command |quickly recover the previous contact list|
+|`* * *` |typo-prone user|edit the contact |correct the typo |
+|`* * *` |visual person|add photos to the contacts |recall their identities|
+|`* * *` |school teacher|record students’ birthdays and filter contacts by birthday months   |prepare gifts in advance|
+|`* * *` |school teacher|record contacts’ email address|contact them later|
+|`* * *` |Diligent school teacher|Which students needs help in particular subject|Keep a close update on student’s subject progress|
+|`* * *` |Health concerning teacher|Get quick access to student’s emergency contact|Call the contact immediately|
+|`* * *` |Achievement motivating teacher |highlight students with high flying result|identity them to partake in school or national competitions|
+|`* * *` |Co-curricular teacher|group my co-curricular students |Send updates on co-curricular activities|
+|`* * *` |Concerning teacher|Highlight students who often skipped classes or missed homework|Contact student for a one to one session|
 
 *{More to be added}*
 
