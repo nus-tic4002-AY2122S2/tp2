@@ -56,6 +56,18 @@ public class AddressBook implements ReadOnlyAddressBook {
         setPersons(newData.getPersonList());
     }
 
+    /**
+     * Sets the existing data of this {@code AddressBook} with {@code newData}.
+     */
+    public void setAddressBook(List <Person> list) {
+        requireNonNull(list);
+        resetData(new AddressBook());
+
+        for (Person p : list) {
+            this.persons.add(p);
+        }
+    }
+
     //// person-level operations
 
     /**

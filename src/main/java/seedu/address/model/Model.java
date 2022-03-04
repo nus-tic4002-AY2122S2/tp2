@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -48,6 +49,12 @@ public interface Model {
      * Replaces address book data with the data in {@code addressBook}.
      */
     void setAddressBook(ReadOnlyAddressBook addressBook);
+
+    /**
+     * Replaces address book data with the new data in {@code addressBook}.
+     */
+    void setNewAddressBook(List<Person> addressBook);
+
 
     /** Returns the AddressBook */
     ReadOnlyAddressBook getAddressBook();

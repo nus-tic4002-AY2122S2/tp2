@@ -2,6 +2,7 @@ package seedu.address.logic;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -22,28 +23,31 @@ import seedu.address.storage.Storage;
  */
 public class LogicManager implements Logic {
     public static final String FILE_OPS_ERROR_MESSAGE = "Could not save data to file: ";
-    private final Logger logger = LogsCenter.getLogger(LogicManager.class);
 
-    private final Model model;
-    private final Storage storage;
-    private final AddressBookParser addressBookParser;
+    private static final Logger logger = LogsCenter.getLogger(LogicManager.class);
+    private static Model model;
+    private static Storage storage;
+    private static AddressBookParser addressBookParser;
+    private static String exCommand;
+    private static List<Person> originalAddressBook;
+    private static Person modifiedPerson;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
      */
     public LogicManager(Model model, Storage storage) {
-        this.model = model;
-        this.storage = storage;
-        addressBookParser = new AddressBookParser();
+        LogicManager.model = model;
+        LogicManager.storage = storage;
+        LogicManager.addressBookParser = new AddressBookParser();
+        LogicManager.modifiedPerson = model.getFilteredPersonList().get(0);
     }
 
-    @Override
-    public CommandResult execute(String commandText) throws CommandException, ParseException {
-        logger.info("----------------[USER COMMAND][" + commandText + "]");
-
+    public static CommandResult getResponse(String commandText) throws CommandException, ParseException {
         CommandResult commandResult;
         Command command = addressBookParser.parseCommand(commandText);
-        commandResult = command.execute(model);
+
+        commandResult = command.execute(model, modifiedPerson, originalAddressBook, exCommand);
+        exCommand = commandText.toLowerCase();
 
         try {
             storage.saveAddressBook(model.getAddressBook());
@@ -52,6 +56,13 @@ public class LogicManager implements Logic {
         }
 
         return commandResult;
+    }
+
+    @Override
+    public CommandResult execute(String commandText) throws CommandException, ParseException {
+        logger.info("----------------[USER COMMAND][" + commandText + "]");
+
+        return getResponse(commandText);
     }
 
     @Override
@@ -77,5 +88,19 @@ public class LogicManager implements Logic {
     @Override
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
+    }
+
+    /**
+     * Update modifiedPerson.
+     */
+    public static void updateModifiedPerson(Person person) {
+        LogicManager.modifiedPerson = person;
+    }
+
+    /**
+     * Update address book.
+     */
+    public static void updateOriginalAddressBook(List<Person> addressBook) {
+        originalAddressBook = addressBook;
     }
 }
