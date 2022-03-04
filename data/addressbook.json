@@ -37,9 +37,9 @@
     "tagged" : [ "colleagues" ]
   }, {
     "name" : "Alex Ng",
-    "phone" : "123456",
-    "email" : "an@ex.com",
-    "address" : "address123",
-    "tagged" : [ "family" ]
+    "phone" : "12443389",
+    "email" : "an@an.com",
+    "address" : "123Address",
+    "tagged" : [ "classmates", "family" ]
   } ]
 }

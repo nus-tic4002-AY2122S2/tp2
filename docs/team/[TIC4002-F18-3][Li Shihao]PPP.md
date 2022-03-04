@@ -9,7 +9,7 @@
   1. [PR](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/23/files)
   2. [PR]()
 
-## Features 
+## Features
 
-+ UI Light theme 
++ UI Light theme
   1. [PR#27](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/27/files)
