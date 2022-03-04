@@ -11,7 +11,7 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases) _(temp demo url)_.
+1. Download the latest `TeamContact 24/7.jar` _(coming feature)_.
 
 1. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
@@ -23,7 +23,7 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
    * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list.
    
@@ -74,7 +74,7 @@ Format: `help`
 
 ### Adding a person: `add`
 
-Adds a person to the address book.
+Adds a person to TeamContact 24/7 app.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK g/GENDER [t/TAG]…​`
 
@@ -88,7 +88,7 @@ Examples:
 
 ### Logging a brief note or communication update : `log`
 
-Logs a brief memo or intercourse update to a person in the address book.
+Logs a brief memo or intercourse update to a person listed in the TeamContact 24/7 app.
 
 Format: `log INDEX l/Some brief log note on the contact`
 
@@ -105,13 +105,13 @@ Examples:
 
 ### Listing all persons : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all persons in TeamContact 24/7 app.
 
 Format: `list`
 
 ### Editing a person : `edit`
 
-Edits an existing person in the address book.
+Edits an existing person in TeamContact 24/7 app.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [g/GENDER] [t/TAG]…​`
 
@@ -146,7 +146,7 @@ Examples:
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the address book.
+Deletes the specified person from TeamContact 24/7 app.
 
 Format: `delete INDEX`
 
@@ -160,7 +160,7 @@ Examples:
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+Clears all entries from TeamContact 24/7 app.
 
 Format: `clear`
 
@@ -179,7 +179,7 @@ The application data are saved in the hard disk automatically after any command 
 Program data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
+If your changes to the data file makes its format invalid, TeamContact 24/7 app will discard all data and start with an empty data file at the next run.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
