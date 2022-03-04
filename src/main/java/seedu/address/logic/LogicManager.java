@@ -39,7 +39,6 @@ public class LogicManager implements Logic {
         LogicManager.model = model;
         LogicManager.storage = storage;
         LogicManager.addressBookParser = new AddressBookParser();
-        LogicManager.modifiedPerson = model.getFilteredPersonList().get(0);
     }
 
     public static CommandResult getResponse(String commandText) throws CommandException, ParseException {

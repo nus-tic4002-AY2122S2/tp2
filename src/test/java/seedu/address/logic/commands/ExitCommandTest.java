@@ -5,6 +5,7 @@ import static seedu.address.logic.commands.ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEM
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 
@@ -13,7 +14,7 @@ public class ExitCommandTest {
     private Model expectedModel = new ModelManager();
 
     @Test
-    public void execute_exit_success() {
+    public void execute_exit_success() throws ParseException {
         CommandResult expectedCommandResult = new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT, false, true);
         assertCommandSuccess(new ExitCommand(), model, expectedCommandResult, expectedModel);
     }
