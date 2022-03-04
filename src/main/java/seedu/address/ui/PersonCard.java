@@ -37,6 +37,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label address;
     @FXML
+    private Label classroom;
+    @FXML
     private Label email;
     @FXML
     private FlowPane tags;
@@ -46,12 +48,16 @@ public class PersonCard extends UiPart<Region> {
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
+        System.out.println("In PersonCard constructor, received person:");
+        System.out.println(person);
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        classroom.setText(person.getClassroom().value);
+
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -71,7 +77,14 @@ public class PersonCard extends UiPart<Region> {
 
         // state check
         PersonCard card = (PersonCard) other;
-        return id.getText().equals(card.id.getText())
+        boolean result = id.getText().equals(card.id.getText())
                 && person.equals(card.person);
+
+        System.out.println("In personCard equals, result is:");
+        System.out.println(result);
+        return result;
+
+//        return id.getText().equals(card.id.getText())
+//                && person.equals(card.person);
     }
 }

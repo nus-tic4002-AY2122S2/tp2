@@ -35,6 +35,8 @@ public class PersonListPanel extends UiPart<Region> {
     class PersonListViewCell extends ListCell<Person> {
         @Override
         protected void updateItem(Person person, boolean empty) {
+            System.out.println("in PersonListPanel, person is:");
+            System.out.println(person);
             super.updateItem(person, empty);
 
             if (empty || person == null) {
