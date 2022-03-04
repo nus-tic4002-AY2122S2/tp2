@@ -35,5 +35,11 @@
     "email" : "royb@example.com",
     "address" : "Blk 45 Aljunied Street 85, #11-31",
     "tagged" : [ "colleagues" ]
+  }, {
+    "name" : "Alex Ng",
+    "phone" : "123456",
+    "email" : "an@ex.com",
+    "address" : "address123",
+    "tagged" : [ "family" ]
   } ]
 }

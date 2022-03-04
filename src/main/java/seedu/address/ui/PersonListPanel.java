@@ -5,7 +5,8 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+// import javafx.scene.control.ListView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
@@ -14,19 +15,27 @@ import seedu.address.model.person.Person;
  * Panel containing the list of persons.
  */
 public class PersonListPanel extends UiPart<Region> {
-    private static final String FXML = "PersonListPanel.fxml";
+    private static final String FXML = "PersonGridPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
+    // @FXML
+    // private ListView<Person> personListView;
+
     @FXML
-    private ListView<Person> personListView;
+    private FlowPane flowPane;
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
     public PersonListPanel(ObservableList<Person> personList) {
         super(FXML);
-        personListView.setItems(personList);
-        personListView.setCellFactory(listView -> new PersonListViewCell());
+        // personListView.setItems(personList);
+        // personListView.setCellFactory(listView -> new PersonListViewCell());
+        int i = 1;
+        for (Person person : personList) {
+            flowPane.getChildren().add(new PersonCard(person, i++).getRoot());
+        }
+
     }
 
     /**

@@ -11,8 +11,11 @@ public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
     public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    public static final String COLOR1 = "bee0e8";
+    public static final String COLOR2 = "edcae2";
 
     public final String tagName;
+    public final String color;
 
     /**
      * Constructs a {@code Tag}.
@@ -23,6 +26,12 @@ public class Tag {
         requireNonNull(tagName);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
         this.tagName = tagName;
+
+        if (tagName.length() % 2 == 0) {
+            color = COLOR1;
+        } else {
+            color = COLOR2;
+        }
     }
 
     /**
