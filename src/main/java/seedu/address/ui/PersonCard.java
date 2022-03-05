@@ -79,8 +79,5 @@ public class PersonCard extends UiPart<Region> {
                 && person.equals(card.person);
 
         return result;
-
-//        return id.getText().equals(card.id.getText())
-//                && person.equals(card.person);
     }
 }

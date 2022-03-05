@@ -10,9 +10,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Classroom {
 
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Classroom should be in the format 1A, 1B, 1C, 2A, 2B, 2C etc";
-//    public static final String VALIDATION_REGEX = "\\d{3,}";
+    public static final String MESSAGE_CONSTRAINTS = "Classroom should be in the format 1A, 1B, 1C, 2A, 2B, 2C etc";
+
     public final String value;
 
     /**
