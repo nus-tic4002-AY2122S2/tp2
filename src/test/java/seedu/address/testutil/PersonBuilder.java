@@ -89,6 +89,12 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withclassroom(String classroom) {
+        this.classroom = new Classroom(classroom);
+        return this;
+    }
+
+
     public Person build() {
         return new Person(name, phone, email, address, classroom, tags);
     }

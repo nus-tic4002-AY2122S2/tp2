@@ -48,8 +48,6 @@ public class PersonCard extends UiPart<Region> {
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
-        System.out.println("In PersonCard constructor, received person:");
-        System.out.println(person);
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
@@ -80,8 +78,6 @@ public class PersonCard extends UiPart<Region> {
         boolean result = id.getText().equals(card.id.getText())
                 && person.equals(card.person);
 
-        System.out.println("In personCard equals, result is:");
-        System.out.println(result);
         return result;
 
 //        return id.getText().equals(card.id.getText())
