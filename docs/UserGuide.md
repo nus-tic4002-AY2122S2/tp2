@@ -137,5 +137,5 @@ exit
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
-| **Fine**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
 | **Exit**   | `exit`                                                                                                                                                                    |
