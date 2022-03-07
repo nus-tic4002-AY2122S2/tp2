@@ -10,6 +10,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.DateJoined;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
@@ -97,7 +98,19 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String email} into an {@code Remark}.
+     * Parses a {@code String dateJoined} into an {@code dateJoined}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code dateJoined} is invalid.
+     */
+    public static DateJoined parseDateJoined(String dateJoined) throws ParseException {
+        requireNonNull(dateJoined);
+        String trimmedDateJoined = dateJoined.trim();
+        return new DateJoined(dateJoined);
+    }
+
+    /**
+     * Parses a {@code String remark} into an {@code Remark}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code remark} is invalid.
