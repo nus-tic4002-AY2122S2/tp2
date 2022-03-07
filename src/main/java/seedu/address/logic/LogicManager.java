@@ -2,7 +2,6 @@ package seedu.address.logic;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -13,6 +12,7 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
@@ -29,8 +29,7 @@ public class LogicManager implements Logic {
     private static Storage storage;
     private static AddressBookParser addressBookParser;
     private static String exCommand;
-    private static List<Person> originalAddressBook;
-    private static Person modifiedPerson;
+    private static ReadOnlyAddressBook originalAddressBook;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -45,7 +44,7 @@ public class LogicManager implements Logic {
         CommandResult commandResult;
         Command command = addressBookParser.parseCommand(commandText);
 
-        commandResult = command.execute(model, modifiedPerson, originalAddressBook, exCommand);
+        commandResult = command.execute(model, originalAddressBook, exCommand);
         exCommand = commandText.toLowerCase();
 
         try {
@@ -90,16 +89,9 @@ public class LogicManager implements Logic {
     }
 
     /**
-     * Update modifiedPerson.
-     */
-    public static void updateModifiedPerson(Person person) {
-        LogicManager.modifiedPerson = person;
-    }
-
-    /**
      * Update address book.
      */
-    public static void updateOriginalAddressBook(List<Person> addressBook) {
-        originalAddressBook = addressBook;
+    public static void updateOriginalAddressBook(ReadOnlyAddressBook addressBook) {
+        originalAddressBook = new AddressBook(addressBook);
     }
 }

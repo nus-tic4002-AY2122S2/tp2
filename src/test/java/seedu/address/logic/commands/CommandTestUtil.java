@@ -18,10 +18,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
-import seedu.address.testutil.PersonBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -79,11 +79,10 @@ public class CommandTestUtil {
      */
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
             Model expectedModel) throws ParseException {
-        List<Person> addressBook = new ArrayList<>();
-        Person modifiedPerson = new PersonBuilder().build();
+        ReadOnlyAddressBook addressBook = new AddressBook();
         String exCommand = "";
         try {
-            CommandResult result = command.execute(actualModel, modifiedPerson, addressBook, exCommand);
+            CommandResult result = command.execute(actualModel, addressBook, exCommand);
             assertEquals(expectedCommandResult, result);
             assertEquals(expectedModel, actualModel);
         } catch (CommandException ce) {
@@ -113,11 +112,10 @@ public class CommandTestUtil {
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
-        List<Person> addressBook = new ArrayList<>();
-        Person modifiedPerson = new PersonBuilder().build();
+        ReadOnlyAddressBook addressBook = new AddressBook();
         String exCommand = "";
 
-        assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel, modifiedPerson,
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel,
                         addressBook, exCommand));
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
