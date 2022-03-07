@@ -36,7 +36,7 @@ public class UndoCommand extends Command {
                     || exCommand.toLowerCase().contains("help")) {
             return LogicManager.getResponse(exCommand);
         } else if (exCommand.contains("delete") || exCommand.contains("clear") || exCommand.contains("edit")) {
-            model.setAddressBook(new AddressBook(originalAddressBook));
+            model.setAddressBook(originalAddressBook);
         } else if (exCommand.contains("add")) {
             Index index = ParserUtil.parseIndex(String.valueOf(model.getFilteredPersonList().size()));
             return new DeleteCommand(index).execute(model, originalAddressBook, exCommand);
