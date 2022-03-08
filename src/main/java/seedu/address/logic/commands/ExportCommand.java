@@ -39,13 +39,13 @@ public class ExportCommand extends Command {
         String inforToTxt = "";
 
         for(int i=0; i<PERSON_LIST.size(); i++) {
-            String UserInfor = "Name: " + PERSON_LIST.get(i).getName()
-                             + "Phone: " + PERSON_LIST.get(i).getPhone()
-                             + "Email: " + PERSON_LIST.get(i).getEmail()
-                             + "Address: " + PERSON_LIST.get(i).getAddress()
-                             + "Remark: " + PERSON_LIST.get(i).getRemark()
+            String UserInfor = "Name: " + PERSON_LIST.get(i).getName() + "\n"
+                             + "Phone: " + PERSON_LIST.get(i).getPhone() + "\n"
+                             + "Email: " + PERSON_LIST.get(i).getEmail() + "\n"
+                             + "Address: " + PERSON_LIST.get(i).getAddress() + "\n"
+                             + "Remark: " + PERSON_LIST.get(i).getRemark() + "\n"
                              + "Tag(s): " + PERSON_LIST.get(i).getTags().toString()
-                             + "\n";
+                             + "\n\n";
 
             inforToTxt += UserInfor;
         }
