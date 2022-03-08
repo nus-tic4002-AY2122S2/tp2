@@ -18,6 +18,11 @@ public class PersonDetailsExportationManager {
     private String personDetails;
     private String fileName = "/personDetails.txt";
 
+    /**
+     * Constructor
+     * @param filePath is the local storage file path
+     * @param personDetails is all the person details in String type
+     */
     public PersonDetailsExportationManager(Path filePath, String personDetails) {
         this.filePath = filePath;
         this.personDetails = personDetails;

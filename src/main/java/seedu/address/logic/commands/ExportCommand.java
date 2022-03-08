@@ -4,11 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
-
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.storage.StorageManager;
