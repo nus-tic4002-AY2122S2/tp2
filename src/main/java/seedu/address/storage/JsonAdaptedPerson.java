@@ -10,12 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Classroom;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,6 +25,10 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String classroom;
+    private final int english;
+    private final int motherTongue;
+    private final int mathematics;
+    private final int science;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -37,14 +36,19 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("classroom") String classroom,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                             @JsonProperty("email") String email, @JsonProperty("address") String address,
+                             @JsonProperty("classroom") String classroom, @JsonProperty("english") int english,
+                             @JsonProperty("motherTongue") int motherTongue, @JsonProperty("mathematics") int mathematics,
+                             @JsonProperty("science") int science, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.classroom = classroom;
+        this.english = english;
+        this.motherTongue = motherTongue;
+        this.mathematics = mathematics;
+        this.science = science;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -59,6 +63,10 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         classroom = source.getClassroom().value;
+        english = source.getEnglish().score;
+        motherTongue = source.getMotherTongue().score;
+        mathematics = source.getMathematics().score;
+        science = source.getScience().score;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -116,8 +124,45 @@ class JsonAdaptedPerson {
         }
         final Classroom modelClassroom = new Classroom(classroom);
 
+        if (Integer.toString(english) == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    English.class.getSimpleName()));
+        }
+        if (!English.isValidScore(english)) {
+            throw new IllegalValueException(English.MESSAGE_CONSTRAINTS);
+        }
+        final English modelEnglish = new English(english);
+
+        if (Integer.toString(motherTongue) == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    MotherTongue.class.getSimpleName()));
+        }
+        if (!MotherTongue.isValidScore(motherTongue)) {
+            throw new IllegalValueException(MotherTongue.MESSAGE_CONSTRAINTS);
+        }
+        final MotherTongue modelMotherTongue = new MotherTongue(motherTongue);
+
+        if (Integer.toString(mathematics) == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Mathematics.class.getSimpleName()));
+        }
+        if (!Mathematics.isValidScore(mathematics)) {
+            throw new IllegalValueException(Mathematics.MESSAGE_CONSTRAINTS);
+        }
+        final Mathematics modelMathematics = new Mathematics(mathematics);
+
+        if (Integer.toString(science) == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Science.class.getSimpleName()));
+        }
+        if (!Science.isValidScore(science)) {
+            throw new IllegalValueException(Science.MESSAGE_CONSTRAINTS);
+        }
+        final Science modelScience = new Science(science);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelClassroom, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelClassroom, modelEnglish,
+                modelMotherTongue, modelMathematics, modelScience, modelTags);
     }
 
 }

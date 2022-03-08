@@ -9,11 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Classroom;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -106,6 +102,54 @@ public class ParserUtil {
         requireNonNull(classroom);
         String trimmedClassroom = classroom.trim();
         return new Classroom(trimmedClassroom);
+    }
+
+    /**
+     * Parses a {@code String english} into an {@code english}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code english} is invalid.
+     */
+    public static English parseEnglish(String english) throws ParseException {
+        requireNonNull(english);
+        String trimmedEnglish = english.trim();
+        return new English(Integer.parseInt(trimmedEnglish));
+    }
+
+    /**
+     * Parses a {@code String motherTongue} into an {@code motherTongue}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code motherTongue} is invalid.
+     */
+    public static MotherTongue parseMotherTongue(String motherTongue) throws ParseException {
+        requireNonNull(motherTongue);
+        String trimmedMotherTongue = motherTongue.trim();
+        return new MotherTongue(Integer.parseInt(trimmedMotherTongue));
+    }
+
+    /**
+     * Parses a {@code String mathematics} into an {@code mathematics}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code mathematics} is invalid.
+     */
+    public static Mathematics parseMathematics(String mathematics) throws ParseException {
+        requireNonNull(mathematics);
+        String trimmedMathematics = mathematics.trim();
+        return new Mathematics(Integer.parseInt(trimmedMathematics));
+    }
+
+    /**
+     * Parses a {@code String science} into an {@code science}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code science} is invalid.
+     */
+    public static Science parseScience(String science) throws ParseException {
+        requireNonNull(science);
+        String trimmedScience = science.trim();
+        return new Science(Integer.parseInt(trimmedScience));
     }
 
     /**
