@@ -75,6 +75,11 @@ public class StorageManager implements Storage {
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
 
+    /**
+     * To call the function to save all the persons' details to local storage
+     * @param personInfo is all the person details
+     * @param filePath is the local storage file path which used to save all the persons' details
+     */
     public static void exportAddressBookToTxt(String personInfo, Path filePath) {
         logger.fine("Attempting to write to local txt file: " + filePath);
         logger.info("Attempting to write to local txt file: " + filePath);

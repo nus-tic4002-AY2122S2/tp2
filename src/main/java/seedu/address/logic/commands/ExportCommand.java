@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
+
 import javafx.collections.ObservableList;
 
 import seedu.address.commons.core.LogsCenter;
@@ -22,7 +23,6 @@ public class ExportCommand extends Command {
     private final Path txtStoragePath = Paths.get(rootPath + "/data");
 
     private ObservableList<Person> pLst;
-    private static final Logger logger = LogsCenter.getLogger(ExportCommand.class);
 
     public ExportCommand() {}
 
@@ -45,7 +45,10 @@ public class ExportCommand extends Command {
             inforToTxt += userInfo;
         }
 
-        if (inforToTxt.equals("")) return new CommandResult(MESSAGE_EMPTY);
+        if (inforToTxt.equals("")) {
+
+            return new CommandResult(MESSAGE_EMPTY);
+        }
 
         StorageManager.exportAddressBookToTxt(inforToTxt, txtStoragePath);
 
