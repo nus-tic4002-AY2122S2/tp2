@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
@@ -31,7 +32,7 @@ public class ExportCommand extends Command {
     public ExportCommand() {}
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model) {
         requireNonNull(model);
         this.PERSON_LIST = model.getAddressBook().getPersonList();
 
@@ -49,7 +50,7 @@ public class ExportCommand extends Command {
             inforToTxt += UserInfor;
         }
 
-        if(inforToTxt.equals(""))  throw new CommandException(MESSAGE_EMPTY);
+        if(inforToTxt.equals(""))  return new CommandResult(MESSAGE_EMPTY);
 
         StorageManager.exportAddressBookToTxt(inforToTxt, txtStoragePath);
 

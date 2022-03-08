@@ -79,8 +79,9 @@ public class StorageManager implements Storage {
         logger.fine("Attempting to write to local txt file: " + filePath);
         logger.info("Attempting to write to local txt file: " + filePath);
 
+        PersonDetailsExportationManager pdeManager = new PersonDetailsExportationManager(filePath, personInfo);
 
-
+        pdeManager.exportToTxtFile();
     }
 
 }
