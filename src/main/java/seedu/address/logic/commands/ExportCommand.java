@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -7,8 +9,10 @@ import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
+import seedu.address.storage.AddressBookStorage;
+import seedu.address.storage.StorageManager;
+import seedu.address.storage.UserPrefsStorage;
 
 import static java.util.Objects.requireNonNull;
 
@@ -16,14 +20,15 @@ public class ExportCommand extends Command {
 
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_SUCCESS = "Data exported successfully.";
-    public static final String MESSAGE_NOT_IMPLEMENTED_YET =
-            "Export command not implemented yet";
     public static final String MESSAGE_EMPTY = "No person recorded in the system.";
+
+    private final Path rootPath = Paths.get("").toAbsolutePath();
+    private final Path txtStoragePath = Paths.get(rootPath + "/data");
 
     private static ObservableList<Person> PERSON_LIST;
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
-    public ExportCommand() { }
+    public ExportCommand() {}
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -46,7 +51,7 @@ public class ExportCommand extends Command {
 
         if(inforToTxt.equals(""))  throw new CommandException(MESSAGE_EMPTY);
 
-        logger.info(inforToTxt);
+        StorageManager.exportAddressBookToTxt(inforToTxt, txtStoragePath);
 
         return new CommandResult(MESSAGE_SUCCESS);
     }

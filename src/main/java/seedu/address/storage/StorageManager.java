@@ -75,9 +75,12 @@ public class StorageManager implements Storage {
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
 
-    @Override
-    public void exportAddressBookToTxt(String personInfo, Path filePath) {
+    public static void exportAddressBookToTxt(String personInfo, Path filePath) {
         logger.fine("Attempting to write to local txt file: " + filePath);
+        logger.info("Attempting to write to local txt file: " + filePath);
+
+
+
     }
 
 }

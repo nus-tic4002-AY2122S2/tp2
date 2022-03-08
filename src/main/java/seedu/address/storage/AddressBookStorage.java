@@ -41,10 +41,4 @@ public interface AddressBookStorage {
      * @see #saveAddressBook(ReadOnlyAddressBook)
      */
     void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException;
-
-    /**
-     * Export address book to local storage text file
-     * @param personInfo contain all the person information.
-     */
-    void exportAddressBookToTxt(String personInfo, Path filePath);
 }
