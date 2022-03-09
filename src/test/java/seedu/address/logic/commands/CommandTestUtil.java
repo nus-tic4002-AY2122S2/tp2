@@ -5,8 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CLASSROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -36,6 +40,14 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_CLASSROOM = "1A";
+    public static final String VALID_ENGLISH_AMY = "90";
+    public static final String VALID_ENGLISH_BOB = "85";
+    public static final String VALID_MOTHERTONGUE_AMY = "90";
+    public static final String VALID_MOTHERTONGUE_BOB = "85";
+    public static final String VALID_MATHEMATICS_AMY = "90";
+    public static final String VALID_MATHEMATICS_BOB = "85";
+    public static final String VALID_SCIENCE_AMY = "90";
+    public static final String VALID_SCIENCE_BOB = "85";
 
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
@@ -49,6 +61,14 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_AMY = " " + PREFIX_ADDRESS + VALID_ADDRESS_AMY;
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String CLASSROOM_DESC_ALL = " " + PREFIX_CLASSROOM + VALID_CLASSROOM;
+    public static final String ENGLISH_DESC_AMY = " " + PREFIX_ENGLISH + VALID_ENGLISH_AMY;
+    public static final String ENGLISH_DESC_BOB = " " + PREFIX_ENGLISH + VALID_ENGLISH_BOB;
+    public static final String MOTHERTONGUE_DESC_AMY = " " + PREFIX_MOTHERTONGUE + VALID_MOTHERTONGUE_AMY;
+    public static final String MOTHERTONGUE_DESC_BOB = " " + PREFIX_MOTHERTONGUE + VALID_MOTHERTONGUE_AMY;
+    public static final String MATHEMATICS_DESC_AMY = " " + PREFIX_MATHEMATICS + VALID_MATHEMATICS_AMY;
+    public static final String MATHEMATICS_DESC_BOB = " " + PREFIX_MATHEMATICS + VALID_MATHEMATICS_BOB;
+    public static final String SCIENCE_DESC_AMY = " " + PREFIX_SCIENCE + VALID_SCIENCE_AMY;
+    public static final String SCIENCE_DESC_BOB = " " + PREFIX_SCIENCE + VALID_SCIENCE_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
