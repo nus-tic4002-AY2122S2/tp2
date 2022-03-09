@@ -1,8 +1,15 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -16,7 +23,16 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Classroom;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.English;
+import seedu.address.model.person.Mathematics;
+import seedu.address.model.person.MotherTongue;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Science;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -97,8 +113,10 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Classroom sampleClassroom = new Classroom("SampleClassroom");
         English updatedEnglish = editPersonDescriptor.getEnglish().orElse(personToEdit.getEnglish());
-        MotherTongue updatedMotherTongue = editPersonDescriptor.getMotherTongue().orElse(personToEdit.getMotherTongue());
-        Mathematics updatedMathematics = editPersonDescriptor.getMathematics().orElse(personToEdit.getMathematics());
+        MotherTongue updatedMotherTongue =
+                editPersonDescriptor.getMotherTongue().orElse(personToEdit.getMotherTongue());
+        Mathematics updatedMathematics =
+                editPersonDescriptor.getMathematics().orElse(personToEdit.getMathematics());
         Science updatedScience = editPersonDescriptor.getScience().orElse(personToEdit.getScience());
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, sampleClassroom,
                 updatedEnglish, updatedMotherTongue, updatedMathematics, updatedScience, updatedTags);
@@ -159,7 +177,8 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, english, motherTongue, mathematics, science, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address,
+                    english, motherTongue, mathematics, science, tags);
         }
 
         public void setName(Name name) {

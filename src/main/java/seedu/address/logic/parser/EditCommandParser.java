@@ -4,11 +4,11 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -64,10 +64,12 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setEnglish(ParserUtil.parseEnglish(argMultimap.getValue(PREFIX_ENGLISH).get()));
         }
         if (argMultimap.getValue(PREFIX_MOTHERTONGUE).isPresent()) {
-            editPersonDescriptor.setMotherTongue(ParserUtil.parseMotherTongue(argMultimap.getValue(PREFIX_MOTHERTONGUE).get()));
+            editPersonDescriptor.setMotherTongue(
+                    ParserUtil.parseMotherTongue(argMultimap.getValue(PREFIX_MOTHERTONGUE).get()));
         }
         if (argMultimap.getValue(PREFIX_MATHEMATICS).isPresent()) {
-            editPersonDescriptor.setMathematics(ParserUtil.parseMathematics(argMultimap.getValue(PREFIX_MATHEMATICS).get()));
+            editPersonDescriptor.setMathematics(
+                    ParserUtil.parseMathematics(argMultimap.getValue(PREFIX_MATHEMATICS).get()));
         }
         if (argMultimap.getValue(PREFIX_SCIENCE).isPresent()) {
             editPersonDescriptor.setScience(ParserUtil.parseScience(argMultimap.getValue(PREFIX_SCIENCE).get()));

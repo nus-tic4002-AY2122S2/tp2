@@ -4,11 +4,11 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CLASSROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -17,7 +17,16 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Classroom;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.English;
+import seedu.address.model.person.Mathematics;
+import seedu.address.model.person.MotherTongue;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Science;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -53,7 +62,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         Science science = ParserUtil.parseScience(argMultimap.getValue(PREFIX_SCIENCE).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, address, classroom, english, motherTongue, mathematics, science, tagList);
+        Person person = new Person(name, phone, email, address, classroom,
+                english, motherTongue, mathematics, science, tagList);
 
         return new AddCommand(person);
     }
