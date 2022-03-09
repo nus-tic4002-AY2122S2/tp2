@@ -16,7 +16,14 @@ import seedu.address.commons.core.LogsCenter;
 public class HelpWindow extends UiPart<Stage> {
 
     public static final String USERGUIDE_URL = "https://github.com/AY2122S2-TIC4002-F18-2/tp2/blob/master/docs/UserGuide.md";
-    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL;
+    public static final String HELP_MESSAGE = "Adding a person: add n/NAME p/PHONE_NUMBER e/CLASS en/SCORE mt/SCORE m/SCORE s/SCORE\n" +
+            "Listing all persons : list\n" +
+            "Editing a person : edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]\u200B\n" +
+            "Locating persons by name: find NAME\n" +
+            "Deleting a person : delete INDEX\n" +
+            "Clearing all entries : clear\n" +
+            "Exiting the program : exit\n"+
+            "For more details refer to the user guide: " + USERGUIDE_URL;
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
