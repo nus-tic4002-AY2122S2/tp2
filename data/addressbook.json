@@ -42,10 +42,10 @@
     "address" : "123Address",
     "tagged" : [ "classmates", "family" ]
   }, {
-    "name" : "Alex Yu",
+    "name" : "alex yu",
     "phone" : "99998888",
-    "email" : "ay@email.com",
-    "address" : "987 Address",
-    "tagged" : [ "teacher", "firends" ]
+    "email" : "ay@mail.com",
+    "address" : "987 addess",
+    "tagged" : [ "teacher", "friends" ]
   } ]
 }
