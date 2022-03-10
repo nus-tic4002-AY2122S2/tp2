@@ -34,9 +34,11 @@ public class ExportCommand extends Command {
             String userInfo = "Name: " + pLst.get(i).getName() + "\n"
                              + "Phone: " + pLst.get(i).getPhone() + "\n"
                              + "Email: " + pLst.get(i).getEmail() + "\n"
+                             + "Date Joined: " + pLst.get(i).getDateJoined() + "\n"
                              + "Address: " + pLst.get(i).getAddress() + "\n"
                              + "Remark: " + pLst.get(i).getRemark() + "\n"
-                             + "Tag(s): " + pLst.get(i).getTags().toString()
+                             + "Tag(s): " + pLst.get(i).getTags().toString() + "\n"
+                             + "Log: " + pLst.get(i).getLog().toString()
                              + "\n\n";
 
             inforToTxt += userInfo;
