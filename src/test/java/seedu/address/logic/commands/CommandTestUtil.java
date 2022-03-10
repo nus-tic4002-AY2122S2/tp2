@@ -37,7 +37,7 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
 
-  //  public static final String VALID_LOG_AMY = "Like skiing.";
+    //public static final String VALID_LOG_AMY = "Like skiing.";
     public static final String VALID_LOG_BOB = "Favourite pastime: Eating";
     public static final String VALID_DATE_1 = "12/02/2012";
     public static final String VALID_DATE_2 = "05/12/2000";
@@ -132,7 +132,7 @@ public class CommandTestUtil {
 
         Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
         final String[] splitName = person.getName().fullName.split("\\s+");
-   //     model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        //  model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
         model.updateFilteredPersonList(new NameContainsKeywordsPredicate(List.of(splitName[0])));
 
         assertEquals(1, model.getFilteredPersonList().size());
