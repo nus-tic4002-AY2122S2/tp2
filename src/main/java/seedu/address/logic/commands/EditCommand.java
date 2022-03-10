@@ -191,6 +191,10 @@ public class EditCommand extends Command {
             this.money = money;
         }
 
+        public Optional<Money> getMoney() {
+            return Optional.ofNullable(money);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
