@@ -1,7 +1,13 @@
 [![CI Status](https://github.com/AY2122S2-TIC4002-F18-3/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-TIC4002-F18-3/tp2/actions)
 
-### Mock up UI
+### V1.2 New UI
+Card Design:
 ![Ui](docs/images/Ui.png)
+
+
+----
+### Mock up UI
+![Ui](docs/images/Ui-mock.png)
 
 * A desktop application (called _project BUDDY_) used for manage Teacher’s Contact Management Application
   * Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands.
