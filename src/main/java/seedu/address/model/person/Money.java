@@ -6,7 +6,7 @@ import static java.util.Objects.requireNonNull;
  * Represents money owed to a Person in the address book.
  */
 public class Money {
-    private float value;
+    private final float value;
 
     /**
      * Constructs a {@code Money}.
