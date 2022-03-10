@@ -54,6 +54,10 @@ public class Person {
         return address;
     }
 
+    public Money getMoney() {
+        return money;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -112,7 +116,9 @@ public class Person {
                 .append("; Email: ")
                 .append(getEmail())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Money: ")
+                .append(getMoney());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
