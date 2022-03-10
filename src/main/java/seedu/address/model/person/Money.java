@@ -6,6 +6,7 @@ import static java.util.Objects.requireNonNull;
  * Represents money owed to a Person in the address book.
  */
 public class Money {
+    public static final String VALIDATION_REGEX = "\\d+\\.\\d+";
     private final double value;
 
     /**
@@ -16,6 +17,13 @@ public class Money {
     public Money(double value) {
         requireNonNull(value);
         this.value = value;
+    }
+
+    /**
+     * Returns true if a given string is a valid money.
+     */
+    public static boolean isValidMoney(String test) {
+        return test.matches(VALIDATION_REGEX);
     }
 
     @Override
