@@ -18,7 +18,7 @@
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <StackPane prefHeight="200.0" prefWidth="200.0">
       <children>
-         <Rectangle fx:id="rect" arcHeight="70.0" arcWidth="70.0" fill="#f3f3f4" height="200.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
+         <Rectangle fx:id="rect" arcHeight="64.0" arcWidth="64.0" fill="#f3f3f4" height="200.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
          <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
            <content>
              <AnchorPane prefWidth="170.0">
