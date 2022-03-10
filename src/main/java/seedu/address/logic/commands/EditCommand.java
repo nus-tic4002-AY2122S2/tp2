@@ -130,6 +130,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
+        private Money money;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -143,6 +144,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setMoney(toCopy.money);
             setTags(toCopy.tags);
         }
 
@@ -183,6 +185,10 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setMoney(Money money) {
+            this.money = money;
         }
 
         /**
