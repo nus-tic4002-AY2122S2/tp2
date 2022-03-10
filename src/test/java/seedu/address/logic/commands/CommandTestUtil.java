@@ -35,6 +35,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
+    public static final String VALID_LOG_AMY = "Like skiing.";
+    public static final String VALID_LOG_BOB = "Favourite pastime: Eating";
     public static final String VALID_REMARK_EMPTY = "";
     public static final String VALID_REMARK_WITH_VALUE = "Join company on 2013.";
     public static final String VALID_TAG_HUSBAND = "husband";
@@ -52,7 +54,6 @@ public class CommandTestUtil {
     public static final String REMARK_DESC_WITHOUT_VALUE = " " + PREFIX_REMARK + VALID_REMARK_EMPTY;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
-
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
