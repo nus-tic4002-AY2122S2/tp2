@@ -6,14 +6,14 @@ import static java.util.Objects.requireNonNull;
  * Represents money owed to a Person in the address book.
  */
 public class Money {
-    private final float value;
+    private final double value;
 
     /**
      * Constructs a {@code Money}.
      *
      * @param value A value.
      */
-    public Money(float value) {
+    public Money(double value) {
         requireNonNull(value);
         this.value = value;
     }
