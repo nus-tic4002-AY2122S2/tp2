@@ -20,6 +20,10 @@ public class Money {
         this.value = value;
     }
 
+    public double getValue() {
+        return value;
+    }
+
     /**
      * Returns true if a given string is a valid money.
      */
