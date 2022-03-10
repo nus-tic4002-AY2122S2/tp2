@@ -41,6 +41,14 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private Label english;
+    @FXML
+    private Label motherTongue;
+    @FXML
+    private Label mathematics;
+    @FXML
+    private Label science;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -55,6 +63,10 @@ public class PersonCard extends UiPart<Region> {
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         classroom.setText(person.getClassroom().value);
+        english.setText(Integer.toString(person.getEnglish().score));
+        motherTongue.setText(Integer.toString(person.getMotherTongue().score));
+        mathematics.setText(Integer.toString(person.getMathematics().score));
+        science.setText(Integer.toString(person.getScience().score));
 
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

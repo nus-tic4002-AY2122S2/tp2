@@ -4,8 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CLASSROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -26,6 +30,10 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_CLASSROOM + "CLASSROOM "
+            + PREFIX_ENGLISH + "ENGLISH "
+            + PREFIX_MOTHERTONGUE + "MOTHER-TONGUE "
+            + PREFIX_MATHEMATICS + "MATHEMATICS "
+            + PREFIX_SCIENCE + "SCIENCE "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -33,6 +41,10 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_CLASSROOM + "1A "
+            + PREFIX_ENGLISH + "90 "
+            + PREFIX_MOTHERTONGUE + "95 "
+            + PREFIX_MATHEMATICS + "100 "
+            + PREFIX_SCIENCE + "85 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
