@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATEJOINED;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -11,7 +12,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
@@ -35,8 +36,11 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
-    public static final String VALID_LOG_AMY = "Like skiing.";
+
+  //  public static final String VALID_LOG_AMY = "Like skiing.";
     public static final String VALID_LOG_BOB = "Favourite pastime: Eating";
+    public static final String VALID_DATE_1 = "12/02/2012";
+    public static final String VALID_DATE_2 = "05/12/2000";
     public static final String VALID_REMARK_EMPTY = "";
     public static final String VALID_REMARK_WITH_VALUE = "Join company on 2013.";
     public static final String VALID_TAG_HUSBAND = "husband";
@@ -50,6 +54,8 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String ADDRESS_DESC_AMY = " " + PREFIX_ADDRESS + VALID_ADDRESS_AMY;
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
+    public static final String DATEJOINED_DESC_DATE1 = " " + PREFIX_DATEJOINED + VALID_DATE_1;
+    public static final String DATEJOINED_DESC_DATE2 = " " + PREFIX_DATEJOINED + VALID_DATE_2;
     public static final String REMARK_DESC_WITH_VALUE = " " + PREFIX_REMARK + VALID_REMARK_WITH_VALUE;
     public static final String REMARK_DESC_WITHOUT_VALUE = " " + PREFIX_REMARK + VALID_REMARK_EMPTY;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
@@ -126,9 +132,9 @@ public class CommandTestUtil {
 
         Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
         final String[] splitName = person.getName().fullName.split("\\s+");
-        model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+   //     model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredPersonList(new NameContainsKeywordsPredicate(List.of(splitName[0])));
 
         assertEquals(1, model.getFilteredPersonList().size());
     }
-
 }

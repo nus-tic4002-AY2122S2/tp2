@@ -23,8 +23,6 @@ public class LogCommand extends Command {
             + PREFIX_LOG + "[LOG]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_LOG + "Informed of start of next Sprint02 next Tues.";
-
-    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, log: %2$s";
     public static final String MESSAGE_ADD_LOG_SUCCESS = "Added log to Person: %1$s";
     public static final String MESSAGE_DELETE_LOG_SUCCESS = "Removed log from Person: %1$s";
     private final Index index;
@@ -52,7 +50,8 @@ public class LogCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), personToEdit.getRemark(), log, personToEdit.getTags());
+                personToEdit.getAddress(), personToEdit.getDateJoined(), personToEdit.getRemark(), log,
+                personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
