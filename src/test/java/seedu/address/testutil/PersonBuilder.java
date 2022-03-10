@@ -23,7 +23,7 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_REMARK = "";
-    public static final String DEFAULT_LOG = "She likes aardvarks";
+    public static final String DEFAULT_LOG = "";
 
     private Name name;
     private Phone phone;
@@ -112,5 +112,4 @@ public class PersonBuilder {
     public Person build() {
         return new Person(name, phone, email, address, remark, log, tags);
     }
-
 }

@@ -31,7 +31,6 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String remark;
-
     private final String log;
 
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
