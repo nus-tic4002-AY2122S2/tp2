@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.LogsCenter;
@@ -37,6 +39,8 @@ import seedu.address.ui.UiManager;
 public class MainApp extends Application {
 
     public static final Version VERSION = new Version(0, 2, 0, true);
+
+    protected static Stage mainStage;
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
@@ -167,8 +171,25 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        mainStage = primaryStage;
         logger.info("Starting AddressBook " + MainApp.VERSION);
         ui.start(primaryStage);
+        mainStage.hide();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
+        Scene scene = null;
+
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage stage = new Stage();
+        stage.setTitle("LoginScreen");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
     @Override
