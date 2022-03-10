@@ -17,4 +17,9 @@ public class Money {
         requireNonNull(value);
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return Double.toString(value);
+    }
 }
