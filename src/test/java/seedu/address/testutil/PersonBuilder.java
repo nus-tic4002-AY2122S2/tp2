@@ -21,11 +21,13 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final double DEFAULT_MONEY = 5.5;
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Money money;
     private Set<Tag> tags;
 
     /**
@@ -36,6 +38,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        money = new Money(DEFAULT_MONEY);
         tags = new HashSet<>();
     }
 
@@ -47,6 +50,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        money = personToCopy.getMoney();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -90,8 +94,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {code Money} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMoney(Double money) {
+        this.money = new Money(money);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, new Money(0.0), tags);
+        return new Person(name, phone, email, address, money, tags);
     }
 
 }
