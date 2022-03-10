@@ -29,6 +29,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String address;
+    private final String money;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -37,11 +38,12 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("money") String money, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.money = money;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -55,6 +57,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+        money = Double.toString(source.getMoney().getValue());
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -103,8 +106,16 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        if (money == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Money.class.getSimpleName()));
+        }
+        if (!Money.isValidMoney(money)) {
+            throw new IllegalValueException(Money.MESSAGE_CONSTRAINTS);
+        }
+        final Money modelMoney = new Money(Double.parseDouble(money));
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, new Money(0.0), modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelMoney, modelTags);
     }
 
 }
