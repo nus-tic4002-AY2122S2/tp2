@@ -257,13 +257,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+This application is for `social media managers` who need to track monthly social media content posting schedule so that they won't miss out any days without posting content for their client. Meanwhile, they prefer to use the command line to save the ready-made content link over the GUI and have tons of content to keep track.
+
+* has a need to manage a significant number of clients and posts.
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: 
+- manage clients and posts faster than a typical mouse/GUI driven app
+- Better manage client's social media profile.
+- Able to have full oversight and overview of the monthly content schedule.
+- Able to give insightful data from the post-performance.
+- Able to trigger notification while nearing the deadline.
+- Both client and social media manager are able to view the planner concurrently.
+- Tweet type of content only (255 characters only)
+
 
 
 ### User stories
@@ -278,6 +288,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `*`      |                                            |                                |                                                                        |
+| `* * *`  | social media manager | add clients' names in the app          | I can see the number of clients that I currently have                                                |
+| `* * *`  | social media manager | be able to add contents of post to my planner | i can keep track of what i have posted for each client                                               |
+| `* * `  | social media manager | be able to tag dates to postings in my planner |  I can keep track of when posts are made                                                |
+| `* * `  | social media manager | save my idea inspirations in the application | I can refer to it when I’m creating content                                                |
+| `* * *` | social media manager | delete post from my planner | if I delete the respective social media post, it would be reflected in the planner                                                |
 
 *{More to be added}*
 
