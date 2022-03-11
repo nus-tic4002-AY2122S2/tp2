@@ -113,7 +113,8 @@
 //        List<JsonAdaptedTag> invalidTags = new ArrayList<>(VALID_TAGS);
 //        invalidTags.add(new JsonAdaptedTag(INVALID_TAG));
 //        JsonAdaptedPerson person =
-//                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, invalidTags, VALID_BIRTHDAY);
+//                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, invalidTags,
+//                VALID_BIRTHDAY);
 //        assertThrows(IllegalValueException.class, person::toModelType);
 //    }
 //
