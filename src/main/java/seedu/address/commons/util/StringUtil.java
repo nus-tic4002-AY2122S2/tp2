@@ -39,6 +39,34 @@ public class StringUtil {
     }
 
     /**
+     * Returns true if the {@code sentence} contains the {@code tag}.
+     *   Ignores case, but a full word match is required.
+     *   <br>examples:<pre>
+     *       containsWordIgnoreCase("ABc def", "abc") == true
+     *       containsWordIgnoreCase("ABc def", "DEF") == true
+     *       containsWordIgnoreCase("ABc def", "AB") == false //not a full word match
+     *       </pre>
+     * @param sentence cannot be null
+     * @param tag cannot be null, cannot be empty, must be a single word
+     */
+    public static boolean containsTagIgnoreCase(String sentence, String tag) {
+        requireNonNull(sentence);
+        requireNonNull(tag);
+
+        String preppedWord = tag.trim();
+        checkArgument(!preppedWord.isEmpty(), "Tag parameter cannot be empty");
+        checkArgument(preppedWord.split("\\s+").length == 1, "Tag parameter should be a single word");
+
+        String preppedSentence = sentence.replace("[", "").replace("]", "").replace(" ", "");
+        String[] wordsInPreppedSentence = preppedSentence.split(",");
+        System.out.println(preppedSentence);
+        System.out.println(preppedWord);
+
+        return Arrays.stream(wordsInPreppedSentence)
+                .anyMatch(preppedWord::equalsIgnoreCase);
+    }
+
+    /**
      * Returns a detailed message of the t, including the stack trace.
      */
     public static String getDetails(Throwable t) {
