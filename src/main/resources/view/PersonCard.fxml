@@ -64,7 +64,8 @@
                               <Insets bottom="3.0" top="3.0" />
                            </VBox.margin>
                         </FlowPane>
-                     <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+                       <Label fx:id="birthday" styleClass="cell_small_label" text="\$birthday" />
+                       <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
                      <Label fx:id="address" prefWidth="168.0" styleClass="cell_small_label" text="\$address" wrapText="true" />
                      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
                         <Label fx:id="remark" layoutX="25.0" layoutY="72.0" styleClass="cell_small_label" text="\\$remark" />
