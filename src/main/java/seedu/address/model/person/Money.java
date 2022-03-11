@@ -38,4 +38,9 @@ public class Money {
                 || (other instanceof Money // instanceof handles nulls
                 && (value == ((Money) other).value)); // state check
     }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }
