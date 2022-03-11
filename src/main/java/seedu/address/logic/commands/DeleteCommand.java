@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
-import javafx.geometry.Pos;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -31,6 +30,11 @@ public class DeleteCommand extends Command {
     private final Index targetIndex;
     private final ListType listType;
 
+    /**
+     *
+     * @param listType {@code Client} List or {@code Post} List from which to delete the item
+     * @param targetIndex the target index to be deleted from the list.
+     */
     public DeleteCommand(ListType listType, Index targetIndex) {
         this.listType = listType;
         this.targetIndex = targetIndex;
