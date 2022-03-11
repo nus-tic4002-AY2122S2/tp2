@@ -289,11 +289,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
 | `*`      |                                            |                                |                                                                        |
-| `* * *`  | social media manager | add clients' names in the app          | I can see the number of clients that I currently have                                                |
-| `* * *`  | social media manager | be able to add contents of post to my planner | i can keep track of what i have posted for each client                                               |
-| `* * `  | social media manager | be able to tag dates to postings in my planner |  I can keep track of when posts are made                                                |
-| `* * `  | social media manager | save my idea inspirations in the application | I can refer to it when I’m creating content                                                |
-| `* * *` | social media manager | delete post from my planner | if I delete the respective social media post, it would be reflected in the planner                                                |
+| `* * *`  | social media manager | add clients' names in the app          | I can see the number of clients that I currently have                                |
+| `* * *`  | social media manager | be able to add contents of post to my planner | i can keep track of what i have posted for each client                        |
+| `* * `  | social media manager | be able to tag dates to postings in my planner |  I can keep track of when posts are made                                      |
+| `* * `  | social media manager | save my idea inspirations in the application | I can refer to it when I’m creating content                                     |
+| `* * *` | social media manager | delete post from my planner | if I delete the respective social media post, it would be reflected in the planner               |
 
 *{More to be added}*
 
