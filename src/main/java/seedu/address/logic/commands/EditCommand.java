@@ -20,6 +20,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -99,7 +100,9 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        Birthday updateBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
+
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updateBirthday);
     }
 
     @Override
@@ -131,7 +134,11 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
 
+        private Birthday birthday;
+
         public EditPersonDescriptor() {}
+
+
 
         /**
          * Copy constructor.
@@ -143,6 +150,8 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+
+            setBirthday(toCopy.birthday);
         }
 
         /**
@@ -184,6 +193,13 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
+        public void setBirthday(Birthday birthday) {
+            this.birthday = birthday;
+        }
+
+        public Optional<Birthday> getBirthday() {
+            return Optional.ofNullable(birthday);
+        }
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
