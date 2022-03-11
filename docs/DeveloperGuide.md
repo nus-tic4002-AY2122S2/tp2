@@ -9,7 +9,7 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-Thanks to NUS fundamental code for Duke as well as the idea and inspiration behind this project.
+Thanks to NUS fundamental code for AddressBook3 as well as the idea and inspiration behind this project.
 
 --------------------------------------------------------------------------------------------------------------------
 
