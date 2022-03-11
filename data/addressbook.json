@@ -1,51 +1,117 @@
 {
   "persons" : [ {
-    "name" : "Alex Yeoh",
-    "phone" : "87438807",
-    "email" : "alexyeoh@example.com",
-    "address" : "Blk 30 Geylang Street 29, #06-40",
-    "tagged" : [ "friends" ]
+    "name" : "Sheryl Lim",
+    "phone" : "91917777",
+    "email" : "slim@stu.school.edu",
+    "address" : "Blk 04 City View, #30-106",
+    "tagged" : [ "g501", "student" ]
   }, {
-    "name" : "Bernice Yu",
-    "phone" : "99272758",
-    "email" : "berniceyu@example.com",
-    "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
-    "tagged" : [ "colleagues", "friends" ]
+    "name" : "David Lim",
+    "phone" : "91917777",
+    "email" : "dlim@lim.com",
+    "address" : "Blk 04 City View, #30-106",
+    "tagged" : [ "parent" ]
   }, {
-    "name" : "Charlotte Oliveiro",
-    "phone" : "93210283",
-    "email" : "charlotte@example.com",
-    "address" : "Blk 11 Ang Mo Kio Street 74, #11-04",
-    "tagged" : [ "neighbours" ]
+    "name" : "May Parker",
+    "phone" : "66662222",
+    "email" : "mparker@stf.school.edu",
+    "address" : "Blk 650 Sim St, #05-02",
+    "tagged" : [ "teacher" ]
   }, {
-    "name" : "David Li",
-    "phone" : "91031282",
-    "email" : "lidavid@example.com",
-    "address" : "Blk 436 Serangoon Gardens Street 26, #16-43",
-    "tagged" : [ "family" ]
+    "name" : "Ben Williams",
+    "phone" : "66662121",
+    "email" : "bwill@stf.school.edu",
+    "address" : "Blk 43 Tensor Rd, #10-322",
+    "tagged" : [ "teacher" ]
   }, {
-    "name" : "Irfan Ibrahim",
-    "phone" : "92492021",
-    "email" : "irfan@example.com",
-    "address" : "Blk 47 Tampines Street 20, #17-35",
-    "tagged" : [ "classmates" ]
+    "name" : "Ruby Rose",
+    "phone" : "90901111",
+    "email" : "rrose@stu.school.edu",
+    "address" : "Blk 109 Garden View, #22-04",
+    "tagged" : [ "g501", "student" ]
   }, {
-    "name" : "Roy Balakrishnan",
-    "phone" : "92624417",
-    "email" : "royb@example.com",
-    "address" : "Blk 45 Aljunied Street 85, #11-31",
-    "tagged" : [ "colleagues" ]
+    "name" : "Winter Rose",
+    "phone" : "90904444",
+    "email" : "wrose@rose.com",
+    "address" : "Blk 109 Garden View, #22-04",
+    "tagged" : [ "parent" ]
   }, {
-    "name" : "Alex Ng",
-    "phone" : "12443389",
-    "email" : "an@an.com",
-    "address" : "123Address",
-    "tagged" : [ "classmates", "family" ]
+    "name" : "June Lim",
+    "phone" : "96005555",
+    "email" : "jlim@stu.school.edu",
+    "address" : "Blk 07 City View, #10-304",
+    "tagged" : [ "g501", "student" ]
   }, {
-    "name" : "alex yu",
-    "phone" : "99998888",
-    "email" : "ay@mail.com",
-    "address" : "987 addess",
-    "tagged" : [ "teacher", "friends" ]
+    "name" : "Summer Lim",
+    "phone" : "96008888",
+    "email" : "summer@apple.com",
+    "address" : "Blk 07 City View, #10-304",
+    "tagged" : [ "parent" ]
+  }, {
+    "name" : "Steve Wong",
+    "phone" : "90093003",
+    "email" : "steve@stu.school.edu",
+    "address" : "Blk 225C River View, #07-01",
+    "tagged" : [ "student", "g503" ]
+  }, {
+    "name" : "Ada Wong",
+    "phone" : "90093003",
+    "email" : "ada@umbrella.corp",
+    "address" : "Blk 225C River View, #07-01",
+    "tagged" : [ "parent" ]
+  }, {
+    "name" : "Raja Mankumar",
+    "phone" : "90904545",
+    "email" : "raja@stu.school.edu",
+    "address" : "Blk 225A River View, #04-06",
+    "tagged" : [ "student", "g503" ]
+  }, {
+    "name" : "Kamya Mankumar",
+    "phone" : "90900101",
+    "email" : "kamya@google.com",
+    "address" : "Blk 223A River View, #04-06",
+    "tagged" : [ "parent" ]
+  }, {
+    "name" : "Bon John",
+    "phone" : "92224777",
+    "email" : "bjohn@stu.school.edu",
+    "address" : "Blk 15 Coast View, #10-422",
+    "tagged" : [ "student", "g602" ]
+  }, {
+    "name" : "EltonJohn",
+    "phone" : "92224000",
+    "email" : "ejohn@music.com",
+    "address" : "Blk 15 Coast View, #10-422",
+    "tagged" : [ "parent" ]
+  }, {
+    "name" : "Kamiya Yui",
+    "phone" : "92340678",
+    "email" : "yui@stu.school.edu",
+    "address" : "Blk 72 Herb Land, #24-02",
+    "tagged" : [ "student", "g602" ]
+  }, {
+    "name" : "Kamiya Rei",
+    "phone" : "92340678",
+    "email" : "rei@nintendo.jp",
+    "address" : "Blk 72 Herb Land, #24-02",
+    "tagged" : [ "parent" ]
+  }, {
+    "name" : "Susan Ng",
+    "phone" : "66662224",
+    "email" : "sng@stf.school.edu",
+    "address" : "Blk 22 East Drive, #01-08",
+    "tagged" : [ "teacher" ]
+  }, {
+    "name" : "Simon Lim",
+    "phone" : "66880022",
+    "email" : "sales@paper.com",
+    "address" : "No.80 Inno Park",
+    "tagged" : [ "supplier" ]
+  }, {
+    "name" : "Anna Peach",
+    "phone" : "80023344",
+    "email" : "ap@cdb.com",
+    "address" : "101 CDB, #50-01",
+    "tagged" : [ "supplier" ]
   } ]
 }
