@@ -265,7 +265,7 @@ Sales Manager
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app, with supercharged features 
+**Value proposition**: manage contacts faster than a typical mouse/GUI driven app, with supercharged features
 
 
 ### User stories
