@@ -9,7 +9,7 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+Thanks to NUS fundamental code for AddressBook3 as well as the idea and inspiration behind this project.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -18,6 +18,59 @@ title: Developer Guide
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+## Product scope
+MyContentPlanner is a content tracker specifically built for social media manager who is handling multiple social media accounts at a go. 
+Working on creating and adding features to the existing project and making it useful for social media managers to manage their content for each client. 
+Natural language will be implemented to avoid exceptions due to typing errors. 
+
+### Target user profile
+June - 4
+Female
+
+Working adult, social media manager.
+Having too many projects on hand, she needs to track the different project's mini task.
+She would like to have a constant track of all her client's social media account she has on hand and their content scheduling respectively.
+She also like to place in posting date for all her content as well as being able to search the specific client's account.
+This is to help her be more organised, improve her productivity and task prioritisation so that she can deliver and promote to a higher role.
+
+As a working professional, she has a personal laptop with her all the time. 
+And she prefers to use the GUI to track her task as that is what she interacts with the most throughout her day.
+
+### User Flow
+June powered up her laptop, and opened the software by double clicking on the jar file. 
+She sees her client's list and content list, these are the number of clients she has on hand and what are the corresponding content that are available for each client.
+She started creating content , upon finishing the tasks, she save the content by using add function and that content is being stored in the system. 
+Now the content is reflectedf in the GUI under content list and she can easily assign it to the respective client.
+
+### Value proposition
+
+MyContentPlanner is CLI + GUI software that helps individuals track the content created by individual users and enable to assign to the different clients easily. 
+It allows users to add content, add client, set publishing dates to a content, update content. 
+
+## User Stories
+
+| Version | As a ... | I want to ...                                              | So that I can ...                     |
+| ------- | -------- | ---------------------------------------------------------- | ------------------------------------- |
+| v1.0    | user     | add clients' names to my content planner                   | see the number of clients that I currently have       |
+| v1.0    | user     | have a help window that can show all the instructions     | I can understand what I need to type to arrange my social media              |
+| v1.0    | user     | see and list all content and clients                      | have an overview of the content and client details   |
+| v2.0    | user     | delete post from my planner                               |  I delete the respective social media post, it would be reflected in the planner |
+| v2.0    | user     | add content names to my content planner                    | keep track of what i have created for each client             |
+| v2.0    | user     | be able to add tag label                                  | tag labels to a the content            |
+| v2.0    | user     | be able to search task based on keywords                   | easily extract task with important keywords |
+| v3.0    | user     | be able to assign content to clients                      | keep my content organized and make sure I don't miss out any client's content    |
+| v3.0    | user     | be able to see how much assignment marks                   | choose which task to work on first    |
+| v3.0    | user     | be able to track content due date and edit when needed     | complete content deliverables on time           |
+
+
+## Non-Functional Requirements
+
+Usability - System should be able to autocorrect some of the low-level typos in user's command inputs.  
+
+## Glossary
+
+- _glossary item_ - Definition
+
 
 ## **Design**
 
@@ -257,13 +310,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+This application is for `social media managers` who need to track monthly social media content posting schedule so that they won't miss out any days without posting content for their client. Meanwhile, they prefer to use the command line to save the ready-made content link over the GUI and have tons of content to keep track.
+
+* has a need to manage a significant number of clients and posts.
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: 
+- manage clients and posts faster than a typical mouse/GUI driven app
+- Better manage client's social media profile.
+- Able to have full oversight and overview of the monthly content schedule.
+- Able to give insightful data from the post-performance.
+- Able to trigger notification while nearing the deadline.
+- Both client and social media manager are able to view the planner concurrently.
+- Tweet type of content only (255 characters only)
+
 
 
 ### User stories
@@ -278,6 +341,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
 | `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `*`      |                                            |                                |                                                                        |
+| `* * *`  | social media manager | add clients' names in the app          | I can see the number of clients that I currently have                                                |
+| `* * *`  | social media manager | be able to add contents of post to my planner | i can keep track of what i have posted for each client                                               |
+| `* * `  | social media manager | be able to tag dates to postings in my planner |  I can keep track of when posts are made                                                |
+| `* * `  | social media manager | save my idea inspirations in the application | I can refer to it when I’m creating content                                                |
+| `* * *` | social media manager | delete post from my planner | if I delete the respective social media post, it would be reflected in the planner                                                |
 
 *{More to be added}*
 
