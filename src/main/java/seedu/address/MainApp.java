@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.LogsCenter;
@@ -171,8 +172,9 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        logger.info("Starting TeamContact 24/7 " + MainApp.VERSION);
+
         mainStage = primaryStage;
-        logger.info("Starting AddressBook " + MainApp.VERSION);
         ui.start(primaryStage);
         mainStage.hide();
 
@@ -186,7 +188,8 @@ public class MainApp extends Application {
         }
 
         Stage stage = new Stage();
-        stage.setTitle("LoginScreen");
+        stage.setTitle("Login Screen");
+        stage.getIcons().add(new Image("/ImagesLogin/team.png"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
