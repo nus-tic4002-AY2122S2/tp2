@@ -31,4 +31,11 @@ public class Money {
     public String toString() {
         return Double.toString(value);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Money // instanceof handles nulls
+                && (value == ((Money) other).value)); // state check
+    }
 }
