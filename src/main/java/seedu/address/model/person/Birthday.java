@@ -1,6 +1,8 @@
 package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 
 
 public class Birthday {
@@ -12,7 +14,7 @@ public class Birthday {
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "[^\\s].*";
 
     public final String value;
 
@@ -23,16 +25,16 @@ public class Birthday {
      */
     public Birthday(String birthDay) {
         requireNonNull(birthDay);
-//        checkArgument(isValidName(birthDay), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidName(birthDay), MESSAGE_CONSTRAINTS);
         value = birthDay;
     }
 
     /**
      * Returns true if a given string is a valid name.
      */
-//    public static boolean isValidName(String test) {
-//        return test.matches(VALIDATION_REGEX);
-//    }
+    public static boolean isValidName(String test) {
+        return test.matches(VALIDATION_REGEX);
+    }
 
 
     @Override

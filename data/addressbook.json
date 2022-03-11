@@ -1,10 +1,31 @@
 {
   "persons" : [ {
-    "name" : "John De",
-    "phone" : "98765412",
-    "email" : "johd@example.com",
-    "address" : "311, Clementi Ave 2, #02-2",
+    "name" : "John Doe",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
     "tagged" : [ "owesMoney", "friends" ],
     "birthday" : "2020"
+  }, {
+    "name" : "John Doe2",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "tagged" : [ "owesMoney", "friends" ],
+    "birthday" : "2020"
+  }, {
+    "name" : "John Doe3",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "tagged" : [ "owesMoney", "friends" ],
+    "birthday" : "2020-01-01"
+  }, {
+    "name" : "John Doe4",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "tagged" : [ "owesMoney", "friends" ],
+    "birthday" : "2020-01-01"
   } ]
 }
