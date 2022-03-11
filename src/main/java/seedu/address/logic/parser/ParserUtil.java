@@ -124,10 +124,10 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String birthday} into an {@code birthday}.
+     * Leading and trailing whitespaces will be trimmed.
      *
-     * @param birthday
-     * @return
-     * @throws ParseException
+     * @throws ParseException if the given {@code birthday} is invalid.
      */
     public static Birthday parseBirthday(String birthday) throws ParseException {
         requireNonNull(birthday);
