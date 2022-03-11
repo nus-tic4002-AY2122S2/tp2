@@ -123,12 +123,18 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     *
+     * @param birthday
+     * @return
+     * @throws ParseException
+     */
     public static Birthday parseBirthday(String birthday) throws ParseException {
         requireNonNull(birthday);
         String trimmedBirthday = birthday.trim();
-//        if (!Birthday.isValidName(trimmedBirthday)) {
-//            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
-//        }
+        if (!Birthday.isValidName(trimmedBirthday)) {
+            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
+        }
         return new Birthday(trimmedBirthday);
     }
 }
