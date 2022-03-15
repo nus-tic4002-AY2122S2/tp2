@@ -288,13 +288,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 |`* * *` |organized user|group contacts into different labels|quickly filter out the category I want |
 |`* * *` |productive user|search contact by name or number |find a contact easily |
 |`* * *` |school teacher|know which student and parents belong to the same family |call the parents of the student|
-|`* * *` |contacts user|copy a particular contact info|paste it in other app to make use of the info|
+|`* * *` |school teacher that uses multiple softwares|copy a particular contact info|paste it in other app to make use of the info|
 |`* * *` |school teacher|know which students belong to which class |use the filtered list to take attendance |
 |`* * *` |contacts user|take notes for a particular contact|record down happenings involving this contact|
 |`* * *` |GUI user|have different tags in different colors|be visually pleased and easily distinguish them |
 |`* * *` |contacts user|quickly filter out all contacts without a tag|assign at least one tag to them |
 |`* * *` |contacts user|batch select a list of contacts for editing |assign tags to multiple contacts at once |
-|`* * *` |careless user|undo the previous command |quickly recover the previous contact list|
+|`* * *` |careless user|undo the previous command |I will not lose my students' contact details.|
 |`* * *` |typo-prone user|edit the contact |correct the typo |
 |`* * *` |visual person|add photos to the contacts |recall their identities|
 |`* * *` |school teacher|record students’ birthdays and filter contacts by birthday months   |prepare gifts in advance|
@@ -314,6 +314,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Use case: Add a person**
 
 **add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​
+
+
+**Use case: Undo a command**
+
+**MSS**
+
+1.  User accidentally deletes a wrong person from the contact list
+2.  User requests to undo the delete command
+3.  AddressBook recovered to the original list
+
+    Use case ends.
+
+
+**Use case: Copy a contact**
+
+**MSS**
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to copy a specific person in the list
+4.  The contact details are copied
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
 
 
 *{More to be added}*
