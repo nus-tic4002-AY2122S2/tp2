@@ -169,9 +169,11 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         logger.info("Starting TeamContact 24/7 " + MainApp.VERSION);
+
         appStage = primaryStage;
         ui.start(appStage);
         appStage.hide();
+
         SingletonLogin loginScreen = SingletonLogin.getInstance();
         loginScreen.loginStage.show();
     }
