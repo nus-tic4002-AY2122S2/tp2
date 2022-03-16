@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 /**
  * Sample Skeleton for 'Login.fxml' Controller Class
  */
@@ -33,9 +34,11 @@ public class LoginController {
 
             if (username.equals("Java") && password.equals("123456")) {
                 Stage appStage = (Stage) button.getScene().getWindow();
+                wrongLogin.setText("");
+                textUsername.clear();
+                textPasswd.clear();
                 appStage.close();
-                MainApp.mainStage.show();
-
+                MainApp.appStage.show();
             } else if (username.isEmpty() && password.isEmpty()) {
                 wrongLogin.setText("Please enter your User Login data");
             } else {

@@ -6,9 +6,6 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.LogsCenter;
@@ -38,10 +35,9 @@ import seedu.address.ui.UiManager;
  * Runs the application.
  */
 public class MainApp extends Application {
-
     public static final Version VERSION = new Version(0, 2, 0, true);
 
-    protected static Stage mainStage;
+    protected static Stage appStage;
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
@@ -173,26 +169,11 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         logger.info("Starting TeamContact 24/7 " + MainApp.VERSION);
-
-        mainStage = primaryStage;
+        appStage = primaryStage;
         ui.start(primaryStage);
-        mainStage.hide();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
-        Scene scene = null;
-
-        try {
-            scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        Stage stage = new Stage();
-        stage.setTitle("Login Screen");
-        stage.getIcons().add(new Image("/ImagesLogin/team.png"));
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+        primaryStage.hide();
+        SingletonLogin loginScreen = SingletonLogin.getInstance();
+        loginScreen.loginStage.show();
     }
 
     @Override
