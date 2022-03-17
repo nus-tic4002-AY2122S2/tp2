@@ -158,6 +158,18 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the app.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Restore a previous entry : `undo`
+ 
+Restores the previous address book state from its history
+
+Format: `undo`
+
+### Restore a previously undone entry : `redo`
+
+Restores a previously undone address book state from its history.
+
+Format: `redo`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TeamContact 24/7 app.
