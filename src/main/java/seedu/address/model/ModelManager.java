@@ -161,4 +161,9 @@ public class ModelManager implements Model {
     public boolean redoAddressBook() {
         return addressBook.redo();
     }
+
+    @Override
+    public void sortAddressBook() {
+        addressBook.sort(this.addressBook.getPersonList());
+    }
 }
