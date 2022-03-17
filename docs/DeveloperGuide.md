@@ -158,11 +158,17 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+`addressBookStateList` can be implemented as an ArrayList to store all previous states of addressBook in history.
+`currentStatePointer` can be implemented as a counter indicating the current index of history.
+
+Additionally, it implements the following operations:
 
 * `VersionedAddressBook#commit()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
 * `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+
+The above above operations should inform user of errors indicated why it failed to perform the operation.
 
 These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
@@ -232,8 +238,10 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
-_{more aspects and alternatives to be added}_
-
+* **Alternative 3:** Saves only the person list within the address book.
+  * Pros: Easy to implement and uses less memory compared to Alternative 1.
+  * Cons: May have performance issues in terms of memory usage.
+  
 ### \[Proposed\] Software Security Feature 01: A GUI Login Front Screen
 
 Prototype Sample:-
