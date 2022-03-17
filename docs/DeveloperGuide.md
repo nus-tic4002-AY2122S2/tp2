@@ -59,7 +59,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -158,11 +158,17 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+`addressBookStateList` can be implemented as an ArrayList to store all previous states of addressBook in history.
+`currentStatePointer` can be implemented as a counter indicating the current index of history.
+
+Additionally, it implements the following operations:
 
 * `VersionedAddressBook#commit()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
 * `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+
+The above operations should inform user of errors indicated why it failed to perform the operation.
 
 These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
@@ -231,8 +237,9 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
+* **Alternative 3:** Saves only the person list within the address book.
+  * Pros: Easy to implement and uses less memory compared to Alternative 1.
+  * Cons: May have performance issues in terms of memory usage.
 
 ### Software Security Feature 01: A GUI Login Front Screen
 
@@ -269,9 +276,9 @@ Sample **SingletonLogin** UML Class Diagram:-
 #### Design considerations:
 
 - **MainWindow.java** was modified to not show the mainWindow of the main App when it loads
-- Username was made case-sensitive and Password is set to "pin number" format instead of the usual expected text string,
+- Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
 to make it harder to guess
-- The Login Screen object is designed after the Singleton creational design pattern - as a Java Singleton object - to 
+- The Login Screen object is patterned after the Singleton creational design pattern - as a Java Singleton object - to 
 further increase security against possible rogue substitutes, or false replacement
 - The main App stage was elevated to a class-level protected object (as appStage in MainApp.java) to increase security
 against unauthorised access or possible abuse
@@ -287,7 +294,7 @@ The following activity diagram summarizes how the Login GUI Screen works upon Te
 
 Sample 'ESC' key Logout Screenshot:-
 
-![Sample Esc key Signout Sequence](images/EscSignout.png)
+![Sample Esc key logout Sequence](images/EscSignout.png)
 
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
