@@ -15,13 +15,18 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
+
+*Quick Set-up*
+1. Ensure that you have Java 11 or above installed.
+2.  **Fork** this [repo](https://github.com/AY2122S2-TIC4002-F18-3/tp2), and **clone** the fork into your local computer.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -227,6 +232,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 #### Design considerations:
 
+BUDDY App leverages on Java Stream and jSON data structures, to allow a single user create and edit contracts to their preference:
+
 **Aspect: How undo & redo executes:**
 
 * **Alternative 1 (current choice):** Saves the entire address book.
@@ -237,6 +244,16 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
+
+**Aspect: How filter executes:**
+
+* **Alternative 1 (current choice):** filter down to one category tag
+    * Pros: Easy to manage contracts in one category tag.
+    * Cons: Not able to view other contact in the listing.
+
+* **Alternative 2:** filter multiple category tag
+    * Pros: Combine two category tag into one result view
+    * Cons: May have to navigate through all contacts within tag.
 
 _{more aspects and alternatives to be added}_
 

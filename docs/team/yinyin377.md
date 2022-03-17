@@ -1,7 +1,7 @@
 # Lim Wan Yin - Project Portfolio Page
 
-## Project: JustBook App v3.0 Overview
-JustBook - Version 3.0 is a desktop application typically designed for use by a modern poly or JC student, in
+## Project: Buddy App v3.0 Overview
+BUDDY - Version 3.0 is a desktop application typically designed for use by a modern poly or JC student, in
 registering his or her personal bookings or appointments. It leverages on an online database storage facility, backed by
 an offline backup file. The user interacts with it using a CLI. It is written in Java(ver. 11), and has about 702 LoC.
 
@@ -26,7 +26,7 @@ an offline backup file. The user interacts with it using a CLI. It is written in
   - What it does: allows the user to delete all the bookings or appointment for indicated time period so that user can delete a list of appointments within specified time frame.
   - Justification: This feature is to help a efficient student user to delete list of appointments within specified time frame in one step.
 
-- Code contributed: [Team04_yinyin377](https://nus-tic4001-ay2122s1.github.io/tp-dashboard/?search=yinyin377&breakdown=true&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
+- Code contributed: [Team03_yinyin377](https://nus-tic4001-ay2122s1.github.io/tp-dashboard/?search=yinyin377&breakdown=true&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 - Project management:
   - Contributed to releases v1.0 - v3.0 (3 releases) on GitHub
@@ -51,8 +51,6 @@ an offline backup file. The user interacts with it using a CLI. It is written in
     - Non-Functional Requirements
     - User Stories
     - Sample instruction
-  - **About Us**:
-    - Link all team member's PPP
   - **PPP Guide**:
     - [yinyin377](yinyin377.md)
 
