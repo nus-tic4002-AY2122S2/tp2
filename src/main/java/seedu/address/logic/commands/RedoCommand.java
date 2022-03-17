@@ -19,6 +19,8 @@ public class RedoCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        assert model != null;
+
         if (model.redoAddressBook()) {
             return new CommandResult(REDO_COMMAND_SUCCESS);
         }
