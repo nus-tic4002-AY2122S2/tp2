@@ -32,7 +32,8 @@ public class UndoCommand extends Command {
         if (exCommand.contains("undo")) {
             throw new CommandException(MESSAGE_EXCOMMAND_IS_UNDO);
         } else if (exCommand.contains("list") || exCommand.toLowerCase().contains("find")
-                    || exCommand.toLowerCase().contains("help")) {
+                    || exCommand.toLowerCase().contains("help") || exCommand.toLowerCase().contains("filter")
+                    || exCommand.toLowerCase().contains("copy")) {
             return LogicManager.getResponse(exCommand);
         } else if (exCommand.contains("delete") || exCommand.contains("clear") || exCommand.contains("edit")) {
             model.setAddressBook(originalAddressBook);
