@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
+import seedu.address.model.person.DateJoined;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Log;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -20,11 +23,19 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_DATEJOINED = "15/12/2001";
+    public static final String DEFAULT_REMARK = "";
+    public static final String DEFAULT_LOG = "";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private DateJoined dateJoined;
+    private Remark remark;
+
+    private Log log;
+
     private Set<Tag> tags;
 
     /**
@@ -35,6 +46,9 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        dateJoined = new DateJoined(DEFAULT_DATEJOINED);
+        remark = new Remark(DEFAULT_REMARK);
+        log = new Log(DEFAULT_LOG);
         tags = new HashSet<>();
     }
 
@@ -46,6 +60,9 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        dateJoined = personToCopy.getDateJoined();
+        remark = personToCopy.getRemark();
+        log = personToCopy.getLog();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -89,8 +106,23 @@ public class PersonBuilder {
         return this;
     }
 
-    public Person build() {
-        return new Person(name, phone, email, address, tags);
+    /**
+     * Sets the {@code Log} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withLog(String remark) {
+        this.log = new Log(remark);
+        return this;
     }
 
+    /**
+     * Sets the {@code DateJoined} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDateJoined(String dateJoined) {
+        this.dateJoined = new DateJoined(dateJoined);
+        return this;
+    }
+
+    public Person build() {
+        return new Person(name, phone, email, address, dateJoined, remark, log, tags);
+    }
 }
