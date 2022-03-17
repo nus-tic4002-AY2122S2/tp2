@@ -101,4 +101,6 @@ public interface Model {
      * Returns true if there is a commit to redo. AddressBook state must have a previous undone state to redo.
      */
     boolean redoAddressBook();
+
+    void sortAddressBook();
 }
