@@ -80,7 +80,7 @@ public class AddressBookParser {
 
         case SortCommand.COMMAND_WORD:
             return new SortCommand();
-            
+
         case EmailCommand.COMMAND_WORD:
             return new EmailCommandParser().parse(arguments);
 
