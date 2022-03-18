@@ -138,4 +138,5 @@ exit
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
 | **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Undo**   | `undo`                                                                                                                                   |
 | **Exit**   | `exit`                                                                                                                                                                    |
