@@ -168,6 +168,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         logger.info("Starting AddressBook " + MainApp.VERSION);
+        System.out.println("testing 123");
         ui.start(primaryStage);
     }
 
