@@ -12,9 +12,6 @@ import seedu.address.model.post.exceptions.DuplicatePostException;
 import seedu.address.model.post.exceptions.PostNotFoundException;
 
 
-
-
-
 public class UniquePostList implements Iterable<Post> {
 
     private final ObservableList<Post> internalList = FXCollections.observableArrayList();
@@ -23,15 +20,19 @@ public class UniquePostList implements Iterable<Post> {
 
     /**
      * Returns true if the list contains an equivalent post as the given argument.
+     * @param toCheck
+     * @return
      */
     public boolean contains(Post toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePost);
+        //return internalList.stream().anyMatch(toCheck::isSamePost);
+        return false;
     }
 
     /**
      * Adds a post to the post list.
      * The post must not already exist in the list.
+     * @param toAdd
      */
     public void add(Post toAdd) {
         requireNonNull(toAdd);

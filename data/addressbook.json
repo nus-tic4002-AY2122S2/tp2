@@ -37,12 +37,6 @@
     "tagged" : [ "colleagues" ]
   } ],
   "posts" : [ {
-    "title" : "title1",
-    "content" : "content1",
-    "category" : "category1",
-    "notes" : "notes1",
-    "postDate" : "date1"
-  }, {
     "title" : "title2",
     "content" : "content2",
     "category" : "category2",

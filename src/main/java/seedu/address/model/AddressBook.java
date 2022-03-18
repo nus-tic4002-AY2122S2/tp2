@@ -111,6 +111,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     /**
      * Returns true if a post with the same identity as {@code post} exists in the address book.
+     * @param post
      */
     public boolean hasPost(Post post) {
         requireNonNull(post);
@@ -120,6 +121,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Adds a post to the address book.
      * The post must not already exist in the address book.
+     * @param p
      */
     public void addPost(Post p) {
         posts.add(p);

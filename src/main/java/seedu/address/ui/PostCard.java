@@ -39,11 +39,11 @@ public class PostCard extends UiPart<Region> {
         super(FXML);
         this.post = post;
         id.setText(displayedIndex + ". ");
-        title.setText(post.getTitle().value);
+        title.setText(post.getTitle().getValue());
         content.setText(post.getContent().value);
         postdate.setText(post.getPostDate().value);
         category.setText(post.getCategory().value);
-        notes.setText(post.getNotes().value);
+        notes.setText(post.getNotes().tagName);
     }
 
     @Override

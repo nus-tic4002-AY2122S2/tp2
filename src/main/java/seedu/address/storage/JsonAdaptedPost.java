@@ -1,16 +1,17 @@
 package seedu.address.storage;
 
+import java.util.Collections;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.post.Category;
-import seedu.address.model.post.Content;
-import seedu.address.model.post.Notes;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Phone;
 import seedu.address.model.post.Post;
-import seedu.address.model.post.PostDate;
-import seedu.address.model.post.Title;
-
+import seedu.address.model.tag.Tag;
 
 public class JsonAdaptedPost {
 
@@ -38,11 +39,11 @@ public class JsonAdaptedPost {
      * Converts a given {@code Post} into this class for Jackson use.
      */
     public JsonAdaptedPost(Post source) {
-        title = source.getTitle().value;
+        title = source.getTitle().getValue();
         content = source.getContent().value;
         postDate = source.getPostDate().value;
         category = source.getCategory().value;
-        notes = source.getNotes().value;
+        notes = source.getNotes().tagName;
     }
 
     /**
@@ -51,12 +52,12 @@ public class JsonAdaptedPost {
      * @throws IllegalValueException if there were any data constraints violated in the adapted post.
      */
     public Post toModelType() throws IllegalValueException {
-        final Title modelTitle = new Title(title);
-        final Content modelContent = new Content(content);
-        final PostDate modelPostdate = new PostDate(postDate);
-        final Category modelCategory = new Category(category);
-        final Notes modelNotes = new Notes(notes);
-        return new Post(modelTitle, modelContent, modelPostdate, modelCategory, modelNotes);
+        final Name modelTitle = new Name(title);
+        final Phone modelPostdate = new Phone(postDate);
+        final Email modelContent = new Email(content);
+        final Address modelCategory = new Address(category);
+        final Tag modelNotes = new Tag(notes);
+        return new Post(modelTitle, modelPostdate, modelContent, modelCategory, Collections.singleton(modelNotes));
 
     }
 

@@ -1,44 +1,50 @@
 package seedu.address.model.post;
 
 import java.util.Objects;
+import java.util.Set;
+
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Phone;
+import seedu.address.model.tag.Tag;
 
 public class Post {
 
-    private final Title title;
-    private final Content content;
-    private final PostDate postDate;
+    private final Name title;
+    private final Email content;
+    private final Phone postDate;
 
-    private final Category category;
-    private final Notes notes;
+    private final Address category;
+    private final Tag notes;
 
     /**
      * Constructor to create a Post
      */
-    public Post(Title title, Content content, PostDate postDate, Category category, Notes notes) {
-        this.title = title;
-        this.content = content;
-        this.postDate = postDate;
-        this.category = category;
-        this.notes = notes;
+    public Post(Name name, Phone phone, Email email, Address address, Set<Tag> tagList) {
+        this.title = name;
+        this.content = email;
+        this.postDate = phone;
+        this.category = address;
+        this.notes = (Tag) tagList;
     }
 
-    public Title getTitle() {
+    public Name getTitle() {
         return title;
     }
 
-    public Content getContent() {
+    public Email getContent() {
         return content;
     }
 
-    public PostDate getPostDate() {
+    public Phone getPostDate() {
         return postDate;
     }
 
-    public Category getCategory() {
+    public Address getCategory() {
         return category;
     }
-
-    public Notes getNotes() {
+    public Tag getNotes() {
         return notes;
     }
 

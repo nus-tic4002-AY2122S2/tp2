@@ -97,6 +97,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasPost(Person post) {
+        return false;
+    }
+
+    @Override
     public boolean hasPost(Post post) {
         requireNonNull(post);
         return addressBook.hasPost(post);
@@ -119,11 +124,9 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void addPost(Post post) {
-        addressBook.addPost(post);
-        updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
-    }
+    public void addPost(Person post) {
 
+    }
 
     @Override
     public void setPerson(Person target, Person editedPerson) {

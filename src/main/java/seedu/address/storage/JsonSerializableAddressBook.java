@@ -65,10 +65,10 @@ class JsonSerializableAddressBook {
 
         for (JsonAdaptedPost jsonAdaptedPost : posts) {
             Post post = jsonAdaptedPost.toModelType();
-            if (addressBook.hasPost(post)) {
+            if (addressBook.hasPost((Post) post)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_POST);
             }
-            addressBook.addPost(post);
+            addressBook.addPost((Post) post);
         }
         return addressBook;
     }

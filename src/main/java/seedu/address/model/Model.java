@@ -61,7 +61,10 @@ public interface Model {
 
     /**
      * Returns true if a post with the same identity as {@code post} exists in the address book.
+     * @param post
      */
+    boolean hasPost(Person post);
+
     boolean hasPost(Post post);
 
     /**
@@ -85,8 +88,9 @@ public interface Model {
     /**
      * Adds the given post.
      * {@code post} must not already exist in the address book.
+     * @param post
      */
-    void addPost(Post post);
+    void addPost(Person post);
 
 
     /**

@@ -19,6 +19,7 @@ public class Name {
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
     public final String fullName;
+    private String value;
 
     /**
      * Constructs a {@code Name}.
@@ -56,4 +57,11 @@ public class Name {
         return fullName.hashCode();
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
