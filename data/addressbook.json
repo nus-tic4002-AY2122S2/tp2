@@ -19,7 +19,7 @@
     "email" : "mparker@stf.school.edu",
     "address" : "Blk 650 Sim St, #05-02",
     "tagged" : [ "teacher" ],
-     "birthday" : "2001-03-01"
+    "birthday" : "2001-03-01"
   }, {
     "name" : "Ben Williams",
     "phone" : "66662121",
@@ -33,7 +33,7 @@
     "email" : "rrose@stu.school.edu",
     "address" : "Blk 109 Garden View, #22-04",
     "tagged" : [ "g501", "student" ],
-     "birthday" : "2003-09-01"
+    "birthday" : "2003-09-01"
   }, {
     "name" : "Winter Rose",
     "phone" : "90904444",
@@ -54,7 +54,7 @@
     "email" : "summer@apple.com",
     "address" : "Blk 07 City View, #10-304",
     "tagged" : [ "parent" ],
-     "birthday" : "2001-01-01"
+    "birthday" : "2001-01-01"
   }, {
     "name" : "Steve Wong",
     "phone" : "90093003",
@@ -68,14 +68,14 @@
     "email" : "ada@umbrella.corp",
     "address" : "Blk 225C River View, #07-01",
     "tagged" : [ "parent" ],
-     "birthday" : "2020-01-01"
+    "birthday" : "2020-01-01"
   }, {
     "name" : "Raja Mankumar",
     "phone" : "90904545",
     "email" : "raja@stu.school.edu",
     "address" : "Blk 225A River View, #04-06",
     "tagged" : [ "student", "g503" ],
-     "birthday" : "2005-01-01"
+    "birthday" : "2005-01-01"
   }, {
     "name" : "Kamya Mankumar",
     "phone" : "90900101",
@@ -103,7 +103,7 @@
     "email" : "yui@stu.school.edu",
     "address" : "Blk 72 Herb Land, #24-02",
     "tagged" : [ "student", "g602" ],
-     "birthday" : "2020-01-01"
+    "birthday" : "2020-01-01"
   }, {
     "name" : "Kamiya Rei",
     "phone" : "92340678",
@@ -132,5 +132,12 @@
     "address" : "101 CDB, #50-01",
     "tagged" : [ "supplier" ],
     "birthday" : "2004-01-01"
+  }, {
+    "name" : "John Doe",
+    "phone" : "99990000",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "tagged" : [ "owesMoney", "friends" ],
+    "birthday" : "2000-02-02"
   } ]
 }
