@@ -28,10 +28,22 @@
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
       </HBox>
       <FlowPane fx:id="tags" />
-      <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-      <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
-      <Label fx:id="money" styleClass="cell_small_label" text="\$money" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+      <HBox>
+        <Label styleClass="cell_small_label">Phone: </Label>
+        <Label fx:id="phone" styleClass="cell_small_value" text="\$phone" />
+      </HBox>
+      <HBox>
+        <Label styleClass="cell_small_label">Address: </Label>
+        <Label fx:id="address" styleClass="cell_small_value" text="\$phone" />
+      </HBox>
+      <HBox>
+        <Label styleClass="cell_small_label">Money: </Label>
+        <Label fx:id="money" styleClass="cell_small_value" text="\$phone" />
+      </HBox>
+      <HBox>
+        <Label styleClass="cell_small_label">Email: </Label>
+        <Label fx:id="email" styleClass="cell_small_value" text="\$phone" />
+      </HBox>
     </VBox>
   </GridPane>
 </HBox>
