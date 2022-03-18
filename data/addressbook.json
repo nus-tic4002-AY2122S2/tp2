@@ -1,0 +1,24 @@
+{
+  "persons" : [ {
+    "name" : "Lee Kuan Yeow",
+    "phone" : "91235647",
+    "email" : "leeKY@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "classroom" : "1A",
+    "english" : 90,
+    "motherTongue" : 95,
+    "mathematics" : 100,
+    "science" : 85
+  }, {
+    "name" : "Min Liang Tan",
+    "phone" : "95554444",
+    "email" : "james@example.com",
+    "address" : "123, Jurong Ave 2, #05-52",
+    "classroom" : "6A",
+    "english" : 20,
+    "motherTongue" : 60,
+    "mathematics" : 40,
+    "science" : 10,
+    "tagged" : [ "difficult", "failing" ]
+  } ]
+}
