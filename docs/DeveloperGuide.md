@@ -321,6 +321,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 |`* * *` |Achievement motivating teacher |highlight students with high flying result|identity them to partake in school or national competitions|
 |`* * *` |Co-curricular teacher|group my co-curricular students |Send updates on co-curricular activities|
 |`* * *` |Concerning teacher|Highlight students who often skipped classes or missed homework|Contact student for a one to one session|
+|`* * *` |school teacher|able to edit student birthday|
+|`* * *` |GUI user|able to sort by Alphabetical order |be visually pleased and easily find the contact after sorting |
+
 
 *{More to be added}*
 
@@ -330,7 +333,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: Add a person**
 
-**add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​
+**add n/NAME p/PHONE_NUMBER b/BIRTHDAY e/EMAIL a/ADDRESS [t/TAG]
+
+**Use case: Edit a person**
+**edit INDEX (must be a positive integer) [n/NAME] [b/BIRTHDAY] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]
+…​
 
 
 *{More to be added}*
