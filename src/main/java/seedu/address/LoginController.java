@@ -16,6 +16,9 @@ public class LoginController {
     @FXML // fx:id="button"
     private Button button; // Value injected by FXMLLoader
 
+    @FXML // fx:id="resetButton"
+    private Button resetButton; // Value injected by FXMLLoader
+
     @FXML // fx:id="textPasswd"
     private PasswordField textPasswd; // Value injected by FXMLLoader
 
@@ -26,7 +29,7 @@ public class LoginController {
     private Label wrongLogin;
 
     @FXML
-    void handleButtonAction(ActionEvent event) throws Exception {
+    void handleButtonAction(ActionEvent event) {
 
         if (event.getSource() == button) {
             String username = textUsername.getText().trim();
@@ -44,6 +47,11 @@ public class LoginController {
             } else {
                 wrongLogin.setText("Wrong username or password combination");
             }
+        }
+
+        if (event.getSource() == resetButton) {
+            textUsername.setText("");
+            textPasswd.setText("");
         }
     }
 
