@@ -23,5 +23,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/yaololo)]
 [[portfolio](team/yongming.md)]
 
+### Ivan Ho
+
+<img src="images/ivanho.jpg" width="200px">
+
+[[github](http://github.com/ivanhlb)]
+[[portfolio](team/ivanho.md)]
+
 
 * Role: [Coming soon]
