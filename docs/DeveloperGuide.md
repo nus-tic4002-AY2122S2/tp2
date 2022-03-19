@@ -289,8 +289,8 @@ The following activity diagram summarizes how the Login GUI Screen works upon Te
 
 
 ### Software Security Feature 02: A Logout Shortcut `ESC` Key
-- To aid the Project Manager to log out of a TeamContact 24/7 App Session
-- The login screen comes back on, hiding the app's sensitive data from public view upon 'ESC' key pressed
+- To aid the Project Manager log out of a TeamContact 24/7 App Session as and when desired
+- The login screen comes back on, hiding the app's sensitive data from public view, upon 'ESC' key pressed
 
 Sample 'ESC' key Logout Screenshot:-
 
@@ -298,6 +298,14 @@ Sample 'ESC' key Logout Screenshot:-
 
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
+
+### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
+
+Sample Picture:-
+
+![Sample Esc key logout Sequence](images/digitalclock.png)
+
+_{coming feature}_
 
 
 ### \[Proposed\] Data archiving
