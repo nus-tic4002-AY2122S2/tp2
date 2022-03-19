@@ -35,9 +35,9 @@
       <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
       <Label fx:id="dateJoined" styleClass="cell_small_label" text="\$dateJoined" />
-      <Label fx:id="remark" graphicTextGap="5.0" styleClass="cell_small_label" text="\$remark">
+      <Label fx:id="remark" styleClass="cell_small_label" text="\$remark">
         <graphic>
-          <ImageView fitHeight="18.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+          <ImageView fitHeight="22.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
             <image>
               <Image url="@../ImagesLogin/remark.png" />
             </image>
@@ -45,7 +45,7 @@
         </graphic></Label>
       <Label fx:id="log" styleClass="cell_small_label" text="\$log">
         <graphic>
-          <ImageView fitHeight="14.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+          <ImageView fitHeight="21.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
             <image>
               <Image url="@../ImagesLogin/logIcon.png" />
             </image>
