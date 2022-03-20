@@ -132,5 +132,12 @@
     "address" : "101 CDB, #50-01",
     "tagged" : [ "supplier" ],
     "birthday" : "2004-01-01"
+  }, {
+    "name" : "Rose Park",
+    "phone" : "66882244",
+    "email" : "rose@stf.school.edu",
+    "address" : "02 Demo Rd",
+    "tagged" : [ "teacher" ],
+    "birthday" : "1995-02-11"
   } ]
 }
