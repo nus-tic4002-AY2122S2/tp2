@@ -8,4 +8,7 @@ title: Hui Yuan's Project Portfolio Page
   2. tP Team Repo Setup
 + tP Issue Tracker Setup
 + Undo command
-  1. [PR#29](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/29)
+  [PR#29](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/29)
+
++ Update DG
+  [PR#41] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/41)
