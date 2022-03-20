@@ -1,20 +1,11 @@
 package seedu.address.testutil;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Classroom;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.English;
-import seedu.address.model.person.Mathematics;
-import seedu.address.model.person.MotherTongue;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Science;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A utility class to help with building Person objects.
@@ -30,6 +21,7 @@ public class PersonBuilder {
     public static final String DEFAULT_MOTHERTONGUE = "90";
     public static final String DEFAULT_MATHEMATICS = "90";
     public static final String DEFAULT_SCIENCE = "90";
+    public static final String DEFAULT_RECEIVETYPE = "sms";
 
     private Name name;
     private Phone phone;
@@ -40,6 +32,7 @@ public class PersonBuilder {
     private MotherTongue motherTongue;
     private Mathematics mathematics;
     private Science science;
+    private ReceiveType receiveType;
     private Set<Tag> tags;
 
     /**
@@ -55,6 +48,7 @@ public class PersonBuilder {
         motherTongue = new MotherTongue(Integer.parseInt(DEFAULT_MOTHERTONGUE));
         mathematics = new Mathematics(Integer.parseInt(DEFAULT_MATHEMATICS));
         science = new Science(Integer.parseInt(DEFAULT_SCIENCE));
+        receiveType = new ReceiveType(DEFAULT_RECEIVETYPE);
         tags = new HashSet<>();
     }
 
@@ -71,6 +65,7 @@ public class PersonBuilder {
         motherTongue = personToCopy.getMotherTongue();
         mathematics = personToCopy.getMathematics();
         science = personToCopy.getScience();
+        receiveType = personToCopy.getReceiveType();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -151,6 +146,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withScience(String science) {
         this.science = new Science(Integer.parseInt(science));
+        return this;
+    }
+
+    /**
+     * Sets the {@code ReceiveType} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withReceiveType(String receiveType) {
+        this.receiveType = new ReceiveType(receiveType);
         return this;
     }
 
