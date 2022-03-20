@@ -44,12 +44,6 @@ public class Tag {
         return tagName.hashCode();
     }
 
-
-    /**
-     * @return returns a raw string of the tagName
-     */
-    public String getRawName() { return tagName; }
-
     /**
      * Format state as text for viewing.
      */
