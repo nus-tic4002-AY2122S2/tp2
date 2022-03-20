@@ -93,6 +93,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    public double getTotalMoney() {
+        return persons.getTotalMoney();
+    }
+
     //// util methods
 
     @Override

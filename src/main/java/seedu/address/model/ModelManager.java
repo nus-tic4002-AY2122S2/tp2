@@ -111,6 +111,11 @@ public class ModelManager implements Model {
         addressBook.setPerson(target, editedPerson);
     }
 
+    @Override
+    public double getTotalMoney() {
+        return addressBook.getTotalMoney();
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
