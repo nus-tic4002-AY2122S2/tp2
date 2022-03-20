@@ -1,26 +1,16 @@
 package seedu.address.storage;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.person.*;
+import seedu.address.model.tag.Tag;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Classroom;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.English;
-import seedu.address.model.person.Mathematics;
-import seedu.address.model.person.MotherTongue;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Science;
-import seedu.address.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Person}.
@@ -38,6 +28,7 @@ class JsonAdaptedPerson {
     private final int motherTongue;
     private final int mathematics;
     private final int science;
+    private final String receiveType;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -50,6 +41,7 @@ class JsonAdaptedPerson {
                              @JsonProperty("motherTongue") int motherTongue,
                              @JsonProperty("mathematics") int mathematics,
                              @JsonProperty("science") int science,
+                             @JsonProperty("receiveType") String receiveType,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
@@ -60,6 +52,7 @@ class JsonAdaptedPerson {
         this.motherTongue = motherTongue;
         this.mathematics = mathematics;
         this.science = science;
+        this.receiveType = receiveType;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -78,6 +71,7 @@ class JsonAdaptedPerson {
         motherTongue = source.getMotherTongue().score;
         mathematics = source.getMathematics().score;
         science = source.getScience().score;
+        receiveType = source.getReceiveType().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -171,9 +165,17 @@ class JsonAdaptedPerson {
         }
         final Science modelScience = new Science(science);
 
+        if (receiveType == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+        }
+        if (!ReceiveType.isValidReceiveType(receiveType)) {
+            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+        }
+        final ReceiveType modelReceiveType = new ReceiveType(receiveType);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelClassroom, modelEnglish,
-                modelMotherTongue, modelMathematics, modelScience, modelTags);
+                modelMotherTongue, modelMathematics, modelScience, modelReceiveType, modelTags);
     }
 
 }

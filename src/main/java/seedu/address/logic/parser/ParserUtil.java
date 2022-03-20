@@ -18,6 +18,7 @@ import seedu.address.model.person.MotherTongue;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Science;
+import seedu.address.model.person.ReceiveType;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -158,6 +159,21 @@ public class ParserUtil {
         requireNonNull(science);
         String trimmedScience = science.trim();
         return new Science(Integer.parseInt(trimmedScience));
+    }
+
+    /**
+     * Parses a {@code String receiveType} into an {@code receiveType}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code receiveType} is invalid.
+     */
+    public static ReceiveType parseReceiveType(String receiveType) throws ParseException {
+        requireNonNull(receiveType);
+        String trimmedReceiveType = receiveType.trim();
+        if (!ReceiveType.isValidReceiveType(trimmedReceiveType)) {
+            throw new ParseException(ReceiveType.MESSAGE_CONSTRAINTS);
+        }
+        return new ReceiveType(trimmedReceiveType);
     }
 
     /**

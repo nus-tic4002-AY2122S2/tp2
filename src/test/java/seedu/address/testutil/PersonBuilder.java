@@ -155,7 +155,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, classroom, english, motherTongue, mathematics, science, tags);
+        return new Person(name, phone, email, address, classroom, english, motherTongue, mathematics, science, receiveType, tags);
     }
 
 }

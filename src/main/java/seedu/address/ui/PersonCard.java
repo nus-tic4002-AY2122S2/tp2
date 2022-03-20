@@ -1,13 +1,13 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
+
+import java.util.Comparator;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -49,6 +49,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label science;
     @FXML
+    private Label receiveType;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -67,6 +69,7 @@ public class PersonCard extends UiPart<Region> {
         motherTongue.setText(Integer.toString(person.getMotherTongue().score));
         mathematics.setText(Integer.toString(person.getMathematics().score));
         science.setText(Integer.toString(person.getScience().score));
+        //receiveType.setText(person.getReceiveType().value);
 
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

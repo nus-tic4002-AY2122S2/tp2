@@ -15,6 +15,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_MOTHERTONGUE = new Prefix("mt/");
     public static final Prefix PREFIX_MATHEMATICS = new Prefix("ma/");
     public static final Prefix PREFIX_SCIENCE = new Prefix("sc/");
+    public static final Prefix PREFIX_RECEIVETYPE = new Prefix("rt/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
 
 }

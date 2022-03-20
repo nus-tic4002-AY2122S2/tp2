@@ -1,13 +1,13 @@
 package seedu.address.model.person;
 
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import seedu.address.model.tag.Tag;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.tag.Tag;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents a Person in the address book.
@@ -25,19 +25,22 @@ public class Person {
     private final Classroom classroom;
     private final Set<Tag> tags = new HashSet<>();
 
-    //Subject grade
+    // Subject grade
     private final English english;
     private final MotherTongue motherTongue;
     private final Mathematics mathematics;
     private final Science science;
+
+    // Receive type
+    private final ReceiveType receiveType;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Classroom classroom,
                   English english, MotherTongue motherTongue, Mathematics mathematics,
-                  Science science, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, english, motherTongue, mathematics, science, tags);
+                  Science science, ReceiveType receiveType, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, english, motherTongue, mathematics, science, receiveType, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -47,6 +50,7 @@ public class Person {
         this.motherTongue = motherTongue;
         this.mathematics = mathematics;
         this.science = science;
+        this.receiveType = receiveType;
         this.tags.addAll(tags);
     }
 
@@ -84,6 +88,10 @@ public class Person {
 
     public Science getScience() {
         return science;
+    }
+
+    public ReceiveType getReceiveType(){
+        return receiveType;
     }
 
     /**
@@ -132,7 +140,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, receiveType, tags);
     }
 
     @Override
@@ -154,7 +162,9 @@ public class Person {
                 .append("; Mathematics: ")
                 .append(getMathematics())
                 .append("; Science: ")
-                .append(getScience());
+                .append(getScience())
+                .append("; ReceiveType: ")
+                .append(getReceiveType());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
@@ -163,5 +173,6 @@ public class Person {
         }
         return builder.toString();
     }
+
 
 }
