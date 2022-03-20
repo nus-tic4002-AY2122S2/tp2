@@ -27,7 +27,8 @@ public class SampleDataUtil {
                 new Address("Blk 04 City View, #30-106"),
                 getTagSet("parent"), new Birthday("1980-12-25")),
             new Person(new Name("May Parker"), new Phone("66662222"), new Email("mparker@stf.school.edu"),
-                new Address("Blk 650 Sim St, #05-02"),
+                new Address("Blk 065 Sim St, #97-02 - test a longer address, for example - "
+                        + "New Queen District, New New York, New US, Mars. Post Code 110-555-650"),
                 getTagSet("teacher", "g501", "g503"), new Birthday("1970-05-05")),
             new Person(new Name("Ben Williams"), new Phone("66662121"), new Email("bwill@stf.school.edu"),
                 new Address("Blk 43 Tensor Rd, #10-322"),
