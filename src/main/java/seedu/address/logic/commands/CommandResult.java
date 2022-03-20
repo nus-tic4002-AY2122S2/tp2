@@ -38,6 +38,10 @@ public class CommandResult {
         this(feedbackToUser, false, false);
     }
 
+    /**
+     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser}, {@code showEmailWindow}
+     * and other fields set to their default value.
+     */
     public CommandResult(String feedbackToUser, boolean showEmailWindow) {
         this.showEmailWindow = showEmailWindow;
         this.feedbackToUser = requireNonNull(feedbackToUser);

@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -7,9 +9,9 @@ import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 
-import static java.util.Objects.requireNonNull;
+public class EmailCommand extends Command {
 
-public class EmailCommand extends Command{
+    private static ObservableList<Person> personList;
 
     public static final String COMMAND_WORD = "email";
 
@@ -19,12 +21,9 @@ public class EmailCommand extends Command{
 
     private final NameContainsKeywordsPredicate predicate;
 
-    private static ObservableList<Person> personList;
-
     public EmailCommand(NameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
-
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
