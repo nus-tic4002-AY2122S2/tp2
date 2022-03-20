@@ -43,7 +43,7 @@ public class PostCard extends UiPart<Region> {
         content.setText(post.getContent().value);
         postdate.setText(post.getPostDate().value);
         category.setText(post.getCategory().value);
-        notes.setText(post.getNotes().value);
+        notes.setText(post.getNotes().value + post.getSentCid().toString());
     }
 
     @Override
