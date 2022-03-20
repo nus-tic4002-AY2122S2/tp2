@@ -97,6 +97,14 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.setAll(persons);
     }
 
+    public double getTotalMoney() {
+        double sum = 0.0d;
+        for (Person p:internalList) {
+            sum += p.getMoney().getValue();
+        }
+        return sum;
+    }
+
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
