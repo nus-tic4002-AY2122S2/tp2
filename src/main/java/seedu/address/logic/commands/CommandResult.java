@@ -17,6 +17,9 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** Email Window should be opened to the user. */
+    private final boolean showEmailWindow;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
@@ -24,6 +27,7 @@ public class CommandResult {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.showEmailWindow = false;
     }
 
     /**
@@ -34,12 +38,23 @@ public class CommandResult {
         this(feedbackToUser, false, false);
     }
 
+    public CommandResult(String feedbackToUser, boolean showEmailWindow) {
+        this.showEmailWindow = showEmailWindow;
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = false;
+        this.exit = false;
+    }
+
     public String getFeedbackToUser() {
         return feedbackToUser;
     }
 
     public boolean isShowHelp() {
         return showHelp;
+    }
+
+    public boolean isShowEmailWindow() {
+        return showEmailWindow;
     }
 
     public boolean isExit() {

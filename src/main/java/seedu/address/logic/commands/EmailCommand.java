@@ -38,6 +38,6 @@ public class EmailCommand extends Command{
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_FORMAT);
         }
 
-        return new CommandResult("Person found.");
+        return new CommandResult("Person found.", true);
     }
 }

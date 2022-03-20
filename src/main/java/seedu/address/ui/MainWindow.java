@@ -38,6 +38,7 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private EmailWindow emailWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -73,6 +74,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+        emailWindow = new EmailWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -155,6 +157,18 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Opens the email window or focuses on it if it's already opened.
+     */
+/*    @FXML
+    public void handleEmail() {
+        if(!emailWindow.isShowing()) {
+            emailWindow.show();
+        } else {
+            emailWindow.focus();
+        }
+    }*/
+
+    /**
      * Signs out of main App and shows the loginScreen stage (only on ESC key pressed).
      */
     @FXML
@@ -198,6 +212,11 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowEmailWindow()) {
+                logger.info("----------- is showing email window -----------");
+                emailWindow.show();
             }
 
             if (commandResult.isExit()) {
