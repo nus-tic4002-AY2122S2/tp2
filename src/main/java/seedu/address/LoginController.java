@@ -60,6 +60,5 @@ public class LoginController {
         assert button != null : "fx:id=\"button\" was not injected: check your FXML file 'Login.fxml'.";
         assert textPasswd != null : "fx:id=\"textPasswd\" was not injected: check your FXML file 'Login.fxml'.";
         assert textUsername != null : "fx:id=\"textUsername\" was not injected: check your FXML file 'Login.fxml'.";
-
     }
 }
