@@ -3,12 +3,12 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.parser.CliSyntax.SEND_PREFIX_CLIENT;
 import static seedu.address.logic.parser.CliSyntax.SEND_PREFIX_POST;
 
+import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.SendCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import java.util.List;
 
 public class SendCommandParser implements Parser<SendCommand> {
 

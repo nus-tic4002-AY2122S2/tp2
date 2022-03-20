@@ -1,6 +1,5 @@
 package seedu.address.model.post;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -111,7 +110,7 @@ public class Post {
                 .append(getNotes());
 
         Set<String> sentCid = getSentCid();
-        if(!sentCid.isEmpty()) {
+        if (!sentCid.isEmpty()) {
             builder.append("; Sent out Clients ID: ");
             sentCid.forEach(builder::append);
         }

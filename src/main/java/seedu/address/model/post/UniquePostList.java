@@ -91,6 +91,10 @@ public class UniquePostList implements Iterable<Post> {
         internalList.setAll(posts);
     }
 
+    /**
+     * Update the {@code targetPost} original sent out client id set based on {@code updatedSentCid} set
+     * The updatedSentCid and targetPost must be declared.
+     */
     public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
         requireAllNonNull(targetPost, updatedSentCid);
 

@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-
 import static seedu.address.logic.parser.CommonRegexPattern.INDEX_LIST_ARGS_FORMAT;
 
 import java.util.Collection;
@@ -31,6 +30,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -42,25 +42,26 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code indexListString} into an {@code List<Index>} and returns it. Leading and trailing whitespaces will be
-     * trimmed.
+     * Parses {@code indexListString} into an {@code List<Index>} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static List<Index> parseIndexList(String indexListString) throws ParseException {
         Matcher matcher = INDEX_LIST_ARGS_FORMAT.matcher(indexListString.trim());
         List<Integer> result;
         if (matcher.matches()) {
-           result = Stream.of(matcher.group("targetIndex")
-                    .split("\\s+"))
-                    .mapToInt(Integer::parseInt).boxed()
-                    .collect(Collectors.toList());
-           if (result.contains(0)) {
-               throw new ParseException(MESSAGE_INVALID_INDEX);
-           } else {
-               return result.stream()
-                      .map(idx -> Index.fromOneBased(idx))
-                      .collect(Collectors.toList());
-           }
+            result = Stream.of(matcher.group("targetIndex")
+                            .split("\\s+"))
+                            .mapToInt(Integer::parseInt).boxed()
+                            .collect(Collectors.toList());
+            if (result.contains(0)) {
+                throw new ParseException(MESSAGE_INVALID_INDEX);
+            } else {
+                return result.stream()
+                        .map(idx -> Index.fromOneBased(idx))
+                        .collect(Collectors.toList());
+            }
         } else {
             throw new ParseException("You must enter some integer values");
         }

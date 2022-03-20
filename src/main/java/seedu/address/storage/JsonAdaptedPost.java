@@ -1,5 +1,11 @@
 package seedu.address.storage;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,13 +16,6 @@ import seedu.address.model.post.Notes;
 import seedu.address.model.post.Post;
 import seedu.address.model.post.PostDate;
 import seedu.address.model.post.Title;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 
 public class JsonAdaptedPost {
 
@@ -40,7 +39,7 @@ public class JsonAdaptedPost {
         this.postDate = postDate;
         this.category = category;
         this.notes = notes;
-        if(sentCid != null) {
+        if (sentCid != null) {
             this.sentCid.addAll(sentCid);
         }
     }
