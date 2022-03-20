@@ -11,13 +11,13 @@ import seedu.address.model.person.Person;
 
 public class EmailCommand extends Command {
 
-    private static ObservableList<Person> personList;
-
     public static final String COMMAND_WORD = "email";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Send email to specific person.\n"
             + "Parameter: KEYWORD\n"
             + "Example: " + COMMAND_WORD + " Mich";
+
+    private static ObservableList<Person> personList;
 
     private final NameContainsKeywordsPredicate predicate;
 

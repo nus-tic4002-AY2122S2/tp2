@@ -157,18 +157,6 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Opens the email window or focuses on it if it's already opened.
-     */
-/*    @FXML
-    public void handleEmail() {
-        if(!emailWindow.isShowing()) {
-            emailWindow.show();
-        } else {
-            emailWindow.focus();
-        }
-    }*/
-
-    /**
      * Signs out of main App and shows the loginScreen stage (only on ESC key pressed).
      */
     @FXML
