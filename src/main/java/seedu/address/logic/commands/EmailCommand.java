@@ -8,6 +8,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.ui.email.EmailWindow;
 
 public class EmailCommand extends Command {
 
@@ -36,6 +37,9 @@ public class EmailCommand extends Command {
         if (personList.size() == 0) {
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_FORMAT);
         }
+
+        EmailWindow emailWindow = new EmailWindow();
+        emailWindow.emailWindow.show();
 
         return new CommandResult("Person found.", true);
     }

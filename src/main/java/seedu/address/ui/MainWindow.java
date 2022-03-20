@@ -38,7 +38,6 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private EmailWindow emailWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -74,7 +73,6 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
-        emailWindow = new EmailWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -200,11 +198,6 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
-            }
-
-            if (commandResult.isShowEmailWindow()) {
-                logger.info("----------- is showing email window -----------");
-                emailWindow.show();
             }
 
             if (commandResult.isExit()) {
