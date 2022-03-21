@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class EmailWindowController {
+public class EmailWindowController  {
 
     @FXML
     private Button sendButton;
@@ -33,8 +33,7 @@ public class EmailWindowController {
         }
     }
 
-    @FXML
-    void initialize(String from, String to) {
+    void initData(String from, String to) {
         senderEmailAddress.setText(from);
         receiverEmailAddress.setText(to);
     }

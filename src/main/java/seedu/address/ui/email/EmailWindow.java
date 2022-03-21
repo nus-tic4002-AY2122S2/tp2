@@ -8,22 +8,29 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EmailWindow {
-    public final Stage emailWindow;
+    public final Stage emailWindowStage;
     private final Scene scene;
+    private FXMLLoader loader;
 
-    public EmailWindow() {
+    public EmailWindow(String from, String to) {
 
-        this.emailWindow = new Stage();
+        this.emailWindowStage = new Stage();
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/emailWindow.fxml"));
-            scene = new Scene(root);
-
+            this.loader = new FXMLLoader(getClass().getResource("/view/emailWindow.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("/view/emailWindow.fxml"));
+            scene = new Scene(this.loader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        emailWindow.setTitle("Email Window");
-        emailWindow.setScene(scene);
+        emailWindowStage.setTitle("Email Window");
+        emailWindowStage.setScene(scene);
+        EmailWindowController controller = loader.getController();
+        controller.initData(from, to);
+    }
+
+    public void show() {
+        emailWindowStage.show();
     }
 }

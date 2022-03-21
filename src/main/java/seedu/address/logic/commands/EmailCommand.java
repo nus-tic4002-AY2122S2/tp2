@@ -38,8 +38,10 @@ public class EmailCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_FORMAT);
         }
 
-        EmailWindow emailWindow = new EmailWindow();
-        emailWindow.emailWindow.show();
+        String fromEmailAddress = personList.get(0).getEmail().toString();
+
+        EmailWindow emailWindow = new EmailWindow("michealyang1994@gmail.com", fromEmailAddress);
+        emailWindow.show();
 
         return new CommandResult("Person found.", true);
     }
