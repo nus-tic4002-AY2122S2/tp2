@@ -1,14 +1,18 @@
 package seedu.address.ui.email;
 
-import java.awt.event.ActionEvent;
+import java.util.logging.Logger;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import seedu.address.commons.core.LogsCenter;
 
 public class EmailWindowController  {
+
+    private final Logger logger = LogsCenter.getLogger(EmailWindowController.class);
 
     @FXML
     private Button sendButton;
@@ -20,16 +24,21 @@ public class EmailWindowController  {
     private Label receiverEmailAddress;
 
     @FXML
-    private TextField subjuctTestFeild;
+    private TextField subjectTestField;
 
     @FXML
     private TextArea emailContentArea;
 
     @FXML
     void handleButtonAction(ActionEvent event) {
+
+        String subject = "";
+        String content = "";
+
         if (event.getSource() == sendButton) {
-            String subject = subjuctTestFeild.getText().trim();
-            String content = emailContentArea.getText().trim();
+            subject = subjectTestField.getText();
+            content = emailContentArea.getText();
+            
         }
     }
 
