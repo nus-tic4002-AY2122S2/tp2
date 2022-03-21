@@ -21,7 +21,7 @@ public class SendCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Send the post to client(s) ";
 
-    public static final String MESSAGE_SUCCESS = "Sent successfully";
+    public static final String MESSAGE_SUCCESS = "Sent the selected post %1$s successfully to the client %2$s";
 
     private List<Index> clientIdx = new ArrayList<>();
     private List<Index> postIdx = new ArrayList<>();
@@ -40,6 +40,7 @@ public class SendCommand extends Command {
         List<Person> lastShownClientList = model.getFilteredPersonList();
         List<Post> lastShownPostList = model.getFilteredPostList();
         Set<String> selectedClientName = new HashSet<>();
+        Set<String> selectedPostTitle = new HashSet<>();
         for (Index cIdx : clientIdx) {
             if (cIdx.getZeroBased() >= lastShownClientList.size()) {
                 throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
@@ -48,20 +49,39 @@ public class SendCommand extends Command {
             }
         }
 
+        String outputMsg = "";
         for (Index pIdx : postIdx) {
             if (pIdx.getZeroBased() >= lastShownPostList.size()) {
                 throw new CommandException(Messages.MESSAGE_INVALID_POST_DISPLAYED_INDEX);
             } else {
-                Set<String> currentSentClient = lastShownPostList.get(pIdx.getZeroBased()).getSentCid();
-                currentSentClient.addAll(selectedClientName);
-                model.updatePostSentCid(currentSentClient, lastShownPostList.get(pIdx.getZeroBased()));
+                Post targetPost = lastShownPostList.get(pIdx.getZeroBased());
+                selectedPostTitle.add(targetPost.getTitle().value);
+                Set<String> currentSentClient = targetPost.getSentCid();
+
+                Set<String> unSentClientName = new HashSet<>();
+                Set<String> restClientName = new HashSet<>();
+                unSentClientName.addAll(selectedClientName);
+                restClientName.addAll(selectedClientName);
+                unSentClientName.removeAll(currentSentClient);
+                restClientName.removeAll(unSentClientName);
+                if (unSentClientName.size() == 0) {
+                    outputMsg += String.format(
+                            Messages.MESSAGE_POST_SENT_TO_DUPLICATE_CLIENT_ALL, targetPost.getTitle().value) + "\n";
+                } else if (unSentClientName.size() < selectedClientName.size()) {
+                    outputMsg += String.format(
+                            Messages.MESSAGE_POST_SENT_TO_DUPLICATE_CLIENT,
+                            targetPost.getTitle().value, restClientName.toString()) + "\n";
+                }
+                //currentSentClient.addAll(selectedClientName);
+                currentSentClient.addAll(unSentClientName);
+                model.updatePostSentCid(currentSentClient, targetPost);
             }
         }
         model.updateFilteredPostList(Model.PREDICATE_SHOW_ALL_POSTS);
-        System.out.println("this is a send command\n");
-        System.out.println("clientidx: " + clientIdx + " postIdx: " + postIdx);
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS));
+        //return new CommandResult(
+        //       String.format(MESSAGE_SUCCESS, selectedPostTitle.toString(), selectedClientName.toString()));
+        return new CommandResult(outputMsg);
     }
 
 
