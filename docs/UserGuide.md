@@ -89,6 +89,24 @@ Examples:
 edit 1 n/John p/9001 4232 e/john@example.com a/621 Bedok Rd, 470623 t/colleague t/Math-department
 ```
 
+### Batch editing contacts: `edit -batch`
+
+Edit existing contacts with info such as hp, email, address and optional number of tags.
+
+Format: `edit -batch SEQ_NO_OF_CONTACT,SEQ_NO_OF_CONTACT n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+
++ SEQ_NO_OF_CONTACT must be a positive integer.
++ Cannot batch edit the name fields of the contacts.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
+</div>
+
+Examples:
+```
+edit 1,2,3 p/9001 4232 t/Engineering-department
+```
+
 ### Delete a contact: `delete`
 
 Format:      `delete SEQ_NO_OF_CONTACT`
@@ -171,7 +189,8 @@ exit
 | Action     | Format, Examples                                                                                                                                                          |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Edit**    | `edit n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
+| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
+| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
 | **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
