@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BATCH;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -28,6 +29,7 @@ import seedu.address.model.tag.Tag;
 public class EditCommandParser implements Parser<EditCommand> {
 
     private static final Logger logger = LogsCenter.getLogger(EditCommandParser.class);
+    private EditCommand response;
 
     public static Index getIndex(ArgumentMultimap argMultimap) throws ParseException {
         try {
@@ -37,6 +39,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
     }
 
+
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
@@ -45,10 +48,8 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_BIRTHDAY, PREFIX_PHONE, PREFIX_EMAIL,
+                ArgumentTokenizer.tokenize(args, PREFIX_BATCH, PREFIX_NAME, PREFIX_BIRTHDAY, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_ADDRESS, PREFIX_TAG);
-
-        Index index = getIndex(argMultimap);
 
         logger.info("=============================[ Edit Parse with arguments ]===========================");
 
@@ -74,7 +75,16 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editPersonDescriptor);
+        if (argMultimap.getValue(PREFIX_BATCH).isPresent() && argMultimap.getValue(PREFIX_NAME).isPresent()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_NOT_SAME_NAME));
+        } else if (argMultimap.getValue(PREFIX_BATCH).isPresent()) {
+            String[] indexes = argMultimap.getAllValues(PREFIX_BATCH).get(0).split(",",-1);
+            response = new EditCommand(indexes, editPersonDescriptor);
+        } else {
+            Index index = getIndex(argMultimap);
+            response = new EditCommand(index, editPersonDescriptor);
+        }
+        return response;
     }
 
     /**
