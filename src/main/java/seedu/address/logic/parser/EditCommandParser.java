@@ -78,7 +78,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_BATCH).isPresent() && argMultimap.getValue(PREFIX_NAME).isPresent()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_NOT_SAME_NAME));
         } else if (argMultimap.getValue(PREFIX_BATCH).isPresent()) {
-            String[] indexes = argMultimap.getAllValues(PREFIX_BATCH).get(0).split(",",-1);
+            String[] indexes = argMultimap.getAllValues(PREFIX_BATCH).get(0).split(",", -1);
             response = new EditCommand(indexes, editPersonDescriptor);
         } else {
             Index index = getIndex(argMultimap);

@@ -73,7 +73,7 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
-        /**
+    /**
      * @param indexes of the person in the filtered person list to edit
      * @param editPersonDescriptor details to edit the person with
      */
@@ -85,7 +85,7 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
-    private Person editingPerson(Model model) throws CommandException{
+    private Person editingPerson(Model model) throws CommandException {
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -115,8 +115,8 @@ public class EditCommand extends Command {
         List <Person> editedPersons = new ArrayList<>();
 
         if (indexes != null) {
-            for (String i:indexes){
-                this.index = new Index( Integer.parseInt(i)-1 );
+            for (String i:indexes) {
+                this.index = new Index (Integer.parseInt(i) - 1);
                 editedPersons.add(editingPerson(model));
             }
             editedPerson = editedPersons.toString();
