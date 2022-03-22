@@ -82,12 +82,12 @@ public class StringUtil {
             assert (0 < number && number < 13) : "month parameter should be within 1 to 12";
         } catch (AssertionError ex) {
             logger.log(Level.WARNING, "month parameter is out of bound", ex);
-        } catch (NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
 
-        if (month.length() == 1){
-           month = "0" + month;
+        if (month.length() == 1) {
+            month = "0" + month;
         }
 
         String preppedWord = month;
