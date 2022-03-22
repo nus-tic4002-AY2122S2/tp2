@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.logging.Level;
 
 import seedu.address.commons.util.StringUtil;
 
@@ -18,7 +19,7 @@ public class NameContainsMonthPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsTagIgnoreCase(person.getBirthday().toString(), keyword));
+                .anyMatch(keyword -> StringUtil.containsMonth(person.getBirthday().toString(), keyword));
     }
 
     @Override
