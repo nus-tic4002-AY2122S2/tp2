@@ -146,6 +146,12 @@
     -fx-border-top-width: 1px;
 }
 
+.pane-with-border-nobottom {
+    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-border-color: derive(#1d1d1d, 10%) transparent transparent transparent;
+    -fx-border-top-width: 1px;
+}
+
 .status-bar {
     -fx-background-color: derive(#1d1d1d, 30%);
 }
@@ -353,4 +359,12 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+}
+
+.overview-panel {
+    -fx-background-color: derive(#1d1d1d, 20%);
+}
+
+.overview-panel .label {
+    -fx-text-fill: white;
 }
