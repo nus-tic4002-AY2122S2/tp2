@@ -2,15 +2,15 @@ package seedu.address.ui.email;
 
 import java.util.Properties;
 import java.util.logging.Logger;
-
 import javax.mail.Authenticator;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,8 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import seedu.address.commons.core.LogsCenter;
 
-public class EmailWindowController  {
-
+public class EmailWindowController {
     private final Logger logger = LogsCenter.getLogger(EmailWindowController.class);
 
     private String password;
