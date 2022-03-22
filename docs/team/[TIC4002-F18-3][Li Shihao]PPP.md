@@ -21,5 +21,7 @@
      (also includes a fix of `JsonUtil` and its test that `addressbook.json` would not have a 
      newline at EOF which fails the CI)
 
-+ Sample contacts in `addressbook.json`
++ Sample contacts in `addressbook.json` (not correct way)
   1. [PR#35](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/35/files)
++ Sample 19 suitable contacts in `SampleDataUtil.java`, add `/data/` to `gitignore` (proper way)
+  1. [PR#50](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/50/files)
