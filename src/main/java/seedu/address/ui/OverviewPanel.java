@@ -17,6 +17,10 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
         super(FXML);
     }
 
+    public void initZeroMoney() {
+        totalMoney.setText("Total money owed: $0.0");
+    }
+
     public void propertyChange(PropertyChangeEvent pce) {
         totalMoney.setText("Total money owed: $" + (double) pce.getNewValue());
     }
