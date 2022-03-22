@@ -124,6 +124,7 @@ public class MainWindow extends UiPart<Stage> {
         overviewPanel = new OverviewPanel();
         overviewPanelPlaceholder.getChildren().add(overviewPanel.getRoot());
         model.addPropertyChangeListener(overviewPanel);
+        model.updateTotalMoney();
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
