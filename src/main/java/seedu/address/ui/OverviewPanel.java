@@ -18,6 +18,6 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
     }
 
     public void propertyChange(PropertyChangeEvent pce) {
-        totalMoney.setText(Double.toString((double) pce.getNewValue()));
+        totalMoney.setText("Total money owed: $" + (double) pce.getNewValue());
     }
 }
