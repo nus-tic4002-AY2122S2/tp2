@@ -1,10 +1,13 @@
 package seedu.address.ui;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 
-public class OverviewPanel extends UiPart<Region> {
+public class OverviewPanel extends UiPart<Region> implements PropertyChangeListener {
     private static final String FXML = "OverviewPanel.fxml";
 
     @FXML
@@ -12,5 +15,9 @@ public class OverviewPanel extends UiPart<Region> {
 
     public OverviewPanel() {
         super(FXML);
+    }
+
+    public void propertyChange(PropertyChangeEvent pce) {
+        totalMoney.setText(Double.toString((double) pce.getNewValue()));
     }
 }

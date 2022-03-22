@@ -3,6 +3,8 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -22,6 +24,8 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private double totalMoney;
+    private PropertyChangeSupport pcs;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -34,6 +38,8 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        totalMoney = 0.0d;
+        pcs = new PropertyChangeSupport(this);
     }
 
     public ModelManager() {
@@ -111,9 +117,16 @@ public class ModelManager implements Model {
         addressBook.setPerson(target, editedPerson);
     }
 
+    private void updateTotalMoney() {
+        double newTotal = addressBook.getTotalMoney();
+        pcs.firePropertyChange("totalMoney", this.totalMoney, newTotal);
+        totalMoney = newTotal;
+    }
+
     @Override
     public double getTotalMoney() {
-        return addressBook.getTotalMoney();
+        updateTotalMoney();
+        return totalMoney;
     }
 
     //=========== Filtered Person List Accessors =============================================================
@@ -131,6 +144,11 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        pcs.addPropertyChangeListener(pcl);
     }
 
     @Override

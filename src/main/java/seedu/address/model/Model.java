@@ -1,5 +1,6 @@
 package seedu.address.model;
 
+import java.beans.PropertyChangeListener;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
@@ -86,4 +87,6 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    void addPropertyChangeListener(PropertyChangeListener pcl);
 }
