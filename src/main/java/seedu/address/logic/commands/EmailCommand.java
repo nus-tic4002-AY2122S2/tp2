@@ -40,7 +40,7 @@ public class EmailCommand extends Command {
 
         String fromEmailAddress = personList.get(0).getEmail().toString();
 
-        EmailWindow emailWindow = new EmailWindow("michealyang1994@gmail.com", fromEmailAddress);
+        EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "nusyear4", fromEmailAddress);
         emailWindow.show();
 
         return new CommandResult("Person found.", true);
