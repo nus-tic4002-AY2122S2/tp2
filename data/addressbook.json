@@ -1,14 +1,15 @@
 {
   "persons" : [ {
     "name" : "Lee Kuan Yeow",
-    "phone" : "91235647",
-    "email" : "leeKY@example.com",
+    "phone" : "91234567",
+    "email" : "johndoe@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
-    "classroom" : "1A",
+    "classroom" : "SampleClassroom",
     "english" : 90,
     "motherTongue" : 95,
     "mathematics" : 100,
-    "science" : 85
+    "science" : 85,
+    "tagged" : [ ]
   }, {
     "name" : "Min Liang Tan",
     "phone" : "95554444",
@@ -19,6 +20,28 @@
     "motherTongue" : 60,
     "mathematics" : 40,
     "science" : 10,
-    "tagged" : [ "difficult", "failing" ]
+    "tagged" : [ "failing", "difficult" ]
+  }, {
+    "name" : "Lee Yeow",
+    "phone" : "91235647",
+    "email" : "leeKY@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "classroom" : "1A",
+    "english" : 80,
+    "motherTongue" : 95,
+    "mathematics" : 100,
+    "science" : 85,
+    "tagged" : [ ]
+  }, {
+    "name" : "Min Tan",
+    "phone" : "95554444",
+    "email" : "james@example.com",
+    "address" : "123, Jurong Ave 2, #05-52",
+    "classroom" : "6A",
+    "english" : 99,
+    "motherTongue" : 60,
+    "mathematics" : 40,
+    "science" : 10,
+    "tagged" : [ "failing", "difficult" ]
   } ]
 }
