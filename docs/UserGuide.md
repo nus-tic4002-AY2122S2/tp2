@@ -110,6 +110,31 @@ Example:
 find Duke
 ```
 
+### Search contact by tag: `filer`
+
+Format:      `filter TAG`
+
++ TAG is case-insensitive. I.e. `filter G501` will return `g501`’s contact.
++ TAG has to be a full word. I.e. `find G50` will not return `g501`’s contact.
++ Contacts matching either one of the TAG returning a combined result set, the sequence of words will not affect the search result. I.e. `filter g501 g502` will return both `g501`’s and `g502`’s contacts.
+
+Example:
+```
+filter g501
+```
+
+### Search contact by birthday month: `bday MONTH`
+
+Format:      `bday MONTH`
+
++ MONTH has to be within 1 to 12. I.e. `bday 1` will return contact with birthday month of January.
++ Contacts matching either one of the month returning a combined result set, the sequence of words will not affect the search result. I.e. `bday 1 2` will return all contact with birthday month in either January or February.
+
+Example:
+```
+bday 1
+```
+
 ### Exit the program:
 Format:      `exit`
 + The contact list will not be deleted after exiting.
