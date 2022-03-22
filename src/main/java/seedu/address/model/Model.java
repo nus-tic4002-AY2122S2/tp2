@@ -77,7 +77,7 @@ public interface Model {
      */
     void setPerson(Person target, Person editedPerson);
 
-    double getTotalMoney();
+    double updateTotalMoney();
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();

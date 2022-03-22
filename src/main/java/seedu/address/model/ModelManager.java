@@ -117,15 +117,12 @@ public class ModelManager implements Model {
         addressBook.setPerson(target, editedPerson);
     }
 
-    private void updateTotalMoney() {
+    @Override
+    public double updateTotalMoney() {
         double newTotal = addressBook.getTotalMoney();
         pcs.firePropertyChange("totalMoney", this.totalMoney, newTotal);
         totalMoney = newTotal;
-    }
-
-    @Override
-    public double getTotalMoney() {
-        updateTotalMoney();
+        logger.info("Total money: " + totalMoney);
         return totalMoney;
     }
 

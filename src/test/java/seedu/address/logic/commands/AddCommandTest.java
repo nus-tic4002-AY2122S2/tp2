@@ -140,7 +140,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public double getTotalMoney() {
+        public double updateTotalMoney() {
             throw new AssertionError("This method should not be called.");
         }
 
