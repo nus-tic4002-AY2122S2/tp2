@@ -11,7 +11,8 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
     private static final String FXML = "OverviewPanel.fxml";
     private static final String MONEY_PREFIX = "Owed $";
     private static final String CONTACTS_COUNT_PREFIX = " to ";
-    private static final String CONTACTS_COUNT_SUFFIX = " contacts";
+    private static final String CONTACTS_COUNT_SUFFIX = " contact";
+    private static final String CONTACTS_COUNT_SUFFIX_PLURAL = CONTACTS_COUNT_SUFFIX + "s";
 
     @FXML
     private Label totalMoney;
@@ -36,7 +37,9 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
             totalMoney.setText(MONEY_PREFIX + pce.getNewValue());
         }
         if (pce.getPropertyName().equals("contactsWithMoneyCount")) {
-            contactCount.setText(CONTACTS_COUNT_PREFIX + pce.getNewValue() + CONTACTS_COUNT_SUFFIX);
+            int count = (int) pce.getNewValue();
+            contactCount.setText(CONTACTS_COUNT_PREFIX + count + (count > 1 ? CONTACTS_COUNT_SUFFIX_PLURAL
+                    : CONTACTS_COUNT_SUFFIX));
         }
     }
 }
