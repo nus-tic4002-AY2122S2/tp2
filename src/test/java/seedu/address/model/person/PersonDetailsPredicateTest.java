@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.parser.CliSyntax;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonDetailsPredicateTest {
@@ -41,19 +42,23 @@ public class PersonDetailsPredicateTest {
     @Test
     public void test_nameContainsKeywords_returnsTrue() {
         // One keyword
-        PersonDetailsPredicate predicate = new PersonDetailsPredicate(Collections.singletonList("Alice"));
+        PersonDetailsPredicate predicate =
+                new PersonDetailsPredicate(Arrays.asList(CliSyntax.PREFIX_NAME.getPrefix(), "Alice"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Multiple keywords
-        predicate = new PersonDetailsPredicate(Arrays.asList("Alice", "Bob"));
+        predicate = new PersonDetailsPredicate(Arrays.asList(CliSyntax.PREFIX_NAME.getPrefix(),
+                "Alice", CliSyntax.PREFIX_NAME.getPrefix(), "Bob"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Only one matching keyword
-        predicate = new PersonDetailsPredicate(Arrays.asList("Bob", "Carol"));
+        predicate = new PersonDetailsPredicate(Arrays.asList(CliSyntax.PREFIX_NAME.getPrefix(), "Bob",
+                CliSyntax.PREFIX_NAME.getPrefix(), "Carol"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Carol").build()));
 
         // Mixed-case keywords
-        predicate = new PersonDetailsPredicate(Arrays.asList("aLIce", "bOB"));
+        predicate = new PersonDetailsPredicate(Arrays.asList(CliSyntax.PREFIX_NAME.getPrefix(), "aLIce",
+                CliSyntax.PREFIX_NAME.getPrefix(), "bOB"));
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
     }
 
@@ -64,7 +69,7 @@ public class PersonDetailsPredicateTest {
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").build()));
 
         // Non-matching keyword
-        predicate = new PersonDetailsPredicate(Arrays.asList("Carol"));
+        predicate = new PersonDetailsPredicate(Arrays.asList(CliSyntax.PREFIX_NAME.getPrefix(), "Carol"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Keywords match phone, email and address, but does not match name

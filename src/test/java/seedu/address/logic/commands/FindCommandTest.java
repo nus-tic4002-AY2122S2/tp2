@@ -15,6 +15,7 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.parser.CliSyntax;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -67,7 +68,8 @@ public class FindCommandTest {
     @Test
     public void execute_multipleKeywords_multiplePersonsFound() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
-        PersonDetailsPredicate predicate = preparePredicate("Kurz Elle Kunz");
+        PersonDetailsPredicate predicate = preparePredicate(CliSyntax.PREFIX_NAME + " Kurz " + CliSyntax.PREFIX_NAME
+                + " Elle " + CliSyntax.PREFIX_NAME + " Kunz");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
