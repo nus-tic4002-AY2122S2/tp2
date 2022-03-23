@@ -176,4 +176,12 @@ public class UniquePersonListTest {
         uniquePersonList.add(BENSON);
         assertEquals(3.3d, uniquePersonList.getTotalMoney());
     }
+
+    @Test
+    public void countContactsWithMoney_test_success() {
+        uniquePersonList.add(ALICE);
+        assertEquals(1, uniquePersonList.countContactsWithMoney());
+        uniquePersonList.add(BENSON);
+        assertEquals(2, uniquePersonList.countContactsWithMoney());
+    }
 }
