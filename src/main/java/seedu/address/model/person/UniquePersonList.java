@@ -105,6 +105,7 @@ public class UniquePersonList implements Iterable<Person> {
             sum += p.getMoney().getValue();
         }
         sum = (new BigDecimal(Double.toString(sum)).setScale(2, RoundingMode.HALF_UP).doubleValue());
+        assert sum >= 0.0d;
         return sum;
     }
 
