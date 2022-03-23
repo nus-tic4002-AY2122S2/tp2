@@ -30,6 +30,8 @@ public class PostCard extends UiPart<Region> {
     private Label category;
     @FXML
     private Label notes;
+    @FXML
+    private Label sentCid;
 
 
     /**
@@ -44,6 +46,7 @@ public class PostCard extends UiPart<Region> {
         postdate.setText(post.getPostDate().value);
         category.setText(post.getCategory().value);
         notes.setText(post.getNotes().value);
+        sentCid.setText("Already sent to: " + post.getSentCid().toString());
     }
 
     @Override

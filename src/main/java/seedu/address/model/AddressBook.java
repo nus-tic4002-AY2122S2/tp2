@@ -1,8 +1,10 @@
 package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.List;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
@@ -142,6 +144,15 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removePost(Post key) {
         posts.remove(key);
+    }
+
+    /**
+     * Update the {@code targetPost} original sent out client id set based on {@code updatedSentCid} set
+     * The updatedSentCid and targetPost must be declared.
+     */
+    public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
+        requireAllNonNull(updatedSentCid, targetPost);
+        posts.updatePostSentCid(updatedSentCid, targetPost);
     }
 
     //// util methods

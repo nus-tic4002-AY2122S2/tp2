@@ -12,4 +12,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
 
+    /* SendCommand Prefix */
+    public static final Prefix SEND_PREFIX_CLIENT = new Prefix("c/");
+    public static final Prefix SEND_PREFIX_POST = new Prefix("p/");
 }

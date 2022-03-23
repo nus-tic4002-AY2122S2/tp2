@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -170,6 +171,12 @@ public class ModelManager implements Model {
     public void updateFilteredPostList(Predicate<Post> predicate) {
         requireNonNull(predicate);
         filteredPosts.setPredicate(predicate);
+    }
+
+    @Override
+    public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
+        requireAllNonNull(updatedSentCid, targetPost);
+        addressBook.updatePostSentCid(updatedSentCid, targetPost);
     }
 
     @Override
