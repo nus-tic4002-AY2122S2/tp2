@@ -5,8 +5,6 @@ import seedu.address.model.person.Person;
 
 import java.util.List;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -19,7 +17,9 @@ public class TopCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds Top persons whose has the top score in the subject"
             + "Example: " + COMMAND_WORD + " english";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_TOP_PERSON = "Top %1$s Scorer: %2$s %3$d";
+
+    public static final String MESSAGE_SUBJECT_ERROR = "Please pass in the correct Subject english, science, mathematics, mothertongue or total";
 
     public final String subject;
 
@@ -30,28 +30,77 @@ public class TopCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
-        System.out.println("command Result");
-        System.out.println(subject);
         int index = 0;
         int topScore = 0;
         int currentScore = 0;
         List<Person> lastShownList = model.getFilteredPersonList();
         for(int i=0; i<lastShownList.size();i++){
-            if(i==0){
-                topScore = lastShownList.get(i).getEnglish().score;
+            switch (subject){
+
+                case "english":
+                    if(i==0){
+                        topScore = lastShownList.get(i).getEnglish().score;
+                    }
+                    currentScore = lastShownList.get(i).getEnglish().score;
+                    if(topScore<currentScore) {
+                        topScore = currentScore;
+                        index = i;
+                    }
+                    break;
+
+                case "science":
+                    if(i==0){
+                        topScore = lastShownList.get(i).getScience().score;
+                    }
+                    currentScore = lastShownList.get(i).getScience().score;
+                    if(topScore<currentScore) {
+                        topScore = currentScore;
+                        index = i;
+                    }
+                    break;
+
+                case "mathematics":
+                    if(i==0){
+                        topScore = lastShownList.get(i).getMathematics().score;
+                    }
+                    currentScore = lastShownList.get(i).getMathematics().score;
+                    if(topScore<currentScore) {
+                        topScore = currentScore;
+                        index = i;
+                    }
+                    break;
+
+                case "mothertongue":
+                    if(i==0){
+                        topScore = lastShownList.get(i).getMotherTongue().score;
+                    }
+                    currentScore = lastShownList.get(i).getMotherTongue().score;
+                    if(topScore<currentScore) {
+                        topScore = currentScore;
+                        index = i;
+                    }
+                    break;
+
+                case "total":
+                    if(i==0){
+                        topScore = lastShownList.get(i).getEnglish().score+lastShownList.get(i).getMathematics().score+lastShownList.get(i).getMotherTongue().score+lastShownList.get(i).getScience().score;
+                    }
+                    currentScore = lastShownList.get(i).getEnglish().score+lastShownList.get(i).getMathematics().score+lastShownList.get(i).getMotherTongue().score+lastShownList.get(i).getScience().score;
+                    if(topScore<currentScore) {
+                        topScore = currentScore;
+                        index = i;
+                    }
+                    break;
+
+                default:
+                    return new CommandResult(
+                            String.format(MESSAGE_SUBJECT_ERROR));
             }
-            currentScore = lastShownList.get(i).getEnglish().score;
-            if(topScore<currentScore) {
-                topScore = currentScore;
-                index = i;
-            }
+
         }
-        System.out.println(topScore);
-        System.out.println(index);
         Person personToEdit = lastShownList.get(index);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(
-                String.format(MESSAGE_EDIT_PERSON_SUCCESS, personToEdit.getName()));//model.getFilteredPersonList().size()));
+                String.format(MESSAGE_TOP_PERSON, subject, personToEdit.getName(), topScore));//model.getFilteredPersonList().size()));
     }
 
     @Override
