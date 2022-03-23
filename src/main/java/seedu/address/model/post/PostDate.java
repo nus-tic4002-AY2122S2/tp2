@@ -1,20 +1,23 @@
 package seedu.address.model.post;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class PostDate {
-    public final String value;
+    public final LocalDateTime value;
 
     /**
      * Constructs a {@code PostDate}.
      *
      * @param postDate A valid postDate.
      */
-    public PostDate(String postDate) {
+    public PostDate(LocalDateTime postDate) {
         this.value = postDate;
     }
 
     @Override
     public String toString() {
-        return value;
+        return DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(value);
     }
 
     @Override

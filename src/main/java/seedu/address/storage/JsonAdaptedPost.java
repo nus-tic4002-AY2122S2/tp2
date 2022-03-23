@@ -1,5 +1,6 @@
 package seedu.address.storage;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -21,7 +23,7 @@ public class JsonAdaptedPost {
 
     private final String title;
     private final String content;
-    private final String postDate;
+    private final LocalDateTime postDate;
     private final String category;
     private final String notes;
     private final List<String> sentCid = new ArrayList<>();
@@ -30,8 +32,11 @@ public class JsonAdaptedPost {
      * Constructs a {@code JsonAdaptedPost} with the given post details.
      */
     @JsonCreator
-    public JsonAdaptedPost(@JsonProperty("title") String title, @JsonProperty("content") String content,
-                           @JsonProperty("postdate") String postDate, @JsonProperty("category") String category,
+    public JsonAdaptedPost(@JsonProperty("title") String title,
+                           @JsonProperty("content") String content,
+                           @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
+                           @JsonProperty("postDate") LocalDateTime postDate,
+                           @JsonProperty("category") String category,
                            @JsonProperty("notes") String notes,
                            @JsonProperty("sentCid") List<String> sentCid) {
         this.title = title;
