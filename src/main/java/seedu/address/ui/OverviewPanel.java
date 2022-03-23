@@ -20,10 +20,20 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
     }
 
     public void initZeroMoney() {
-        totalMoney.setText("Total money owed: $0.0");
+        totalMoney.setText("Money owed: $0.0");
     }
 
+    public void initZeroContactsCount() {
+        contactCount.setText(" from 0 contacts");
+    }
+
+    @Override
     public void propertyChange(PropertyChangeEvent pce) {
-        totalMoney.setText("Money owed: $" + (double) pce.getNewValue());
+        if (pce.getPropertyName().equals("totalMoney")) {
+            totalMoney.setText("Money owed: $" + pce.getNewValue());
+        }
+        if (pce.getPropertyName().equals("contactsWithMoneyCount")) {
+            contactCount.setText(" from " + pce.getNewValue() + " contacts");
+        }
     }
 }

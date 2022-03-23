@@ -128,6 +128,10 @@ public class MainWindow extends UiPart<Stage> {
             overviewPanel.initZeroMoney();
         }
 
+        if (model.updateContactsWithMoneyCount() == 0) {
+            overviewPanel.initZeroContactsCount();
+        }
+
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 

@@ -106,6 +106,19 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Counts number of contacts with money owed.
+     */
+    public int countContactsWithMoney() {
+        int sum = 0;
+        for (Person p:internalList) {
+            if (p.getMoney().getValue() != 0.0d) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<Person> asUnmodifiableObservableList() {

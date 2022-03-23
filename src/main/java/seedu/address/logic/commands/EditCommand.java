@@ -88,6 +88,7 @@ public class EditCommand extends Command {
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
         model.updateTotalMoney();
+        model.updateContactsWithMoneyCount();
 
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }

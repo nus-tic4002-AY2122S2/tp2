@@ -25,6 +25,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private double totalMoney;
+    private int contactsWithMoneyCount;
     private PropertyChangeSupport pcs;
 
     /**
@@ -39,6 +40,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         totalMoney = 0.0d;
+        contactsWithMoneyCount = 0;
         pcs = new PropertyChangeSupport(this);
     }
 
@@ -124,6 +126,15 @@ public class ModelManager implements Model {
         totalMoney = newTotal;
         logger.info("Total money: " + totalMoney);
         return totalMoney;
+    }
+
+    @Override
+    public int updateContactsWithMoneyCount() {
+        int newTotal = addressBook.countContactsWithMoney();
+        pcs.firePropertyChange("contactsWithMoneyCount", this.contactsWithMoneyCount, newTotal);
+        contactsWithMoneyCount = newTotal;
+        logger.info("Count of contacts with money owed: " + newTotal);
+        return newTotal;
     }
 
     //=========== Filtered Person List Accessors =============================================================
