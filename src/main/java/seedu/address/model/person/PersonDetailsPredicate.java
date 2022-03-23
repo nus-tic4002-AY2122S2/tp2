@@ -1,13 +1,15 @@
 package seedu.address.model.person;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MONEY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
 import seedu.address.commons.util.StringUtil;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_MONEY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
 
 /**
  * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
@@ -31,11 +33,11 @@ public class PersonDetailsPredicate implements Predicate<Person> {
             Boolean isMoneyPrefix = currKeyword.equals(PREFIX_MONEY.getPrefix());
             Boolean isNamePrefix = currKeyword.equals(PREFIX_NAME.getPrefix());
             Boolean isTagPrefix = currKeyword.equals(PREFIX_TAG.getPrefix());
-            if( isMoneyPrefix || isNamePrefix || isTagPrefix ) {
-                if (isMoneyPrefix) { //just assume if you are looking for this tag, you are looking for people who owe you money. (m > 0)
-                    matches.add( (person.getMoney().getValue() > 0) );
-                }
-                else {
+            if (isMoneyPrefix || isNamePrefix || isTagPrefix) {
+                if (isMoneyPrefix) {
+                    //just assume if you are looking for this tag, you are looking for people who owe you money. (m > 0)
+                    matches.add((person.getMoney().getValue() > 0));
+                } else {
                     i += 1; //loop will plus one more later
                     toFindStr = keywords.get(i);
                     if (isNamePrefix) {
