@@ -25,6 +25,7 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
 
     private final Birthday birthday;
+    private final Relation relations = new Relation();
 
     /**
      * Every field must be present and not null.
@@ -68,6 +69,10 @@ public class Person {
         return birthday;
     }
 
+    public Relation getRelations() {
+        return relations;
+    }
+
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
@@ -101,13 +106,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getBirthday().equals(getBirthday());
+                && otherPerson.getBirthday().equals(getBirthday())
+                && otherPerson.getRelations().equals(getRelations());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, birthday);
+        return Objects.hash(name, phone, email, address, tags, birthday, relations);
     }
 
     @Override
@@ -127,6 +133,11 @@ public class Person {
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
+        }
+        Relation relations = getRelations();
+        if (!relations.isEmpty()) {
+            builder.append("; Relations: ");
+            relations.getSet().forEach(builder::append);
         }
         return builder.toString();
     }

@@ -32,6 +32,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     private final String birthday;
+    // private final List<>
 
 
     /**
