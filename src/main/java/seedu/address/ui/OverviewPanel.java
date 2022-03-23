@@ -9,6 +9,9 @@ import javafx.scene.layout.Region;
 
 public class OverviewPanel extends UiPart<Region> implements PropertyChangeListener {
     private static final String FXML = "OverviewPanel.fxml";
+    private static final String MONEY_PREFIX = "Owed $";
+    private static final String CONTACTS_COUNT_PREFIX = " to ";
+    private static final String CONTACTS_COUNT_SUFFIX = " contacts";
 
     @FXML
     private Label totalMoney;
@@ -20,20 +23,20 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
     }
 
     public void initZeroMoney() {
-        totalMoney.setText("Money owed: $0.0");
+        totalMoney.setText(MONEY_PREFIX + "0.0");
     }
 
     public void initZeroContactsCount() {
-        contactCount.setText(" from 0 contacts");
+        contactCount.setText(CONTACTS_COUNT_PREFIX + "0" + CONTACTS_COUNT_SUFFIX);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent pce) {
         if (pce.getPropertyName().equals("totalMoney")) {
-            totalMoney.setText("Money owed: $" + pce.getNewValue());
+            totalMoney.setText(MONEY_PREFIX + pce.getNewValue());
         }
         if (pce.getPropertyName().equals("contactsWithMoneyCount")) {
-            contactCount.setText(" from " + pce.getNewValue() + " contacts");
+            contactCount.setText(CONTACTS_COUNT_PREFIX + pce.getNewValue() + CONTACTS_COUNT_SUFFIX);
         }
     }
 }
