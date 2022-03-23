@@ -12,6 +12,8 @@ public class OverviewPanel extends UiPart<Region> implements PropertyChangeListe
 
     @FXML
     private Label totalMoney;
+    @FXML
+    private Label contactCount;
 
     public OverviewPanel() {
         super(FXML);

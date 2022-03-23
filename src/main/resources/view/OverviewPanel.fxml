@@ -5,4 +5,5 @@
 
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_RIGHT">
     <Label fx:id="totalMoney"/>
+    <Label fx:id="contactCount"/>
 </HBox>
