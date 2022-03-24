@@ -33,9 +33,11 @@ public class UndoCommand extends Command {
             throw new CommandException(MESSAGE_EXCOMMAND_IS_UNDO);
         } else if (exCommand.contains("list") || exCommand.toLowerCase().contains("find")
                     || exCommand.toLowerCase().contains("help") || exCommand.toLowerCase().contains("filter")
-                    || exCommand.toLowerCase().contains("copy")) {
+                    || exCommand.toLowerCase().contains("copy") || exCommand.contains("bday")
+                    || exCommand.contains("relate")) {
             return LogicManager.getResponse(exCommand);
-        } else if (exCommand.contains("delete") || exCommand.contains("clear") || exCommand.contains("edit")) {
+        } else if (exCommand.contains("delete") || exCommand.contains("clear") || exCommand.contains("edit")
+                    || exCommand.contains("rename")) {
             model.setAddressBook(originalAddressBook);
         } else if (exCommand.contains("add")) {
             Index index = ParserUtil.parseIndex(String.valueOf(model.getFilteredPersonList().size()));
