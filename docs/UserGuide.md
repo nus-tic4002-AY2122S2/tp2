@@ -74,6 +74,39 @@ Examples:
 add n/Nana Park p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
 ```
 
+### Editing a contact: `edit`
+
+Edit an existing contact with info such as name, hp, email, address and optional number of tags.
+
+Format: `edit SEQ_NO_OF_CONTACT n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
+</div>
+
+Examples:
+```
+edit 1 n/John p/9001 4232 e/john@example.com a/621 Bedok Rd, 470623 t/colleague t/Math-department
+```
+
+### Batch editing contacts: `edit -batch`
+
+Edit existing contacts with info such as hp, email, address and optional number of tags.
+
+Format: `edit -batch SEQ_NO_OF_CONTACT,SEQ_NO_OF_CONTACT n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+
++ SEQ_NO_OF_CONTACT must be a positive integer.
++ Cannot batch edit the name fields of the contacts.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
+</div>
+
+Examples:
+```
+edit 1,2,3 p/9001 4232 t/Engineering-department
+```
+
 ### Delete a contact: `delete`
 
 Format:      `delete SEQ_NO_OF_CONTACT`
@@ -95,6 +128,19 @@ Example:
 ```
 list
 ```
+### Search contact by name: `filter`
+
+Format:      `filter TAG`
+
++ TAG is case-insensitive. I.e. `filter teacher` will return `teacher`’s contact.
++ TAG has to be a full word. I.e. `find teach` will not return `teacher`’s contact.
++ If TAG consists of two or more words, the sequence of words will not affect the search result.
++ Contacts matching either one of the TAG will be returned. I.e. `filter teacher student` will return both `teacher` and `student`’s contacts.
+
+Example:
+```
+filter student
+```
 
 ### Search contact by name: `find`
 
@@ -110,6 +156,41 @@ Example:
 find Duke
 ```
 
+### Search contact by name: `rename`
+
+Format:      `rename TAG t/TAG`
+
++ To rename all contacts with same TAG.
++ TAG has to be a full word matching existing tag in the records.
++ TAG is the existing tag that needs to be renamed.
++ t/TAG is the tag to be renamed into.
++ For TAG to be renamed into multiple TAG, you may do do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
+
+Example:
+```
+rename g501 t/graduated t/NUS
+```
+
+### Undo the previous command: `undo`
+
+Format:      `undo`
++ The previous contact list will be recovered.
+
+Example:
+```
+undo
+```
+
+### Copy a contacts: `copy`
+
+Format:      `copy SEQ_NO_OF_CONTACT`
++ SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
++ SEQ_NO_OF_CONTACT must be a positive integer.
+
+Example:
+```
+copy 1
+```
 ### Search contact by tag: `filer`
 
 Format:      `filter TAG`
@@ -133,6 +214,27 @@ Format:      `bday MONTH`
 Example:
 ```
 bday 1
+```
+
+### Create relation among persons: `relate`
+#### Relate multiple persons to someone
+Format: `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...`
++ The `relate` command has a 1 to n relationship 
++ INDEX_TO on the left hand side of `<-` is the target whom persons going to relate to
++ INDEXi on the right hand side of `<-` is the group to relate to the target one by one 
++ Relation is _mutual_. So A related to B, B also related to A automatically.
+
+Example:
+```
+relate 2 <- 1 4 5
+```
+#### Show everyone related to a particular person
+Format: `relate INDEX`
++ When there is no `<-` action symbol used, `relate` acts like a listing command that dispays the person and whose related persons
+
+Example:
+```
+relate 2
 ```
 
 ### Exit the program:
@@ -160,8 +262,15 @@ exit
 | Action     | Format, Examples                                                                                                                                                          |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
+| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
-| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Filter**   | `filter NAME` <br> e.g. <br> `filter student`
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`
+| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`
+| **Undo**   | `undo`                                                                                                                                                                    |
 | **Undo**   | `undo`                                                                                                                                   |
+| **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                  |
+| **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br> `relate INDEX` <br> e.g. <br> `relate 2`                                            |
 | **Exit**   | `exit`                                                                                                                                                                    |

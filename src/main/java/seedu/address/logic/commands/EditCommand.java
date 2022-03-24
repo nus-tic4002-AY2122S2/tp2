@@ -9,6 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -54,8 +55,10 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_NOT_SAME_NAME = "Contacts cannot have the same name.";
 
-    private final Index index;
+    private Index index;
+    private String[] indexes;
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
@@ -70,10 +73,19 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
-    @Override
-    public CommandResult execute(Model model, ReadOnlyAddressBook originalAddressBook,
-                                    String exCommand) throws CommandException {
-        requireNonNull(model);
+    /**
+     * @param indexes of the person in the filtered person list to edit
+     * @param editPersonDescriptor details to edit the person with
+     */
+    public EditCommand(String[] indexes, EditPersonDescriptor editPersonDescriptor) {
+        requireNonNull(indexes);
+        requireNonNull(editPersonDescriptor);
+
+        this.indexes = indexes;
+        this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
+    }
+
+    private Person editingPerson(Model model) throws CommandException {
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -91,6 +103,27 @@ public class EditCommand extends Command {
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        return editedPerson;
+    }
+
+
+    @Override
+    public CommandResult execute(Model model, ReadOnlyAddressBook originalAddressBook,
+                                    String exCommand) throws CommandException {
+        requireNonNull(model);
+        String editedPerson = "";
+        List <Person> editedPersons = new ArrayList<>();
+
+        if (indexes != null) {
+            for (String i:indexes) {
+                this.index = new Index (Integer.parseInt(i) - 1);
+                editedPersons.add(editingPerson(model));
+            }
+            editedPerson = editedPersons.toString();
+        } else {
+            editedPerson = editingPerson(model).toString();
+        }
+
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
 
@@ -108,7 +141,7 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updateBirthday);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updateBirthday, null);
     }
 
     @Override
