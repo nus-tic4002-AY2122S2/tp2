@@ -127,5 +127,9 @@ public interface Model {
 
     void updatePostSentCid(Set<String> updatedSentCid, Post targetPost);
 
+    /**
+     * Updates the whole post list from an entire new {@code postList}
+     * @param postList the source post list
+     */
     void updateWholePostList(List<Post> postList);
 }
