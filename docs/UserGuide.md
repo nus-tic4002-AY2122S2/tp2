@@ -6,8 +6,23 @@ title: User Guide
 GreatBook is a **desktop app for teachers to manage grades of students, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 
-* Table of Contents
-{:toc}
+### Table of Contents
+* Quick Start
+* Features
+  * Viewing Help
+  * Adding a student
+  * Listing all students
+  * Editing student information
+  * Locating a student by name
+  * Deleting a student
+  * Clearing all students from address book
+  * Exiting Program
+  * Saving Data
+  * Editing Data File
+  * Sort students by subject marks (Coming in v1.4)
+  * Highlight failing students (Coming in v1.4)
+  * Sort students by Classroom (Coming in v1.4)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -24,9 +39,9 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+   * **`list`** : Lists all students.
 
-   * **`add`**`n/James Ho p/22224444 en/90 mt/90 m/90 s/90 : Adds a contact named `John Doe` to the Address Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms` Add a student to GreatBook. 
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -68,31 +83,31 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a student: `add`
 
-Adds a person to the GreatBook.
+Adds a student to the GreatBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/CLASS en/SCORE mt/SCORE m/SCORE s/SCORE​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE rt/RECEIVE_TYPE [t/TAGS]`
 
-There are only 4 subjects in the primary school syllabus. En refers to English, MT to Mother Tongue, M to Maths, S to science
+There are only 4 subjects in the primary school syllabus. `en` refers to English, `mt` Mother Tongue, `m` Maths, `s` science.
+
+You may enter any string for the classroom field. You may enter either `email` or `sms` for the receive type field.
 
 Examples:
-* `add n/James Ho p/22224444 en/90 mt/90 m/90 s/90`
-* `add n/Betsy Crowe p/55556666 en/70 mt/80 m/78 s/97`
+* `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms`
 
-
-### Listing all persons : `list`
+### Listing all students : `list`
 
 Shows a list of all persons in the GreatBook.
 
 Format: `list`
 
 
-### Editing a person : `edit`
+### Editing a students : `edit`
 
 Edits an existing person in the GreatBook.
 
-Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]`
+Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [a/ADDRESS] [e/EMAIL] [c/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE] `
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -102,7 +117,7 @@ Examples:
 *  `edit 2 n/James Lee en/80` Edits the 2nd student in GreatBook, updates student name to James Lee and English grade to `80`.
 
 
-### Locating persons by name: `find`
+### Locating students by name: `find`
 
 Finds student whose names contain any of the given keywords.
 
@@ -120,7 +135,7 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
 
 
-### Deleting a person : `delete`
+### Deleting a students : `delete`
 
 Deletes the specified person from the GreatBook.
 
@@ -158,9 +173,19 @@ GreatBook data are saved as a JSON file `[JAR file location]/data/GreatBook.json
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
 </div>
 
-### Archiving data files `[coming in v2.0]`
+### Sort students by subject marks`[Coming in v1.5]`
 
-_Details coming soon ..._
+Details in v1.5
+
+### Highlight failing students `[Coming in v1.5]`
+
+Details in v1.5
+
+### Sort students by Classroom `[Coming in v1.5]`
+
+Details in v1.5
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -175,7 +200,7 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/CLASS en/SCORE mt/SCORE m/SCORE s/SCORE ` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` <br>En refers to English, MT to Mother Tongue, M to Maths, S to science
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE rt/RECEIVE_TYPE [t/TAGS] ` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms` <br>En refers to English, MT to Mother Tongue, M to Maths, S to science
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]​`<br> e.g.,`edit 2 n/James Lee en/80`
