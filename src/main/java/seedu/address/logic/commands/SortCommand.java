@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Comparator;
 
@@ -16,7 +16,7 @@ public abstract class SortCommand extends Command implements Comparable<Person> 
     public static final String MESSAGE_SUCCESS = "Sorted all persons";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all persons by names \n";
 
-    public static Comparator<Person> ascComparator = new Comparator<Person>() {
+    private static Comparator<Person> ascComparator = new Comparator<Person>() {
 
         @Override
         public int compare(Person o1, Person o2) {
