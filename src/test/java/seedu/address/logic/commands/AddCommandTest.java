@@ -9,6 +9,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -184,6 +185,11 @@ public class AddCommandTest {
 
         @Override
         public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateWholePostList(List<Post> postList) {
             throw new AssertionError("This method should not be called.");
         }
     }

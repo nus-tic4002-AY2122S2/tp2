@@ -34,7 +34,7 @@ public class JsonAdaptedPost {
     @JsonCreator
     public JsonAdaptedPost(@JsonProperty("title") String title,
                            @JsonProperty("content") String content,
-                           @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
+                           @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
                            @JsonProperty("postDate") LocalDateTime postDate,
                            @JsonProperty("category") String category,
                            @JsonProperty("notes") String notes,

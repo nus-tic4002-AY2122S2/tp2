@@ -1,17 +1,15 @@
 package seedu.address.logic.commands;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
-import seedu.address.model.post.Post;
+import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Predicate;
 
-import static java.util.Objects.requireNonNull;
+import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+import seedu.address.model.post.Post;
 
 public class SortCommand extends Command {
 
@@ -42,33 +40,33 @@ public class SortCommand extends Command {
         lastShownPostListCopy.addAll(lastShownPostList);
 
         switch (keyword) {
-            case "postdate":
-            default: {
-                if (order.equals("asc")) {
-                    Collections.sort(lastShownPostListCopy, (t1, t2) -> {
-                        if (t1.getPostDate().value.isBefore(t2.getPostDate().value)) {
-                            return -1;
-                        } else {
-                            return 1;
-                        }
-                    });
-                } else {
-                    Collections.sort(lastShownPostListCopy, (t1, t2) -> {
-                        if (t1.getPostDate().value.isAfter(t2.getPostDate().value)) {
-                            return -1;
-                        } else {
-                            return 1;
-                        }
-                    });
+        case "postdate":
+        default: {
+            if (order.equals("asc")) {
+                Collections.sort(lastShownPostListCopy, (t1, t2) -> {
+                    if (t1.getPostDate().value.isBefore(t2.getPostDate().value)) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                });
+            } else {
+                Collections.sort(lastShownPostListCopy, (t1, t2) -> {
+                    if (t1.getPostDate().value.isAfter(t2.getPostDate().value)) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                });
 
-                }
             }
+        }
 
         }
         model.updateWholePostList(lastShownPostListCopy);
 
         model.updateFilteredPostList(Model.PREDICATE_SHOW_ALL_POSTS);
-        return new CommandResult("success");
+        return new CommandResult("successfully sort");
     }
 
 }

@@ -1,14 +1,15 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.SortCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.logic.commands.SortCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+
 public class SortCommandParser implements Parser<SortCommand> {
 
-    private static final Pattern SORT_KEYWORD_ORDER_ARGS = Pattern.compile("(?<keyword>postdate)\\s+(?<order>asc|desc)");
+    private static final Pattern SORT_KEYWORD_ORDER_ARGS =
+            Pattern.compile("(?<keyword>postdate)\\s+(?<order>asc|desc)");
 
     /**
      * Parses the given {@code String} of arguments in the context of the SortCommand
@@ -19,7 +20,7 @@ public class SortCommandParser implements Parser<SortCommand> {
     public SortCommand parse(String args) throws ParseException {
         Matcher matcher = SORT_KEYWORD_ORDER_ARGS.matcher(args.trim());
 
-        if(!matcher.matches()){
+        if (!matcher.matches()) {
             throw new ParseException("This is not a correct sort command");
         }
 
