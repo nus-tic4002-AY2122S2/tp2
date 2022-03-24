@@ -91,10 +91,7 @@ Examples:
 
 Shows a list of all persons in the ContactManager.
 
-Format: `list [f]`
-
-Examples:
-* `list f` Shows a list of money owed to persons in the ContactManager.
+Format: `list`
 
 ### Editing a person : `edit`
 
@@ -105,6 +102,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [f/MONEY] [t/TAG]�
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
+* Some points on `MONEY`:
+  * It is designed to track money we owed other contacts, not the other way (i.e. money we lend to other contacts).
+  * It can only be modified here, but not initialised from `AddCommand`. 
+  * To clear money owed to a contact, set the value to `0.0`.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
@@ -192,5 +193,5 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [f/MONEY] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list [f]`
+**List** | `list`
 **Help** | `help`
