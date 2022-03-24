@@ -35,6 +35,12 @@
     "email" : "royb@example.com",
     "address" : "Blk 45 Aljunied Street 85, #11-31",
     "tagged" : [ "clients", "inactive" ]
+  }, {
+    "name" : "test",
+    "phone" : "12345678",
+    "email" : "test@example.com",
+    "address" : "address sample",
+    "tagged" : [ "sample" ]
   } ],
   "posts" : [ {
     "title" : "Important Notice：Warehouse Location changed in Guangzhou",
@@ -64,5 +70,12 @@
     "category" : "service",
     "notes" : "remember sent out by 01/03",
     "sentCid" : [ "Bernice Yu" ]
+  }, {
+    "title" : "title1",
+    "content" : "content1",
+    "postDate" : "14/03/2022 18:00",
+    "category" : "notice",
+    "notes" : "a sample notes",
+    "sentCid" : [ ]
   } ]
 }

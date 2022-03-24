@@ -10,6 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.post.Post;
 
 /**
  * Adds a person to the address book.
@@ -33,10 +34,13 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New person/post added: %1$s"; //TODO : separate person and post
 
-    private final Person toAdd;
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_POST = "This post already exists in the post list";
+
+    private Person toAdd;
+    private Post postToAdd;
 
     /**
      * Creates an AddCommand to add the specified {@code Person}
@@ -46,24 +50,45 @@ public class AddCommand extends Command {
         toAdd = person;
     }
 
+    /**
+     * Creates an AddCommand to add the specified {@code Post}
+     */
+    public AddCommand(Post post) {
+        requireNonNull(post);
+        postToAdd = post;
+    }
 
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        String outputMsg = "";
+
+        if (toAdd != null) {
+            if (model.hasPerson(toAdd)) {
+                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            }
+            model.addPerson(toAdd);
+            outputMsg += String.format(MESSAGE_SUCCESS, toAdd);
+        } else if (postToAdd != null) {
+            if (model.hasPost(postToAdd)) {
+                throw new CommandException(MESSAGE_DUPLICATE_POST);
+            }
+            model.addPost(postToAdd);
+            outputMsg += String.format(MESSAGE_SUCCESS, postToAdd);
+        } else {
+            outputMsg += "something went wrong, you must add a client or a post.";
         }
 
-        model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        return new CommandResult(outputMsg);
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddCommand) other).toAdd));
+                && toAdd.equals(((AddCommand) other).toAdd)
+                && postToAdd.equals(((AddCommand) other).postToAdd));
     }
 }

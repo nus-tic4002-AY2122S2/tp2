@@ -1,8 +1,10 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CommonRegexPattern.BASIC_DATE_TIME_FORMAT;
 import static seedu.address.logic.parser.CommonRegexPattern.INDEX_LIST_ARGS_FORMAT;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +20,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.post.PostDate;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -153,5 +156,25 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String postDate} into an {@code PostDate}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code postDate} is invalid.
+     */
+    public static PostDate parsePostDate(String postDate) throws ParseException {
+        requireNonNull(postDate);
+        String trimmedPostDate = postDate.trim();
+        Matcher matcher = BASIC_DATE_TIME_FORMAT.matcher(trimmedPostDate);
+        if (!matcher.matches()) {
+            throw new ParseException(PostDate.MESSAGE_CONSTRAINTS);
+        }
+        return new PostDate(LocalDateTime.of(Integer.parseInt(matcher.group("year")),
+                                            Integer.parseInt(matcher.group("month")),
+                                            Integer.parseInt(matcher.group("day")),
+                                            Integer.parseInt(matcher.group("hour")),
+                                            Integer.parseInt(matcher.group("minute"))));
     }
 }

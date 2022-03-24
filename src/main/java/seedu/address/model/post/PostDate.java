@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class PostDate {
+
+    public static final String MESSAGE_CONSTRAINTS = "Post Date format should be : yyyymmdd HHmm "
+            + "e.g. 20220314 1800";
+
     public final LocalDateTime value;
 
     /**
@@ -14,6 +18,7 @@ public class PostDate {
     public PostDate(LocalDateTime postDate) {
         this.value = postDate;
     }
+
 
     @Override
     public String toString() {
