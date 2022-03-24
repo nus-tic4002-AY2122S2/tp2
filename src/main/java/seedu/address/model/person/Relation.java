@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -13,8 +14,10 @@ public class Relation {
     public final String value = "";
 
     private Set<Name> relations = new HashSet<>();
-
     public Relation() {
+    }
+    public Relation(Collection<? extends Name> c) {
+        relations.addAll(c);
     }
     public void add(Name name) {
         relations.add(name);
@@ -25,8 +28,21 @@ public class Relation {
     public Set<Name> getSet() {
         return relations;
     }
+    public void addAll(Collection<? extends Name> names) {
+        relations.addAll(names);
+    }
     @Override
     public int hashCode() {
         return relations.hashCode();
+    }
+    /**
+     * Override toString
+     */
+    public String toString() {
+        String set = "";
+        for (Name name : relations) {
+            set += "\"" + name.fullName + "\" ";
+        }
+        return "[ " + set + "]";
     }
 }

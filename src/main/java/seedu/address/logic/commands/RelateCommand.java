@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RELATE;
 
 import java.util.List;
+import java.util.Optional;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -12,11 +13,13 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.RelateToPersonPredicate;
 
 
 public class RelateCommand extends Command {
 
     public static final String COMMAND_WORD = "relate";
+    public static final String MESSAGE_RELATE_SUCCESS = " has Relation with: ";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": 1 to n mutual relationship "
@@ -31,10 +34,9 @@ public class RelateCommand extends Command {
             + "OR if " + COMMAND_WORD + " follow only by one INDEX\n"
             + "Example: " + COMMAND_WORD + " 1 \n"
             + "All related person cards will be printed";
-
-    public static final String MESSAGE_RELATE_SUCCESS = "They are related to %1$s";
+    //
     private final Index to;
-    private List<Index> from;
+    private Optional<List<Index>> from = Optional.empty();
 
     /**
      * @param to
@@ -52,7 +54,7 @@ public class RelateCommand extends Command {
         requireNonNull(to);
         requireNonNull(from);
         this.to = to;
-        this.from = from;
+        this.from = Optional.of(from);
     }
 
     @Override
@@ -69,12 +71,24 @@ public class RelateCommand extends Command {
 
         Person personTo = lastShownList.get(to.getZeroBased());
 
-        if (!from.isEmpty()) {
-
+        if (from.isPresent()) {
+            List<Index> indices = from.get();
+            for (Index i : indices) {
+                Person personFrom = lastShownList.get(i.getZeroBased());
+                if (!personFrom.equals(personTo)) {
+                    personTo.addRelation(personFrom.getName().fullName);
+                    personFrom.addRelation(personTo.getName().fullName);
+                    personTo.relatedWith(personFrom);
+                    personFrom.relatedWith(personTo);
+                }
+            }
         }
-            // return new CommandResult("Hello from remark");
+        RelateToPersonPredicate predicate = new RelateToPersonPredicate(personTo);
+        model.updateFilteredPersonList(predicate);
 
-        return new CommandResult("Hello from remark");
+        return new CommandResult(personTo.getName().fullName
+                + MESSAGE_RELATE_SUCCESS
+                + personTo.getRelation().toString());
     }
 
     private static void relate () {
