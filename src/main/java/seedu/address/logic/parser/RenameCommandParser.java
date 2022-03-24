@@ -44,7 +44,7 @@ public class RenameCommandParser implements Parser<RenameCommand> {
         Tag renameTag = getTag(argMultimap);
         requireNonNull(renameTag);
 
-        logger.info("=============================[ Rename Parse with arguments ] renamed "+renameTag+" ===========================");
+        logger.info("======================[ Rename Parse with arguments ] renamed " + renameTag + " ====================");
 
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
 
@@ -54,7 +54,7 @@ public class RenameCommandParser implements Parser<RenameCommand> {
             throw new ParseException(RenameCommand.MESSAGE_NOT_RENAMED);
         }
 
-        return new RenameCommand(editPersonDescriptor,renameTag);
+        return new RenameCommand(editPersonDescriptor, renameTag);
     }
 
     /**

@@ -62,7 +62,7 @@ public class RenameCommand extends Command {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
         int index;
-        for(index = 0; index < lastShownList.size(); index++) {
+        for (index = 0; index < lastShownList.size(); index++) {
             Person personToEdit = lastShownList.get(index);
             Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor, keyword);
 
@@ -82,7 +82,7 @@ public class RenameCommand extends Command {
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor, Tag keyword) {
+    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor, Tag key) {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
@@ -97,12 +97,12 @@ public class RenameCommand extends Command {
         copy.addAll(personTags);
 
         for (Tag temp:copy) {
-                if(keyword.equals(temp)){
-                    copy.remove(temp);
-                    return new Person(updatedName,updatedPhone,updatedEmail,updatedAddress,copy,updateBirthday);
+            if (key.equals(temp)) {
+                copy.remove(temp);
+                return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, copy, updateBirthday);
             }
         }
-        return new Person(updatedName,updatedPhone,updatedEmail,updatedAddress,personTags,updateBirthday);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, personTags, updateBirthday);
     }
 
     @Override
