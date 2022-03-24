@@ -20,7 +20,7 @@ public class TopCommandParser implements Parser<TopCommand> {
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, TopCommand.MESSAGE_USAGE));
         }
 
         return new TopCommand(trimmedArgs);
