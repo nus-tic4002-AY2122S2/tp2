@@ -34,15 +34,19 @@
       </HBox>
       <HBox>
         <Label styleClass="cell_small_label">Address: </Label>
-        <Label fx:id="address" styleClass="cell_small_value" text="\$phone" />
+        <Label fx:id="address" styleClass="cell_small_value" text="\$address" />
       </HBox>
       <HBox>
         <Label styleClass="cell_small_label">Money: </Label>
-        <Label fx:id="money" styleClass="cell_small_value" text="\$phone" />
+        <Label fx:id="money" styleClass="cell_small_value" text="\$money" />
       </HBox>
       <HBox>
         <Label styleClass="cell_small_label">Email: </Label>
-        <Label fx:id="email" styleClass="cell_small_value" text="\$phone" />
+        <Label fx:id="email" styleClass="cell_small_value" text="\$email" />
+      </HBox>
+      <HBox>
+        <Label styleClass="cell_small_label">Task: </Label>
+        <Label fx:id="task" styleClass="cell_small_value" text="\$task" />
       </HBox>
     </VBox>
   </GridPane>
