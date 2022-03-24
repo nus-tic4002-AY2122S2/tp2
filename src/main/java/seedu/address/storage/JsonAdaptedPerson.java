@@ -16,6 +16,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Relation;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +33,8 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     private final String birthday;
+    private final List<String> relation = new ArrayList<>();
+    // private final List<>
 
 
     /**
@@ -41,7 +44,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-            @JsonProperty("birthday") String birthday) {
+            @JsonProperty("birthday") String birthday, @JsonProperty("relation") List<String> relation) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -51,6 +54,10 @@ class JsonAdaptedPerson {
         }
 
         this.birthday = birthday;
+
+        if (relation != null) {
+            this.relation.addAll(relation);
+        }
     }
 
     /**
@@ -67,6 +74,10 @@ class JsonAdaptedPerson {
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+
+        relation.addAll(source.getRelation().getSet().stream()
+                        .map(n -> n.fullName)
+                        .collect(Collectors.toList()));
 
     }
 
@@ -123,8 +134,14 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Birthday.MESSAGE_CONSTRAINTS);
         }
         final Birthday modelBirthday = new Birthday(birthday);
+        final Set<String> modelRelations = new HashSet<>(relation);
 
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday);
+        List<Name> names = relation.stream()
+                .map(s -> new Name(s))
+                .collect(Collectors.toList());
+        Relation modelRelation = new Relation(names);
+
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday, modelRelation);
     }
 
 }

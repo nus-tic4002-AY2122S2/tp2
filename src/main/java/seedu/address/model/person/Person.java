@@ -25,9 +25,33 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
 
     private final Birthday birthday;
+    private Relation relation = new Relation();
+    // private final Set<String> relations = new HashSet<>();
 
     /**
      * Every field must be present and not null.
+     */
+    public Person(Name name, Phone phone, Email email, Address address,
+                  Set<Tag> tags, Birthday birthday, Relation relation) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+
+        this.birthday = birthday;
+        this.relation = relation;
+    }
+
+    /**
+     *
+     * @param name
+     * @param phone
+     * @param email
+     * @param address
+     * @param tags
+     * @param birthday
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday birthday) {
         requireAllNonNull(name, phone, email, address, tags);
@@ -68,6 +92,19 @@ public class Person {
         return birthday;
     }
 
+    //    public Set<String> getRelations() {
+    //        return relations;
+    //    }
+    public Relation getRelation() {
+        return relation;
+    }
+    //    public void addRelation(String name) {
+    //        relations.add(name);
+    //    }
+    public void relatedWith(Person person) {
+        relation.add(person.getName());
+    }
+
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
@@ -101,13 +138,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getBirthday().equals(getBirthday());
+                && otherPerson.getBirthday().equals(getBirthday())
+                && otherPerson.getRelation().equals(getRelation());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, birthday);
+        return Objects.hash(name, phone, email, address, tags, birthday, relation);
     }
 
     @Override
@@ -128,6 +166,11 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+        // Relation relations = getRelations();
+        //        if (!relations.isEmpty()) {
+        //            builder.append("; Relations: ");
+        //            relations.getSet().forEach(builder::append);
+        //        }
         return builder.toString();
     }
 
