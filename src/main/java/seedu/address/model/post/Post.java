@@ -103,7 +103,7 @@ public class Post {
                 .append("; Content: ")
                 .append(getContent())
                 .append("; PostDate: ")
-                .append(getPostDate())
+                .append(getPostDate().toString())
                 .append("; Category: ")
                 .append(getCategory())
                 .append("; Notes: ")

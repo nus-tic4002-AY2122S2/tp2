@@ -19,4 +19,6 @@ public class Messages {
                     + "these clients will not receive this post, "
                     + "the system will send the post to the rest clients you selected";
 
+    public static final String MESSAGE_EMPTY_LIST_ERROR = "There isn't any items in the list";
+
 }

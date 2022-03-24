@@ -155,6 +155,21 @@ public class AddressBook implements ReadOnlyAddressBook {
         posts.updatePostSentCid(updatedSentCid, targetPost);
     }
 
+    /**
+     * Clear all the items in the {@code UniquePostList} from this {@code AddressBook}.
+     */
+    public void clearPostList() {
+        posts.clear();
+    }
+
+    /**
+     * Adds the entire source post list to the {@code UniquePostList}
+     * @param postList the source post list
+     */
+    public void addAllPosts(List<Post> postList) {
+        posts.addAllPosts(postList);
+    }
+
     //// util methods
 
     @Override
@@ -185,4 +200,5 @@ public class AddressBook implements ReadOnlyAddressBook {
         return persons.hashCode();
         // TODO: refine later
     }
+
 }
