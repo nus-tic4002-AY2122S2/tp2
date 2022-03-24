@@ -44,7 +44,7 @@ public class TopCommand extends Command {
                     topScore = lastShownList.get(i).getEnglish().score;
                 }
                 currentScore = lastShownList.get(i).getEnglish().score;
-                if (topScore<currentScore) {
+                if (topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
                 }
@@ -55,7 +55,7 @@ public class TopCommand extends Command {
                     topScore = lastShownList.get(i).getScience().score;
                 }
                 currentScore = lastShownList.get(i).getScience().score;
-                if (topScore<currentScore) {
+                if (topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
                 }
@@ -66,7 +66,7 @@ public class TopCommand extends Command {
                     topScore = lastShownList.get(i).getMathematics().score;
                 }
                 currentScore = lastShownList.get(i).getMathematics().score;
-                if (topScore<currentScore) {
+                if (topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
                 }
@@ -77,7 +77,7 @@ public class TopCommand extends Command {
                     topScore = lastShownList.get(i).getMotherTongue().score;
                 }
                 currentScore = lastShownList.get(i).getMotherTongue().score;
-                if (topScore<currentScore) {
+                if (topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
                 }
@@ -85,10 +85,10 @@ public class TopCommand extends Command {
 
             case "total":
                 if (i == 0) {
-                    topScore = lastShownList.get(i).getEnglish().score+lastShownList.get(i).getMathematics().score+lastShownList.get(i).getMotherTongue().score+lastShownList.get(i).getScience().score;
+                    topScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
                 }
-                currentScore = lastShownList.get(i).getEnglish().score+lastShownList.get(i).getMathematics().score+lastShownList.get(i).getMotherTongue().score+lastShownList.get(i).getScience().score;
-                if(topScore<currentScore) {
+                currentScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
+                if(topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
                 }
@@ -102,7 +102,7 @@ public class TopCommand extends Command {
         }
         Person personToEdit = lastShownList.get(index);
         return new CommandResult(
-                String.format(MESSAGE_TOP_PERSON, subject, personToEdit.getName(), topScore));//model.getFilteredPersonList().size()));
+                String.format(MESSAGE_TOP_PERSON, subject, personToEdit.getName(), topScore));
     }
 
     @Override
