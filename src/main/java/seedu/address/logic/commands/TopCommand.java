@@ -20,8 +20,8 @@ public class TopCommand extends Command {
 
     public static final String MESSAGE_TOP_PERSON = "Top %1$s Scorer: %2$s %3$d";
 
-    public static final String MESSAGE_SUBJECT_ERROR = "Please pass in the correct Subject english, science, 
-            mathematics, mothertongue or total";
+    public static final String MESSAGE_SUBJECT_ERROR = "Please pass in the correct Subject english, science,"
+            + " mathematics, mothertongue or total";
 
     public final String subject;
 
