@@ -266,7 +266,9 @@ exit
 | **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
-| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Filter**   | `filter NAME` <br> e.g. <br> `filter student`
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`
+| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`
 | **Undo**   | `undo`                                                                                                                                                                    |
 | **Undo**   | `undo`                                                                                                                                   |
 | **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                  |
