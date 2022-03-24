@@ -18,7 +18,7 @@ public class NameContainsMonthPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsTagIgnoreCase(person.getBirthday().toString(), keyword));
+                .anyMatch(keyword -> StringUtil.containsMonth(person.getBirthday().toString(), keyword));
     }
 
     @Override
