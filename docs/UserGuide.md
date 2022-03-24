@@ -128,6 +128,19 @@ Example:
 ```
 list
 ```
+### Search contact by name: `filter`
+
+Format:      `filter TAG`
+
++ TAG is case-insensitive. I.e. `filter teacher` will return `teacher`’s contact.
++ TAG has to be a full word. I.e. `find teach` will not return `teacher`’s contact.
++ If TAG consists of two or more words, the sequence of words will not affect the search result.
++ Contacts matching either one of the TAG will be returned. I.e. `filter teacher student` will return both `teacher` and `student`’s contacts.
+
+Example:
+```
+filter student
+```
 
 ### Search contact by name: `find`
 
@@ -141,6 +154,21 @@ Format:      `find NAME`
 Example:
 ```
 find Duke
+```
+
+### Search contact by name: `rename`
+
+Format:      `rename TAG t/TAG`
+
++ To rename all contacts with same TAG.
++ TAG has to be a full word matching existing tag in the records.
++ TAG is the existing tag that needs to be renamed.
++ t/TAG is the tag to be renamed into.
++ For TAG to be renamed into multiple TAG, you may do do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
+
+Example:
+```
+rename g501 t/graduated t/NUS
 ```
 
 ### Undo the previous command: `undo`
@@ -238,7 +266,9 @@ exit
 | **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
-| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
+| **Filter**   | `filter NAME` <br> e.g. <br> `filter student`
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`
+| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`
 | **Undo**   | `undo`                                                                                                                                                                    |
 | **Undo**   | `undo`                                                                                                                                   |
 | **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                  |
