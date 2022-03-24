@@ -25,7 +25,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Ivan Ho
 
-<img src="images/ivanho.jpg" width="200px">
+<img src="images/ivanho.png" width="200px">
 
 [[github](http://github.com/ivanhlb)]
 [[portfolio](team/ivanho.md)]
