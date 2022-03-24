@@ -22,7 +22,7 @@ import static java.util.Objects.requireNonNull;
 
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
-public class SortCommand extends Command implements Comparable<Person>{
+public abstract class SortCommand extends Command implements Comparable<Person>{
 
     private static final Logger logger = LogsCenter.getLogger(SortCommand.class);
 
@@ -33,8 +33,6 @@ public class SortCommand extends Command implements Comparable<Person>{
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all persons by names \n"
 //            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + "";
-
-
 
     @Override
     public CommandResult execute(Model model, ReadOnlyAddressBook originalAddressBook,
@@ -72,8 +70,6 @@ public class SortCommand extends Command implements Comparable<Person>{
 
 //        Comparator<ReadOnlyAddressBook> studentComparator = Comparator.comparing(ReadOnlyAddressBook::toString);
 //        ObservableList<ReadOnlyAddressBook> allStudentsWithStatus = FXCollections.observableArrayList();
-//
-//
 //        SortedList<ReadOnlyAddressBook> sortedStudents = new SortedList<>(allStudentsWithStatus, studentComparator);
 //        logger.info("==== "+sortedStudents);
 //
@@ -88,8 +84,7 @@ public class SortCommand extends Command implements Comparable<Person>{
 //
 //            return person1.fullName.compareTo(person2.fullName);
 //        }
-
-
     };
+
 
 }
