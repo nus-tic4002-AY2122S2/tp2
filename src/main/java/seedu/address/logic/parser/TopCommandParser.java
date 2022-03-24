@@ -1,8 +1,6 @@
 package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import java.util.Arrays;
-
 import seedu.address.logic.commands.TopCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
