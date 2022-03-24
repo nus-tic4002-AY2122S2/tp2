@@ -32,6 +32,8 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
    * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list.
    
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   
+   * **`sort`** : Sort all contacts.
 
    * **`clear`** : Deletes all contacts.
 
@@ -174,6 +176,12 @@ Restores a previously undone address book state from its history.
 
 Format: `redo`
 
+### Sort by name : `sort`
+
+Sort all contacts by name in ascending order
+
+Format: `sort`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TeamContact 24/7 app.
@@ -220,6 +228,7 @@ _Details coming soon ..._
 | **Clear**  | `clear`                                                                                                                                                               |
 | **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake` 
+| **Sort**   | `sort` 
 | **List**   | `list`                                                                                                                                                                |
 | **Help**   | `help`                                                                                                                                                                |
