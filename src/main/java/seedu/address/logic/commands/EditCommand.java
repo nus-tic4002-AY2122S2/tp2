@@ -106,8 +106,11 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Money updatedMoney = editPersonDescriptor.getMoney().orElse(personToEdit.getMoney());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        String task = editPersonDescriptor.getTask().equals("")
+                ? personToEdit.getTask()
+                : editPersonDescriptor.getTask();
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedMoney, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedMoney, updatedTags, task);
     }
 
     @Override
@@ -139,6 +142,7 @@ public class EditCommand extends Command {
         private Address address;
         private Money money;
         private Set<Tag> tags;
+        private String task = "";
 
         public EditPersonDescriptor() {}
 
@@ -153,13 +157,14 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setMoney(toCopy.money);
             setTags(toCopy.tags);
+            setTask(toCopy.task);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, money, tags);
+            return !task.equals("") || CollectionUtil.isAnyNonNull(name, phone, email, address, money, tags);
         }
 
         public void setName(Name name) {
@@ -218,6 +223,12 @@ public class EditCommand extends Command {
         public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
+
+        public void setTask(String task) {
+            this.task = task;
+        }
+
+        public String getTask() { return this.task; }
 
         @Override
         public boolean equals(Object other) {
