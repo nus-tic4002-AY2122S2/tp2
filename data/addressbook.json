@@ -37,25 +37,25 @@
     "tagged" : [ "colleagues" ]
   } ],
   "posts" : [ {
+    "title" : "title3",
+    "content" : "content3",
+    "postDate" : "22/02/2022 09:00",
+    "category" : "category3",
+    "notes" : "notes3",
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ]
+  }, {
     "title" : "LumiNUS: TIC4002: Announcement New: Lecture Recording(March 18th)",
     "content" : "Recording URL: https://nus-sg-zoom.us/rec/share/thisissomeexampleurladdress",
+    "postDate" : "18/03/2022 18:00",
     "category" : "School",
     "notes" : "remember sent out by 18/03",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro", "David Li" ],
-    "postDate" : "18/03/2022 18:00"
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro", "David Li" ]
   }, {
     "title" : "title2",
     "content" : "content2",
+    "postDate" : "19/03/2022 19:00",
     "category" : "category2",
     "notes" : "notes1",
-    "sentCid" : [ "Irfan Ibrahim", "Alex Yeoh", "David Li" ],
-    "postDate" : "19/03/2022 19:00"
-  }, {
-    "title" : "title3",
-    "content" : "content3",
-    "category" : "category3",
-    "notes" : "notes3",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ],
-    "postDate" : "22/02/2022 09:00"
+    "sentCid" : [ "Irfan Ibrahim", "Alex Yeoh", "David Li" ]
   } ]
 }

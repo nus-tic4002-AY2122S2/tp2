@@ -106,6 +106,14 @@ public class UniquePostList implements Iterable<Post> {
         internalList.get(index).updateSentCid(updatedSentCid);
     }
 
+    public void clear() {
+        internalList.clear();
+    }
+
+    public void addAllPosts(List<Post> postList) {
+        internalList.addAll(postList);
+    }
+
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
@@ -143,4 +151,7 @@ public class UniquePostList implements Iterable<Post> {
         }
         return true;
     }
+
+
+
 }
