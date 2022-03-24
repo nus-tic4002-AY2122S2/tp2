@@ -38,7 +38,7 @@ public class RenameCommand extends Command {
             + "Example: " + COMMAND_WORD + " g501 "
             + PREFIX_TAG + "g603 ";
 
-    public static final String MESSAGE_RENAME_SUCCESS = "Successfully updated tag";
+    public static final String MESSAGE_RENAME_SUCCESS = "Rename is completed.";
     public static final String MESSAGE_NOT_RENAMED = "At least one field to rename must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
