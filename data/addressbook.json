@@ -8,7 +8,8 @@
     "english" : 90,
     "motherTongue" : 95,
     "mathematics" : 100,
-    "science" : 85
+    "science" : 85,
+    "tagged" : [ ]
   }, {
     "name" : "Min Liang Tan",
     "phone" : "95554444",
@@ -19,6 +20,6 @@
     "motherTongue" : 60,
     "mathematics" : 40,
     "science" : 10,
-    "tagged" : [ "difficult", "failing" ]
+    "tagged" : [ "failing", "difficult" ]
   } ]
 }
