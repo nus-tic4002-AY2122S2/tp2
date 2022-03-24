@@ -4,58 +4,65 @@
     "phone" : "87438807",
     "email" : "alexyeoh@example.com",
     "address" : "Blk 30 Geylang Street 29, #06-40",
-    "tagged" : [ "friends" ]
+    "tagged" : [ "clients" ]
   }, {
     "name" : "Bernice Yu",
     "phone" : "99272758",
     "email" : "berniceyu@example.com",
     "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
-    "tagged" : [ "colleagues", "friends" ]
+    "tagged" : [ "clients", "VIP1" ]
   }, {
     "name" : "Charlotte Oliveiro",
     "phone" : "93210283",
     "email" : "charlotte@example.com",
     "address" : "Blk 11 Ang Mo Kio Street 74, #11-04",
-    "tagged" : [ "neighbours" ]
+    "tagged" : [ "clients" ]
   }, {
     "name" : "David Li",
     "phone" : "91031282",
     "email" : "lidavid@example.com",
     "address" : "Blk 436 Serangoon Gardens Street 26, #16-43",
-    "tagged" : [ "family" ]
+    "tagged" : [ "clients" ]
   }, {
     "name" : "Irfan Ibrahim",
     "phone" : "92492021",
     "email" : "irfan@example.com",
     "address" : "Blk 47 Tampines Street 20, #17-35",
-    "tagged" : [ "classmates" ]
+    "tagged" : [ "clients", "VIP2" ]
   }, {
     "name" : "Roy Balakrishnan",
     "phone" : "92624417",
     "email" : "royb@example.com",
     "address" : "Blk 45 Aljunied Street 85, #11-31",
-    "tagged" : [ "colleagues" ]
+    "tagged" : [ "clients", "inactive" ]
   } ],
   "posts" : [ {
-    "title" : "title3",
-    "content" : "content3",
-    "postDate" : "22/02/2022 09:00",
-    "category" : "category3",
-    "notes" : "notes3",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ]
-  }, {
-    "title" : "LumiNUS: TIC4002: Announcement New: Lecture Recording(March 18th)",
-    "content" : "Recording URL: https://nus-sg-zoom.us/rec/share/thisissomeexampleurladdress",
+    "title" : "Important Notice：Warehouse Location changed in Guangzhou",
+    "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
     "postDate" : "18/03/2022 18:00",
-    "category" : "School",
-    "notes" : "remember sent out by 18/03",
+    "category" : "notice",
+    "notes" : "send to all the clients, remember sent out by 18/03",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro", "David Li" ]
   }, {
-    "title" : "title2",
-    "content" : "content2",
-    "postDate" : "19/03/2022 19:00",
-    "category" : "category2",
-    "notes" : "notes1",
-    "sentCid" : [ "Irfan Ibrahim", "Alex Yeoh", "David Li" ]
+    "title" : "Celebrate Our 6th Birthday with $6.6 OFF",
+    "content" : "Birthday Sales coming! Birthday goodies for everyone! Celebrate our Birthday with BEST Deals!",
+    "postDate" : "19/03/2022 06:06",
+    "category" : "promotion",
+    "notes" : "remember sent out by 20/03, too all the registered client",
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ]
+  }, {
+    "title" : "[Notice] Drop in China Shipping Rate for all Sea shipment",
+    "content" : "Dear (Ship-For-Me) Customers, the adjustment on the rate will be $0.7/500g for Shanghai warehouse and $0.6/500g for Guangzhou warehouse, thanks for your support and hope to serve you again!",
+    "postDate" : "01/04/2022 09:00",
+    "category" : "notice",
+    "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
+    "sentCid" : [ ]
+  }, {
+    "title" : "Your Parcel is ready to ship!",
+    "content" : "You order has already arrived our Guangzhou warehouse, please go our website to check : https://www.exampleshipment.sg , and remember the free storage period",
+    "postDate" : "28/02/2022 18:00",
+    "category" : "service",
+    "notes" : "remember sent out by 01/03",
+    "sentCid" : [ "Bernice Yu" ]
   } ]
 }
