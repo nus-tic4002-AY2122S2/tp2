@@ -41,6 +41,18 @@
     "email" : "test@example.com",
     "address" : "address sample",
     "tagged" : [ "sample" ]
+  }, {
+    "name" : "Amy Bee",
+    "phone" : "11111111",
+    "email" : "amy@example.com",
+    "address" : "Block 312, Amy Street 1",
+    "tagged" : [ ]
+  }, {
+    "name" : "Bob Choo",
+    "phone" : "22222222",
+    "email" : "bob@example.com",
+    "address" : "Block 123, Bobby Street 3",
+    "tagged" : [ "friend" ]
   } ],
   "posts" : [ {
     "title" : "Important Notice：Warehouse Location changed in Guangzhou",
