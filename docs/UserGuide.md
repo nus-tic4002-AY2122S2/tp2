@@ -110,6 +110,27 @@ Example:
 find Duke
 ```
 
+### Create relation among persons: `relate`
+#### Relate multiple persons to someone
+Format: `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...`
++ The `relate` command has a 1 to n relationship 
++ INDEX_TO on the left hand side of `<-` is the target whom persons going to relate to
++ INDEXi on the right hand side of `<-` is the group to relate to the target one by one 
++ Relation is _mutual_. So A related to B, B also related to A automatically.
+
+Example:
+```
+relate 2 <- 1 4 5
+```
+#### Show everyone related to a particular person
+Format: `relate INDEX`
++ When there is no `<-` action symbol used, `relate` acts like a listing command that dispays the person and whose related persons
+
+Example:
+```
+relate 2
+```
+
 ### Exit the program:
 Format:      `exit`
 + The contact list will not be deleted after exiting.
@@ -138,5 +159,6 @@ exit
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
 | **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   |
-| **Undo**   | `undo`                                                                                                                                   |
+| **Undo**   | `undo`                                                                                                                                                                    |
+| **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br> `relate INDEX` <br> e.g. <br> `relate 2`                                            |
 | **Exit**   | `exit`                                                                                                                                                                    |
