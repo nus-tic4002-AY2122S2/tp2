@@ -20,8 +20,10 @@ import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.RelateCommand;
 import seedu.address.logic.commands.RenameCommand;
+import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Person;
 
 /**
  * Parses user input.
@@ -77,6 +79,14 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
+
+        case SortCommand.COMMAND_WORD:
+            return new SortCommand() {
+                @Override
+                public int compareTo(Person o) {
+                    return 0;
+                }
+            };
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
