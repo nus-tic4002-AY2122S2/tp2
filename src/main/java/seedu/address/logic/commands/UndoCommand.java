@@ -33,7 +33,7 @@ public class UndoCommand extends Command {
             throw new CommandException(MESSAGE_EXCOMMAND_IS_UNDO);
         } else if (exCommand.contains("list") || exCommand.toLowerCase().contains("find")
                     || exCommand.toLowerCase().contains("help") || exCommand.toLowerCase().contains("filter")
-                    || exCommand.toLowerCase().contains("copy") || exCommand.contains("bday") 
+                    || exCommand.toLowerCase().contains("copy") || exCommand.contains("bday")
                     || exCommand.contains("relate")) {
             return LogicManager.getResponse(exCommand);
         } else if (exCommand.contains("delete") || exCommand.contains("clear") || exCommand.contains("edit")
