@@ -6,8 +6,23 @@ title: User Guide
 GreatBook is a **desktop app for teachers to manage grades of students, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 
-* Table of Contents
-{:toc}
+### Table of Contents
+* Quick Start
+* Features
+  * Viewing Help
+  * Adding a student
+  * Listing all students
+  * Editing student information
+  * Locating a student by name
+  * Deleting a student
+  * Clearing all students from address book
+  * Exiting Program
+  * Saving Data
+  * Editing Data File
+  * Sort students by subject marks (Coming in v1.4)
+  * Highlight failing students (Coming in v1.4)
+  * Sort students by Classroom (Coming in v1.4)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -24,7 +39,7 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+   * **`list`** : Lists all students.
 
    * **`add`**`n/James Ho p/22224444 en/90 mt/90 m/90 s/90 : Adds a contact named `John Doe` to the Address Book.
 
