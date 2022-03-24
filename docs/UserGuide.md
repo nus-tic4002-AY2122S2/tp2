@@ -41,7 +41,7 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 
    * **`list`** : Lists all students.
 
-   * **`add`**`n/James Ho p/22224444 en/90 mt/90 m/90 s/90 : Adds a contact named `John Doe` to the Address Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms t/friends t/owesMoney ` Add a student to GreatBook
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
