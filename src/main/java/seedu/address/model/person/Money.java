@@ -6,8 +6,9 @@ import static java.util.Objects.requireNonNull;
  * Represents money owed to a Person in the address book.
  */
 public class Money {
-    public static final String MESSAGE_CONSTRAINTS = "Money should be decimals";
-    public static final String VALIDATION_REGEX = "\\d+\\.\\d+";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Money should be decimals up to 2dp, non-negative and less than 1,000,000.99";
+    public static final String VALIDATION_REGEX = "\\d{1,7}\\.\\d{1,2}";
     private final double value;
 
     /**
