@@ -26,7 +26,7 @@ public class Person {
 
     private final Birthday birthday;
     private Relation relation = new Relation();
-    private final Set<String> relations = new HashSet<>();
+    // private final Set<String> relations = new HashSet<>();
 
     /**
      * Every field must be present and not null.
@@ -92,15 +92,15 @@ public class Person {
         return birthday;
     }
 
-    public Set<String> getRelations() {
-        return relations;
-    }
+    //    public Set<String> getRelations() {
+    //        return relations;
+    //    }
     public Relation getRelation() {
         return relation;
     }
-    public void addRelation(String name) {
-        relations.add(name);
-    }
+    //    public void addRelation(String name) {
+    //        relations.add(name);
+    //    }
     public void relatedWith(Person person) {
         relation.add(person.getName());
     }
@@ -145,7 +145,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, birthday, relations);
+        return Objects.hash(name, phone, email, address, tags, birthday, relation);
     }
 
     @Override

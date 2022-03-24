@@ -45,4 +45,24 @@ public class Relation {
         }
         return "[ " + set + "]";
     }
+
+    /**
+     * Override equals for comparison
+     * @param other
+     * @return
+     */
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof Relation)) {
+            return false;
+        }
+
+        // state check
+        return this.getSet().equals(((Relation) other).getSet());
+    }
 }

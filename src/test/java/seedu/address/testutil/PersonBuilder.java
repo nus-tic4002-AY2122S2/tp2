@@ -9,6 +9,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Relation;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -30,7 +31,7 @@ public class PersonBuilder {
     private Address address;
     private Set<Tag> tags;
     private Birthday birthday;
-
+    private Relation relation;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -42,6 +43,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
         birthday = new Birthday(DEFAULT_BIRTHDAY);
+        relation = new Relation();
     }
 
     /**
@@ -54,6 +56,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
         birthday = personToCopy.getBirthday();
+        relation = personToCopy.getRelation();
     }
 
     /**
