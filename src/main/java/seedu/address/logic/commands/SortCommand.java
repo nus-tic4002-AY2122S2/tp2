@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +40,9 @@ public abstract class SortCommand extends Command implements Comparable<Person>{
                                  String exCommand) {
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
+//        Collections.sort(originalAddressBook.getPersonList(), ascComparator);
+
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
@@ -60,13 +64,13 @@ public abstract class SortCommand extends Command implements Comparable<Person>{
 
     public static Comparator<Person> ascComparator = new Comparator<Person>() {
 
-    @Override
-    public int compare(Person o1, Person o2) {
-        Name p1 = o1.getName();
-        Name p2 = o2.getName();
+        @Override
+        public int compare(Person o1, Person o2) {
+            Name p1 = o1.getName();
+            Name p2 = o2.getName();
 
-        return p1.fullName.compareTo(p2.fullName);
-    }
+            return p1.fullName.compareTo(p2.fullName);
+        }
 
 //        Comparator<ReadOnlyAddressBook> studentComparator = Comparator.comparing(ReadOnlyAddressBook::toString);
 //        ObservableList<ReadOnlyAddressBook> allStudentsWithStatus = FXCollections.observableArrayList();
