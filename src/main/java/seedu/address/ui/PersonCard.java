@@ -62,11 +62,11 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        classroom.setText(person.getClassroom().value);
-        english.setText(Integer.toString(person.getEnglish().score));
-        motherTongue.setText(Integer.toString(person.getMotherTongue().score));
-        mathematics.setText(Integer.toString(person.getMathematics().score));
-        science.setText(Integer.toString(person.getScience().score));
+        classroom.setText("Classroom: " + person.getClassroom().value);
+        english.setText("English: " + Integer.toString(person.getEnglish().score));
+        motherTongue.setText("Mother Tongue: " + Integer.toString(person.getMotherTongue().score));
+        mathematics.setText("Math: " + Integer.toString(person.getMathematics().score));
+        science.setText("Science: " + Integer.toString(person.getScience().score));
 
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
