@@ -85,9 +85,11 @@ public class TopCommand extends Command {
 
             case "total":
                 if (i == 0) {
-                    topScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
+                    topScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score 
+                    + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
                 }
-                currentScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
+                currentScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score
+                + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
                 if(topScore < currentScore) {
                     topScore = currentScore;
                     index = i;
