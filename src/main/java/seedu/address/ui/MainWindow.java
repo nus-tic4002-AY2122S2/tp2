@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.Model;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -33,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
+    private OverviewPanel overviewPanel;
     private HelpWindow helpWindow;
 
     @FXML
@@ -46,6 +48,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane resultDisplayPlaceholder;
+
+    @FXML
+    private StackPane overviewPanelPlaceholder;
 
     @FXML
     private StackPane statusbarPlaceholder;
@@ -109,12 +114,23 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Fills up all the placeholders of this window.
      */
-    void fillInnerParts() {
+    void fillInnerParts(Model model) {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+
+        overviewPanel = new OverviewPanel();
+        overviewPanelPlaceholder.getChildren().add(overviewPanel.getRoot());
+        model.addPropertyChangeListener(overviewPanel);
+        if (model.updateTotalMoney() == 0.0d) {
+            overviewPanel.initZeroMoney();
+        }
+
+        if (model.updateContactsWithMoneyCount() == 0) {
+            overviewPanel.initZeroContactsCount();
+        }
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());

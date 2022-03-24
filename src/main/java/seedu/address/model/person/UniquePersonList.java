@@ -3,6 +3,8 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Iterator;
 import java.util.List;
 
@@ -95,6 +97,29 @@ public class UniquePersonList implements Iterable<Person> {
         }
 
         internalList.setAll(persons);
+    }
+
+    public double getTotalMoney() {
+        double sum = 0.0d;
+        for (Person p:internalList) {
+            sum += p.getMoney().getValue();
+        }
+        sum = (new BigDecimal(Double.toString(sum)).setScale(2, RoundingMode.HALF_UP).doubleValue());
+        assert sum >= 0.0d;
+        return sum;
+    }
+
+    /**
+     * Counts number of contacts with money owed.
+     */
+    public int countContactsWithMoney() {
+        int sum = 0;
+        for (Person p:internalList) {
+            if (p.getMoney().getValue() != 0.0d) {
+                sum++;
+            }
+        }
+        return sum;
     }
 
     /**

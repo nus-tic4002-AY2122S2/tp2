@@ -93,6 +93,17 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    public double getTotalMoney() {
+        return persons.getTotalMoney();
+    }
+
+    /**
+     * Counts number of contacts with money owed.
+     */
+    public int countContactsWithMoney() {
+        return persons.countContactsWithMoney();
+    }
+
     //// util methods
 
     @Override

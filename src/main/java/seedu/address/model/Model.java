@@ -1,5 +1,6 @@
 package seedu.address.model;
 
+import java.beans.PropertyChangeListener;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
@@ -76,6 +77,10 @@ public interface Model {
      */
     void setPerson(Person target, Person editedPerson);
 
+    double updateTotalMoney();
+
+    int updateContactsWithMoneyCount();
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
@@ -84,4 +89,6 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    void addPropertyChangeListener(PropertyChangeListener pcl);
 }
