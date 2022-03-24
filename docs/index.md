@@ -1,8 +1,7 @@
 [![codecov](https://codecov.io/gh/AY2122S2-TIC4002-F18-2/tp2/branch/master/graph/badge.svg?token=RC2VXZ2YOX)](https://codecov.io/gh/AY2122S2-TIC4002-F18-2/tp2)
 
 ---
-layout: page
-title: GreatBook
+GreatBook
 ---
 
 [![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
