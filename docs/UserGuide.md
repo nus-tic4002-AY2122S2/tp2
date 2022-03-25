@@ -164,6 +164,23 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the app.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Deleting a person : `email`st fully matched.
+
+Examples:
+
+* Send email to `Alex Yeoh` --> Key in `email yeoh` as shown below:
+
+![email command](images/emailCommandPic_1.png)
+
+* If the name can be found in the list, an email window will be showed as shown below:
+
+![email window](images/emailWindow.png)
+
+* In the main window, the selected contact person's details will be shown as shown below:
+
+![email command](images/emailCommandPic_2.png)
+
+
 ### Restore a previous entry : `undo`
  
 Restores the previous address book state from its history
