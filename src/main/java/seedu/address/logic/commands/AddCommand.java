@@ -86,9 +86,16 @@ public class AddCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddCommand) other).toAdd)
-                && postToAdd.equals(((AddCommand) other).postToAdd));
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof AddCommand)) {
+            return false;
+        }
+        //return toAdd.equals(((AddCommand) other).toAdd)
+        //        && postToAdd.equals(((AddCommand) other).postToAdd);
+        return toAdd != null ? toAdd.equals(((AddCommand) other).toAdd)
+                : postToAdd != null ? postToAdd.equals(((AddCommand) other).postToAdd) : false;
+        //return true;
     }
 }

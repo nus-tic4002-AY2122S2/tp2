@@ -47,7 +47,7 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
 
-        final Matcher matcherType = BASIC_TYPE_FORMAT.matcher(args.trim());
+        Matcher matcherType = BASIC_TYPE_FORMAT.matcher(args.trim());
         ListType listType;
         String args1;
 
