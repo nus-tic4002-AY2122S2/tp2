@@ -11,29 +11,35 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `TeamContact 24/7.jar` _(coming feature)_.
+2. Download the latest `TeamContact 24-7-v1.4.jar` from the tp2 Repo GitHub v1.4 release (coming feature).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your demo app.
+3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. A Login Screen will appear.
+
+5. Enter your login data (sample Username usage = "Java", sample Password usage = "123456").
+
+7. The GUI similar to that shown below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+8. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
    * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list.
    
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   
+   * **`sort`** : Sort all contacts.
 
    * **`clear`** : Deletes all contacts.
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+9. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -76,15 +82,15 @@ Format: `help`
 
 Adds a person to TeamContact 24/7 app.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK g/GENDER [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARK g/GENDER [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/some comments g/male`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567  r/some comments t/criminal g/female`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/01/2022 r/some comments g/male`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/09/01/2022 r/some comments t/criminal g/female`
 
 ### Logging a brief note or communication update : `log`
 
@@ -113,7 +119,7 @@ Format: `list`
 
 Edits an existing person in TeamContact 24/7 app.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [g/GENDER] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARK] [g/GENDER] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -158,6 +164,41 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the app.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Deleting a person : `email`st fully matched.
+
+Examples:
+
+* Send email to `Alex Yeoh` --> Key in `email yeoh` as shown below:
+
+![email command](images/emailCommandPic_1.png)
+
+* If the name can be found in the list, an email window will be showed as shown below:
+
+![email window](images/emailWindow.png)
+
+* In the main window, the selected contact person's details will be shown as shown below:
+
+![email command](images/emailCommandPic_2.png)
+
+
+### Restore a previous entry : `undo`
+ 
+Restores the previous address book state from its history
+
+Format: `undo`
+
+### Restore a previously undone entry : `redo`
+
+Restores a previously undone address book state from its history.
+
+Format: `redo`
+
+### Sort by name : `sort`
+
+Sort all contacts by name in ascending order
+
+Format: `sort`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TeamContact 24/7 app.
@@ -199,11 +240,12 @@ _Details coming soon ..._
 
 | Action     | Format, Examples                                                                                                                                                      |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARKS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 d/09/01/2021 r/gay t/friend t/colleague` |
 | **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                             |
 | **Clear**  | `clear`                                                                                                                                                               |
 | **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [r/REMARK] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                     |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake` 
+| **Sort**   | `sort` 
 | **List**   | `list`                                                                                                                                                                |
 | **Help**   | `help`                                                                                                                                                                |

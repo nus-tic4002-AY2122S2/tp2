@@ -1,6 +1,6 @@
 ---
 layout: page
-title: TeamContact 24/7
+title: TeamContact 24/7 App
 ---
 
 [![CI Status](https://github.com/AY2122S2-TIC4002-F18-5/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-TIC4002-F18-5/tp2/actions)

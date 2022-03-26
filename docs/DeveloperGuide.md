@@ -59,7 +59,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -158,11 +158,17 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+`addressBookStateList` can be implemented as an ArrayList to store all previous states of addressBook in history.
+`currentStatePointer` can be implemented as a counter indicating the current index of history.
+
+Additionally, it implements the following operations:
 
 * `VersionedAddressBook#commit()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
 * `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+
+The above operations should inform user of errors indicated why it failed to perform the operation.
 
 These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
@@ -231,23 +237,76 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
+* **Alternative 3:** Saves only the person list within the address book.
+  * Pros: Easy to implement and uses less memory compared to Alternative 1.
+  * Cons: May have performance issues in terms of memory usage.
 
-_{more aspects and alternatives to be added}_
+### Software Security Feature 01: A GUI Login Front Screen
 
-### \[Proposed\] Software Security Feature 01: A GUI Login Front Screen
-
-Prototype Sample:-
+Sample:-
 
 ![Sample Login Screen](images/loginScreen.png)
 
-#### Proposed Implementation
-_{coming feature v1.2 to v1.3}_
+#### Implementation
 
-### \[Proposed\] Software Security Feature 02: A Logout Shortcut `ESC` Key
-- To aid the Project Manager to log out of a TeamContact 24/7 App Session
-- The login screen comes back on, hiding the app's sensitive data from public view
+**_The motive for this online login security feature is for protecting the sensitive data, displayed in TeamContact 24/7 App,
+from undesirable exposure to unwanted and or public viewing_**.
 
-_{coming feature v1.3 to v1.4}_
+The idea is to first load and only display the Login GUI Screen
+upon main App startup: so the user will have to enter in his or her login credentials before preview and access to the
+main App data is granted.
+
+Leveraging on JavaFx capabilities to hide and show stages, the frontend GUI Login Screen was made to load and displayed
+visually first - after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
+
+ScreenBuilder was used to create the layout and specification of the Login GUI Screen and the data was saved to a Login.fxml file.
+
+A corresponding controller file, **LoginController.java**, was created to facilitate the creation and register of the various
+login checks (using TextFields) and rendering of the error messages (using Label) under an ActionEvent handler
+**#handleButtonAction**.
+
+The start method of **MainApp.java** was adapted for the above purpose - to first initialise the main App loading, get
+its stage hidden, then load and show another newly created stage with the Login Screen Scene.
+
+Sample **SingletonLogin** UML Class Diagram:-
+
+<img src="images/UMLClass_Singleton.png" width="550" />
+
+
+#### Design considerations:
+
+- **MainWindow.java** was modified to not show the mainWindow of the main App when it loads
+- Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
+to make it harder to guess
+- The Login Screen object is patterned after the Singleton creational design pattern - as a Java Singleton object - to 
+further increase security against possible rogue substitutes, or false replacement
+- The main App stage was elevated to a class-level protected object (as appStage in MainApp.java) to increase security
+against unauthorised access or possible abuse
+
+The following activity diagram summarizes how the Login GUI Screen works upon TeamContact 24/7 App startup:-
+
+<img src="images/ActivityDiag_LoginScr.png" width="550" />
+
+
+### Software Security Feature 02: A Logout Shortcut `ESC` Key
+- To aid the Project Manager log out of a TeamContact 24/7 App Session as and when desired
+- The login screen comes back on, hiding the app's sensitive data from public view, upon 'ESC' key pressed
+
+Sample 'ESC' key Logout Screenshot:-
+
+![Sample Esc key logout Sequence](images/EscSignout.png)
+
+- **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
+- **MainWindow.java** had the corresponding keyPressedHandle handler method added in
+
+### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
+
+Sample Picture:-
+
+![Sample Esc key logout Sequence](images/digitalclock.png)
+
+_{coming feature}_
+
 
 ### \[Proposed\] Data archiving
 

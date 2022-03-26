@@ -35,8 +35,9 @@ import seedu.address.ui.UiManager;
  * Runs the application.
  */
 public class MainApp extends Application {
+    public static final Version VERSION = new Version(1, 3, 0, true);
 
-    public static final Version VERSION = new Version(0, 2, 0, true);
+    protected static Stage appStage;
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
@@ -167,8 +168,14 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        logger.info("Starting AddressBook " + MainApp.VERSION);
-        ui.start(primaryStage);
+        logger.info("Starting TeamContact 24/7 " + MainApp.VERSION);
+
+        appStage = primaryStage;
+        ui.start(appStage);
+        appStage.hide();
+
+        SingletonLogin loginScreen = SingletonLogin.getInstance();
+        loginScreen.loginStage.show();
     }
 
     @Override

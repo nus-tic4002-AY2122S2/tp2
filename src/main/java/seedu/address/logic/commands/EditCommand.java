@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATEJOINED;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -21,7 +22,9 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.DateJoined;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Log;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -43,6 +46,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_DATEJOINED + "DATEJOINED] "
             + "[" + PREFIX_REMARK + "REMARK] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -86,6 +90,7 @@ public class EditCommand extends Command {
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.commitAddressBook(model.getAddressBook());
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
 
@@ -100,10 +105,13 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        DateJoined updateDateJoined = editPersonDescriptor.getDateJoined().orElse(personToEdit.getDateJoined());
         Remark updatedRemark = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
+        Log updatedLog = personToEdit.getLog(); // edit command does not allow editing remarks
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRemark, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
+                updateDateJoined, updatedRemark, updatedLog, updatedTags);
     }
 
     @Override
@@ -133,6 +141,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
+        private DateJoined dateJoined;
         private Remark remark;
         private Set<Tag> tags;
 
@@ -147,6 +156,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setDateJoined(toCopy.dateJoined);
             setRemark(toCopy.remark);
             setTags(toCopy.tags);
         }
@@ -155,7 +165,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, remark, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, dateJoined, remark, tags);
         }
 
         public void setName(Name name) {
@@ -188,6 +198,14 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setDateJoined(DateJoined dateJoined) {
+            this.dateJoined = dateJoined;
+        }
+
+        public Optional<DateJoined> getDateJoined() {
+            return Optional.ofNullable(dateJoined);
         }
 
         public void setRemark(Remark remark) {
@@ -234,6 +252,7 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
+                    && getDateJoined().equals(e.getDateJoined())
                     && getRemark().equals(e.getRemark())
                     && getTags().equals(e.getTags());
         }
