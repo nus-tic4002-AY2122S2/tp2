@@ -56,13 +56,13 @@
     "postDate" : "19/03/2022 06:06",
     "category" : "promotion",
     "notes" : "remember sent out by 20/03, too all the registered client",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Charlotte Oliveiro" ]
+    "sentCid" : [ "Bernice Yu", "Charlotte Oliveiro" ]
   }, {
     "title" : "[Notice] Drop in China Shipping Rate for all Sea shipment",
     "content" : "Dear (Ship-For-Me) Customers, the adjustment on the rate will be $0.7/500g for Shanghai warehouse and $0.6/500g for Guangzhou warehouse, thanks for your support and hope to serve you again!",
     "postDate" : "01/04/2022 09:00",
     "category" : "notice",
     "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "David Li", "Roy Balakrishnan" ]
+    "sentCid" : [ "Bernice Yu", "Charlotte Oliveiro" ]
   } ]
 }
