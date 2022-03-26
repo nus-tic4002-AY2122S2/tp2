@@ -5,7 +5,7 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You can reach us via our github profiles.
 
 ## Project team
 
@@ -20,7 +20,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Joseph Guo Yang
 
-<img src="images/Jospeh.png" width="200px">
+<img src="images/jospeh.png" width="200px">
 
 [[github](http://github.com/badfr0g)]
 [[portfolio](team/joseph.md)]
@@ -34,13 +34,3 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/sohwkjames)] [[portfolio](team/james.md)]
 
 * Role: Developer
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/james.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
