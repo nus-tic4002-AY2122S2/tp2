@@ -106,6 +106,9 @@ public class ParserUtil {
     public static DateJoined parseDateJoined(String dateJoined) throws ParseException {
         requireNonNull(dateJoined);
         String trimmedDateJoined = dateJoined.trim();
+        if (!DateJoined.isValidDateJoined(trimmedDateJoined)) {
+            throw new ParseException(DateJoined.MESSAGE_CONSTRAINTS);
+        }
         return new DateJoined(dateJoined);
     }
 

@@ -120,6 +120,9 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     DateJoined.class.getSimpleName()));
         }
+        if (!DateJoined.isValidDateJoined(dateJoined)) {
+            throw new IllegalValueException(DateJoined.MESSAGE_CONSTRAINTS);
+        }
         final DateJoined modelDateJoined = new DateJoined(dateJoined);
 
         if (remark == null) {
