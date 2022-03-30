@@ -17,7 +17,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-11&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=lowyanshuang&tabRepo=AY2122S2-TIC4002-F18-5%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
-  * Managed releases `v1.4` (1 releases) on GitHub (Upcoming release)
+  * Managed releases `v1.4` on GitHub (Upcoming release)
 
 * **Enhancements to existing features**:
   * Wrote additional tests for existing features to increase coverage of additional field remarks and dateJoined.
