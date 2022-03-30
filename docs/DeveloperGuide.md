@@ -249,7 +249,7 @@ Sample:-
 
 #### Implementation
 
-**_The motive for this online login security feature is for protecting the sensitive data, displayed in TeamContact 24/7 App,
+**_The motive for this online login security feature is to protect the sensitive data, displayed in TeamContact 24/7 App,
 from undesirable exposure to unwanted and or public viewing_**.
 
 The idea is to first load and only display the Login GUI Screen
@@ -257,15 +257,15 @@ upon main App startup: so the user will have to enter in his or her login creden
 main App data is granted.
 
 Leveraging on JavaFx capabilities to hide and show stages, the frontend GUI Login Screen was made to load and displayed
-visually first - after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
+visually first, after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
 
 ScreenBuilder was used to create the layout and specification of the Login GUI Screen and the data was saved to a Login.fxml file.
 
 A corresponding controller file, **LoginController.java**, was created to facilitate the creation and register of the various
-login checks (using TextFields) and rendering of the error messages (using Label) under an ActionEvent handler
+login checking methods (using TextFields) and the rendering of the error messages (using Label), under an ActionEvent handler
 **#handleButtonAction**.
 
-The start method of **MainApp.java** was adapted for the above purpose - to first initialise the main App loading, get
+The start method of **MainApp.java** was adapted for the above purpose: to first initialise the main App loading, get
 its stage hidden, then load and show another newly created stage with the Login Screen Scene.
 
 Sample **SingletonLogin** UML Class Diagram:-
@@ -275,12 +275,12 @@ Sample **SingletonLogin** UML Class Diagram:-
 
 #### Design considerations:
 
-- **MainWindow.java** was modified to not show the mainWindow of the main App when it loads
+- **MainWindow.java** was modified to not show the mainWindow of the main App when it first loads
 - Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
 to make it harder to guess
 - The Login Screen object is patterned after the Singleton creational design pattern - as a Java Singleton object - to 
 further increase security against possible rogue substitutes, or false replacement
-- The main App stage was elevated to a class-level protected object (as appStage in MainApp.java) to increase security
+- The main App stage was also elevated as a class-level protected object (as appStage in MainApp.java), to increase security
 against unauthorised access or possible abuse
 
 The following activity diagram summarizes how the Login GUI Screen works upon TeamContact 24/7 App startup:-

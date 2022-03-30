@@ -11,7 +11,7 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `TeamContact 24-7-v1.4.jar` from the tp2 Repo GitHub v1.4 release (coming feature).
+2. Download the latest `TeamContact 24-7-v1.4.jar` from the tp2 Repo GitHub v1.4 release.
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
@@ -29,8 +29,8 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
-   * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list.
-   
+   * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact in the current display list.
+     * _**NB:-** log is different from remark in the sense that log is for work-related notes only while remark is for all non work-related comments. A log is created via the log Command whereas remark is entered through the "r/" arg of add Command._
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
    
    * **`sort`** : Sort all contacts.
@@ -92,13 +92,13 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/01/2022 r/some comments g/male`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/09/01/2022 r/some comments t/criminal g/female`
 
-### Logging a brief note or communication update : `log`
+### Logging a brief project work note or communication update : `log`
 
-Logs a brief memo or intercourse update to a person listed in the TeamContact 24/7 app.
+Logs a brief project work related memo / intercourse update on a person listed in the TeamContact 24/7 app.
 
 Format: `log INDEX l/Some brief log note on the contact`
 
-* Logs a log note on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Logs a project work brief on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Command format must be strictly adhered to, else invalid format exception will be shown instead.
 * Existing values will be updated to the input values.
 * When entering a log note, the existing log of the person will be removed i.e. adding of logs is not cumulative.
@@ -238,14 +238,14 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                                                      |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action     | Format, Examples                                                                                                                                                                                                 |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARKS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 d/09/01/2021 r/gay t/friend t/colleague` |
-| **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                             |
-| **Clear**  | `clear`                                                                                                                                                               |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake` 
-| **Sort**   | `sort` 
-| **List**   | `list`                                                                                                                                                                |
-| **Help**   | `help`                                                                                                                                                                |
+| **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                                                                        |
+| **Clear**  | `clear`                                                                                                                                                                                                          |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                              |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                               |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                       |
+| **Sort**   | `sort`                                                                                                                                                                                                           |
+| **List**   | `list`                                                                                                                                                                                                           |
+| **Help**   | `help`                                                                                                                                                                                                           |
