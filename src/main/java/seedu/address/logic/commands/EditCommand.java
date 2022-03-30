@@ -29,6 +29,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Relation;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -140,8 +141,10 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Relation relation = editPersonDescriptor.getRelation().orElse(personToEdit.getRelation());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updateBirthday, null);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updateBirthday,
+                            relation);
     }
 
     @Override
@@ -173,6 +176,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Birthday birthday;
+        private Relation relation;
 
         public EditPersonDescriptor() {}
 
@@ -189,6 +193,7 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setBirthday(toCopy.birthday);
+            setRelation(toCopy.relation);
         }
 
         /**
@@ -234,8 +239,16 @@ public class EditCommand extends Command {
             this.birthday = birthday;
         }
 
+        public void setRelation(Relation relation) {
+            this.relation = relation;
+        }
+
         public Optional<Birthday> getBirthday() {
             return Optional.ofNullable(birthday);
+        }
+
+        public Optional<Relation> getRelation() {
+            return Optional.ofNullable(relation);
         }
         /**
          * Sets {@code tags} to this object's {@code tags}.
@@ -274,7 +287,8 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getRelation().equals(e.getRelation());
         }
     }
 }
