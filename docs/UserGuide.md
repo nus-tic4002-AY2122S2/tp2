@@ -171,6 +171,18 @@ Example:
 rename g501 t/graduated t/NUS
 ```
 
+### Remove tag from all contact: `rename TAG t/`
+
+Format:      `rename TAG t/`
+
++ TAG is case-sensitive. I.e. `rename student t/` will remove `student` tag from all contact.
++ TAG has to be a full word. I.e. `find G50` will not remove tag `g501`.
+
+Example:
+```
+rename student t/
+```
+
 ### Undo the previous command: `undo`
 
 Format:      `undo`
@@ -191,7 +203,8 @@ Example:
 ```
 copy 1
 ```
-### Search contact by tag: `filer`
+
+### Search contact by tag: `filter`
 
 Format:      `filter TAG`
 
@@ -272,10 +285,11 @@ exit
 | **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
-| **List**   | `list` <br>                                                                                                                                                               |
+| **List**   | `list`    
 | **Filter**   | `filter TAG` <br> e.g. <br> `filter student`                                                                                                                             
 | **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   
 | **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`                                                                                                      
+| **Remove tag**   | `rename TAG t/` <br> e.g. <br> `rename student t/`
 | **Undo**   | `undo`                                                                                                                                                                    |
 | **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                      |
 | **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br><br> `relate INDEX` <br> e.g. <br> `relate 2`                                        |

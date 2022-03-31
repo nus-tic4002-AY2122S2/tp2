@@ -47,7 +47,7 @@ public class RenameCommandParser implements Parser<RenameCommand> {
 
         for (String temp: argMultimap.getAllValues(PREFIX_TAG)) {
             if (temp.equals(renameExist)) {
-                throw new ParseException(RenameCommand.MESSAGE_RENAMED_DUPLICATED);
+                throw new ParseException(String.format(RenameCommand.MESSAGE_RENAMED_DUPLICATED, renameExist));
             }
         }
 
