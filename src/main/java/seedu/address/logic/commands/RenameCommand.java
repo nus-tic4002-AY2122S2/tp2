@@ -38,7 +38,7 @@ public class RenameCommand extends Command {
             + "Example: " + COMMAND_WORD + " g501 "
             + PREFIX_TAG + "g603 ";
 
-    public static final String MESSAGE_RENAME_SUCCESS = "Rename is completed.";
+    public static final String MESSAGE_RENAME_SUCCESS = "%1$d persons renamed!";
     public static final String MESSAGE_NOT_RENAMED = "At least one tag field to rename must be provided.";
     public static final String MESSAGE_RENAMED_DUPLICATED = "Not able to rename using same tag naming."
         + "\nRemove [ t/%1$s ].";
@@ -64,12 +64,18 @@ public class RenameCommand extends Command {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
         int index;
+        int updatedIndex = 0;
         for (index = 0; index < lastShownList.size(); index++) {
             Person personToEdit = lastShownList.get(index);
+            boolean checkPersonTag = checkPersonTag(personToEdit, editPersonDescriptor, keyword);
             Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor, keyword);
 
             if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
                 throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            }
+
+            if (checkPersonTag) {
+                updatedIndex = updatedIndex + 1;
             }
 
             LogicManager.updateOriginalAddressBook(model.getAddressBook());
@@ -77,7 +83,29 @@ public class RenameCommand extends Command {
             model.setPerson(personToEdit, editedPerson);
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         }
-        return new CommandResult(String.format(MESSAGE_RENAME_SUCCESS));
+        return new CommandResult(String.format(MESSAGE_RENAME_SUCCESS,updatedIndex));
+    }
+
+    /**
+     * Returns a {@code Boolean} if tag is present to edit {@code personToEdit}
+     * edited with {@code editPersonDescriptor}.
+     */
+    private boolean checkPersonTag(Person personToEdit, EditPersonDescriptor editPersonDescriptor, Tag key) {
+        assert personToEdit != null;
+
+        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Set<Tag> personTags = personToEdit.getTags();
+        Set<Tag> copy = new HashSet<>();
+        copy.addAll(updatedTags);
+        copy.addAll(personTags);
+
+        for (Tag temp:copy) {
+            if (key.equals(temp)) {
+                copy.remove(temp);
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
