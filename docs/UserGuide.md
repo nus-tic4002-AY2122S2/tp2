@@ -156,32 +156,6 @@ Example:
 find Duke
 ```
 
-### Search contact by name: `rename`
-
-Format:      `rename TAG t/TAG`
-
-+ To rename all contacts with same TAG.
-+ TAG has to be a full word matching existing tag in the records.
-+ TAG is the existing tag that needs to be renamed.
-+ t/TAG is the tag to be renamed into.
-+ For TAG to be renamed into multiple TAG, you may do do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
-
-Example:
-```
-rename g501 t/graduated t/NUS
-```
-
-### Remove tag from all contact: `rename TAG t/`
-
-Format:      `rename TAG t/`
-
-+ TAG is case-sensitive. I.e. `rename student t/` will remove `student` tag from all contact.
-+ TAG has to be a full word. I.e. `find G50` will not remove tag `g501`.
-
-Example:
-```
-rename student t/
-```
 
 ### Undo the previous command: `undo`
 
@@ -215,6 +189,33 @@ Format:      `filter TAG`
 Example:
 ```
 filter g501
+```
+
+### Search contact by name: `rename`
+
+Format:      `rename TAG t/TAG`
+
++ To rename all contacts with same TAG.
++ TAG has to be a full word matching existing tag in the records.
++ TAG is the existing tag that needs to be renamed.
++ t/TAG is the tag to be renamed into.
++ For TAG to be renamed into multiple TAG, you may do do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
+
+Example:
+```
+rename g501 t/graduated t/NUS
+```
+
+### Remove tag from all contact: `rename TAG t/`
+
+Format:      `rename TAG t/`
+
++ TAG is case-sensitive. I.e. `rename student t/` will remove `student` tag from all contact.
++ TAG has to be a full word. I.e. `find G50` will not remove tag `g501`.
+
+Example:
+```
+rename student t/
 ```
 
 ### Search contact by birthday month: `bday MONTH`
