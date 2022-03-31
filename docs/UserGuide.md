@@ -229,26 +229,32 @@ Example:
 bday 1
 ```
 
+
+
 ### Create relation among persons: `relate`
 #### Relate multiple persons to someone
-Format: `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...`
-+ The `relate` command has a 1 to n relationship
-+ INDEX_TO on the left hand side of `<-` is the target whom persons going to relate to
-+ INDEXi on the right hand side of `<-` is the group to relate to the target one by one
-+ Relation is _mutual_. So A related to B, B also related to A automatically.
+
+Format: `relate TO_SEQ_NO_OF_CONTACT <- FROM_SEQ_NO_OF_CONTACT1 FROM_SEQ_NO_OF_CONTACT2 ...`
++ The `relate` command has a 1 to n relationship 
++ TO_SEQ_NO_OF_CONTACT on the left hand side of `<-` is the target whom persons going to relate to
++ FROM_SEQ_NO_OF_CONTACTi on the right hand side of `<-` is the group to relate to the target one by one 
++ Relation is _mutual_. So A related to B, B also related to A automatically
 
 Example:
 ```
 relate 2 <- 1 4 5
 ```
++ **Recommended usage**: you could first `filter` by tag like a class no. `g503`, then use `relate` to relate from all the students to a teacher in that class one at a time.
 #### Show everyone related to a particular person
-Format: `relate INDEX`
-+ When there is no `<-` action symbol used, `relate` acts like a listing command that dispays the person and whose related persons
+Format: `relate SEQ_NO_OF_CONTACT`
++ When there is no `<-` action symbol used, `relate` acts like a listing command that displays the person and whose every related persons
 
 Example:
 ```
 relate 2
 ```
+
+
 
 ### Exit the program:
 Format:      `exit`
@@ -279,12 +285,11 @@ exit
 | **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
 | **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
-| **List**   | `list`                                                                                                                      |
+| **List**   | `list`    
 | **Filter**   | `filter TAG` <br> e.g. <br> `filter student`                                                                                                                             
 | **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   
 | **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`                                                                                                      
 | **Remove tag**   | `rename TAG t/` <br> e.g. <br> `rename student t/`
-| **Undo**   | `undo`                                                                                                                                                                    |
 | **Undo**   | `undo`                                                                                                                                                                    |
 | **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                      |
 | **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br><br> `relate INDEX` <br> e.g. <br> `relate 2`                                        |
