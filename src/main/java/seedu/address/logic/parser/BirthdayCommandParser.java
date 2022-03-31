@@ -41,7 +41,7 @@ public class BirthdayCommandParser implements Parser<BirthdayCommand> {
                 ex.printStackTrace();
             }
         }
-        logger.info("======================[ Bday Parse with arguments ] Month " + nameKeywords + " ===========");
+        logger.info("======================[ Bday Parse with arguments ] Month " + trimmedArgs + " ===========");
 
         return new BirthdayCommand(new NameContainsMonthPredicate(Arrays.asList(nameKeywords)));
     }
