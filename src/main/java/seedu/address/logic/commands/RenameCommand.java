@@ -83,7 +83,7 @@ public class RenameCommand extends Command {
             model.setPerson(personToEdit, editedPerson);
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         }
-        return new CommandResult(String.format(MESSAGE_RENAME_SUCCESS,updatedIndex));
+        return new CommandResult(String.format(MESSAGE_RENAME_SUCCESS, updatedIndex));
     }
 
     /**
