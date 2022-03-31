@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.RenameCommand;
 import seedu.address.logic.commands.RenameCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -47,7 +48,7 @@ public class RenameCommandParser implements Parser<RenameCommand> {
 
         for (String temp: argMultimap.getAllValues(PREFIX_TAG)) {
             if (temp.equals(renameExist)) {
-                throw new ParseException(RenameCommand.MESSAGE_RENAMED_DUPLICATED);
+                throw new ParseException(String.format(RenameCommand.MESSAGE_RENAMED_DUPLICATED, renameExist));
             }
         }
 
