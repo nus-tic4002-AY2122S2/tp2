@@ -191,7 +191,7 @@ Example:
 ```
 copy 1
 ```
-### Search contact by tag: `filer`
+### Search contact by tag: `filter`
 
 Format:      `filter TAG`
 
