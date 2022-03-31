@@ -209,7 +209,7 @@ copy 1
 Format:      `filter TAG`
 
 + TAG is case-insensitive. I.e. `filter G501` will return `g501`’s contact.
-+ TAG has to be a full word. I.e. `find G50` will not return `g501`’s contact.
++ TAG has to be a full word. I.e. `filter G50` will not return `g501`’s contact.
 + Contacts matching either one of the TAG returning a combined result set, the sequence of words will not affect the search result. I.e. `filter g501 g502` will return both `g501`’s and `g502`’s contacts.
 
 Example:
