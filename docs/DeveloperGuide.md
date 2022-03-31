@@ -299,6 +299,33 @@ Sample 'ESC' key Logout Screenshot:-
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
 
+### Email Feature (Send email to particular contact person):
+
+Sample:
+
+![Sample Email Screen](images/emailWindow.png)
+
+Implementation:
+ 
+**_This email feature allowed user to send email to particular group member in the app easily and directly._**
+
+In the main page of the app, user can type the email command to select the contact and open the email window to prepare email and send email.
+
+For the current version, the sender email address and password is built in actual gmail for the testing purpose specific for this app only.
+
+First step: 
+* type the command with keyword, `email KEYWORD`. The keyword is the name of the contact that user want to send email to. 
+* Once the command entered, email window will be popped out if the contact found as shown above (Sender email is the user's and the Receiver email is the contact found by the `KEYWORD`). 
+* If the contact not found, there will be a message to inform user.
+
+Second step: 
+* Key in subject and email content
+* click `button` to send the email 
+
+The follwoing sequence Diagram shows how this command triggered and work in the system:
+
+
+
 ### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
 
 Sample Picture:-
