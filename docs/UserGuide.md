@@ -6,7 +6,7 @@ title: User Guide
 Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands. Teachers can enter contact information for a swift search and retrieve desired contact information within a few keystrokes. The application provides an all-in-one display of the contacts related information and their details are presented in a beautiful scrolling view.
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -24,15 +24,15 @@ Project BUDDY is a Teacher’s Contact Management Application supported by CLI t
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+    * **`add`**`n/John Doe b/2020-01-01 p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
-   * **`clear`** : Deletes all contacts.
+    * **`clear`** : Deletes all contacts.
 
-   * **`exit`** : Exits the app.
+    * **`exit`** : Exits the app.
 
 1. Refer to the [Features](#features) below for details of each command.
 
@@ -44,15 +44,15 @@ Project BUDDY is a Teacher’s Contact Management Application supported by CLI t
 
 **:information_source: Notes about the command format:**<br>
 
-* Record people’s name, phone number, email and address:
-  Format:      add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS
-  Example:     add n/Duke p/98001234 e/duke@gmail.com a/Duke street, block 1, #05-01
+* Record people’s name, birthday, phone number, email and address:
+  Format:      add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS
+  Example:     add n/Duke b/2020-01-01 p/98001234 e/duke@gmail.com a/Duke street, block 1, #05-01
 
 </div>
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -63,7 +63,7 @@ Format: `help`
 
 Create a new contact with info such as name, hp, email, address and optional number of tags.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
@@ -71,7 +71,7 @@ A person can have any number of tags (including 0)
 
 Examples:
 ```
-add n/Nana Park p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
+add n/Nana Park b/2000-01-01 p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
 ```
 
 ### Editing a contact: `edit`
@@ -219,9 +219,9 @@ bday 1
 ### Create relation among persons: `relate`
 #### Relate multiple persons to someone
 Format: `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...`
-+ The `relate` command has a 1 to n relationship 
++ The `relate` command has a 1 to n relationship
 + INDEX_TO on the left hand side of `<-` is the target whom persons going to relate to
-+ INDEXi on the right hand side of `<-` is the group to relate to the target one by one 
++ INDEXi on the right hand side of `<-` is the group to relate to the target one by one
 + Relation is _mutual_. So A related to B, B also related to A automatically.
 
 Example:
@@ -261,10 +261,10 @@ exit
 
 | Action     | Format, Examples                                                                                                                                                          |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student`             |
-| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com `                            |
-| **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`                                                                                                                                     
+| **Add**    | `add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
+| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
+| **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
 | **Filter**   | `filter NAME` <br> e.g. <br> `filter student`                                                                                                                             

@@ -41,10 +41,17 @@ public class RenameCommandParser implements Parser<RenameCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_TAG);
 
-        Tag renameTag = getTag(argMultimap);
-        requireNonNull(renameTag);
+        Tag renameExistTag = getTag(argMultimap);
+        String renameExist = renameExistTag.toString().replace("[", "").replace("]", "");
+        requireNonNull(renameExistTag);
 
-        logger.info("======================[ Rename Parse with arguments ] renamed " + renameTag + " ================");
+        for (String temp: argMultimap.getAllValues(PREFIX_TAG)) {
+            if (temp.equals(renameExist)) {
+                throw new ParseException(RenameCommand.MESSAGE_RENAMED_DUPLICATED);
+            }
+        }
+
+        logger.info("======================[ Rename Parse with arguments ] renamed " + renameExistTag + " ===========");
 
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
 
@@ -54,7 +61,7 @@ public class RenameCommandParser implements Parser<RenameCommand> {
             throw new ParseException(RenameCommand.MESSAGE_NOT_RENAMED);
         }
 
-        return new RenameCommand(editPersonDescriptor, renameTag);
+        return new RenameCommand(editPersonDescriptor, renameExistTag);
     }
 
     /**
