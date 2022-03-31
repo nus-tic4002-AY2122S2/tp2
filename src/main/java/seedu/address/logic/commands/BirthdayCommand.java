@@ -17,8 +17,10 @@ public class BirthdayCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Display all persons whose birthday within "
             + "the specified month and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
+            + "Parameters: MM [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " 01";
+
+    public static final String MESSAGE_INVALID_MONTH = "Valid month must be provided between 1 to 12.";
 
     private final NameContainsMonthPredicate predicate;
 
