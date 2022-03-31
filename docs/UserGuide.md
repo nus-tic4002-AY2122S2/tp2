@@ -171,6 +171,18 @@ Example:
 rename g501 t/graduated t/NUS
 ```
 
+### Remove tag from all contact: `rename TAG t/`
+
+Format:      `rename TAG t/`
+
++ TAG is case-sensitive. I.e. `rename student t/` will remove `student` tag from all contact.
++ TAG has to be a full word. I.e. `find G50` will not remove tag `g501`.
+
+Example:
+```
+rename student t/
+```
+
 ### Undo the previous command: `undo`
 
 Format:      `undo`
@@ -191,6 +203,7 @@ Example:
 ```
 copy 1
 ```
+
 ### Search contact by tag: `filter`
 
 Format:      `filter TAG`
