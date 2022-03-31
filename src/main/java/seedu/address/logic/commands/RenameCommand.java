@@ -40,6 +40,7 @@ public class RenameCommand extends Command {
 
     public static final String MESSAGE_RENAME_SUCCESS = "Rename is completed.";
     public static final String MESSAGE_NOT_RENAMED = "At least one field to rename must be provided.";
+    public static final String MESSAGE_RENAMED_DUPLICATED = "Not able to rename using same tag naming.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
     private final EditPersonDescriptor editPersonDescriptor;
