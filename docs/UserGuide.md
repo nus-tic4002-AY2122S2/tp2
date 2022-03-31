@@ -262,16 +262,16 @@ exit
 | Action     | Format, Examples                                                                                                                                                          |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
-| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
-| **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`
+| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student`             |
+| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com `                            |
+| **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`                                                                                                                                     
 | **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
 | **List**   | `list` <br> `list TAG` <br> e.g. <br> `list student`                                                                                                                      |
-| **Filter**   | `filter NAME` <br> e.g. <br> `filter student`
-| **Find**   | `find NAME` <br> e.g. <br> `find steve`
-| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`
+| **Filter**   | `filter NAME` <br> e.g. <br> `filter student`                                                                                                                             
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   
+| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`                                                                                                      
 | **Undo**   | `undo`                                                                                                                                                                    |
-| **Undo**   | `undo`                                                                                                                                   |
-| **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                  |
-| **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br> `relate INDEX` <br> e.g. <br> `relate 2`                                            |
+| **Undo**   | `undo`                                                                                                                                                                    |
+| **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                      |
+| **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br><br> `relate INDEX` <br> e.g. <br> `relate 2`                                        |
 | **Exit**   | `exit`                                                                                                                                                                    |
