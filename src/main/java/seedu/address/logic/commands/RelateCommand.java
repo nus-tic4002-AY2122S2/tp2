@@ -74,6 +74,9 @@ public class RelateCommand extends Command {
         if (from.isPresent()) {
             List<Index> indices = from.get();
             for (Index i : indices) {
+                if (i.getZeroBased() >= lastShownList.size()) {
+                    throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+                }
                 Person personFrom = lastShownList.get(i.getZeroBased());
                 if (!personFrom.equals(personTo)) {
                     // personTo.addRelation(personFrom.getName().fullName);
