@@ -32,14 +32,14 @@ public class RenameCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": rename the tag of the person identified "
             + "by the existing tag in the displayed person list. "
-            + "Existing values will be overwritten by the input values.\n"
+            + "Existing tag will be overwritten by the input tag.\n"
             + "Parameters: TAG (existing tag to rename) "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " g501 "
             + PREFIX_TAG + "g603 ";
 
     public static final String MESSAGE_RENAME_SUCCESS = "Rename is completed.";
-    public static final String MESSAGE_NOT_RENAMED = "At least one field to rename must be provided.";
+    public static final String MESSAGE_NOT_RENAMED = "At least one tag field to rename must be provided.";
     public static final String MESSAGE_RENAMED_DUPLICATED = "Not able to rename using same tag naming. \nRemove [ t/%1$s ].";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
