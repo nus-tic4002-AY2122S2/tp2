@@ -31,13 +31,12 @@ public class BirthdayCommandParser implements Parser<BirthdayCommand> {
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
         for (String temp: nameKeywords) {
-            try{
+            try {
                 int month = Integer.parseInt(temp);
                 if (month < 1 || month > 12) {
                     throw new ParseException(BirthdayCommand.MESSAGE_INVALID_MONTH);
                 }
-            }
-            catch (NumberFormatException ex){
+            } catch (NumberFormatException ex) {
                 ex.printStackTrace();
             }
         }
