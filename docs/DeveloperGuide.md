@@ -435,6 +435,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. System shows the person added successful message
 
    Use case ends.
+   
+**Extension**
+
+* 1a. Personal details contain: 
+    * Name (short-form used: a/)
+    * Phone number (short-form used: p/)
+    * Address (short-form used: a/)
+    * Email (short-form used: e/)
+    * Remark (short-form used: r/)
+    * Tag (short-form used: t/)
+    * Date join (short-form used: d/, formate: DD/MM/YYYY)
+    * Gender (short-form used:g/)
+
+**Use case: Find a person**
+
+**MSS**
+
+1. User type find command with KEYWORD
+2. System find and match person from the list
+3. System shows the find information to user
+4. System list out the matched person(s) in the main page
+
+   Use case ends.
+
+**Extension**
+
+* 3a. Find information:
+    * If has matched person, shows people found
+    * If no matched person, shows no matched person found
 
 *{More to be added}*
 
