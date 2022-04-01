@@ -52,6 +52,7 @@ public class CopyCommand extends Command {
 
         Person personToCopy = lastShownList.get(index.getZeroBased());
 
+        // Solution below adapted from https://stackoverflow.com/a/6713290/11929921
         StringSelection stringSelection = new StringSelection(personToCopy.toString());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
