@@ -324,6 +324,7 @@ Second step:
 
 The follwoing sequence Diagram shows how this command triggered and work in the system:
 
+![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
 
 
 ### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
