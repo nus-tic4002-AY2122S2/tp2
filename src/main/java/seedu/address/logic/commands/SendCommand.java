@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_POSTS;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -71,14 +72,16 @@ public class SendCommand extends Command {
                     outputMsg += String.format(
                             Messages.MESSAGE_POST_SENT_TO_DUPLICATE_CLIENT,
                             targetPost.getTitle().value, restClientName.toString()) + "\n";
+                } else {
+                    outputMsg += String.format(
+                            MESSAGE_SUCCESS, targetPost.toString(), selectedClientName.toString());
                 }
                 //currentSentClient.addAll(selectedClientName);
                 currentSentClient.addAll(unSentClientName);
                 model.updatePostSentCid(currentSentClient, targetPost);
             }
         }
-        model.updateFilteredPostList(Model.PREDICATE_SHOW_ALL_POSTS);
-
+        model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
         //return new CommandResult(
         //       String.format(MESSAGE_SUCCESS, selectedPostTitle.toString(), selectedClientName.toString()));
         return new CommandResult(outputMsg);

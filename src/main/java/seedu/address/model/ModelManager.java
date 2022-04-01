@@ -180,6 +180,7 @@ public class ModelManager implements Model {
     public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
         requireAllNonNull(updatedSentCid, targetPost);
         addressBook.updatePostSentCid(updatedSentCid, targetPost);
+        updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
     }
 
     @Override
