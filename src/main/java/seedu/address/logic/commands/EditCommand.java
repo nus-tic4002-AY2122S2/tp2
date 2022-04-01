@@ -21,6 +21,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.LogicManager;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Address;
@@ -100,8 +101,6 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        LogicManager.updateOriginalAddressBook(model.getAddressBook());
-
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return editedPerson;
@@ -115,6 +114,8 @@ public class EditCommand extends Command {
         String editedPerson = "";
         List <Person> editedPersons = new ArrayList<>();
 
+        ReadOnlyAddressBook existingAddressBook = new AddressBook(model.getAddressBook());
+
         if (indexes != null) {
             for (String i:indexes) {
                 this.index = new Index (Integer.parseInt(i) - 1);
@@ -124,6 +125,8 @@ public class EditCommand extends Command {
         } else {
             editedPerson = editingPerson(model).toString();
         }
+
+        LogicManager.updateOriginalAddressBook(existingAddressBook);
 
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
