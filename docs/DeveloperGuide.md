@@ -299,6 +299,34 @@ Sample 'ESC' key Logout Screenshot:-
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
 
+### Email Feature (Send email to particular contact person):
+
+Sample:
+
+![Sample Email Screen](images/emailWindow.png)
+
+Implementation:
+ 
+**_This email feature allowed user to send email to particular group member in the app easily and directly._**
+
+In the main page of the app, user can type the email command to select the contact and open the email window to prepare email and send email.
+
+For the current version, the sender email address and password is built in actual gmail for the testing purpose specific for this app only.
+
+First step: 
+* type the command with keyword, `email KEYWORD`. The keyword is the name of the contact that user want to send email to. 
+* Once the command entered, email window will be popped out if the contact found as shown above (Sender email is the user's and the Receiver email is the contact found by the `KEYWORD`). 
+* If the contact not found, there will be a message to inform user.
+
+Second step: 
+* Key in subject and email content
+* click `button` to send the email 
+
+The follwoing sequence Diagram shows how this command triggered and work in the system:
+
+![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
+
+
 ### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
 
 Sample Picture:-
@@ -351,9 +379,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add a new person                   |                                                                        |
 | `* * *`  | main Project Communicator                  | log a brief communication note     | have a quick glance at the last intercourse done with contact          |
 | `* * *`  | user                                       | delete a person                    | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | export contact to excel file       | transfer data to other place                                           |
+| `* * *`  | user                                       | export contact to txt file         | transfer data to other place                                           |
 | `* * *`  | user                                       | find person by tag/information     | find a group of people related                                         |
-| `* * *`  | user                                       | find a person by name/partial name | locate details of persons without having to go through the entire list |              
+| `* * *`  | user                                       | find a person by name/partial name | locate details of persons without having to go through the entire list | | `* *`    | user                                       | can send email to specific person  | communicate each other directly            
 | `* *`    | user                                       | hide private contact details       | minimize chance of someone else seeing them by accident                |
 | `* *`    | user                                       | add a remark on the contact        | note down some information on the contact                              |
 | `*`      | user with many persons in the address book | sort persons by name               | locate a person easily                                                 |
@@ -386,6 +414,56 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. TeamContact 24/7 shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Email a person**
+
+**MSS**
+
+1. User type email command with keyword to request to email a specific person
+2. System shows the specific person found message and Email window display
+3. User key in email subject and email content and click button to send email
+4. System send email and the email window close
+
+   Use case ends.
+   
+**Use case: Add a person**
+
+**MSS**
+
+1. User type add command with personal details
+2. System add the person to the list and save to json file
+3. System shows the person added successful message
+
+   Use case ends.
+   
+**Extension**
+
+* 1a. Personal details contain: 
+    * Name (short-form used: a/)
+    * Phone number (short-form used: p/)
+    * Address (short-form used: a/)
+    * Email (short-form used: e/)
+    * Remark (short-form used: r/)
+    * Tag (short-form used: t/)
+    * Date join (short-form used: d/, formate: DD/MM/YYYY)
+    * Gender (short-form used:g/)
+
+**Use case: Find a person**
+
+**MSS**
+
+1. User type find command with KEYWORD
+2. System find and match person from the list
+3. System shows the find information to user
+4. System list out the matched person(s) in the main page
+
+   Use case ends.
+
+**Extension**
+
+* 3a. Find information:
+    * If has matched person, shows people found
+    * If no matched person, shows no matched person found
 
 *{More to be added}*
 
