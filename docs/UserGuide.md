@@ -11,15 +11,15 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `TeamContact 24-7-v1.4.jar` from the tp2 Repo GitHub v1.4 release.
+2. Download the latest `TeamContact 24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
 4. Double-click the file to start the app. A Login Screen will appear.
 
-5. Enter your login data (sample Username usage = "Java", sample Password usage = "123456").
+5. Enter your login data (demo Username usage = "Java", sample Password usage = "123456").
 
-7. The GUI similar to that shown below should appear in a few seconds. Note how the app contains some sample data.<br>
+7. The GUI similar to that shown below will appear next. Note how the app contains some sample data and a in-use CLI edit command.<br>
    ![Ui](images/Ui.png)
 
 8. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -222,6 +222,18 @@ Program data are saved as a JSON file `[JAR file location]/data/addressbook.json
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, TeamContact 24/7 app will discard all data and start with an empty data file at the next run.
 </div>
+
+### Securing the data file
+
+The offline addressbook.json file is not encrypted by any means, it is visually exposed to public viewing,
+so possibly running afoul of PDPA violation or subterfuge if fallen into the wrong hand.
+
+We leave it to the user how he/she will want to personally configure or implement the encryption/decryption mechanism part where
+the TeamContact 24/7 will save log, data and setting files in the current working folder, e.g. Windows user can use the
+native Bitlocker or Explorer file/folder encryption features easily, or choose a third party tool like
+[Easy File Locker](https://xoslab.com/efl.html) or [7-zip](https://7ziphelp.com/password-protect-on-7zip) to give
+confidentiality to the folder, or a concerned file.
+
 
 ### Archiving data files `[coming in v2.0]`
 
