@@ -158,8 +158,8 @@ public class Person {
                 .append(getEmail())
                 .append("; Address: ")
                 .append(getAddress())
-                .append(getBirthday())
-                .append("; Birthday:");
+                .append("; Birthday:")
+                .append(getBirthday());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
