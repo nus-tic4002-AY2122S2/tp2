@@ -18,15 +18,15 @@ Given below are my contributions to the project.
 * **Code contributed**: [Ref: RepoSense link](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=gweeyc&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-11&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 * **Contributions to team-based tasks**:
-    * Manage all releases up to `v1.4` (4 releases) on GitHub
+    * Managed all releases up to `v1.4` (4 releases) on GitHub
     * Team Lead functions
-    * Successful setup of the [Team 5 Remote Repo](https://github.com/AY2122S2-TIC4002-F18-5/tp2), with all stipulated functionalities and features added
+    * Successful setup of the [Team 5 Remote Repo](https://github.com/AY2122S2-TIC4002-F18-5/tp2), with stipulated features added
     * Work related to renaming the product, changing the product icon and morphing the product into a different looking product
     * Support team members' morale and PRs via various verbal checks, encouragement, reviews and merges [#135](https://github.com/AY2122S2-TIC4002-F18-5/tp2/pull/135), [#18](https://github.com/AY2122S2-TIC4002-F18-5/tp2/pull/18), [#64](https://github.com/AY2122S2-TIC4002-F18-5/tp2/pull/64)
 
 * **Enhancements to existing features**:
     * Wrote additional tests for existing features to increase coverage of additional field remarks.
-    * Added **LogCommandTest**, **LogCommandParserTest** and **LogTest** files (test module folder)
+    * Did **LogCommandTest**, **LogCommandParserTest** and **LogTest** files (test module folder)
 
 * **Documentation**:
     * User Guide:
