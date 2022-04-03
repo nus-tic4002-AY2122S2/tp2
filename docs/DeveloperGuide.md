@@ -9,8 +9,11 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+* [TECHIE DELIGHT </> Singleton Pattern – Java Implementation](https://www.techiedelight.com/implement-singleton-pattern-in-java/)
+* [tutorials.jenkov.com - Java Synchronized Blocks](http://tutorials.jenkov.com/java-concurrency/synchronized.html)
+* [docs.oracle.com Class](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Class.html)
+* [Java Coding Community - Programming Tutorials](https://www.youtube.com/watch?v=HBBtlwGpBek)
+* [Glucon ScreenBuilder](https://gluonhq.com/products/scene-builder/)
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -275,11 +278,11 @@ Sample **SingletonLogin** UML Class Diagram:-
 
 #### Design considerations:
 
-- **MainWindow.java** was modified to not show the mainWindow of the main App when it first loads
+- **MainWindow.java** was modified to not show the mainWindow of the main App upon first load
 - Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
 to make it harder to guess
-- The Login Screen object is patterned after the Singleton creational design pattern - as a Java Singleton object - to 
-further increase security against possible rogue substitutes, or false replacement
+- The Login Screen object (from the SIngletonLogin class) is patterned after the Singleton creational design pattern to further increase security against possible rogue substitutes or false replacement
+- The SingletonLogin class was also made final to block any subclass attempt, it's getInstance() public static method made thread-safe and the constructor was modified to throw an exception if it's made to create a second instance reflectively 
 - The main App stage was also elevated as a class-level protected object (as appStage in MainApp.java), to increase security
 against unauthorised access or possible abuse
 
