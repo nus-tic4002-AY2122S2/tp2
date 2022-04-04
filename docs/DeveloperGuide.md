@@ -12,7 +12,7 @@ title: Developer Guide
 * [TECHIE DELIGHT </> Singleton Pattern – Java Implementation](https://www.techiedelight.com/implement-singleton-pattern-in-java/)
 * [tutorials.jenkov.com - Java Synchronized Blocks](http://tutorials.jenkov.com/java-concurrency/synchronized.html)
 * [docs.oracle.com Class](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Class.html)
-* [Java Coding Community - Programming Tutorials](https://www.youtube.com/watch?v=HBBtlwGpBek)
+* [Java Coding Community - JavaFX and Scene Builder Tutorial](https://www.youtube.com/watch?v=HBBtlwGpBek)
 * [Glucon ScreenBuilder](https://gluonhq.com/products/scene-builder/)
 --------------------------------------------------------------------------------------------------------------------
 
@@ -302,6 +302,25 @@ Sample 'ESC' key Logout Screenshot:-
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
 
+### \[Proposed\] Introduce limit login attempt feature
+- Can limit to 3 attempts and user is locked out or
+- Increase the login credentials processing duration each time login failed
+
+_{coming feature}_
+
+### \[Proposed\] Increase login data CIA via secure password storage feature code in
+- Along the lines of [Happy Coding](https://happycoding.io/tutorials/java-server/secure-password-storage)
+
+_{coming feature}_
+
+### \[Proposed\] Attachment of a useful mini-digital clock on top left-hand side of TeamContact 24/7 - for quick time lookup
+
+A Sample Picture:-
+
+![Sample Esc key logout Sequence](images/digitalclock.png)
+
+_{coming feature}_
+
 ### Email Feature (Send email to particular contact person):
 
 Sample:
@@ -328,15 +347,6 @@ Second step:
 The follwoing sequence Diagram shows how this command triggered and work in the system:
 
 ![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
-
-
-### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
-
-Sample Picture:-
-
-![Sample Esc key logout Sequence](images/digitalclock.png)
-
-_{coming feature}_
 
 
 ### \[Proposed\] Data archiving
