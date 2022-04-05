@@ -453,6 +453,39 @@ testers are expected to do more *exploratory* testing.
 
 2. _{ more test cases …​ }_
 
+### Find top person
+
+1. Find top scorer person of the subject
+
+    1. Prerequisites: Find top scorer persons using the `top` command. Show the name and score of that person.
+
+    1. Test case: `top english`<br>
+       Expected: show the person with top score in english
+
+    1. Test case: `top`<br>
+       Expected: show the guide for this command
+
+    1. Test case: `top el`<br>
+       Expected: show error in keying the wrong subject and prompt the user what are the correct subject to be key in.
+
+2. _{ more test cases …​ }_
+
+### Find last person
+
+1. Find lowest scorer person of the subject
+
+    1. Prerequisites: Find lowest scorer persons using the `last` command. Show the name and score of that person.
+
+    1. Test case: `last english`<br>
+       Expected: show the person with top score in english
+
+    1. Test case: `last`<br>
+       Expected: show the guide for this command
+
+    1. Test case: `last el`<br>
+       Expected: show error in keying the wrong subject and prompt the user what are the correct subject to be key in.
+       
+2. _{ more test cases …​ }_
 ### Saving data
 
 1. Dealing with missing/corrupted data files

@@ -1,10 +1,10 @@
 {
   "persons" : [ {
     "name" : "Lee Kuan Yeow",
-    "phone" : "91235647",
-    "email" : "leeKY@example.com",
+    "phone" : "91234567",
+    "email" : "johndoe@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
-    "classroom" : "1A",
+    "classroom" : "SampleClassroom",
     "english" : 90,
     "motherTongue" : 95,
     "mathematics" : 100,
