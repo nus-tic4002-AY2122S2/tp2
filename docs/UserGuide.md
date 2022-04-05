@@ -182,6 +182,9 @@ _Details coming soon ..._
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous ContactManager home folder.
 
+**Q**: How many contacts can I store in Contact Manager?<br>
+**A**: It is recommended that no more than 1000 contacts is stored in Contact Manager.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
