@@ -72,7 +72,7 @@ public class AddressBookParser {
 
         case LastCommand.COMMAND_WORD:
             return new LastCommandParser().parse(arguments);
-            
+
         case TopCommand.COMMAND_WORD:
             return new TopCommandParser().parse(arguments);
 

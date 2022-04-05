@@ -484,7 +484,7 @@ testers are expected to do more *exploratory* testing.
 
     1. Test case: `last el`<br>
        Expected: show error in keying the wrong subject and prompt the user what are the correct subject to be key in.
-       
+
 2. _{ more test cases …​ }_
 ### Saving data
 
