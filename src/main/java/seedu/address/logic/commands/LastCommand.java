@@ -1,9 +1,10 @@
 package seedu.address.logic.commands;
 
+import java.util.List;
+
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
-import java.util.List;
 
 
 /**
@@ -39,66 +40,66 @@ public class LastCommand extends Command {
         for (int i = 0; i < lastShownList.size(); i++) {
             switch (subject) {
 
-                case "english":
-                    if (i == 0) {
-                        topScore = lastShownList.get(i).getEnglish().score;
-                    }
-                    currentScore = lastShownList.get(i).getEnglish().score;
-                    if (topScore > currentScore) {
-                        topScore = currentScore;
-                        index = i;
-                    }
-                    break;
+            case "english":
+                if (i == 0) {
+                    topScore = lastShownList.get(i).getEnglish().score;
+                }
+                currentScore = lastShownList.get(i).getEnglish().score;
+                if (topScore > currentScore) {
+                    topScore = currentScore;
+                    index = i;
+                }
+                break;
 
-                case "science":
-                    if (i == 0) {
-                        topScore = lastShownList.get(i).getScience().score;
-                    }
-                    currentScore = lastShownList.get(i).getScience().score;
-                    if (topScore > currentScore) {
-                        topScore = currentScore;
-                        index = i;
-                    }
-                    break;
+            case "science":
+                if (i == 0) {
+                    topScore = lastShownList.get(i).getScience().score;
+                }
+                currentScore = lastShownList.get(i).getScience().score;
+                if (topScore > currentScore) {
+                    topScore = currentScore;
+                    index = i;
+                }
+                break;
 
-                case "mathematics":
-                    if (i == 0) {
-                        topScore = lastShownList.get(i).getMathematics().score;
-                    }
-                    currentScore = lastShownList.get(i).getMathematics().score;
-                    if (topScore > currentScore) {
-                        topScore = currentScore;
-                        index = i;
-                    }
-                    break;
+            case "mathematics":
+                if (i == 0) {
+                    topScore = lastShownList.get(i).getMathematics().score;
+                }
+                currentScore = lastShownList.get(i).getMathematics().score;
+                if (topScore > currentScore) {
+                    topScore = currentScore;
+                    index = i;
+                }
+                break;
 
-                case "mothertongue":
-                    if (i == 0) {
-                        topScore = lastShownList.get(i).getMotherTongue().score;
-                    }
-                    currentScore = lastShownList.get(i).getMotherTongue().score;
-                    if (topScore > currentScore) {
-                        topScore = currentScore;
-                        index = i;
-                    }
-                    break;
+            case "mothertongue":
+                if (i == 0) {
+                    topScore = lastShownList.get(i).getMotherTongue().score;
+                }
+                currentScore = lastShownList.get(i).getMotherTongue().score;
+                if (topScore > currentScore) {
+                    topScore = currentScore;
+                    index = i;
+                }
+                break;
 
-                case "total":
-                    if (i == 0) {
-                        topScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score
-                                + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
-                    }
-                    currentScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score
+            case "total":
+                if (i == 0) {
+                    topScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score
                             + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
-                    if (topScore > currentScore) {
-                        topScore = currentScore;
-                        index = i;
-                    }
-                    break;
+                }
+                currentScore = lastShownList.get(i).getEnglish().score + lastShownList.get(i).getMathematics().score
+                        + lastShownList.get(i).getMotherTongue().score + lastShownList.get(i).getScience().score;
+                if (topScore > currentScore) {
+                    topScore = currentScore;
+                    index = i;
+                }
+                break;
 
-                default:
-                    return new CommandResult(
-                            String.format(MESSAGE_SUBJECT_ERROR));
+            default:
+                return new CommandResult(
+                        String.format(MESSAGE_SUBJECT_ERROR));
             }
 
         }
