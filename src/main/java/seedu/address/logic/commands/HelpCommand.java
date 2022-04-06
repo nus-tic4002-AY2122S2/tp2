@@ -12,11 +12,12 @@ public class HelpCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows program usage instructions.\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String SHOWING_HELP_MESSAGE = "Adding a person: add n/NAME p/PHONE_NUMBER e/CLASS"
-            + "en/SCORE mt/SCORE m/SCORE s/SCORE\n"
+    public static final String SHOWING_HELP_MESSAGE = "Adding a person: add n/NAME p/PHONE_NUMBER "
+            + "e/EMAIL a/ADDRESS c/CLASSROOM en/SCORE mt/SCORE m/SCORE s/SCORE\n"
             + "Listing all persons : list\n"
-            + "Editing a person : edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS]"
-            + "[en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]\n"
+            + "Editing a person : edit INDEX [n/NAME] [p/PHONE_NUMBER] "
+            + "[a/ADDRESS] [e/EMAIL] [c/CLASSROOM] [en/ENGLISH] [mt/MOTHER TONGUE] "
+            + "[m/MATH] [s/SCIENCE] [rt/RECEIVE_TYPE] [t/TAGS]\n"
             + "Locating persons by name: find NAME\n"
             + "Deleting a person : delete INDEX\n"
             + "Find top scorer for the subject: top SUBJECT\n"
