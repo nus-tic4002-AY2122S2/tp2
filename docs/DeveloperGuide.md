@@ -326,6 +326,19 @@ The follwoing sequence Diagram shows how this command triggered and work in the 
 
 ![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
 
+### Export Feature (Export all contacts' details to a text file)
+
+Sample command input: `export`
+
+Implementation:
+
+**_This export feature allowed user to export all contacts' details to a text file. The text file save locally and it's readable. Hence user can transfer the details to other location or PCs._**
+
+In the main page of the app, user can type the export command (`export`) to get a text file which contain all the contacts' information. 
+
+The following sequence diagram show how this command triggered and work in the system:
+
+![ExportCommand_Sequence_Diagram](images/ExportCommand_Sequencial_Diagram.png)
 
 ### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
 
