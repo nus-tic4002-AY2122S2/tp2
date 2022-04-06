@@ -34,6 +34,8 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
    * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact in the current display list.
      * _**NB:-** log is different from remark in the sense that log is for work-related notes only while remark is for all non work-related comments. A log is created via the log Command whereas remark is entered through the "r/" arg of add Command._
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+
+   * **`export`** : Export all the contact details to text file.
    
    * **`sort`** : Sort all contacts.
 
@@ -201,6 +203,10 @@ Sort all contacts by name in ascending order
 
 Format: `sort`
 
+### Export all contacts' details: `export`
+
+Export all contacts' detials to a text file which saved in local disk.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TeamContact 24/7 app.
@@ -261,6 +267,8 @@ _Details coming soon ..._
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                               |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                       |
 | **Email**  | `email KEYWORD`<br> e.g., `email micheal`                                                                                                                                                                        |
+| **Export** | `export`
+                                                         |
 | **Sort**   | `sort`                                                                                                                                                                                                           |
 | **List**   | `list`                                                                                                                                                                                                           |
 | **Help**   | `help`                                                                                                                                                                                                           |
