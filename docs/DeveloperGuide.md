@@ -360,20 +360,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. Format is incorrect.
 
-    * 3a1. GreatBook shows the error message.
-  
+    * 3a1. GreatBook shows the error message.<br>
       Use case resumes at step 2.
 
 * 4a. The given index is invalid.
 
-    * 4a1. GreatBook shows an error message.
-  
+    * 4a1. GreatBook shows an error message.<br>
       Use case resumes at step 2.
 
 * 5a. Nothing is changed.
 
-    * 5a1. GreatBook shows an error message.
-      
+    * 5a1. GreatBook shows an error message.<br>
       Use case resumes at step 2.
 
 *{More to be added}*
