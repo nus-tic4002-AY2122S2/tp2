@@ -30,7 +30,7 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `greatbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+2. Download the latest `greatbook.jar` from [here](https://github.com/AY2122S2-TIC4002-F18-2/tp2/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your GreatBook.
 
