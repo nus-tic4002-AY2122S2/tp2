@@ -76,9 +76,8 @@ class JsonAdaptedPerson {
                 .collect(Collectors.toList()));
 
         relation.addAll(source.getRelation().getSet().stream()
-                        .map(n -> n.fullName)
-                        .collect(Collectors.toList()));
-
+                    .map(n -> n.fullName)
+                    .collect(Collectors.toList()));
     }
 
     /**
