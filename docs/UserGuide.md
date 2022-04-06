@@ -267,8 +267,7 @@ _Details coming soon ..._
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                               |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                       |
 | **Email**  | `email KEYWORD`<br> e.g., `email micheal`                                                                                                                                                                        |
-| **Export** | `export`
-                                                         |
+| **Export** | `export`  |
 | **Sort**   | `sort`                                                                                                                                                                                                           |
 | **List**   | `list`                                                                                                                                                                                                           |
 | **Help**   | `help`                                                                                                                                                                                                           |
