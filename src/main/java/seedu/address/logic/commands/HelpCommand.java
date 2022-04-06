@@ -19,6 +19,8 @@ public class HelpCommand extends Command {
             + "[en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]\n"
             + "Locating persons by name: find NAME\n"
             + "Deleting a person : delete INDEX\n"
+            + "Find top scorer for the subject: top SUBJECT\n"
+            + "Find last scorer for the subject: last SUBJECT\n"
             + "Clearing all entries : clear\n"
             + "Exiting the program : exit\n";
 
