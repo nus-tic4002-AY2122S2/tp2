@@ -1,4 +1,7 @@
-
+---
+layout: page
+title: Li Shihao's Project Portfolio Page
+---
 
 ## Documentation
 
@@ -15,7 +18,7 @@
 
 + **UI Overhaul**:
   - Light theme css 
-  - Person in Card View instead of List View for space saving and info density
+  - Person in Card View instead of List View for space-saving and info density
   1. [PR#27](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/27/files)
      
      (also includes a fix of `JsonUtil` and its test that `addressbook.json` would not have a 
@@ -23,12 +26,16 @@
 
 + Sample contacts in `addressbook.json` (not correct way)
   1. [PR#35](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/35/files)
-+ Create 19 suitable sample contacts for our project context in `SampleDataUtil.java`, add `/data/` to `gitignore` (proper way)
++ Create 19 suitable sample contacts for our project context in `SampleDataUtil.java`, 
+  add `/data/` to `gitignore` (proper way)
   1. [PR#50](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/50/files)
 + Relate Command 
   + which relate multiple contacts to one `relate 2 <- 1 4 5`
   + or list a person and whose every related contacts by `relate 2`
   + mutual relationship: A related to B, B automatically related to A
-  1. [PR#58](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/58/files) Major feature release.
-  2. [PR#98](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/98/files) Fix invalid index after `<-` operator does not throw exception.
-  3. [PR#109](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/109/files) Bug fix: unable to save new person added due to construct person in `AddCommandParser` with `null` for relation.
+  1. [PR#58](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/58/files) 
+     Major feature release.
+  2. [PR#98](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/98/files) 
+     Fix invalid index after `<-` operator does not throw exception.
+  3. [PR#109](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/109/files)
+     Bug fix: unable to save new person added due to construct person in `AddCommandParser` with `null` for relation.-TIC4002-F18-3/tp2/pull/98/files) Fix invalid index after `<-` operator does not throw exception
