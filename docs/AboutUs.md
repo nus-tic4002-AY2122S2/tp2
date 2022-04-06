@@ -31,6 +31,6 @@ You can reach us via our github profiles.
 
 <img src="images/james.jpg" width="200px">
 
-[[github](http://github.com/sohwkjames)] [[portfolio](team/james.md)]
+[[github](http://github.com/sohwkjames)] [[portfolio](team/sohwkjames.md)]
 
 * Role: Developer
