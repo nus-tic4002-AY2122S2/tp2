@@ -49,7 +49,7 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         Birthday birthday = ParserUtil.parseBirthday(argMultimap.getValue(PREFIX_BIRTHDAY).get());
 
-        Person person = new Person(name, phone, email, address, tagList, birthday, null);
+        Person person = new Person(name, phone, email, address, tagList, birthday);
 
         return new AddCommand(person);
     }
