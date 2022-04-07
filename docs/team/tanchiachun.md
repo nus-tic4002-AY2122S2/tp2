@@ -9,4 +9,11 @@ Contact Manager is more than just software saving static contact information. It
 
 Given below are my contributions to the project.
 
-* [Coming soon]
+#### Enhancements Implemented
+
+1. Add `Money` to contacts as money owed.
+1. Overview of total `Money` owed to all contacts, together with count of contacts.
+
+#### Code contributed
+
+Refer to [RepoSense Link](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=tanchiachun&breakdown=true)
