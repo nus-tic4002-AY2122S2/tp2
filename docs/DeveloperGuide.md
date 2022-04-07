@@ -472,7 +472,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * Remark (short-form used: r/)
     * Tag (short-form used: t/)
     * Date join (short-form used: d/, formate: DD/MM/YYYY)
-    * Gender (short-form used:g/)
 
 **Use case: Find a person**
 
