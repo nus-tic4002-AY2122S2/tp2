@@ -15,7 +15,9 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
-4. Double-click the file to start the app. A Login Screen will appear.
+4. Double-click the file to start the app or type `java -jar "teamcontact 24-7-v1.4.jar"` at the terminal opened at working folder of the demo app (quotes are used to avoid possible issues with spaces in the jar file name).
+
+5. A Login Screen will appear.
 
 5. Enter your login data (demo Username usage = "Java", sample Password usage = "123456").
 
