@@ -14,7 +14,7 @@ You can reach us via our github profiles.
 <img src="images/zhangyun.png" width="200px">
 
 [[github](https://github.com/zyjarvis)]
-[[portfolio](team/zhangyun.md)]
+[[portfolio](team/zyjarvis.md)]
 
 * Role: Developer
 
