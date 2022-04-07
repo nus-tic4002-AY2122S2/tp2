@@ -11,15 +11,17 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `TeamContact 24-7-v1.4.jar` from the tp2 Repo GitHub v1.4 release (coming feature).
+2. Download the latest `TeamContact 24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
-4. Double-click the file to start the app. A Login Screen will appear.
+4. Double-click the file to start the app or type `java -jar "teamcontact 24-7-v1.4.jar"` at the terminal opened at working folder of the demo app (quotes are used to avoid possible issues with spaces in the jar file name).
 
-5. Enter your login data (sample Username usage = "Java", sample Password usage = "123456").
+5. A Login Screen will appear.
 
-7. The GUI similar to that shown below should appear in a few seconds. Note how the app contains some sample data.<br>
+5. Enter your login data (demo Username usage = "Java", sample Password usage = "123456").
+
+7. The GUI similar to that shown below will appear next. Note how the app contains some sample data and a in-use CLI edit command.<br>
    ![Ui](images/Ui.png)
 
 8. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -29,9 +31,13 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
-   * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact shown in the current list.
+   * **`email`**`email micheal`: Send an email to a contact named `Micheal`
    
+   * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact in the current display list.
+     * _**NB:-** log is different from remark in the sense that log is for work-related notes only while remark is for all non work-related comments. A log is created via the log Command whereas remark is entered through the "r/" arg of add Command._
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+
+   * **`export`** : Export all the contact details to text file.
    
    * **`sort`** : Sort all contacts.
 
@@ -92,13 +98,13 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/01/2022 r/some comments g/male`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/09/01/2022 r/some comments t/criminal g/female`
 
-### Logging a brief note or communication update : `log`
+### Logging a brief project work note or communication update : `log`
 
-Logs a brief memo or intercourse update to a person listed in the TeamContact 24/7 app.
+Logs a brief project work related memo / intercourse update on a person listed in the TeamContact 24/7 app.
 
 Format: `log INDEX l/Some brief log note on the contact`
 
-* Logs a log note on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Logs a project work brief on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Command format must be strictly adhered to, else invalid format exception will be shown instead.
 * Existing values will be updated to the input values.
 * When entering a log note, the existing log of the person will be removed i.e. adding of logs is not cumulative.
@@ -199,6 +205,10 @@ Sort all contacts by name in ascending order
 
 Format: `sort`
 
+### Export all contacts' details: `export`
+
+Export all contacts' detials to a text file which saved in local disk.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TeamContact 24/7 app.
@@ -223,6 +233,18 @@ Program data are saved as a JSON file `[JAR file location]/data/addressbook.json
 If your changes to the data file makes its format invalid, TeamContact 24/7 app will discard all data and start with an empty data file at the next run.
 </div>
 
+### Securing the data file
+
+The offline addressbook.json file is not encrypted by any means, it is visually exposed to public viewing,
+so possibly running afoul of PDPA violation or subterfuge if fallen into the wrong hand.
+
+We leave it to the user how he/she will want to personally configure or implement the encryption/decryption mechanism part where
+the TeamContact 24/7 will save log, data and setting files in the current working folder, e.g. Windows user can use the
+native Bitlocker or Explorer file/folder encryption features easily, or choose a third party tool like
+[Easy File Locker](https://xoslab.com/efl.html) or [7-zip](https://7ziphelp.com/password-protect-on-7zip) to give
+confidentiality to the folder, or a concerned file.
+
+
 ### Archiving data files `[coming in v2.0]`
 
 _Details coming soon ..._
@@ -238,14 +260,16 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                                                      |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action     | Format, Examples                                                                                                                                                                                                 |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARKS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 d/09/01/2021 r/gay t/friend t/colleague` |
-| **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                             |
-| **Clear**  | `clear`                                                                                                                                                               |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake` 
-| **Sort**   | `sort` 
-| **List**   | `list`                                                                                                                                                                |
-| **Help**   | `help`                                                                                                                                                                |
+| **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                                                                        |
+| **Clear**  | `clear`                                                                                                                                                                                                          |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                              |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                               |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                       |
+| **Email**  | `email KEYWORD`<br> e.g., `email micheal`                                                                                                                                                                        |
+| **Export** | `export`  |
+| **Sort**   | `sort`                                                                                                                                                                                                           |
+| **List**   | `list`                                                                                                                                                                                                           |
+| **Help**   | `help`                                                                                                                                                                                                           |

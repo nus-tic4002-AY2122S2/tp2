@@ -40,24 +40,24 @@
                 <Image url="@../ImagesLogin/lock.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="175.0" fitWidth="135.0" layoutX="294.0" layoutY="42.0">
+        <ImageView fitHeight="175.0" fitWidth="135.0" layoutX="294.0" layoutY="16.0">
             <image>
-                <Image url="@../ImagesLogin/contact-hero-img-blue.png" />
+                <Image url="@../ImagesLogin/contact-img-blue.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="20.0" fitWidth="77.0" layoutX="187.0" layoutY="505.0">
+        <ImageView fitHeight="26.0" fitWidth="112.0" layoutX="168.0" layoutY="498.0">
             <image>
                 <Image url="@../ImagesLogin/AB3.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="39.0" fitWidth="312.0" layoutX="69.0" layoutY="536.0">
+        <ImageView fitHeight="45.0" fitWidth="270.0" layoutX="90.0" layoutY="541.0">
             <image>
-                <Image url="@../ImagesLogin/meettheteam.png" />
+                <Image url="@../ImagesLogin/meet-the-team.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="45.0" fitWidth="147.0" layoutX="152.0" layoutY="431.0">
+        <ImageView fitHeight="37.0" fitWidth="163.0" layoutX="143.0" layoutY="426.0">
             <image>
-                <Image url="@../ImagesLogin/contact-us.jpg" />
+                <Image url="@../ImagesLogin/contact-us.png" />
             </image>
         </ImageView>
         <Label fx:id="wrongLogin" layoutX="126.0" layoutY="217.0" textFill="#f40000" />

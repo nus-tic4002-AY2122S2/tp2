@@ -9,8 +9,11 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+* [TECHIE DELIGHT </> Singleton Pattern – Java Implementation](https://www.techiedelight.com/implement-singleton-pattern-in-java/)
+* [tutorials.jenkov.com - Java Synchronized Blocks](http://tutorials.jenkov.com/java-concurrency/synchronized.html)
+* [docs.oracle.com Class](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Class.html)
+* [Java Coding Community - JavaFX and Scene Builder Tutorial](https://www.youtube.com/watch?v=HBBtlwGpBek)
+* [Glucon ScreenBuilder](https://gluonhq.com/products/scene-builder/)
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -249,7 +252,7 @@ Sample:-
 
 #### Implementation
 
-**_The motive for this online login security feature is for protecting the sensitive data, displayed in TeamContact 24/7 App,
+**_The motive for this online login security feature is to protect the sensitive data, displayed in TeamContact 24/7 App,
 from undesirable exposure to unwanted and or public viewing_**.
 
 The idea is to first load and only display the Login GUI Screen
@@ -257,15 +260,15 @@ upon main App startup: so the user will have to enter in his or her login creden
 main App data is granted.
 
 Leveraging on JavaFx capabilities to hide and show stages, the frontend GUI Login Screen was made to load and displayed
-visually first - after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
+visually first, after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
 
 ScreenBuilder was used to create the layout and specification of the Login GUI Screen and the data was saved to a Login.fxml file.
 
 A corresponding controller file, **LoginController.java**, was created to facilitate the creation and register of the various
-login checks (using TextFields) and rendering of the error messages (using Label) under an ActionEvent handler
+login checking methods (using TextFields) and the rendering of the error messages (using Label), under an ActionEvent handler
 **#handleButtonAction**.
 
-The start method of **MainApp.java** was adapted for the above purpose - to first initialise the main App loading, get
+The start method of **MainApp.java** was adapted for the above purpose: to first initialise the main App loading, get
 its stage hidden, then load and show another newly created stage with the Login Screen Scene.
 
 Sample **SingletonLogin** UML Class Diagram:-
@@ -275,12 +278,12 @@ Sample **SingletonLogin** UML Class Diagram:-
 
 #### Design considerations:
 
-- **MainWindow.java** was modified to not show the mainWindow of the main App when it loads
+- **MainWindow.java** was modified to not show the mainWindow of the main App upon first load
 - Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
 to make it harder to guess
-- The Login Screen object is patterned after the Singleton creational design pattern - as a Java Singleton object - to 
-further increase security against possible rogue substitutes, or false replacement
-- The main App stage was elevated to a class-level protected object (as appStage in MainApp.java) to increase security
+- The Login Screen object (from the SIngletonLogin class) is patterned after the Singleton creational design pattern to further increase security against possible rogue substitutes or false replacement
+- The SingletonLogin class was also made final to block any subclass attempt, it's getInstance() public static method made thread-safe and the constructor was modified to throw an exception if it's made to create a second instance reflectively 
+- The main App stage was also elevated as a class-level protected object (as appStage in MainApp.java), to increase security
 against unauthorised access or possible abuse
 
 The following activity diagram summarizes how the Login GUI Screen works upon TeamContact 24/7 App startup:-
@@ -299,14 +302,65 @@ Sample 'ESC' key Logout Screenshot:-
 - **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
 - **MainWindow.java** had the corresponding keyPressedHandle handler method added in
 
-### \[Proposed\] Attachment of a small digital clock on top left-hand side of TeamContact 24/7
+### \[Proposed\] Introduce limit login attempt feature
+- Can limit to 3 attempts and user is locked out or
+- Increase the login credentials processing duration each time login failed
 
-Sample Picture:-
+_{coming feature}_
+
+### \[Proposed\] Increase login data CIA via secure password storage feature code in
+- Along the lines of [Happy Coding](https://happycoding.io/tutorials/java-server/secure-password-storage)
+
+_{coming feature}_
+
+### \[Proposed\] Attachment of a useful mini-digital clock on top left-hand side of TeamContact 24/7 - for quick time lookup
+
+A Sample Picture:-
 
 ![Sample Esc key logout Sequence](images/digitalclock.png)
 
 _{coming feature}_
 
+### Email Feature (Send email to particular contact person):
+
+Sample:
+
+![Sample Email Screen](images/emailWindow.png)
+
+Implementation:
+ 
+**_This email feature allowed user to send email to particular group member in the app easily and directly._**
+
+In the main page of the app, user can type the email command to select the contact and open the email window to prepare email and send email.
+
+For the current version, the sender email address and password is built in actual gmail for the testing purpose specific for this app only.
+
+First step: 
+* type the command with keyword, `email KEYWORD`. The keyword is the name of the contact that user want to send email to. 
+* Once the command entered, email window will be popped out if the contact found as shown above (Sender email is the user's and the Receiver email is the contact found by the `KEYWORD`). 
+* If the contact not found, there will be a message to inform user.
+
+Second step: 
+* Key in subject and email content
+* click `button` to send the email 
+
+The follwoing sequence Diagram shows how this command triggered and work in the system:
+
+![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
+
+### Export Feature (Export all contacts' details to a text file)
+
+Sample command input: `export`
+
+Implementation:
+
+**_This export feature allowed user to export all contacts' details to a text file. The text file save locally and it's readable. Hence user can transfer the details to other location or PCs._**
+
+In the main page of the app, user can type the export command (`export`) to get a text file which contain all the contacts' information. 
+
+The following sequence diagram show how this command triggered and work in the system:
+
+![ExportCommand_Sequence_Diagram](images/ExportCommand_Sequencial_Diagram.png)
 
 ### \[Proposed\] Data archiving
 
@@ -351,9 +405,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add a new person                   |                                                                        |
 | `* * *`  | main Project Communicator                  | log a brief communication note     | have a quick glance at the last intercourse done with contact          |
 | `* * *`  | user                                       | delete a person                    | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | export contact to excel file       | transfer data to other place                                           |
+| `* * *`  | user                                       | export contact to txt file         | transfer data to other place                                           |
 | `* * *`  | user                                       | find person by tag/information     | find a group of people related                                         |
-| `* * *`  | user                                       | find a person by name/partial name | locate details of persons without having to go through the entire list |              
+| `* * *`  | user                                       | find a person by name/partial name | locate details of persons without having to go through the entire list | | `* *`    | user                                       | can send email to specific person  | communicate each other directly            
 | `* *`    | user                                       | hide private contact details       | minimize chance of someone else seeing them by accident                |
 | `* *`    | user                                       | add a remark on the contact        | note down some information on the contact                              |
 | `*`      | user with many persons in the address book | sort persons by name               | locate a person easily                                                 |
@@ -386,6 +440,56 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. TeamContact 24/7 shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Email a person**
+
+**MSS**
+
+1. User type email command with keyword to request to email a specific person
+2. System shows the specific person found message and Email window display
+3. User key in email subject and email content and click button to send email
+4. System send email and the email window close
+
+   Use case ends.
+   
+**Use case: Add a person**
+
+**MSS**
+
+1. User type add command with personal details
+2. System add the person to the list and save to json file
+3. System shows the person added successful message
+
+   Use case ends.
+   
+**Extension**
+
+* 1a. Personal details contain: 
+    * Name (short-form used: a/)
+    * Phone number (short-form used: p/)
+    * Address (short-form used: a/)
+    * Email (short-form used: e/)
+    * Remark (short-form used: r/)
+    * Tag (short-form used: t/)
+    * Date join (short-form used: d/, formate: DD/MM/YYYY)
+    * Gender (short-form used:g/)
+
+**Use case: Find a person**
+
+**MSS**
+
+1. User type find command with KEYWORD
+2. System find and match person from the list
+3. System shows the find information to user
+4. System list out the matched person(s) in the main page
+
+   Use case ends.
+
+**Extension**
+
+* 3a. Find information:
+    * If has matched person, shows people found
+    * If no matched person, shows no matched person found
 
 *{More to be added}*
 

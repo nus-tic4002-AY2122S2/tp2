@@ -7,11 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class SingletonLogin {
+public final class SingletonLogin {
     private static SingletonLogin instance;
     public final Stage loginStage;
 
     private SingletonLogin() {
+
+        if (instance != null) {
+            throw new IllegalStateException();
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
         Scene scene;
 
@@ -29,11 +34,14 @@ public class SingletonLogin {
     }
 
     public static SingletonLogin getInstance() {
+        // makes method thread-safe
+        synchronized (SingletonLogin.class) {
 
-        if (instance == null) {
-            instance = new SingletonLogin();
+            if (instance == null) {
+                instance = new SingletonLogin();
+            }
+
+            return instance;
         }
-
-        return instance;
     }
 }
