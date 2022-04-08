@@ -26,6 +26,22 @@ an offline backup file. The user interacts with it using a CLI. It is written in
   - What it does: allows the user to delete all the bookings or appointment for indicated time period so that user can delete a list of appointments within specified time frame.
   - Justification: This feature is to help a efficient student user to delete list of appointments within specified time frame in one step.
 
+- Feature: `bday MONTH` command - show all contacts or records within month range.
+  - What to key in MONTH parameter: MONTH in numeric, e.g. key `bday 1` to check contact with birthday in January.
+  - What it does: allows the user to view contacts filtered by their birthday month so that user, in this case - the teacher, can prepare the list of birthday babies within specified month.
+  - Justification: This feature is to help a classroom teacher prepare list of birthday babies within specified month in one step.
+
+- Feature: `filter TAG` command - filter all contacts or records with TAG specified.
+  - What to key in TAG parameter: full TAG name, e.g. key `g501` to filter all contacts with g501 tag, or to filter contacts in class g501.
+  - What it does: allows the user to view all contacts with same tag so that user can easily filter down a list of contacts.
+  - Justification: This feature is to help a efficient teacher user to narrow down a list of contacts with same tag.
+
+- Feature: `rename TAG t/TAG` command - rename all contacts or records with TAG specified to a new TAG name.
+  - What to key in TAG parameter: existing full TAG name that needs to be renamed or deleted. e.g. key `g501`
+  - What to key in t/TAG parameter: desired new TAG name to replace existing e.g. key `t/g601` or leave it as `t/` to delete TAG.
+  - What it does: allows the user to rename all the contacts or records with specified TAG so that user can easily manage a list of contacts with same TAG.
+  - Justification: This feature is to help a efficient teacher user to manage list of contact with same TAG in a single step.
+
 - Code contributed: [Team03_yinyin377](https://nus-tic4001-ay2122s1.github.io/tp-dashboard/?search=yinyin377&breakdown=true&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 - Project management:
