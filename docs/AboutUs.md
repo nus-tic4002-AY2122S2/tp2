@@ -46,7 +46,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 [[portfolio](team/thisisdax.md)]
 
 * Role: Developer
-* Responsibilities: DevOps + Threading
+* Responsibilities: CI + Revert State commands + AddressBook enhancement
 
 ### Ng Xin Yi
 
