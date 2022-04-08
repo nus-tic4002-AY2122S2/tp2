@@ -39,6 +39,7 @@ public class DateJoinedCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        model.commitAddressBook(model.getAddressBook());
         throw new CommandException(String.format(MESSAGE_ARGUMENTS, index.getOneBased(), dateJoined));
     }
 
