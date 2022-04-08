@@ -29,7 +29,7 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments g/male` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
    * **`email`**`email micheal`: Send an email to a contact named `Micheal`
    
@@ -88,15 +88,15 @@ Format: `help`
 
 Adds a person to TeamContact 24/7 app.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARK g/GENDER [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARK [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/01/2022 r/some comments g/male`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/09/01/2022 r/some comments t/criminal g/female`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/01/2022 r/some comments`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/09/01/2022 r/some comments t/criminal`
 
 ### Logging a brief project work note or communication update : `log`
 
@@ -106,14 +106,15 @@ Format: `log INDEX l/Some brief log note on the contact`
 
 * Logs a project work brief on the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * Command format must be strictly adhered to, else invalid format exception will be shown instead.
-* Existing values will be updated to the input values.
+* The previous entry will be updated to the input values.
 * When entering a log note, the existing log of the person will be removed i.e. adding of logs is not cumulative.
-* You can remove a person’s log note by typing `l/` without
-  specifying any tags after it.
+* You can remove a person’s log note by typing `log INDEX l/` or `log INDEX` without
+  specifying any string after it.
 
 Examples:
-*  `log 1 l/John informed of Sprint Exercise 01 closure: 3pm YDA.` Logs a communication done the day before with the 1st person.
-*  `log 2 l/to hold meeting with Sponsor Dave: 2pm Fri.` Logs a pending meeting with the 2nd person on display list and clear previous log if it exists.
+* `log 1 l/John informed of Sprint Exercise 01 closure: 3pm YDA.` Logs a communication done the day before with the 1st person.
+* `log 2 l/to hold meeting with Sponsor Dave: 2pm Fri.` Logs a pending meeting with the 2nd person on display list and clear previous log if it exists.
+* `log 2` or `log 2 l/` clears the previous log of Dave.
 
 ### Listing all persons : `list`
 
@@ -125,7 +126,7 @@ Format: `list`
 
 Edits an existing person in TeamContact 24/7 app.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARK] [g/GENDER] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARK] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -260,16 +261,16 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                                                                                                 |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action     | Format, Examples                                                                                                                                                                                            |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DATE_JOINED r/REMARKS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 d/09/01/2021 r/gay t/friend t/colleague` |
-| **Log**    | `log INDEX l/note or intercourse update` <br> e.g., `log 5 l/talked with Team Lead on 1 more coder for Sprint Exercise 2`                                                                                        |
-| **Clear**  | `clear`                                                                                                                                                                                                          |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                              |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [g/GENDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                               |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                       |
-| **Email**  | `email KEYWORD`<br> e.g., `email micheal`                                                                                                                                                                        |
-| **Export** | `export`  |
-| **Sort**   | `sort`                                                                                                                                                                                                           |
-| **List**   | `list`                                                                                                                                                                                                           |
-| **Help**   | `help`                                                                                                                                                                                                           |
+| **Log**    | `log INDEX l/NOTE or INTERCOURSE UPDATE` <br> e.g., `log 5 l/have agreed with Team Lead on 1 more junior coder for Sprint Exercise 2`                                                                       |
+| **Clear**  | `clear`                                                                                                                                                                                                     |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                         |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [d/DATE_JOINED] [r/REMARKS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                     |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                  |
+| **Email**  | `email KEYWORD`<br> e.g., `email micheal`                                                                                                                                                                   |
+| **Export** | `export`                                                                                                                                                                                                    |
+| **Sort**   | `sort`                                                                                                                                                                                                      |
+| **List**   | `list`                                                                                                                                                                                                      |
+| **Help**   | `help`                                                                                                                                                                                                      |
