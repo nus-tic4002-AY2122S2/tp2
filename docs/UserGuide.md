@@ -38,6 +38,10 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
    * **`export`** : Export all the contact details to text file.
+      
+   * **`undo`** : Restores the previous address book state from its history.
+   
+   * **`redo`** : Restores a previously undone address book state from its history.
    
    * **`sort`** : Sort all contacts.
 
@@ -190,13 +194,13 @@ Examples:
 
 ### Restore a previous entry : `undo`
  
-Restores the previous address book state from its history
+Restores the previous address book state from its history. Accepts only 1 command, any additional options after `undo` does nothing.
 
 Format: `undo`
 
 ### Restore a previously undone entry : `redo`
 
-Restores a previously undone address book state from its history.
+Restores a previously undone address book state from its history. Accepts only 1 command, any additional options after `redo` does nothing.
 
 Format: `redo`
 
