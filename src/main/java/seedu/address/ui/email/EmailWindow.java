@@ -31,7 +31,7 @@ public class EmailWindow {
         emailWindowStage.setTitle("Email Window");
         emailWindowStage.setScene(scene);
         EmailWindowController controller = loader.getController();
-        controller.initData(from, password, to);
+        controller.initData(from, password, to, emailWindowStage);
     }
 
     /**
