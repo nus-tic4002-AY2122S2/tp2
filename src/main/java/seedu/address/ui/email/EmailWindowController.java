@@ -47,7 +47,7 @@ public class EmailWindowController {
             String content = emailContentArea.getText();
 
             EmailSender emailSender = new EmailSender(from, to, subject, content, password);
-            //emailSender.sendEmail();
+            emailSender.sendEmail();
 
             EmailSendSuccessfulWindow emailSendSuccessfulWindow = new EmailSendSuccessfulWindow();
             emailSendSuccessfulWindow.show();

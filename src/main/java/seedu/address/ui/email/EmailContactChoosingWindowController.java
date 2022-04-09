@@ -42,7 +42,7 @@ public class EmailContactChoosingWindowController {
                 EmailContactNumberAlert emailContactNumberAlert = new EmailContactNumberAlert(stage);
                 emailContactNumberAlert.show();
             } else {
-                String to = contactInfo.get(inputNumberInt).getEmail().toString();
+                String to = contactInfo.get(inputNumberInt - 1).getEmail().toString();
                 //Open email form window
                 EmailWindow emailWindow = new EmailWindow(from, password, to);
                 emailWindow.show();
