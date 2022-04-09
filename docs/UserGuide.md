@@ -11,11 +11,11 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `TeamContact 24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
+2. Download the latest `TeamContact24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
-4. Double-click the file to start the app or type `java -jar "teamcontact 24-7-v1.4.jar"` at the terminal opened at working folder of the demo app (quotes are used to avoid possible issues with spaces in the jar file name).
+4. Double-click the file to start the app or type `java -jar teamcontact24-7-v1.4.jar` at the terminal opened at working folder of the demo app.
 
 5. A Login Screen will appear.
 
