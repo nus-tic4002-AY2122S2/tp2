@@ -22,6 +22,9 @@ public class EmailWindowController {
     private Stage stage;
 
     @FXML
+    private Button cancelButton;
+
+    @FXML
     private Button sendButton;
 
     @FXML
@@ -49,6 +52,8 @@ public class EmailWindowController {
             EmailSendSuccessfulWindow emailSendSuccessfulWindow = new EmailSendSuccessfulWindow();
             emailSendSuccessfulWindow.show();
 
+            stage.close();
+        } else if (event.getSource() == cancelButton) {
             stage.close();
         }
     }

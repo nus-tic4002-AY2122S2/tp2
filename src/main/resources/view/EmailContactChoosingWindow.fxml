@@ -10,7 +10,7 @@
       <Label layoutX="34.0" layoutY="45.0" text="Chosen No.:" />
       <TextField fx:id="UserInputTxt" layoutX="114.0" layoutY="41.0" prefHeight="23.0" prefWidth="455.0" />
       <Label fx:id="ContactList" layoutX="34.0" layoutY="87.0" text="Label" />
-      <Button fx:id="OKButton" layoutX="536.0" layoutY="350.0" mnemonicParsing="false" text="OK" />
-      <Button fx:id="CancelButton" layoutX="464.0" layoutY="350.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="OKButton" layoutX="536.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleButtonAction" text="OK" />
+      <Button fx:id="CancelButton" layoutX="464.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Cancel" />
    </children>
 </AnchorPane>
