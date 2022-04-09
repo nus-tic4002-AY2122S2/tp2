@@ -41,7 +41,7 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 
    * **`list`** : Lists all students.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms`: Add a student to GreatBook.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85`: Add a student to GreatBook.
 
    * **`edit`**`2 n/James Lee en/80`: Edits the 2nd student's name and English mark.
 
@@ -72,7 +72,7 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+* If a parameter is expected only once in the command, but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
@@ -91,21 +91,20 @@ Format: `help`
 
 Adds a student to the GreatBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE rt/RECEIVE_TYPE [t/TAGS]`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE`
 
-There are only 4 subjects in the primary school syllabus. `en` refers to English, `mt` Mother Tongue, `m` Maths, `s` science.
+There are only 4 subjects in the primary school syllabus. `en` refers to English, `mt` Mother Tongue, `ma` Maths, `sc` science.
 
 You may enter any string for the classroom field. You may enter either `email` or `sms` for the receive type field.
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms`
+* `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85`
 
 ### Listing all students : `list`
 
 Shows a list of all persons in the GreatBook.
 
 Format: `list`
-
 
 ### Editing a students : `edit`
 
@@ -119,7 +118,6 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [a/ADDRESS] [e/EMAIL] [c/CLASSROOM
 
 Examples:
 *  `edit 2 n/James Lee en/80` Edits the 2nd student in GreatBook, updates student name to James Lee and English grade to `80`.
-
 
 ### Locating students by name: `find`
 
@@ -137,7 +135,6 @@ Format: `find NAME`
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-
 
 ### Deleting a students : `delete`
 
@@ -171,7 +168,7 @@ GreatBook data are saved in the hard disk automatically after any command that c
 
 ### Editing the data file
 
-GreatBook data are saved as a JSON file `[JAR file location]/data/GreatBook.json`. Advanced users are welcome to update data directly by editing that data file.
+GreatBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
@@ -202,12 +199,12 @@ Details in v1.5
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE rt/RECEIVE_TYPE [t/TAGS] ` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85 rt/sms` <br>En refers to English, MT to Mother Tongue, M to Maths, S to science
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]​`<br> e.g.,`edit 2 n/James Lee en/80`
-**Find** | `find NAME`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action     | Format, Examples                                                                                                                                                                                                                                                                                                   |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CLASSROOM en/ENGLISH mt/MOTHERTONGUE ma/MATH sc/SCIENCE [t/TAGS] ` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/1A en/90 mt/95 ma/100 sc/85` <br>en refers to English, mt to Mother Tongue, ma to Maths, sc to science |
+| **Clear**  | `clear`                                                                                                                                                                                                                                                                                                            |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                                                                |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]​`<br> e.g.,`edit 2 n/James Lee en/80`                                                                                                                                                                         |
+| **Find**   | `find NAME`<br> e.g., `find John`                                                                                                                                                                                                                                                                                  |
+| **List**   | `list`                                                                                                                                                                                                                                                                                                             |
+| **Help**   | `help`                                                                                                                                                                                                                                                                                                             |

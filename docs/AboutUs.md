@@ -20,7 +20,7 @@ You can reach us via our github profiles.
 
 ### Joseph Guo Yang
 
-<img src="images/jospeh.png" width="200px">
+<img src="images/joseph.jpg" width="200px">
 
 [[github](http://github.com/badfr0g)]
 [[portfolio](team/joseph.md)]
