@@ -35,7 +35,7 @@ public class EmailWindow {
     }
 
     /**
-     * Showes the email window
+     * Show the email window
      */
     public void show() {
         emailWindowStage.show();

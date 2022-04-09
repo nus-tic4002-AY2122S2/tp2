@@ -1,10 +1,11 @@
 package seedu.address.ui.email;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class EmailSendSuccessfulWindow {
     public final Stage emailSendSuccessfulAlertWindowStage;
@@ -19,9 +20,9 @@ public class EmailSendSuccessfulWindow {
 
         try {
             this.loader = new FXMLLoader(getClass().getResource("/view/EmailSentSuccessfulWindow.fxml"));
-            this.scene = new Scene(this.loader.load());
+            this.scene = new Scene(loader.load());
         } catch (IOException e) {
-
+            System.out.println("Cannot out email alert window.");
         }
 
         emailSendSuccessfulAlertWindowStage.setTitle("Email Sent Successful");
