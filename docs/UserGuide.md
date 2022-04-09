@@ -168,7 +168,7 @@ GreatBook data are saved in the hard disk automatically after any command that c
 
 ### Editing the data file
 
-GreatBook data are saved as a JSON file `[JAR file location]/data/GreatBook.json`. Advanced users are welcome to update data directly by editing that data file.
+GreatBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
@@ -205,6 +205,6 @@ Details in v1.5
 | **Clear**  | `clear`                                                                                                                                                                                                                                                                                                            |
 | **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                                                                |
 | **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/CLASS] [en/ENGLISH] [mt/MOTHER TONGUE] [m/MATH] [s/SCIENCE]​`<br> e.g.,`edit 2 n/James Lee en/80`                                                                                                                                                                         |
-| **Find**   | `find NAME`<br> e.g., `find James Jake`                                                                                                                                                                                                                                                                            |
+| **Find**   | `find NAME`<br> e.g., `find John`                                                                                                                                                                                                                                                                                  |
 | **List**   | `list`                                                                                                                                                                                                                                                                                                             |
 | **Help**   | `help`                                                                                                                                                                                                                                                                                                             |
