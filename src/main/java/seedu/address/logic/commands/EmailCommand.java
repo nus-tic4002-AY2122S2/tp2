@@ -39,7 +39,7 @@ public class EmailCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_FORMAT);
         }
 
-        if(personList.size() > 1) {
+        if (personList.size() > 1) {
             EmailContactChoose emailContactChoose = new EmailContactChoose(personList);
             emailContactChoose.show();
 

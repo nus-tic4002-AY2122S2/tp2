@@ -1,5 +1,7 @@
 package seedu.address.logic;
 
+import java.util.Date;
+import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -9,8 +11,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import java.util.Date;
-import java.util.Properties;
 
 public class EmailSender {
 
@@ -20,6 +20,14 @@ public class EmailSender {
     private String content;
     private String password;
 
+    /**
+     * Create a new Email Sender
+     * @param from is sender email address
+     * @param to is receiver email address
+     * @param subject is the email subject
+     * @param content is the email content
+     * @param password is the password of sender email
+     */
     public EmailSender(String from,
                        String to,
                        String subject,
@@ -33,6 +41,9 @@ public class EmailSender {
         this.content = "Hi Micheal";
     }
 
+    /**
+     * Send a email out
+     */
     public void sendEmail() {
         // Create a instance for Email
         Properties props = new Properties();
@@ -48,6 +59,11 @@ public class EmailSender {
         }
     }
 
+    /**
+     * Prepare email MimeMessage
+     * @param props email server properties
+     * @return MimeMessage
+     */
     private MimeMessage getMimeMessage(Properties props) {
         Session session = Session.getInstance(props,
                 new Authenticator() {
@@ -70,11 +86,11 @@ public class EmailSender {
 
             MimeBodyPart text = new MimeBodyPart();
             text.setContent(content, "text/html;charset=UTF-8");
-            MimeMultipart mm_text_image = new MimeMultipart();
-            mm_text_image.addBodyPart(text);
-            mm_text_image.setSubType("related");
+            MimeMultipart mmTextImage = new MimeMultipart();
+            mmTextImage.addBodyPart(text);
+            mmTextImage.setSubType("related");
 
-            msg.setContent(mm_text_image);
+            msg.setContent(mmTextImage);
             msg.setSentDate(new Date());
 
         } catch (MessagingException e) {

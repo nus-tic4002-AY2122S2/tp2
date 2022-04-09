@@ -1,5 +1,7 @@
 package seedu.address.ui.email;
 
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,7 +9,7 @@ import javafx.stage.Stage;
 
 public class EmailSendSuccessfulWindowController {
 
-    Stage stage;
+    private Stage stage;
 
     @FXML
     private Button closeButton;
@@ -16,8 +18,10 @@ public class EmailSendSuccessfulWindowController {
     private Label info;
 
     @FXML
-    void handleCloseButtonAction() {
-        stage.close();
+    void handleButtonAction(ActionEvent event) {
+        if (event.getSource() == closeButton) {
+            stage.close();
+        }
     }
 
     void initData(Stage stage) {

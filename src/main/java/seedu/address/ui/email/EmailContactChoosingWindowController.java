@@ -12,29 +12,29 @@ import seedu.address.model.person.Person;
 
 public class EmailContactChoosingWindowController {
 
-    ObservableList<Person> contactInfo;
+    private ObservableList<Person> contactInfo;
     private int contactQuantity;
     private Stage stage;
     private String from;
     private String password;
 
     @FXML
-    private Button CancelButton;
+    private Button cancelButton;
 
     @FXML
-    private Label ContactList;
+    private Label contactList;
 
     @FXML
-    private Button OKButton;
+    private Button okButton;
 
     @FXML
-    private TextField UserInputTxt;
+    private TextField userInputTxt;
 
     @FXML
     void handleButtonAction(ActionEvent event) {
 
-        if (event.getSource() == OKButton) {
-            String inputNumberStr = UserInputTxt.getText();
+        if (event.getSource() == okButton) {
+            String inputNumberStr = userInputTxt.getText();
             int inputNumberInt = Integer.parseInt(inputNumberStr);
 
             if (inputNumberInt > contactQuantity || inputNumberInt < 1) {
@@ -48,7 +48,7 @@ public class EmailContactChoosingWindowController {
                 emailWindow.show();
                 stage.close();
             }
-        } else if (event.getSource() == CancelButton) {
+        } else if (event.getSource() == cancelButton) {
             stage.close();
         }
     }
@@ -61,11 +61,13 @@ public class EmailContactChoosingWindowController {
         StringBuilder allContact = new StringBuilder();
         contactQuantity = contactInfo.size();
 
-        for(int i=0; i<contactInfo.size(); i++) {
-            int serialNumber = i+1;
-            allContact.append(serialNumber).append(". ").append(contactInfo.get(i).getName()).append(": ").append(contactInfo.get(i).getEmail()).append("\n");
+        for (int i = 0; i < contactInfo.size(); i++) {
+            int serialNumber = i + 1;
+            allContact.append(serialNumber).append(". ").
+                    append(contactInfo.get(i).getName()).
+                    append(": ").append(contactInfo.get(i).getEmail()).append("\n");
         }
 
-        ContactList.setText(allContact.toString());
+        contactList.setText(allContact.toString());
     }
 }

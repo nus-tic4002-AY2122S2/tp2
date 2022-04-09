@@ -12,6 +12,10 @@ public class EmailContactNumberAlert {
     private final Scene scene;
     private FXMLLoader loader;
 
+    /**
+     * Construct a new EmailContactNumberAlert
+     * @param previousStage Stage of previous window
+     */
     public EmailContactNumberAlert(Stage previousStage) {
         this.previousStage = previousStage;
         this.emailWindowStage = new Stage();

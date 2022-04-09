@@ -11,14 +11,14 @@ public class EmailContactAlertWindowController {
     private Stage stage;
 
     @FXML
-    private Label AlertMessage;
+    private Label alertMessage;
 
     @FXML
-    private Button OkButton;
+    private Button okButton;
 
     @FXML
     void handleButtonAction(ActionEvent event) {
-        if (event.getSource() == OkButton) {
+        if (event.getSource() == okButton) {
             stage.close();
         }
     }
@@ -26,6 +26,6 @@ public class EmailContactAlertWindowController {
     void initData(Stage stage) {
         this.stage = stage;
         String alertMessage = "Please key in valid INTEGER number within range.";
-        AlertMessage.setText(alertMessage);
+        this.alertMessage.setText(alertMessage);
     }
 }

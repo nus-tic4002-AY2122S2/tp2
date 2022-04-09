@@ -1,18 +1,22 @@
 package seedu.address.ui.email;
 
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import seedu.address.model.person.Person;
 
-import java.io.IOException;
-
 public class EmailContactChoose {
     public final Stage stage;
     private final Scene scene;
     private FXMLLoader loader;
 
+    /**
+     * Create a new EmailContactChoose
+     * @param contactInfo all the matched contact info
+     */
     public EmailContactChoose(ObservableList<Person> contactInfo) {
         this.stage = new Stage();
 
