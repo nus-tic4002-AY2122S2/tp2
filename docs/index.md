@@ -2,8 +2,8 @@
 GreatBook
 ---
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-TIC4002-F18-2/tp2/actions)
-[![codecov](https://codecov.io/gh/se-edu/addressbook-level3/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2122S2-TIC4002-F18-2/tp2)
+[![CI Status](https://github.com/AY2122S2-TIC4002-F18-2/tp2/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-TIC4002-F18-2/tp2/actions)
+[![codecov](https://codecov.io/gh/AY2122S2-TIC4002-F18-2/tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2122S2-TIC4002-F18-2/tp2)
 
 ![Ui](images/Ui.png)
 
