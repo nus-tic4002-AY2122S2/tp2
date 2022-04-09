@@ -63,9 +63,9 @@ public class EmailContactChoosingWindowController {
 
         for (int i = 0; i < contactInfo.size(); i++) {
             int serialNumber = i + 1;
-            allContact.append(serialNumber).append(". ").
-                    append(contactInfo.get(i).getName()).
-                    append(": ").append(contactInfo.get(i).getEmail()).append("\n");
+            allContact.append(serialNumber).append(". ")
+                    .append(contactInfo.get(i).getName())
+                    .append(": ").append(contactInfo.get(i).getEmail()).append("\n");
         }
 
         contactList.setText(allContact.toString());
