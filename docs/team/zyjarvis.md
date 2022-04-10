@@ -15,7 +15,7 @@ Given below are my contributions to the project.
   * Highlights: This enhancement affects existing commands e.g. add and edit commands, and commands to be added in the future e.g. top and last commands.
 
 * **Project management**:
-  * Managed releases `v1.3.trial` - `v1.3.1 ` (2 releases) on GitHub
+  * Managed releases `v1.3.trial` - `v1.4` (3 releases) on GitHub
 
 * **Enhancements to existing features**:
   * Updated the add and edit commands
