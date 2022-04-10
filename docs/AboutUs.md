@@ -14,13 +14,13 @@ You can reach us via our github profiles.
 <img src="images/zhangyun.png" width="200px">
 
 [[github](https://github.com/zyjarvis)]
-[[portfolio](team/zhangyun.md)]
+[[portfolio](team/zyjarvis.md)]
 
 * Role: Developer
 
 ### Joseph Guo Yang
 
-<img src="images/jospeh.png" width="200px">
+<img src="images/joseph.jpg" width="200px">
 
 [[github](http://github.com/badfr0g)]
 [[portfolio](team/joseph.md)]
@@ -31,6 +31,6 @@ You can reach us via our github profiles.
 
 <img src="images/james.jpg" width="200px">
 
-[[github](http://github.com/sohwkjames)] [[portfolio](team/james.md)]
+[[github](http://github.com/sohwkjames)] [[portfolio](team/sohwkjames.md)]
 
 * Role: Developer
