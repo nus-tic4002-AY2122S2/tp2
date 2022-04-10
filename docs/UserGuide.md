@@ -128,19 +128,7 @@ Example:
 ```
 list
 ```
-### Search contact by name: `filter`
 
-Format:      `filter TAG`
-
-+ TAG is case-insensitive. I.e. `filter teacher` will return `teacher`’s contact.
-+ TAG has to be a full word. I.e. `find teach` will not return `teacher`’s contact.
-+ If TAG consists of two or more words, the sequence of words will not affect the search result.
-+ Contacts matching either one of the TAG will be returned. I.e. `filter teacher student` will return both `teacher` and `student`’s contacts.
-
-Example:
-```
-filter student
-```
 
 ### Search contact by name: `find`
 
@@ -161,6 +149,7 @@ find Duke
 
 Format:      `undo`
 + The previous contact list will be recovered.
++ Does not support command `rename`
 
 Example:
 ```
@@ -197,7 +186,7 @@ filter g501
 
 Format:      `rename TAG t/TAG`
 
-+ To rename all contacts with same TAG.
++ To rename TAG for all contacts with TAG specified.
 + TAG has to be a full word matching existing tag in the records.
 + TAG is the existing tag that needs to be renamed.
 + t/TAG is the tag to be renamed into.
