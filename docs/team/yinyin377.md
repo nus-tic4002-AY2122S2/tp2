@@ -4,7 +4,7 @@ title: Lim Wan Yin's Project Portfolio Page
 ---
 
 ## Project: Buddy App v1.4 Overview
-BUDDY - Version 3.0 is a desktop application typically designed for use by a teacher who are familiar with CLI, in
+BUDDY - Version 1.4 is a desktop application typically designed for use by a teacher who are familiar with CLI, in
 managing his or her contacts' details. It leverages on an offline storage facility, hence does not require internet connection.
 The user can interact with it using a CLI or GUI. 
 
