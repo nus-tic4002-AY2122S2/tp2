@@ -93,7 +93,7 @@ edit 1 n/John p/9001 4232 e/john@example.com a/621 Bedok Rd, 470623 t/colleague 
 
 Edit existing contacts with info such as hp, email, address and optional number of tags.
 
-Format: `edit -batch SEQ_NO_OF_CONTACT,SEQ_NO_OF_CONTACT n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `edit -batch SEQ_NO_OF_CONTACT,SEQ_NO_OF_CONTACT p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 + SEQ_NO_OF_CONTACT must be a positive integer.
 + Cannot batch edit the name fields of the contacts.
@@ -158,6 +158,8 @@ undo
 Format:      `copy SEQ_NO_OF_CONTACT`
 + SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
 + SEQ_NO_OF_CONTACT must be a positive integer.
++ A string of text of the contact details will be copied to clipboard.
++ User can paste (CMD/CTL v) the details to a text field.
 
 Example:
 ```
