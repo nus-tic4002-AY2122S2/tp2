@@ -38,10 +38,15 @@ title: Hui Yuan's Project Portfolio Page
   - [PR#114] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/114)
 + Issue: explanations for `copy` command is too brief
   - [PR#114] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/114)
++ Issue: batch edit able to take invalid index if it's not the first one
+  - [PR#115] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/115)
+
 ## Documentation
 
-+ Update DG: undo command implementation was updated 
++ Update DG: updated `undo` command implementation 
   [PR#41] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/41)
++ Update UG: Added `undo`, `copy`, `edit` and `edit -batch` commands and descriptions
+  [PR#54] (https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/54)
 
 ## Code contributed
 
