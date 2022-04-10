@@ -18,7 +18,7 @@ class BirthdayCommandParserTest {
     @Test
     void parse() {
         // null -> returns parseException
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, BirthdayCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "   ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, BirthdayCommand.MESSAGE_USAGE));
 
         // less than 1 or more than 12 -> returns parseException
         assertParseFailure(parser, "0", BirthdayCommand.MESSAGE_INVALID_MONTH);
