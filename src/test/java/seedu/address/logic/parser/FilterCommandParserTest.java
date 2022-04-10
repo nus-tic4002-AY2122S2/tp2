@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.ParserUtilTest.assertParseFailure;
 import static seedu.address.logic.parser.ParserUtilTest.assertParseSuccess;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FilterCommand;
