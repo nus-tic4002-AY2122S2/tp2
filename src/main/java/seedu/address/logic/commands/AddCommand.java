@@ -6,6 +6,11 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTENT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_POSTDATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -19,14 +24,14 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " c: Adds a person to the address book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " "
+            + "Example: " + COMMAND_WORD + " c "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
@@ -34,14 +39,19 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
-    public static final String MESSAGE_USAGE_2 = COMMAND_WORD + ": Adds a post to content list. "
+    public static final String MESSAGE_USAGE_2 = COMMAND_WORD + " p: Adds a post to content list. "
             + "Parameters: "
-            + "t/TITLE OF CONTENT "
-            + "c/ACTUAL CONTENT INFORMATION "
-            + "p/POSTING DATE IN yyyyMMdd HHmm "
-            + "ca/CATEGORY "
-            + "n/NOTES\n"
-            + "Example: add p t/a dummy title two c/a dummy example content two p/20220805 0900 ca/notice n/remember sent to all VIP1 ";
+            + PREFIX_NAME + "TITLE OF CONTENT "
+            + PREFIX_CONTENT + "CONTENT INFORMATION "
+            + PREFIX_POSTDATE + "POSTING DATE IN yyyyMMdd HHmm "
+            + PREFIX_CATEGORY + "CATEGORY "
+            + PREFIX_NOTES + "NOTES\n"
+            + "Example: " + COMMAND_WORD + " p "
+            + PREFIX_NAME + "a dummy title two "
+            + PREFIX_CONTENT + "a dummy example content two "
+            + PREFIX_POSTDATE + "20220805 0900 "
+            + PREFIX_CATEGORY + "notice "
+            + PREFIX_NOTES + "remember to send to all VIP1";
 
     public static final String MESSAGE_SUCCESS = "New person/post added: %1$s"; //TODO : separate person and post
 
