@@ -22,12 +22,14 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final double DEFAULT_MONEY = 0.0;
+    public static final String DEFAULT_TASK = "";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Money money;
+    private String task;
     private Set<Tag> tags;
 
     /**
@@ -39,6 +41,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         money = new Money(DEFAULT_MONEY);
+        task = DEFAULT_TASK;
         tags = new HashSet<>();
     }
 
@@ -51,6 +54,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         money = personToCopy.getMoney();
+        task = personToCopy.getTask();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -102,8 +106,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {code Task} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withTask(String task) {
+        this.task = task;
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, money, tags);
+        return new Person(name, phone, email, address, money, tags, task);
     }
 
 }
