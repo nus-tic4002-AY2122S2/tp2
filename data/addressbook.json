@@ -64,12 +64,5 @@
     "category" : "notice",
     "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
     "sentCid" : [ "Bernice Yu", "Charlotte Oliveiro" ]
-  }, {
-    "title" : "a dummy title two",
-    "content" : "a dummy example content two",
-    "postDate" : "05/08/2022 09:00",
-    "category" : "notice",
-    "notes" : "remember sent to all VIP1",
-    "sentCid" : [ ]
   } ]
 }
