@@ -136,6 +136,32 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
 
+### Locating top students: `top`
+
+Finds student whose names contain any of the given keywords.
+
+Format: `top SUBJECT`
+
+* Find the student who get the highest mark in the subject.
+* Only one student will be shown with the highest mark.
+
+Examples:
+* `top english` returns `Top english Scorer: Min Tan 99`
+* `top science` returns `Top science Scorer: Lee Kuan Yeow 85`<br>
+
+### Locating top students: `last`
+
+Finds student whose names contain any of the given keywords.
+
+Format: `last SUBJECT`
+
+* Find the student who get the lowest mark in the subject.
+* Only one student will be shown with the lowest mark.
+
+Examples:
+* `last english` returns `lowest english Scorer: Min Tan 20`
+* `last science` returns `lowest science Scorer: Lee Kuan Yeow 30`<br>
+
 ### Deleting a students : `delete`
 
 Deletes the specified person from the GreatBook.
