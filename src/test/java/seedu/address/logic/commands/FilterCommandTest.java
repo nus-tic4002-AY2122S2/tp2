@@ -60,7 +60,7 @@ class FilterCommandTest {
     }
 
     /**
-     * Parses {@code userInput} into a {@code NameContainsKeywordsPredicate}.
+     * Parses {@code userInput} into a {@code NameContainsTagPredicate}.
      */
     private NameContainsTagPredicate preparePredicate(String userInput) {
         return new NameContainsTagPredicate(Arrays.asList(userInput.split("\\s+")));
