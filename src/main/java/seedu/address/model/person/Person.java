@@ -44,7 +44,7 @@ public class Person {
     /**
      * Overload constructor as task is an option value
      */
-    public Person(Name name, Phone phone, Email email, Address address, Money money, Set<Tag> tags, String task ) {
+    public Person(Name name, Phone phone, Email email, Address address, Money money, Set<Tag> tags, String task) {
         this(name, phone, email, address, money, tags);
         this.task = task;
     }
@@ -111,13 +111,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getMoney().equals(getMoney())
+                && otherPerson.getTask().equals(getTask())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, money, tags);
+        return Objects.hash(name, phone, email, address, money, task, tags);
     }
 
     @Override
