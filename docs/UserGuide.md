@@ -49,6 +49,10 @@ GreatBook is a **desktop app for teachers to manage grades of students, optimize
 
    * **`find`**`John`: Finds the person.
 
+   * **`top`**`english`: Shows the top student of English.
+
+   * **`last`**`science`: Shows the last student of Science.
+
    * **`clear`** : Deletes all contacts.
 
    * **`exit`** : Exits the app.
