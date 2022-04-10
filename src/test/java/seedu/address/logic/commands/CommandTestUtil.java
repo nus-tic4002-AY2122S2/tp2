@@ -3,9 +3,14 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CLASSROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -15,7 +20,7 @@ import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
+import seedu.address.model.GreatBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
@@ -34,6 +39,16 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
+    public static final String VALID_CLASSROOM = "1A";
+    public static final String VALID_ENGLISH_AMY = "90";
+    public static final String VALID_ENGLISH_BOB = "85";
+    public static final String VALID_MOTHERTONGUE_AMY = "90";
+    public static final String VALID_MOTHERTONGUE_BOB = "85";
+    public static final String VALID_MATHEMATICS_AMY = "90";
+    public static final String VALID_MATHEMATICS_BOB = "85";
+    public static final String VALID_SCIENCE_AMY = "90";
+    public static final String VALID_SCIENCE_BOB = "85";
+
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
@@ -45,6 +60,15 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String ADDRESS_DESC_AMY = " " + PREFIX_ADDRESS + VALID_ADDRESS_AMY;
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
+    public static final String CLASSROOM_DESC_ALL = " " + PREFIX_CLASSROOM + VALID_CLASSROOM;
+    public static final String ENGLISH_DESC_AMY = " " + PREFIX_ENGLISH + VALID_ENGLISH_AMY;
+    public static final String ENGLISH_DESC_BOB = " " + PREFIX_ENGLISH + VALID_ENGLISH_BOB;
+    public static final String MOTHERTONGUE_DESC_AMY = " " + PREFIX_MOTHERTONGUE + VALID_MOTHERTONGUE_AMY;
+    public static final String MOTHERTONGUE_DESC_BOB = " " + PREFIX_MOTHERTONGUE + VALID_MOTHERTONGUE_AMY;
+    public static final String MATHEMATICS_DESC_AMY = " " + PREFIX_MATHEMATICS + VALID_MATHEMATICS_AMY;
+    public static final String MATHEMATICS_DESC_BOB = " " + PREFIX_MATHEMATICS + VALID_MATHEMATICS_BOB;
+    public static final String SCIENCE_DESC_AMY = " " + PREFIX_SCIENCE + VALID_SCIENCE_AMY;
+    public static final String SCIENCE_DESC_BOB = " " + PREFIX_SCIENCE + VALID_SCIENCE_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
@@ -104,11 +128,11 @@ public class CommandTestUtil {
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
+        GreatBook expectedGreatBook = new GreatBook(actualModel.getAddressBook());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
-        assertEquals(expectedAddressBook, actualModel.getAddressBook());
+        assertEquals(expectedGreatBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
     }
     /**

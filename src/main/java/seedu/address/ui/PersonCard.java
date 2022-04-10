@@ -37,7 +37,17 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label address;
     @FXML
+    private Label classroom;
+    @FXML
     private Label email;
+    @FXML
+    private Label english;
+    @FXML
+    private Label motherTongue;
+    @FXML
+    private Label mathematics;
+    @FXML
+    private Label science;
     @FXML
     private FlowPane tags;
 
@@ -52,6 +62,12 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        classroom.setText("Classroom: " + person.getClassroom().value);
+        english.setText("English: " + Integer.toString(person.getEnglish().score));
+        motherTongue.setText("Mother Tongue: " + Integer.toString(person.getMotherTongue().score));
+        mathematics.setText("Math: " + Integer.toString(person.getMathematics().score));
+        science.setText("Science: " + Integer.toString(person.getScience().score));
+
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -71,7 +87,9 @@ public class PersonCard extends UiPart<Region> {
 
         // state check
         PersonCard card = (PersonCard) other;
-        return id.getText().equals(card.id.getText())
+        boolean result = id.getText().equals(card.id.getText())
                 && person.equals(card.person);
+
+        return result;
     }
 }

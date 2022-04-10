@@ -22,17 +22,31 @@ public class Person {
 
     // Data fields
     private final Address address;
+    private final Classroom classroom;
     private final Set<Tag> tags = new HashSet<>();
+
+    //Subject grade
+    private final English english;
+    private final MotherTongue motherTongue;
+    private final Mathematics mathematics;
+    private final Science science;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Classroom classroom,
+                  English english, MotherTongue motherTongue, Mathematics mathematics,
+                  Science science, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, english, motherTongue, mathematics, science, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.classroom = classroom;
+        this.english = english;
+        this.motherTongue = motherTongue;
+        this.mathematics = mathematics;
+        this.science = science;
         this.tags.addAll(tags);
     }
 
@@ -50,6 +64,26 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public English getEnglish() {
+        return english;
+    }
+
+    public MotherTongue getMotherTongue() {
+        return motherTongue;
+    }
+
+    public Mathematics getMathematics() {
+        return mathematics;
+    }
+
+    public Science getScience() {
+        return science;
     }
 
     /**
@@ -110,7 +144,17 @@ public class Person {
                 .append("; Email: ")
                 .append(getEmail())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Classroom: ")
+                .append(getClassroom())
+                .append("; English: ")
+                .append(getEnglish())
+                .append("; MotherTongue: ")
+                .append(getMotherTongue())
+                .append("; Mathematics: ")
+                .append(getMathematics())
+                .append("; Science: ")
+                .append(getScience());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {

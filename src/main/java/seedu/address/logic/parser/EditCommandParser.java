@@ -3,9 +3,14 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CLASSROOM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ENGLISH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MATHEMATICS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MOTHERTONGUE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SCIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
@@ -32,7 +37,9 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
+                        PREFIX_CLASSROOM, PREFIX_ENGLISH, PREFIX_MOTHERTONGUE, PREFIX_MATHEMATICS,
+                        PREFIX_SCIENCE, PREFIX_TAG);
 
         Index index;
 
@@ -54,6 +61,23 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
+        }
+        if (argMultimap.getValue(PREFIX_CLASSROOM).isPresent()) {
+            editPersonDescriptor.setClassroom(ParserUtil.parseClassroom(argMultimap.getValue(PREFIX_CLASSROOM).get()));
+        }
+        if (argMultimap.getValue(PREFIX_ENGLISH).isPresent()) {
+            editPersonDescriptor.setEnglish(ParserUtil.parseEnglish(argMultimap.getValue(PREFIX_ENGLISH).get()));
+        }
+        if (argMultimap.getValue(PREFIX_MOTHERTONGUE).isPresent()) {
+            editPersonDescriptor.setMotherTongue(
+                    ParserUtil.parseMotherTongue(argMultimap.getValue(PREFIX_MOTHERTONGUE).get()));
+        }
+        if (argMultimap.getValue(PREFIX_MATHEMATICS).isPresent()) {
+            editPersonDescriptor.setMathematics(
+                    ParserUtil.parseMathematics(argMultimap.getValue(PREFIX_MATHEMATICS).get()));
+        }
+        if (argMultimap.getValue(PREFIX_SCIENCE).isPresent()) {
+            editPersonDescriptor.setScience(ParserUtil.parseScience(argMultimap.getValue(PREFIX_SCIENCE).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
