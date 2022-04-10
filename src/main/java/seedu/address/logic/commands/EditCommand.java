@@ -106,9 +106,7 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Money updatedMoney = editPersonDescriptor.getMoney().orElse(personToEdit.getMoney());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        String task = editPersonDescriptor.getTask().equals("")
-                ? personToEdit.getTask()
-                : editPersonDescriptor.getTask();
+        String task = editPersonDescriptor.getTask().orElse(personToEdit.getTask());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedMoney, updatedTags, task);
     }
@@ -142,7 +140,7 @@ public class EditCommand extends Command {
         private Address address;
         private Money money;
         private Set<Tag> tags;
-        private String task = "";
+        private String task;
 
         public EditPersonDescriptor() {}
 
@@ -164,7 +162,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return !task.equals("") || CollectionUtil.isAnyNonNull(name, phone, email, address, money, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, money, tags, task);
         }
 
         public void setName(Name name) {
@@ -228,7 +226,9 @@ public class EditCommand extends Command {
             this.task = task;
         }
 
-        public String getTask() { return this.task; }
+        public Optional<String> getTask() {
+            return Optional.ofNullable(task);
+        }
 
         @Override
         public boolean equals(Object other) {
