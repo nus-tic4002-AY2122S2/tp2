@@ -1,6 +1,8 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -122,4 +124,12 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPostList(Predicate<Post> predicate);
+
+    void updatePostSentCid(Set<String> updatedSentCid, Post targetPost);
+
+    /**
+     * Updates the whole post list from an entire new {@code postList}
+     * @param postList the source post list
+     */
+    void updateWholePostList(List<Post> postList);
 }
