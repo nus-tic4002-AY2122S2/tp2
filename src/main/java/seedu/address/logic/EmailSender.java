@@ -1,16 +1,14 @@
 package seedu.address.logic;
 
-import java.util.Date;
+import seedu.address.ui.email.EmailSendFailAlertWindow;
+
 import java.util.Properties;
-import javax.mail.Authenticator;
+import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 public class EmailSender {
 
@@ -35,27 +33,28 @@ public class EmailSender {
                        String password) {
 
         this.from = "tic4003tp5@gmail.com";
-        this.to = "michealyang1994@gmail.com";
+        this.to = to;
         this.password = "nusyear4";
-        this.subject = "Greeting";
-        this.content = "Hi Micheal";
+        this.subject = subject;
+        this.content = content;
     }
 
     /**
      * Send a email out
      */
     public void sendEmail() {
-        // Create a instance for Email
-        Properties props = new Properties();
-        gmailTls(props);
-
-        // Set MimeMessage
-        MimeMessage msg = getMimeMessage(props);
-
         try {
+            // Create a instance for Email
+            Properties props = new Properties();
+            gmailTls(props);
+
+            // Set MimeMessage
+            Message msg = getMimeMessage(props);
             Transport.send(msg);
-        } catch (MessagingException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            //Pop out new window to notify user.
+            EmailSendFailAlertWindow emailSendFailAlertWindow = new EmailSendFailAlertWindow();
+            emailSendFailAlertWindow.show();
         }
     }
 
@@ -64,46 +63,37 @@ public class EmailSender {
      * @param props email server properties
      * @return MimeMessage
      */
-    private MimeMessage getMimeMessage(Properties props) {
-        Session session = Session.getInstance(props,
-                new Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(from, password);
-                    }
-                });
+    private Message getMimeMessage(Properties props) {
 
+        Session session = Session.getInstance(props);
+        session.setDebug(true);
         MimeMessage msg = new MimeMessage(session);
 
         try {
             // Set sender email address
             msg.setFrom(new InternetAddress(from));
-
             // Set receiver email address
-            msg.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
-
+            msg.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
             // Set email subject
-            msg.setSubject(subject, "UTF-8");
-
-            MimeBodyPart text = new MimeBodyPart();
-            text.setContent(content, "text/html;charset=UTF-8");
-            MimeMultipart mmTextImage = new MimeMultipart();
-            mmTextImage.addBodyPart(text);
-            mmTextImage.setSubType("related");
-
-            msg.setContent(mmTextImage);
-            msg.setSentDate(new Date());
-
+            msg.setSubject(subject);
+            // Set email content
+            msg.setContent(content, "text/html;charset=UTF-8");
         } catch (MessagingException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            //Pop out new window to notify user.
+            EmailSendFailAlertWindow emailSendFailAlertWindow = new EmailSendFailAlertWindow();
+            emailSendFailAlertWindow.show();
         }
 
         return msg;
     }
 
     private static void gmailTls(Properties props) {
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.setProperty("mail.smtp.auth", "true");
+        props.setProperty("mail.smtp.ssl.enable", "true");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.smtp.host", "smtp.gmail.com");
+        props.setProperty("mail.smtp.port", "587");
     }
 }
