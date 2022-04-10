@@ -32,7 +32,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 <img src="images/yangshuogeng.png" width="200" height="200">
 
-[[github](https://github.com/YangShuogeng)]     
+[[github](https://github.com/YangShuogeng)]
 [[portfolio](team/yangshuogeng.md)]
 
 * Role: Developer
