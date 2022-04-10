@@ -1,15 +1,7 @@
 package seedu.address.ui.email;
 
-import java.util.Properties;
+
 import java.util.logging.Logger;
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.EmailSender;
 
 public class EmailWindowController {
     private final Logger logger = LogsCenter.getLogger(EmailWindowController.class);
@@ -25,6 +19,10 @@ public class EmailWindowController {
     private String password;
     private String from;
     private String to;
+    private Stage stage;
+
+    @FXML
+    private Button cancelButton;
 
     @FXML
     private Button sendButton;
@@ -47,63 +45,25 @@ public class EmailWindowController {
         if (event.getSource() == sendButton) {
             String subject = subjectTestField.getText();
             String content = emailContentArea.getText();
-            sendEmail(subject, content);
+
+            EmailSender emailSender = new EmailSender(from, to, subject, content, password);
+            emailSender.sendEmail();
+
+            EmailSendSuccessfulWindow emailSendSuccessfulWindow = new EmailSendSuccessfulWindow();
+            emailSendSuccessfulWindow.show();
+
+            stage.close();
+        } else if (event.getSource() == cancelButton) {
+            stage.close();
         }
     }
 
-    void initData(String from, String password, String to) {
+    void initData(String from, String password, String to, Stage stage) {
         senderEmailAddress.setText(from);
         receiverEmailAddress.setText(to);
         this.password = password;
         this.from = from;
         this.to = to;
-    }
-
-    private void sendEmail(String subject, String content) {
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
-            }
-        });
-
-        Message message = prepareMessage(session, from, to, subject, content);
-
-        try {
-            Transport.send(message);
-        } catch (MessagingException e) {
-            logger.info(" -------- Email Send Process Failed -------- ");
-            e.printStackTrace();
-        }
-    }
-
-    private Message prepareMessage(Session session, String sender,
-                                          String receiver, String subject,
-                                          String content) {
-
-        MimeMessage mimeMessage = new MimeMessage(session);
-
-        try {
-            // Create Email
-            mimeMessage.setFrom(new InternetAddress(sender));
-            mimeMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiver));
-            mimeMessage.setSubject(subject);
-            mimeMessage.setText(content);
-
-            return mimeMessage;
-
-        } catch (MessagingException e) {
-
-            logger.info(" -------- Email Prepare Process Failed -------- ");
-            e.printStackTrace();
-        }
-
-        return mimeMessage;
+        this.stage = stage;
     }
 }

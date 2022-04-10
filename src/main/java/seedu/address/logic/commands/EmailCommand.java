@@ -8,6 +8,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.ui.email.EmailContactChoose;
 import seedu.address.ui.email.EmailWindow;
 
 public class EmailCommand extends Command {
@@ -38,11 +39,16 @@ public class EmailCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_COMMAND_FORMAT);
         }
 
-        String fromEmailAddress = personList.get(0).getEmail().toString();
+        if (personList.size() > 1) {
+            EmailContactChoose emailContactChoose = new EmailContactChoose(personList);
+            emailContactChoose.show();
 
-        EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "nusyear4", fromEmailAddress);
-        emailWindow.show();
-
-        return new CommandResult("Person found.", true);
+            return new CommandResult("Person found.", true);
+        } else {
+            String fromEmailAddress = personList.get(0).getEmail().toString();
+            EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "nusyear4", fromEmailAddress);
+            emailWindow.show();
+            return new CommandResult("Person found.", true);
+        }
     }
 }

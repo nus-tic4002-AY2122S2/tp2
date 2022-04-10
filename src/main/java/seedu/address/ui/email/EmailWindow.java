@@ -31,11 +31,11 @@ public class EmailWindow {
         emailWindowStage.setTitle("Email Window");
         emailWindowStage.setScene(scene);
         EmailWindowController controller = loader.getController();
-        controller.initData(from, password, to);
+        controller.initData(from, password, to, emailWindowStage);
     }
 
     /**
-     * Showes the email window
+     * Show the email window
      */
     public void show() {
         emailWindowStage.show();
