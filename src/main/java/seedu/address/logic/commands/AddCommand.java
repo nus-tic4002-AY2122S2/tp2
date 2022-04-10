@@ -34,6 +34,15 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
+    public static final String MESSAGE_USAGE_2 = COMMAND_WORD + ": Adds a post to content list. "
+            + "Parameters: "
+            + "t/TITLE OF CONTENT "
+            + "c/ACTUAL CONTENT INFORMATION "
+            + "p/POSTING DATE IN yyyyMMdd HHmm "
+            + "ca/CATEGORY "
+            + "n/NOTES\n"
+            + "Example: add p t/a dummy title two c/a dummy example content two p/20220805 0900 ca/notice n/remember sent to all VIP1 ";
+
     public static final String MESSAGE_SUCCESS = "New person/post added: %1$s"; //TODO : separate person and post
 
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";

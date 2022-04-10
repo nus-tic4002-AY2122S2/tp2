@@ -88,7 +88,7 @@ public class AddCommandParser implements Parser<AddCommand> {
                 if (!arePrefixesPresent(argMultimap, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE,
                         PREFIX_CATEGORY, PREFIX_NOTES)
                         || !argMultimap.getPreamble().isEmpty()) {
-                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE_2));
                 }
 
                 Title title = new Title(argMultimap.getValue(PREFIX_TITLE).get());
