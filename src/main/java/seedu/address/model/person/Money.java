@@ -7,8 +7,8 @@ import static java.util.Objects.requireNonNull;
  */
 public class Money {
     public static final String MESSAGE_CONSTRAINTS =
-            "Money should be decimals up to 2dp, non-negative and less than 1,000,000.99";
-    public static final String VALIDATION_REGEX = "\\d{1,7}\\.\\d{1,2}";
+            "Money should be decimals up to 2dp, non-negative and less than 9,999.99";
+    public static final String VALIDATION_REGEX = "\\d{1,4}\\.\\d{1,2}";
     private final double value;
 
     /**
