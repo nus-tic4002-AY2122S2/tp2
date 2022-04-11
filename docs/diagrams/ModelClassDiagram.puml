@@ -13,7 +13,9 @@ Class ModelManager
 Class UserPrefs
 
 Class UniquePersonList
-Class Person
+Class Person {
+    <color:#FFFFFF>task
+}
 Class Address
 Class Email
 Class Name
@@ -49,4 +51,6 @@ Phone -[hidden]right-> Address
 Address -[hidden]right-> Email
 
 ModelManager -->"~* filtered" Person
+
+show Person fields
 @enduml

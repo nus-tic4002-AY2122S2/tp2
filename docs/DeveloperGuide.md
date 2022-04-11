@@ -73,7 +73,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `OverviewPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S2-TIC4002-F18-4/tp2/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2122S2-TIC4002-F18-4/tp2/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -126,7 +126,9 @@ The `Model` component,
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-Each attribute of the `Person` class (e.g. `Money`) is implemented as a separate class.
+#### Attributes implementation
+* Only `task` is implemented as a variable in the `Person` class.
+* Others (e.g. `Money`) are implemented as separate classes.
 
 Note: that `task` attribute of the `Person` is a string instead of a class because it does not have any validation.
 
@@ -158,12 +160,29 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Command Execution
-Command execution is initiated via the `handleCommandEntered()` function of the `CommandBox` class.
+### Command Input Execution
 
-It is then passed to the `executeCommand()` function of the `MainWindow` class.
+The *Sequence Diagram* below shows the **generic** flow of function calls between different components' classes, upon the user supplying a command input.
 
-{More to be added}
+![CommandExecutionSequenceDiagram](images/CommandExecutionSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `c:Command` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+### Overview of Money Owed
+
+In implementation of the *Money Owed Overview* feature, there are 2 key attributes that need to be kept in sync between `UI` and `Model`, namely *Money Sum* and *Contact Count*.
+
+From the class diagram below, they are the attributes between `ModelManager` and `OverviewPanel`. Actual values are stored in the `ModelManager` class, and kept in sync with the UI (the `OverviewPanel` class) using `Java` built-in `PropertyChangeListener` implementation.
+
+![MoneyOverviewClassDiagram](images/MoneyOverviewClassDiagram.png)
+
+Below sequence diagram shows the execution flow in binding the `ModelManager` with the `OverviewPanel` for `Java` `PropertyChangeListener`.
+
+![MoneyOverviewSequenceDiagramInit](images/MoneyOverviewSequenceDiagramInit.png)
+
+Whenever there is a command execution, both `updateTotalMoney()` and `updateContactsWithMoneyCount()` functions from the `ModelManager` class will be called upon. Below sequence diagram shows the snapshot execution flow to get the UI value from `OverviewPanel` to be updated.
+
+![MoneyOverviewSequenceDiagramFire](images/MoneyOverviewSequenceDiagramFire.png)
 
 ### \[Proposed\] Undo/redo feature
 

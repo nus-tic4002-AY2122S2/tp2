@@ -1,0 +1,41 @@
+@startuml
+participant "model:ModelManager" as ModelManager
+participant "pcs:PropertyChangeSupport" as PropertyChangeSupport
+participant "overviewPanel:PropertyChangeListener" as PropertyChangeListener
+
+[-> ModelManager : updateTotalMoney()
+activate ModelManager
+
+ModelManager -> PropertyChangeSupport : firePropertyChange()
+activate PropertyChangeSupport
+
+PropertyChangeSupport -> PropertyChangeListener : propertyChange()
+activate PropertyChangeListener
+
+PropertyChangeListener --> PropertyChangeSupport
+deactivate PropertyChangeListener
+
+PropertyChangeSupport --> ModelManager
+deactivate PropertyChangeSupport
+
+[<-- ModelManager : newTotal
+deactivate ModelManager
+
+[-> ModelManager : updateContactsWithMoneyCount()
+activate ModelManager
+
+ModelManager -> PropertyChangeSupport : firePropertyChange()
+activate PropertyChangeSupport
+
+PropertyChangeSupport -> PropertyChangeListener : propertyChange()
+activate PropertyChangeListener
+
+PropertyChangeListener --> PropertyChangeSupport
+deactivate PropertyChangeListener
+
+PropertyChangeSupport --> ModelManager
+deactivate PropertyChangeSupport
+
+[<-- ModelManager : newTotal
+deactivate ModelManager
+@enduml

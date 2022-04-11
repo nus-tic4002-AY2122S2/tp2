@@ -1,0 +1,31 @@
+@startuml
+class ModelManager {
+    -totalMoney
+    -contactsWithMoneyCount
+    +addPropertyChangeListener()
+    +updateTotalMoney()
+    +updateContactsWithMoneyCount()
+}
+
+class PropertyChangeSupport {
+    +addPropertyChangeListener()
+    +firePropertyChange()
+}
+
+interface "<<interface>>\nPropertyChangeListener" as PropertyChangeListener {
+    propertyChange()
+}
+
+class OverviewPanel {
+    -totalMoney
+    -contactCount
+    +propertyChange()
+}
+
+ModelManager --> "1" PropertyChangeSupport
+PropertyChangeSupport --> "*" PropertyChangeListener
+PropertyChangeListener <|.. OverviewPanel
+
+hide circle
+skinparam classAttributeIconSize 0
+@enduml

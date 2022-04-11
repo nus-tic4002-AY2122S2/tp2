@@ -1,0 +1,77 @@
+@startuml
+participant ":MainApp" as MainApp
+participant "model:ModelManager" as ModelManager
+participant "pcs:PropertyChangeSupport" as PropertyChangeSupport
+participant "ui:UiManager" as UiManager
+participant "mainWindow:MainWindow" as MainWindow
+participant "overviewPanel:PropertyChangeListener" as PropertyChangeListener
+
+[-> MainApp : init()
+activate MainApp
+
+create ModelManager
+MainApp -> ModelManager
+activate ModelManager
+
+create PropertyChangeSupport
+ModelManager -> PropertyChangeSupport
+activate PropertyChangeSupport
+
+PropertyChangeSupport --> ModelManager
+deactivate PropertyChangeSupport
+
+ModelManager --> MainApp
+deactivate ModelManager
+
+create UiManager
+MainApp -> UiManager
+activate UiManager
+
+UiManager --> MainApp
+deactivate UiManager
+deactivate MainApp
+
+[-> MainApp : start()
+activate MainApp
+
+MainApp -> UiManager : start()
+activate UiManager
+
+create MainWindow
+UiManager -> MainWindow
+activate MainWindow
+
+MainWindow --> UiManager
+deactivate MainWindow
+
+UiManager -> MainWindow : fillInnerParts(model)
+activate MainWindow
+
+create PropertyChangeListener
+MainWindow -> PropertyChangeListener
+activate PropertyChangeListener
+
+PropertyChangeListener --> MainWindow
+deactivate PropertyChangeListener
+
+MainWindow -> ModelManager : addPropertyChangeListener(overviewPanel)
+activate ModelManager
+
+ModelManager -> PropertyChangeSupport : addPropertyChangeListener(overviewPanel)
+activate PropertyChangeSupport
+
+PropertyChangeSupport --> ModelManager
+deactivate PropertyChangeSupport
+
+ModelManager --> MainWindow
+deactivate ModelManager
+
+MainWindow --> UiManager
+deactivate MainWindow
+
+UiManager --> MainApp
+deactivate UiManager
+
+[<-- MainApp
+deactivate MainApp
+@enduml
