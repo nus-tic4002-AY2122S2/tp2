@@ -187,7 +187,7 @@ Syntax: `edit client|c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…
 Example: `edit c 3 a/a new address`
 
 Expected outcome:
-![EditPost](images/editPost.PNG)
+![EditClient](images/editClient.PNG)
 ```
 Edited Person: bernice; Phone: 93210283; Email: charlotte@example.com; Address: a new address; Tags: [clients]
 ```
