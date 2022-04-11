@@ -166,11 +166,6 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
-        // Relation relations = getRelations();
-        //        if (!relations.isEmpty()) {
-        //            builder.append("; Relations: ");
-        //            relations.getSet().forEach(builder::append);
-        //        }
         return builder.toString();
     }
 
