@@ -56,14 +56,16 @@
     "postDate" : "19/03/2022 06:06",
     "category" : "promotion",
     "notes" : "remember sent out by 20/03, too all the registered client",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Charlotte Oliveiro" ]
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ]
   }, {
     "title" : "Important Notice：Warehouse Location changed in Guangzhou",
     "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
     "postDate" : "18/03/2022 18:00",
     "category" : "notice",
+
     "notes" : "send to all the clients, remember sent out by 18/03",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro" ]
+
   }, {
     "title" : "Your Parcel is ready to ship!",
     "content" : "You order has already arrived our Guangzhou warehouse, please go our website to check : https://www.exampleshipment.sg , and remember the free storage period",

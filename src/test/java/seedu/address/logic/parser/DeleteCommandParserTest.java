@@ -1,5 +1,18 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.model.ListType;
+
+
 
 
 /**
@@ -13,13 +26,16 @@ public class DeleteCommandParserTest {
 
     private DeleteCommandParser parser = new DeleteCommandParser();
 
-    /* TODO fix later
+
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        assertParseSuccess(parser, "1", new DeleteCommand(ListType.CLIENT, INDEX_FIRST_PERSON));
+        List<Index> targetIndex = new ArrayList<>();
+        targetIndex.add(INDEX_FIRST_PERSON);
+        assertParseSuccess(parser, "p 1", new DeleteCommand(ListType.CLIENT, targetIndex));
     }
 
 
+    /* TODO fix later
 
     @Test
     public void parse_invalidArgs_throwsParseException() {

@@ -110,8 +110,18 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void deletePersonAll(List<Person> targets) {
+        addressBook.removePersonAll(targets);
+    }
+
+    @Override
     public void deletePost(Post target) {
         addressBook.removePost(target);
+    }
+
+    @Override
+    public void deletePostAll(List<Post> targets) {
+        addressBook.removePostAll(targets);
     }
 
     @Override

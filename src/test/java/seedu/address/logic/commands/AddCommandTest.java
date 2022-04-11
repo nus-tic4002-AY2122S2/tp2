@@ -143,6 +143,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void deletePersonAll(List<Person> targets) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setPerson(Person target, Person editedPerson) {
             throw new AssertionError("This method should not be called.");
         }
@@ -155,6 +160,11 @@ public class AddCommandTest {
 
         @Override
         public void deletePost(Post target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deletePostAll(List<Post> targets) {
             throw new AssertionError("This method should not be called.");
         }
 

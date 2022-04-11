@@ -79,6 +79,16 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Removes the whole target person list from the main person list.     *
+     */
+    public void removeAll(List<Person> toRemove) {
+        requireNonNull(toRemove);
+        if (!internalList.removeAll(toRemove)) {
+            throw new PersonNotFoundException();
+        }
+    }
+
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
