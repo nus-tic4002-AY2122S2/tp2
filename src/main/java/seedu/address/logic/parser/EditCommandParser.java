@@ -36,6 +36,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditCommand parse(String args) throws ParseException {
@@ -47,16 +48,16 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         if (matcherType.matches()) {
             listType = (!(matcherType.group("isClient") == null)
-                    && !(matcherType.group("isClient").isEmpty())) ? ListType.CLIENT
-                    : (!(matcherType.group("isPost") == null)
-                    && !(matcherType.group("isPost").isEmpty())) ? ListType.POST : null;
+                && !(matcherType.group("isClient").isEmpty())) ? ListType.CLIENT
+                : (!(matcherType.group("isPost") == null)
+                && !(matcherType.group("isPost").isEmpty())) ? ListType.POST : null;
             args = matcherType.group("args");
 
             if (listType == ListType.CLIENT) {
 
                 ArgumentMultimap argMultimap =
-                        ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                                PREFIX_ADDRESS, PREFIX_TAG);
+                    ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                        PREFIX_ADDRESS, PREFIX_TAG);
 
                 Index index;
 
@@ -65,7 +66,7 @@ public class EditCommandParser implements Parser<EditCommand> {
                 }
                 catch (ParseException pe) {
                     throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                            EditCommand.MESSAGE_USAGE), pe);
+                        EditCommand.MESSAGE_USAGE), pe);
                 }
 
                 EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
@@ -79,7 +80,8 @@ public class EditCommandParser implements Parser<EditCommand> {
                     editPersonDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
                 }
                 if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
-                    editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
+                    editPersonDescriptor.setAddress(
+                        ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
                 }
                 parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
@@ -92,8 +94,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             } else if (listType == ListType.POST) {
 
                 ArgumentMultimap argMultimap =
-                        ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE,
-                                PREFIX_CATEGORY, PREFIX_NOTES);
+                    ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE,
+                        PREFIX_CATEGORY, PREFIX_NOTES);
 
                 Index index;
 
@@ -102,7 +104,7 @@ public class EditCommandParser implements Parser<EditCommand> {
                 }
                 catch (ParseException pe) {
                     throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                            EditCommand.MESSAGE_USAGE_2), pe);
+                        EditCommand.MESSAGE_USAGE_2), pe);
                 }
 
                 EditContentDescriptor editContentDescriptor = new EditContentDescriptor();
@@ -110,13 +112,16 @@ public class EditCommandParser implements Parser<EditCommand> {
                     editContentDescriptor.setTitle(ParserUtil.parseTitle(argMultimap.getValue(PREFIX_TITLE).get()));
                 }
                 if (argMultimap.getValue(PREFIX_CONTENT).isPresent()) {
-                    editContentDescriptor.setContent(ParserUtil.parseContent(argMultimap.getValue(PREFIX_CONTENT).get()));
+                    editContentDescriptor.setContent(
+                        ParserUtil.parseContent(argMultimap.getValue(PREFIX_CONTENT).get()));
                 }
                 if (argMultimap.getValue(PREFIX_POSTDATE).isPresent()) {
-                    editContentDescriptor.setPostDate(ParserUtil.parsePostDate(argMultimap.getValue(PREFIX_POSTDATE).get()));
+                    editContentDescriptor.setPostDate(
+                        ParserUtil.parsePostDate(argMultimap.getValue(PREFIX_POSTDATE).get()));
                 }
                 if (argMultimap.getValue(PREFIX_CATEGORY).isPresent()) {
-                    editContentDescriptor.setCategory(ParserUtil.parseCategory(argMultimap.getValue(PREFIX_CATEGORY).get()));
+                    editContentDescriptor.setCategory(
+                        ParserUtil.parseCategory(argMultimap.getValue(PREFIX_CATEGORY).get()));
                 }
                 if (argMultimap.getValue(PREFIX_NOTES).isPresent()) {
                     editContentDescriptor.setNotes(ParserUtil.parseNotes(argMultimap.getValue(PREFIX_NOTES).get()));
@@ -130,7 +135,7 @@ public class EditCommandParser implements Parser<EditCommand> {
 
             } else {
                 throw new ParseException("You need declare client or post you want to add, "
-                        + "the second parameter can only be client|c or post|p");
+                    + "the second parameter can only be client|c or post|p");
             }
         } else {
             throw new ParseException("You need declare client or post you want to edit");

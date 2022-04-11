@@ -46,30 +46,30 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + " c: Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
-            + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " c 1 "
-            + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "johndoe@example.com";
+        + "by the index number used in the displayed person list. "
+        + "Existing values will be overwritten by the input values.\n"
+        + "Parameters: INDEX (must be a positive integer) "
+        + "[" + PREFIX_NAME + "NAME] "
+        + "[" + PREFIX_PHONE + "PHONE] "
+        + "[" + PREFIX_EMAIL + "EMAIL] "
+        + "[" + PREFIX_ADDRESS + "ADDRESS] "
+        + "[" + PREFIX_TAG + "TAG]...\n"
+        + "Example: " + COMMAND_WORD + " c 1 "
+        + PREFIX_PHONE + "91234567 "
+        + PREFIX_EMAIL + "johndoe@example.com";
 
     public static final String MESSAGE_USAGE_2 = COMMAND_WORD + " p: Edits the details of the post identified "
-            + "by the index number used in the displayed content list. "
-            + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_TITLE + "TITLE OF CONTENT] "
-            + "[" + PREFIX_CONTENT + "CONTENT INFORMATION] "
-            + "[" + PREFIX_POSTDATE + "POSTING DATE IN yyyyMMdd HHmm] "
-            + PREFIX_CATEGORY + "CATEGORY "
-            + PREFIX_NOTES + "NOTES\n"
-            + "Example: " + COMMAND_WORD + " p 1 "
-            + PREFIX_TITLE + "a dummy title two "
-            + PREFIX_CONTENT + "a dummy example content two ";
+        + "by the index number used in the displayed content list. "
+        + "Existing values will be overwritten by the input values.\n"
+        + "Parameters: INDEX (must be a positive integer) "
+        + "[" + PREFIX_TITLE + "TITLE OF CONTENT] "
+        + "[" + PREFIX_CONTENT + "CONTENT INFORMATION] "
+        + "[" + PREFIX_POSTDATE + "POSTING DATE IN yyyyMMdd HHmm] "
+        + PREFIX_CATEGORY + "CATEGORY "
+        + PREFIX_NOTES + "NOTES\n"
+        + "Example: " + COMMAND_WORD + " p 1 "
+        + PREFIX_TITLE + "a dummy title two "
+        + PREFIX_CONTENT + "a dummy example content two ";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_EDIT_POST_SUCCESS = "Edited Post: %1$s";
@@ -81,7 +81,7 @@ public class EditCommand extends Command {
     private EditContentDescriptor editContentDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
+     * @param index                of the person in the filtered person list to edit
      * @param editPersonDescriptor details to edit the person with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
@@ -93,7 +93,7 @@ public class EditCommand extends Command {
     }
 
     /**
-     * @param index of the post in the filtered content list to edit
+     * @param index                 of the post in the filtered content list to edit
      * @param editContentDescriptor details to edit the content with
      */
     public EditCommand(Index index, EditContentDescriptor editContentDescriptor) {
@@ -126,9 +126,8 @@ public class EditCommand extends Command {
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
             return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
 
-        } else if (editContentDescriptor != null){
+        } else if (editContentDescriptor != null) {
             List<Post> lastShownList = model.getFilteredPostList();
-
             if (index.getZeroBased() >= lastShownList.size()) {
                 throw new CommandException(Messages.MESSAGE_INVALID_POST_DISPLAYED_INDEX);
             }
@@ -194,7 +193,7 @@ public class EditCommand extends Command {
         // state check
         EditCommand e = (EditCommand) other;
         return index.equals(e.index)
-                && editPersonDescriptor.equals(e.editPersonDescriptor);
+            && editPersonDescriptor.equals(e.editPersonDescriptor);
     }
 
     /**
@@ -208,7 +207,8 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
 
-        public EditPersonDescriptor() {}
+        public EditPersonDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -294,10 +294,10 @@ public class EditCommand extends Command {
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getPhone().equals(e.getPhone())
-                    && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                && getPhone().equals(e.getPhone())
+                && getEmail().equals(e.getEmail())
+                && getAddress().equals(e.getAddress())
+                && getTags().equals(e.getTags());
         }
     }
 
@@ -312,7 +312,8 @@ public class EditCommand extends Command {
         private Category category;
         private Notes notes;
 
-        public EditContentDescriptor() {}
+        public EditContentDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -390,10 +391,10 @@ public class EditCommand extends Command {
             EditContentDescriptor e = (EditContentDescriptor) other;
 
             return getTitle().equals(e.getTitle())
-                    && getContent().equals(e.getContent())
-                    && getPostDate().equals(e.getPostDate())
-                    && getCategory().equals(e.getCategory())
-                    && getNotes().equals(e.getNotes());
+                && getContent().equals(e.getContent())
+                && getPostDate().equals(e.getPostDate())
+                && getCategory().equals(e.getCategory())
+                && getNotes().equals(e.getNotes());
         }
     }
 }
