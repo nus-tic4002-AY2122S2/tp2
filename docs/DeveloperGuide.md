@@ -166,6 +166,22 @@ The *Sequence Diagram* below shows the **generic** flow of function calls betwee
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `c:Command` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
+### Overview of Money Owed
+
+In implementation of the *Money Owed Overview* feature, there are 2 key attributes that need to be kept in sync between `UI` and `Model`, namely *Money Sum* and *Contact Count*.
+
+From the class diagram below, they are the attributes between `ModelManager` and `OverviewPanel`. Actual values are stored in the `ModelManager` class, and kept in sync with the UI (the `OverviewPanel` class) using `Java` built-in `PropertyChangeListener` implementation.
+
+![MoneyOverviewClassDiagram](images/MoneyOverviewClassDiagram.png)
+
+Below sequence diagram shows the execution flow in binding the `ModelManager` with the `OverviewPanel` for `Java` `PropertyChangeListener`.
+
+![MoneyOverviewSequenceDiagramInit](images/MoneyOverviewSequenceDiagramInit.png)
+
+Whenever there is a command execution, both `updateTotalMoney()` and `updateContactsWithMoneyCount()` functions from the `ModelManager` class will be called upon. Below sequence diagram shows the snapshot execution flow to get the UI value from `OverviewPanel` to be updated.
+
+![MoneyOverviewSequenceDiagramFire](images/MoneyOverviewSequenceDiagramFire.png)
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
