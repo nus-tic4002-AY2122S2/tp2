@@ -1,0 +1,52 @@
+@startuml
+participant ":CommandBox" as CommandBox
+participant ":MainWindow" as MainWindow
+participant ":LogicManager" as LogicManager
+participant ":AddressBookParser" as AddressBookParser
+participant "c:Command" as Command
+participant ":StorageManager" as StorageManager
+
+[-> CommandBox : handleCommandEntered()
+activate CommandBox
+
+CommandBox -> MainWindow : executeCommand(input)
+activate MainWindow
+
+MainWindow -> LogicManager : execute(input)
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand(input)
+activate AddressBookParser
+
+create Command
+AddressBookParser -> Command
+activate Command
+
+Command --> AddressBookParser
+deactivate Command
+
+AddressBookParser --> LogicManager : c
+deactivate AddressBookParser
+
+LogicManager -> Command : execute(model)
+activate Command
+
+Command --> LogicManager: CommandResult
+deactivate Command
+
+LogicManager -> StorageManager : saveAddressBook(addressBook)
+activate StorageManager
+
+StorageManager --> LogicManager
+deactivate StorageManager
+
+LogicManager --> MainWindow : CommandResult
+deactivate LogicManager
+destroy Command
+
+MainWindow --> CommandBox : CommandResult
+deactivate MainWindow
+
+[<-- CommandBox
+deactivate CommandBox
+@enduml
