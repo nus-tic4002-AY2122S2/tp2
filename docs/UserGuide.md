@@ -31,7 +31,7 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/09/08/2011 r/some comments` : Adds a contact named `John Doe` to the TeamContact 24/7 app.
    
-   * **`email`**`email micheal`: Send an email to a contact named `Micheal`
+   * **`email`**`micheal`: Send an email to a contact named `Micheal`
    
    * **`log`**`1 l/some brief communication note` : Logs a brief intercourse update on the 1st contact in the current display list.
      * _**NB:-** log is different from remark in the sense that log is for work-related notes only while remark is for all non work-related comments. A log is created via the log Command whereas remark is entered through the "r/" arg of add Command._
@@ -191,6 +191,15 @@ Examples:
 
 ![email command](images/emailCommandPic_2.png)
 
+* If there are more than one matched contact name in the list as shown below, a new window will pop out to ask user to choose which one to email to. User can only input integer number within the range shown.
+
+![email_contact_choose_windoe](images/multipleContactMatched.png)
+
+* If the input is not integer or out of range, a error window will pop out to notify user to correct input.
+
+![email_contact_choosing_input_error](images/contactNumberInputError.png)
+
+* Once the correct contact number chosen and click `ok` button, the email window will pop out and user can proceed to prepare email and send.
 
 ### Restore a previous entry : `undo`
  

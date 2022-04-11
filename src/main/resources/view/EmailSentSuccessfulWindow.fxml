@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="130.0" prefWidth="277.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.address.ui.email.EmailSendSuccessfulWindowController">
    <children>
-      <Label fx:id="info" layoutX="122.0" layoutY="36.0" text="Label" />
-      <Button fx:id="closeButton" layoutX="114.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Close" />
+      <Label fx:id="info" layoutX="122.0" layoutY="36.0" minHeight="-Infinity" minWidth="-Infinity" text="Label" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="36.0" />
+      <Button fx:id="closeButton" layoutX="114.0" layoutY="81.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAction" text="Close" AnchorPane.bottomAnchor="25.8" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="81.0" />
    </children>
 </AnchorPane>

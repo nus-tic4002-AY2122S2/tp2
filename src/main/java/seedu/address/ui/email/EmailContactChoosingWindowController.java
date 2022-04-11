@@ -35,7 +35,17 @@ public class EmailContactChoosingWindowController {
 
         if (event.getSource() == okButton) {
             String inputNumberStr = userInputTxt.getText();
-            int inputNumberInt = Integer.parseInt(inputNumberStr);
+            int inputNumberInt;
+            try {
+                inputNumberInt = Integer.parseInt(inputNumberStr);
+            } catch (Exception e) {
+                //New error alert window to show;
+                EmailContactNumberAlert emailContactNumberAlert = new EmailContactNumberAlert(stage);
+                emailContactNumberAlert.show();
+
+                return;
+            }
+
 
             if (inputNumberInt > contactQuantity || inputNumberInt < 1) {
                 //New error alert window to show;
