@@ -35,29 +35,29 @@ Users can input via a command line interface and access features that help with 
    * **`clear`** : Deletes all contacts.
 
    * **`remark`** `INDEX r/DESCRIPTION` : Add remark to a contact.
-   
+
    * **`create`** `g/GROUPNAME` : Creates a new group to the address book.
-   
+
    * **`assign`** `n/PERSONNAME g/GROUPNAME`: Assign contact to a group.
 
    * **`unassign`** `1`: Remove existing group from the 1st contact. (coming soon)
-   
+
    * **`rename`** `GROUP_INDEX g/GROUP_NAME`: Renaming the existing group at the index to another name.
 
    * **`deleteg`** `1` : Delete the 1st group show in the current list.
    
    * **`list`** : Lists all contacts.
-   
+
    * **`listgn`** : Lists all groups.
-   
+
    * **`listpfg`** `g/GROUPNAME` : Lists all contacts from a specific group.
-   
+
    * **`listfav`** : List all contacts that are marked with favourite
 
    * **`find`** `KEYWORD [MORE_KEYWORDS]`: Finds contacts that contain the keywords
 
    * **`exit`** : Exits the app.
-   
+
 
 
 1. Refer to the [Features](#features) below for details of each command.
@@ -149,9 +149,9 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-### Deleting all contact(s) and group(s) : `clear`
+### Deleting all contact(s) : `clear`
 
-Deletes all contact(s) and group(s) from the address book
+Deletes all contact(s) from the address book
 
 Format: `clear`
 
@@ -350,7 +350,7 @@ Action | Format, Examples
 **Add Contact** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Edit Contact** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Delete Contact** | `delete INDEX`<br> e.g., `delete 3`
-**Delete All Contact and Group** | `clear`
+**Delete All Contact** | `clear`
 **Add Remarks** | `remark INDEX r/[REMARK]` <br> e.g., `remark 1 r/Send notes`
 **Update Remarks** | `remark INDEX r/[REMARK]` <br> e.g., `remark 1 r/Send notes`
 **Delete Remarks** | `remark INDEX` <br> e.g., `remark 1`
