@@ -44,7 +44,6 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         Matcher matcherType = BASIC_TYPE_FORMAT.matcher(args.trim());
         ListType listType;
-        String args1;
 
         if (matcherType.matches()) {
             listType = (!(matcherType.group("isClient") == null)
