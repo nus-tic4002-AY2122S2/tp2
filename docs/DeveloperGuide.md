@@ -340,6 +340,22 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### SendCommand 
+
+`SendCommand` extends `Command` class, it is used for user to send the posts to different clients.
+
+The sequence diagram for a SendCommand execution to update the sent out client id
+![SendCommandSequenceDiagram](images/SendCommandSequenceDiagram.png)
+
+After `SendCommandParser`, the `SendCommand` will have two `List<Index>` in the constructor. 
+One is the user entered Clients which is capture after '/c' 
+another one user entered post which is captured after '/p', 
+because the design purpose is able to send multiple posts to multiple clients, each Index List can have one to more indexes
+then the `SendCommand` will do some process and check, in the end will iterate the user selected post then 
+update the corresponding client name for each of them.
+
+
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
