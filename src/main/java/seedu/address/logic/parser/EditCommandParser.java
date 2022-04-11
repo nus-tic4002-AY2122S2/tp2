@@ -47,7 +47,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
         EditContentDescriptor editContentDescriptor = new EditContentDescriptor();
         Index index = null;
-        
         if (matcherType.matches()) {
             listType = (!(matcherType.group("isClient") == null)
                 && !(matcherType.group("isClient").isEmpty())) ? ListType.CLIENT
@@ -67,7 +66,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                     throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                         EditCommand.MESSAGE_USAGE), pe);
                 }
-                
                 if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
                     editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
                 }
