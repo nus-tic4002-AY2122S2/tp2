@@ -11,6 +11,9 @@ public class EmailSendFailAlertWindow {
     private final Scene scene;
     private FXMLLoader loader;
 
+    /**
+     * Constructor
+     */
     public EmailSendFailAlertWindow() {
         this.stage = new Stage();
 

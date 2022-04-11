@@ -27,6 +27,10 @@ public class EmailSendFailAlertWindowController {
         }
     }
 
+    /**
+     * To initial Stage for the window
+     * @param stage
+     */
     public void initData(Stage stage) {
         this.stage = stage;
         alertInfo.setText("Email Failed.");
