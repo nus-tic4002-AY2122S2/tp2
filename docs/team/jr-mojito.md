@@ -9,35 +9,41 @@
 
 * **Enhancements implemented:**
 
-* ```Milestone v1.0```
-    1. Add Expense Class - Pull Request [#18](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/18)
+* ```Milestone v1.1```
+    1. Update AboutUs markdown- Pull Request [#6](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/6)
 
-* ```Milestone v2.0```
-     1. Add Feature for Developer Guide - Pull Request [#60](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/60)
+* ```Milestone v1.2```
+     1. Add Record Birthday Feature - Pull Request [#37](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/37)
    
 * ```Milestone v3.0```
-    1. Add Read and Save Command  - Pulll Request [#94](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/94)
-   
+    1. Add Edit Birthday Feature - Pull Request [#45](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/45)
+    2. Add Sorting Feature - Pull Request [#65](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/65)
  <br>
 
 * **Contributions to team-based tasks**
-  * Maintaining the issue tracker (milestone v1.0 issue tracter setup)
-  * Add Logging function and save to different system log folder
-  * Enabled Assertion Pull Request[#31](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/31)
-  * Edit AboutUs.md and maintained publish page issues.
+  * Enabled Assertion Pull Request[#45](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/45)
+  * Edit AboutUs.md [#11](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/11)
 <br>
 
 **Documentation:**
 
 * **Contributions to the UG**
-  * Add Sort Command [#81](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/81)
+  * UG Draft [#9](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/9)
   
 * **Contributions to the DG**
-  * Add layout/ Content hyperlink for DG.
- 
+  * DG Draft [#9](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/9)
+  
 #### Review/mentoring contributions: 
   * Links to PRs reviewed: 
-   [#29](https://github.com/AY2122S1-TIC4001-F18-2/tp/pull/29)
+    [#23](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/23)
+    [#35](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/35)
+    [#38](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/38)
+    [#41](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/41)
+    [#42](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/42)
+    [#54](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/54)
+    [#56](https://github.com/AY2122S2-TIC4002-F18-3/tp2/pull/56)
+
+
     
 
 
