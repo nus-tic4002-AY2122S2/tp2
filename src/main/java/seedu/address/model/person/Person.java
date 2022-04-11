@@ -132,7 +132,9 @@ public class Person {
                 .append("; Address: ")
                 .append(getAddress())
                 .append("; Money: ")
-                .append(getMoney());
+                .append(getMoney())
+                .append("; Task: ")
+                .append(getTask());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
