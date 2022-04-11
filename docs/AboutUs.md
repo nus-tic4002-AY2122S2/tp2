@@ -23,7 +23,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 
 <img src="images/lowyanshuang.png" width="200px">
 
-[[github](http://github.com/lowyanshuang)] [[portfolio](team/yanshuang.md)]
+[[github](http://github.com/lowyanshuang)] [[portfolio](team/lowyanshuang.md)]
 
 * Role: Developer
 * Responsibilities: UI + Data
@@ -46,7 +46,7 @@ You are welcome to browse our respective GitHub sites or connect with us by emai
 [[portfolio](team/thisisdax.md)]
 
 * Role: Developer
-* Responsibilities: DevOps + Threading
+* Responsibilities: CI + Revert State commands + AddressBook enhancement
 
 ### Ng Xin Yi
 

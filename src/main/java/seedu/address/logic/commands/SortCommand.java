@@ -18,7 +18,7 @@ public class SortCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.sortAddressBook();
+        model.commitAddressBook(model.getAddressBook());
         return new CommandResult(MESSAGE_SUCCESS);
-
     }
 }

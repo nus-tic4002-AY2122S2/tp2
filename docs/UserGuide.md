@@ -11,11 +11,11 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `TeamContact 24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
+2. Download the latest `TeamContact24-7-v1.4.jar` from the [tp2 Repo GitHub v1.4 release](https://github.com/AY2122S2-TIC4002-F18-5/tp2/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your demo app.
 
-4. Double-click the file to start the app or type `java -jar "teamcontact 24-7-v1.4.jar"` at the terminal opened at working folder of the demo app (quotes are used to avoid possible issues with spaces in the jar file name).
+4. Double-click the file to start the app or type `java -jar teamcontact24-7-v1.4.jar` at the terminal opened at working folder of the demo app.
 
 5. A Login Screen will appear.
 
@@ -38,6 +38,10 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
    * **`export`** : Export all the contact details to text file.
+      
+   * **`undo`** : Restores the previous address book state from its history.
+   
+   * **`redo`** : Restores a previously undone address book state from its history.
    
    * **`sort`** : Sort all contacts.
 
@@ -70,14 +74,14 @@ _**TeamContact 24/7**_ is a **desktop app for managing contacts, optimized for u
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `undo`, `redo`, `sort`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
@@ -190,13 +194,13 @@ Examples:
 
 ### Restore a previous entry : `undo`
  
-Restores the previous address book state from its history
+Restores the previous address book state from its history. Accepts only 1 command, any additional options after `undo` does nothing.
 
 Format: `undo`
 
 ### Restore a previously undone entry : `redo`
 
-Restores a previously undone address book state from its history.
+Restores a previously undone address book state from its history. Accepts only 1 command, any additional options after `redo` does nothing.
 
 Format: `redo`
 

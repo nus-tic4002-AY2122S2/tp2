@@ -32,9 +32,13 @@ public class VersionedAddressBook extends AddressBook {
      * Commits the latest AddressBook state to a list.
      */
     public void commit(ReadOnlyAddressBook toBeCommitted) {
+        int newStatePointer = this.currentStatePointer;
+        if (newStatePointer + 1 < addressBookStateList.size()) {
+            newStatePointer += 1;
+            this.addressBookStateList.subList(newStatePointer, this.addressBookStateList.size()).clear();
+        }
         this.addressBookStateList.add(new AddressBook(toBeCommitted));
-        this.currentStatePointer = addressBookStateList.size() - 1;
-        this.addressBookStateList.subList(this.currentStatePointer + 1, this.addressBookStateList.size());
+        this.currentStatePointer = this.addressBookStateList.size() - 1;
     }
 
     /**
