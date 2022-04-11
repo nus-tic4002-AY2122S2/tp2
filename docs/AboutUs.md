@@ -30,5 +30,3 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/ivanhlb)]
 [[portfolio](team/ivanho.md)]
 
-
-* Role: [Coming soon]
