@@ -13,9 +13,6 @@ import seedu.address.model.post.exceptions.DuplicatePostException;
 import seedu.address.model.post.exceptions.PostNotFoundException;
 
 
-
-
-
 public class UniquePostList implements Iterable<Post> {
 
     private final ObservableList<Post> internalList = FXCollections.observableArrayList();
@@ -106,7 +103,7 @@ public class UniquePostList implements Iterable<Post> {
         //internalList.get(index).updateSentCid(updatedSentCid);
         Post postCopy = targetPost;
         postCopy.updateSentCid(updatedSentCid);
-        internalList.set(index,postCopy);
+        internalList.set(index, postCopy);
 
     }
 
@@ -155,7 +152,6 @@ public class UniquePostList implements Iterable<Post> {
         }
         return true;
     }
-
 
 
 }

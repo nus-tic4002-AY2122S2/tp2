@@ -79,7 +79,7 @@ public class SendCommand extends Command {
                 //currentSentClient.addAll(selectedClientName);
                 currentSentClient.addAll(unSentClientName);
                 model.updatePostSentCid(currentSentClient, targetPost);
-//                model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
+                //model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
 
             }
         }
