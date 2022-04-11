@@ -53,6 +53,7 @@
   - [#Direct Commit](https://github.com/AY2122S2-TIC4002-F18-6/tp2/commit/0f7fab97a8b2cb3922ea5ab0e1fe5505b1b9ebc0) - v1.3 update prepare for the dry run
 - Developer Guide
   - [#PR22](https://github.com/AY2122S2-TIC4002-F18-6/tp2/pull/22)
+  - v1.4 update for SendCommand and [SendCommandSequenceDiagram](images/SendCommandSequenceDiagram.png)
 - Readme
   - [#PR12](https://github.com/AY2122S2-TIC4002-F18-6/tp2/pull/12)
 
