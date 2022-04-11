@@ -73,10 +73,22 @@ public interface Model {
     void deletePerson(Person target);
 
     /**
+     * Deletes the given persons
+     * The person must exist in the content planner
+     */
+    void deletePersonAll(List<Person> targets);
+
+    /**
      * Deletes the given post.
      * The post must exist in the address book.
      */
     void deletePost(Post target);
+
+    /**
+     * Deletes the given posts
+     * The post must exist in the content planner
+     */
+    void deletePostAll(List<Post> targets);
 
     /**
      * Adds the given person.
@@ -125,6 +137,11 @@ public interface Model {
      */
     void updateFilteredPostList(Predicate<Post> predicate);
 
+    /**
+     *
+     * @param updatedSentCid the updated client id(s) that the target post will send to
+     * @param targetPost the target post that will get the sent client id updated.
+     */
     void updatePostSentCid(Set<String> updatedSentCid, Post targetPost);
 
     /**
@@ -132,4 +149,6 @@ public interface Model {
      * @param postList the source post list
      */
     void updateWholePostList(List<Post> postList);
+
+
 }
