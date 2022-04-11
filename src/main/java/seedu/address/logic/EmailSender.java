@@ -44,6 +44,7 @@ public class EmailSender {
      * Send a email out
      */
     public void sendEmail() {
+        /*
         try {
             // Create a instance for Email
             Properties props = new Properties();
@@ -57,6 +58,7 @@ public class EmailSender {
             EmailSendFailAlertWindow emailSendFailAlertWindow = new EmailSendFailAlertWindow();
             emailSendFailAlertWindow.show();
         }
+        */
     }
 
     /**
@@ -64,6 +66,7 @@ public class EmailSender {
      * @param props email server properties
      * @return MimeMessage
      */
+    /*
     private Message getMimeMessage(Properties props) {
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             @Override
@@ -103,4 +106,5 @@ public class EmailSender {
         props.setProperty("mail.smtp.port", "587");
         props.setProperty("mail.smtp.password", this.password);
     }
+    */
 }
