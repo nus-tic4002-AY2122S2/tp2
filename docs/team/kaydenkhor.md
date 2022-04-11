@@ -4,7 +4,7 @@ MyContentPlanner is a desktop app for managing content posting and scheduling fo
 Users, who are social media manager, will have their content ready for posting on their client's account just because they have planned it in advance with MyContentPlanner.
 
 ## Code contributed:
-https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=kaydenkhor&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-11&tabOpen=true&zFR=false&tabType=authorship&tabAuthor=KaydenKhor&tabRepo=AY2122S2-TIC4002-F18-6%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code&authorshipIsBinaryFileTypeChecked=false
+[Reposense Code Link for contributions](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=kaydenkhor&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-11&tabOpen=true&zFR=false&tabType=authorship&tabAuthor=KaydenKhor&tabRepo=AY2122S2-TIC4002-F18-6%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code&authorshipIsBinaryFileTypeChecked=false)
 
 - Converted user story into implementable functions
 - Assigning functions for team mate for implementation
