@@ -2,11 +2,17 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_POSTDATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TITLE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_POSTS;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,6 +30,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.post.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,7 +40,7 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " c: Edits the details of the person identified "
             + "by the index number used in the displayed person list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
@@ -42,16 +49,31 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " 1 "
+            + "Example: " + COMMAND_WORD + " c 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
+    public static final String MESSAGE_USAGE_2 = COMMAND_WORD + " p: Edits the details of the post identified "
+            + "by the index number used in the displayed content list. "
+            + "Existing values will be overwritten by the input values.\n"
+            + "Parameters: INDEX (must be a positive integer) "
+            + "[" + PREFIX_TITLE + "TITLE OF CONTENT] "
+            + "[" + PREFIX_CONTENT + "CONTENT INFORMATION] "
+            + "[" + PREFIX_POSTDATE + "POSTING DATE IN yyyyMMdd HHmm] "
+            + PREFIX_CATEGORY + "CATEGORY "
+            + PREFIX_NOTES + "NOTES\n"
+            + "Example: " + COMMAND_WORD + " p 1 "
+            + PREFIX_TITLE + "a dummy title two "
+            + PREFIX_CONTENT + "a dummy example content two ";
+
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_POST_SUCCESS = "Edited Post: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
     private final Index index;
-    private final EditPersonDescriptor editPersonDescriptor;
+    private EditPersonDescriptor editPersonDescriptor;
+    private EditContentDescriptor editContentDescriptor;
 
     /**
      * @param index of the person in the filtered person list to edit
@@ -65,25 +87,59 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
+    /**
+     * @param index of the post in the filtered content list to edit
+     * @param editContentDescriptor details to edit the content with
+     */
+    public EditCommand(Index index, EditContentDescriptor editContentDescriptor) {
+        requireNonNull(index);
+        requireNonNull(editContentDescriptor);
+
+        this.index = index;
+        this.editContentDescriptor = new EditContentDescriptor(editContentDescriptor);
+    }
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        if (editPersonDescriptor != null) {
+            List<Person> lastShownList = model.getFilteredPersonList();
+
+            if (index.getZeroBased() >= lastShownList.size()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            }
+
+            Person personToEdit = lastShownList.get(index.getZeroBased());
+            Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+
+            if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            }
+
+            model.setPerson(personToEdit, editedPerson);
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+
+        } else if (editContentDescriptor != null){
+            List<Post> lastShownList = model.getFilteredPostList();
+
+            if (index.getZeroBased() >= lastShownList.size()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_POST_DISPLAYED_INDEX);
+            }
+
+            Post postToEdit = lastShownList.get(index.getZeroBased());
+            Post editedPost = createEditedPost(postToEdit, editContentDescriptor);
+
+            if (!postToEdit.isSamePost(editedPost) && model.hasPost(editedPost)) {
+                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            }
+
+            model.setPost(postToEdit, editedPost);
+            model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
+            return new CommandResult(String.format(MESSAGE_EDIT_POST_SUCCESS, editedPost));
         }
-
-        Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        }
-
-        model.setPerson(personToEdit, editedPerson);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+        return new CommandResult("Something went wrong, check your inputs again!");
     }
 
     /**
@@ -100,6 +156,22 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+    }
+
+    /**
+     * Creates and returns a {@code Post} with the details of {@code postToEdit}
+     * edited with {@code editContentDescriptor}.
+     */
+    private static Post createEditedPost(Post postToEdit, EditContentDescriptor editContentDescriptor) {
+        assert postToEdit != null;
+
+        Title updatedTitle = editContentDescriptor.getTitle().orElse(postToEdit.getTitle());
+        Content updatedContent = editContentDescriptor.getContent().orElse(postToEdit.getContent());
+        PostDate updatedPostDate = editContentDescriptor.getPostDate().orElse(postToEdit.getPostDate());
+        Category updatedCategory = editContentDescriptor.getCategory().orElse(postToEdit.getCategory());
+        Notes updatedNotes = editContentDescriptor.getNotes().orElse(postToEdit.getNotes());
+
+        return new Post(updatedTitle, updatedContent, updatedPostDate, updatedCategory, updatedNotes);
     }
 
     @Override
@@ -221,6 +293,102 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
+        }
+    }
+
+    /**
+     * Stores the details to edit the post with. Each non-empty field value will replace the
+     * corresponding field value of the content.
+     */
+    public static class EditContentDescriptor {
+        private Title title;
+        private Content content;
+        private PostDate postDate;
+        private Category category;
+        private Notes notes;
+
+        public EditContentDescriptor() {}
+
+        /**
+         * Copy constructor.
+         * A defensive copy of {@code tags} is used internally.
+         */
+        public EditContentDescriptor(EditContentDescriptor toCopy) {
+            setTitle(toCopy.title);
+            setContent(toCopy.content);
+            setPostDate(toCopy.postDate);
+            setCategory(toCopy.category);
+            setNotes(toCopy.notes);
+        }
+
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isAnyFieldEdited() {
+            return CollectionUtil.isAnyNonNull(title, content, postDate, category, notes);
+        }
+
+        public void setTitle(Title title) {
+            this.title = title;
+        }
+
+        public Optional<Title> getTitle() {
+            return Optional.ofNullable(title);
+        }
+
+        public void setContent(Content content) {
+            this.content = content;
+        }
+
+        public Optional<Content> getContent() {
+            return Optional.ofNullable(content);
+        }
+
+        public void setPostDate(PostDate postDate) {
+            this.postDate = postDate;
+        }
+
+        public Optional<PostDate> getPostDate() {
+            return Optional.ofNullable(postDate);
+        }
+
+        public void setCategory(Category category) {
+            this.category = category;
+        }
+
+        public Optional<Category> getCategory() {
+            return Optional.ofNullable(category);
+        }
+
+        public void setNotes(Notes notes) {
+            this.notes = notes;
+        }
+
+        public Optional<Notes> getNotes() {
+            return Optional.ofNullable(notes);
+        }
+
+
+        @Override
+        public boolean equals(Object other) {
+            // short circuit if same object
+            if (other == this) {
+                return true;
+            }
+
+            // instanceof handles nulls
+            if (!(other instanceof EditContentDescriptor)) {
+                return false;
+            }
+
+            // state check
+            EditContentDescriptor e = (EditContentDescriptor) other;
+
+            return getTitle().equals(e.getTitle())
+                    && getContent().equals(e.getContent())
+                    && getPostDate().equals(e.getPostDate())
+                    && getCategory().equals(e.getCategory())
+                    && getNotes().equals(e.getNotes());
         }
     }
 }
