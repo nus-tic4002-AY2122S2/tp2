@@ -130,12 +130,14 @@ public class EditCommandParser implements Parser<EditCommand> {
                 if (!editContentDescriptor.isAnyFieldEdited()) {
                     throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
                 }
-
                 return new EditCommand(index, editContentDescriptor);
-
+            } else {
+                throw new ParseException("You need declare client or post you want to add, "
+                    + "the second parameter can only be client|c or post|p");
             }
+        } else {
+            throw new ParseException("You need declare client or post you want to add");
         }
-        return null;
     }
 
     /**
