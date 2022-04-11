@@ -39,10 +39,10 @@ public class RenameCommandParser implements Parser<RenameCommand> {
     public RenameCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args.toLowerCase(), PREFIX_TAG);
 
         Tag renameExistTag = getTag(argMultimap);
-        String renameExist = renameExistTag.toString().replace("[", "").replace("]", "");
+        String renameExist = renameExistTag.toString().replace("[", "").replace("]", "").toLowerCase();
         requireNonNull(renameExistTag);
 
         for (String temp: argMultimap.getAllValues(PREFIX_TAG)) {
