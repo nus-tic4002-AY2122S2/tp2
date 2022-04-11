@@ -74,11 +74,13 @@ public class SendCommand extends Command {
                             targetPost.getTitle().value, restClientName.toString()) + "\n";
                 } else {
                     outputMsg += String.format(
-                            MESSAGE_SUCCESS, targetPost.toString(), selectedClientName.toString());
+                            MESSAGE_SUCCESS, targetPost.toString(), selectedClientName.toString()) + "\n";
                 }
                 //currentSentClient.addAll(selectedClientName);
                 currentSentClient.addAll(unSentClientName);
                 model.updatePostSentCid(currentSentClient, targetPost);
+                //model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
+
             }
         }
         model.updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);

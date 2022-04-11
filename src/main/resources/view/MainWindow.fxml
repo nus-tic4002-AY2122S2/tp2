@@ -43,7 +43,7 @@
                                     </padding>
                                 </StackPane>
 
-                                <StackPane fx:id="resultDisplayPlaceholder" minHeight="-Infinity" prefHeight="300.0" prefWidth="22.0" styleClass="pane-with-border">
+                                <StackPane fx:id="resultDisplayPlaceholder" minHeight="-Infinity" prefHeight="500.0" prefWidth="22.0" styleClass="pane-with-border">
                                     <padding>
                                         <Insets bottom="5" left="10" right="10" top="5" />
                                     </padding>
