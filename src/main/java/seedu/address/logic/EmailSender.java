@@ -63,7 +63,7 @@ public class EmailSender {
         */
     }
 
-    /**
+    /*
      * Prepare email MimeMessage
      * @param props email server properties
      * @return MimeMessage
