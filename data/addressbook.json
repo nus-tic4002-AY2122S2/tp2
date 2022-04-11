@@ -15,10 +15,10 @@
     "name" : "bernice",
     "phone" : "93210283",
     "email" : "charlotte@example.com",
-    "address" : "Blk 11 Ang Mo Kio Street 74, #11-04",
+    "address" : "a new address",
     "tagged" : [ "clients" ]
   }, {
-    "name" : "David Li",
+    "name" : "ti",
     "phone" : "91031282",
     "email" : "lidavid@example.com",
     "address" : "Blk 436 Serangoon Gardens Street 26, #16-43",
@@ -62,10 +62,8 @@
     "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
     "postDate" : "18/03/2022 18:00",
     "category" : "notice",
-
     "notes" : "send to all the clients, remember sent out by 18/03",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro" ]
-
   }, {
     "title" : "Your Parcel is ready to ship!",
     "content" : "You order has already arrived our Guangzhou warehouse, please go our website to check : https://www.exampleshipment.sg , and remember the free storage period",
