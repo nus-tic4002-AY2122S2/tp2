@@ -14,7 +14,7 @@ Given below are my contributions to the project.
   * Justification: This feature improves the product significantly because the user are able to find specific team's contacts more efficiently.
   * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives.
 
-* **Code contributed**: [RepoSense link]()
+* **Code contributed**: [RepoSense link](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=elxy&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-11)
 
 * **Project management**:
   * Contributed to the release of up to v1.4 (4 releases) on GitHub
