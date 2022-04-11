@@ -12,7 +12,7 @@ title: AddressBook Level-3
 
 * If you are interested in using AddressBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
 * If you are interested about developing AddressBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
-* You can find more information about the developer team [**Developer Guide**](AboutUs.html)
+* You can find more information about the developer team [**developer team**](AboutUs.html)
 
 **Acknowledgements**
 
