@@ -117,6 +117,15 @@ Examples:
 * `edit 1 tk/buy birthday cace` Edits the task to `buy birthday cake`.
 
 
+### Overview of money owed
+
+Displayed above the list of contacts are:
+* Sum of total money owed to all contacts.
+* Count of the associated contacts.
+
+Values will be automatically updated whenever there is a change in `Money` from any contact.
+
+
 ### Locating persons by name, tag or if they owe you money: `find`
 
 Finds persons whose names contain any of the given keywords.
