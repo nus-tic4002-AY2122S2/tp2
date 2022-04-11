@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommonRegexPattern.BASIC_TYPE_FORMAT;
 
+import java.util.List;
 import java.util.regex.Matcher;
 
 import seedu.address.commons.core.index.Index;
@@ -34,8 +35,9 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
                     && !(matcherType.group("isPost").isEmpty())) ? ListType.POST : null;
             args1 = matcherType.group("args");
             try {
-                Index index = ParserUtil.parseIndex(args1);
-                return new DeleteCommand(listType, index);
+                //Index index = ParserUtil.parseIndex(args1);
+                List<Index> targetIndexes = ParserUtil.parseIndexList(args1);
+                return new DeleteCommand(listType, targetIndexes);
             } catch (ParseException pe) {
                 throw new ParseException(
                         String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE), pe);

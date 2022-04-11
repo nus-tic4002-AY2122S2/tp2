@@ -108,6 +108,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    /**
+     * Removes {@code keys} from this {@code AddressBook}.
+     * {@code keys} must exist in the address book.
+     */
+    public void removePersonAll(List<Person> keys) {
+        persons.removeAll(keys);
+    }
+
 
     //// post-level operations
 
@@ -144,6 +152,14 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removePost(Post key) {
         posts.remove(key);
+    }
+
+    /**
+     * Removes {@code keys} from this {@code AddressBook}.
+     * {@code keys} must exist in the address book.
+     */
+    public void removePostAll(List<Post> keys) {
+        posts.removeAll(keys);
     }
 
     /**
