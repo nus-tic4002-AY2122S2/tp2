@@ -130,8 +130,6 @@ The `Model` component,
 * Only `task` is implemented as a variable in the `Person` class.
 * Others (e.g. `Money`) are implemented as separate classes.
 
-Note: that `task` attribute of the `Person` is a string instead of a class because it does not have any validation.
-
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
@@ -166,7 +164,7 @@ The *Sequence Diagram* below shows the **generic** flow of function calls betwee
 
 ![CommandExecutionSequenceDiagram](images/CommandExecutionSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `c:Command` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `c:Command` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</div>
 
 ### Overview of Money Owed
 
