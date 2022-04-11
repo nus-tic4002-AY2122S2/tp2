@@ -86,7 +86,7 @@ Examples:
 Expected outcome:
 
 ```
-![Ui](images/AddPost.png)
+![addPost](images/AddPost.png)
 ```
 
 ### `delete` - Delete a client or a post (for mass delete haven't implement)
