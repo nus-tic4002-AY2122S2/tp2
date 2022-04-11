@@ -89,7 +89,7 @@ Expected outcome:
 New person/post added: a dummy title two; Content: a dummy example content two; PostDate: 05/08/2022 09:00; Category: notice; Notes: remember sent to all VIP1
 ```
 
-### `delete` - Delete a client or a post (for mass delete haven't implement)
+### `delete` - Delete clients or posts
 
 Delete a client from the **Client List** or delete a post from the **Post List** based on the specified INDEX in each
 list.
@@ -141,7 +141,7 @@ Syntax: `sort postdate asc|desc`
 
 Examples:
 * `sort postdate asc` for ascending order
-* `sort postdate desc`for descending order
+* `sort postdate desc` for descending order
 
 
 ### `help` - Viewing help

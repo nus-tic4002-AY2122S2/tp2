@@ -1,24 +1,24 @@
 {
   "persons" : [ {
-    "name" : "hello",
+    "name" : "Alex Yeoh",
     "phone" : "87438807",
     "email" : "alexyeoh@example.com",
     "address" : "Blk 30 Geylang Street 29, #06-40",
-    "tagged" : [ "home" ]
+    "tagged" : [ "clients" ]
   }, {
-    "name" : "hot",
+    "name" : "Bernice Yu",
     "phone" : "99272758",
     "email" : "berniceyu@example.com",
     "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
     "tagged" : [ "clients", "VIP1" ]
   }, {
-    "name" : "bernice",
+    "name" : "Charlotte Oliveiro",
     "phone" : "93210283",
     "email" : "charlotte@example.com",
-    "address" : "a new address",
+    "address" : "Blk 11 Ang Mo Kio Street 74, #11-04",
     "tagged" : [ "clients" ]
   }, {
-    "name" : "ti",
+    "name" : "David Li",
     "phone" : "91031282",
     "email" : "lidavid@example.com",
     "address" : "Blk 436 Serangoon Gardens Street 26, #16-43",
@@ -37,19 +37,12 @@
     "tagged" : [ "clients", "inactive" ]
   } ],
   "posts" : [ {
-    "title" : "cold",
-    "content" : "hello",
-    "postDate" : "05/08/2022 09:00",
+    "title" : "Important Notice：Warehouse Location changed in Guangzhou",
+    "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
+    "postDate" : "18/03/2022 18:00",
     "category" : "notice",
-    "notes" : "hot",
-    "sentCid" : [ ]
-  }, {
-    "title" : "[Notice] Drop in China Shipping Rate for all Sea shipment",
-    "content" : "Dear (Ship-For-Me) Customers, the adjustment on the rate will be $0.7/500g for Shanghai warehouse and $0.6/500g for Guangzhou warehouse, thanks for your support and hope to serve you again!",
-    "postDate" : "01/04/2022 09:00",
-    "category" : "notice",
-    "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
-    "sentCid" : [ "Bernice Yu", "Alex Yeoh", "Charlotte Oliveiro", "Roy Balakrishnan" ]
+    "notes" : "send to all the clients, remember sent out by 18/03",
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro", "David Li" ]
   }, {
     "title" : "Celebrate Our 6th Birthday with $6.6 OFF",
     "content" : "Birthday Sales coming! Birthday goodies for everyone! Celebrate our Birthday with BEST Deals!",
@@ -58,18 +51,18 @@
     "notes" : "remember sent out by 20/03, too all the registered client",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim" ]
   }, {
-    "title" : "Important Notice：Warehouse Location changed in Guangzhou",
-    "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
-    "postDate" : "18/03/2022 18:00",
+    "title" : "[Notice] Drop in China Shipping Rate for all Sea shipment",
+    "content" : "Dear (Ship-For-Me) Customers, the adjustment on the rate will be $0.7/500g for Shanghai warehouse and $0.6/500g for Guangzhou warehouse, thanks for your support and hope to serve you again!",
+    "postDate" : "01/04/2022 09:00",
     "category" : "notice",
-    "notes" : "send to all the clients, remember sent out by 18/03",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro" ]
+    "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
+    "sentCid" : [ ]
   }, {
     "title" : "Your Parcel is ready to ship!",
     "content" : "You order has already arrived our Guangzhou warehouse, please go our website to check : https://www.exampleshipment.sg , and remember the free storage period",
     "postDate" : "28/02/2022 18:00",
     "category" : "service",
     "notes" : "remember sent out by 01/03",
-    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro", "David Li", "Roy Balakrishnan" ]
+    "sentCid" : [ "Bernice Yu" ]
   } ]
 }
