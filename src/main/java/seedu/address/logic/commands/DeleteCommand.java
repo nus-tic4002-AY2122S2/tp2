@@ -62,7 +62,7 @@ public class DeleteCommand extends Command {
 
             Post postToDelete = lastShownList.get(targetIndex.getZeroBased());
             model.deletePost(postToDelete);
-            return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, postToDelete));
+            return new CommandResult(String.format(MESSAGE_DELETE_POST_SUCCESS, postToDelete));
         }
     }
 
