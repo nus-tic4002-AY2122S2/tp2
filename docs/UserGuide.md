@@ -182,21 +182,15 @@ each list.
 * You can remove all the client's tags by typing `t/` without specifying any tags after it.
 
 Syntax: `edit client|c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` or
-`edit post|p INDEX [t/TITLE] [c/CONTENT]...`
+`edit post|p INDEX [t/TITLE] [c/CONTENT] [p/POSTING DATE IN yyyyMMdd HHmm] [ca/CATEGORY] [n/NOTES]`
 
 Example: `edit c 3 a/a new address`
 
 Expected outcome:
-![EditClient](images/editClient.PNG)
+![editClient](images/editClient.png)
 ```
 Edited Person: bernice; Phone: 93210283; Email: charlotte@example.com; Address: a new address; Tags: [clients]
 ```
-
-
-
-
-
-
 
 ### Locating persons by name: `find`
 
@@ -254,7 +248,7 @@ Action | Format, Examples
 **Add** | `add client n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add client n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete client INDEX INDEX` or `delete post INDEX INDEX` <br> e.g., `delete client 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit client/c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit c 2 n/James Lee e/jameslee@example.com` <br> `edit post/p INDEX [t/TITLE] [c/CONTENT] [p/POSTING DATE IN yyyyMMdd HHmm] [ca/CATEGORY] [n/NOTES]` <br> e.g.,`edit post 2 n/A good day mood!` 
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
