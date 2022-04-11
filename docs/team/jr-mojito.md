@@ -1,5 +1,3 @@
-# Lim Chun Yong - Team Project Portfolio Page
-
 
 ### Summary of Contributions
 #### Given below are my contributions to the project.
