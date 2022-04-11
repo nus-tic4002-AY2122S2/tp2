@@ -35,10 +35,17 @@
   - `add` command for post list
   - Rewrite `add` command for client list to capture the second argument via the parser
 
+- [#PR56](https://github.com/AY2122S2-TIC4002-F18-6/tp2/pull/56)
+  - Mass delete
+
 - [SampleDataUtil](https://github.com/AY2122S2-TIC4002-F18-6/tp2/commit/10bd5df9ca1ba77fb42547fff5bec64e8dec96c7)
   - add sample data in SampleDataUtil to make sure jar file can load sample data without json file
-  
 
+## Bug fixing
+
+- [#PR53](https://github.com/AY2122S2-TIC4002-F18-6/tp2/pull/53)
+  - send command avoid click cell to refresh
+  
 ## Documentation
 
 - User Guide

@@ -1,0 +1,71 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant "SendCommandParser" as SendCommandParser LOGIC_COLOR
+participant "s:SendCommand" as SendCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+[-> LogicManager : execute("send c/1 2 p/2 3")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("send c/1 2 p/2 3")
+activate AddressBookParser
+
+create SendCommandParser
+AddressBookParser -> SendCommandParser
+activate SendCommandParser
+
+SendCommandParser --> AddressBookParser
+deactivate SendCommandParser
+
+AddressBookParser -> SendCommandParser : parse("c/1 2 p/2 3")
+activate SendCommandParser
+
+create SendCommand
+SendCommandParser -> SendCommand
+activate SendCommand
+
+SendCommand --> SendCommandParser : s
+deactivate SendCommand
+
+SendCommandParser --> AddressBookParser : s
+deactivate SendCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+SendCommandParser -[hidden]-> AddressBookParser
+destroy SendCommandParser
+
+AddressBookParser --> LogicManager : s
+deactivate AddressBookParser
+
+LogicManager -> SendCommand : execute()
+activate SendCommand
+
+loop 2 times (post index 2 and 3)
+SendCommand -> Model : updatePostSentCid(currentSentClient, targetPost)
+activate Model
+
+Model --> SendCommand
+deactivate Model
+end
+
+
+create CommandResult
+SendCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> SendCommand
+deactivate CommandResult
+
+SendCommand --> LogicManager : result
+deactivate SendCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
