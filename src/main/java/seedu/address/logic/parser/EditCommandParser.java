@@ -44,8 +44,10 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         Matcher matcherType = BASIC_TYPE_FORMAT.matcher(args.trim());
         ListType listType;
-        String args1;
-
+        EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
+        EditContentDescriptor editContentDescriptor = new EditContentDescriptor();
+        Index index = null;
+        
         if (matcherType.matches()) {
             listType = (!(matcherType.group("isClient") == null)
                 && !(matcherType.group("isClient").isEmpty())) ? ListType.CLIENT
@@ -58,9 +60,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                 ArgumentMultimap argMultimap =
                     ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_ADDRESS, PREFIX_TAG);
-
-                Index index;
-
                 try {
                     index = ParserUtil.parseIndex(argMultimap.getPreamble());
                 }
@@ -68,8 +67,7 @@ public class EditCommandParser implements Parser<EditCommand> {
                     throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                         EditCommand.MESSAGE_USAGE), pe);
                 }
-
-                EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
+                
                 if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
                     editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
                 }
@@ -97,8 +95,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                     ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE,
                         PREFIX_CATEGORY, PREFIX_NOTES);
 
-                Index index;
-
                 try {
                     index = ParserUtil.parseIndex(argMultimap.getPreamble());
                 }
@@ -107,7 +103,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                         EditCommand.MESSAGE_USAGE_2), pe);
                 }
 
-                EditContentDescriptor editContentDescriptor = new EditContentDescriptor();
                 if (argMultimap.getValue(PREFIX_TITLE).isPresent()) {
                     editContentDescriptor.setTitle(ParserUtil.parseTitle(argMultimap.getValue(PREFIX_TITLE).get()));
                 }
@@ -132,14 +127,9 @@ public class EditCommandParser implements Parser<EditCommand> {
                 }
 
                 return new EditCommand(index, editContentDescriptor);
-
-            } else {
-                throw new ParseException("You need declare client or post you want to add, "
-                    + "the second parameter can only be client|c or post|p");
             }
-        } else {
-            throw new ParseException("You need declare client or post you want to edit");
         }
+        return new EditCommand(index, editPersonDescriptor);
     }
 
     /**
