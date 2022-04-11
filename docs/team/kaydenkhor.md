@@ -30,19 +30,12 @@ I help in maintaining the website for our repo as well as linking up all the rel
 Drafted out the whole DG sections:
 -	Acknowledgement
 -	Design & Implementation
-o	Included overall code UML Class diagram
 -	Product scope (Update every version as our software develops…)
 o	Target user profile
 o	Value Proposition
 -	User Stories (Update every version)
 -	Non-functional Requirements
 -	Glossary
-
-Here's the UML class diagram:
-![UML CLASS DIAGRAM](https://github.com/AY2122S1-TIC4001-F18-5/tp/blob/master/Diagrams/Overall%20Class%20Diagram.jpg)
-
-Here's the sequence diagram when someone runs Air Rec:
-![SEQUENCE DIAGRAM](https://github.com/AY2122S1-TIC4001-F18-5/tp/blob/master/Diagrams/Overall%20Sequence%20Diagram%20with%20Duke_run.png)
 
 
 ## Contributions to team-based tasks
