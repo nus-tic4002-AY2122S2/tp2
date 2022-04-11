@@ -17,9 +17,15 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link]()
 
 * **Project management**:
-  * Managed releases `v1.2` (1 releases) on GitHub (Upcoming release)
+  * Contributed to the release of up to v1.4 (4 releases) on GitHub
 
 * **Documentation**:
   * User Guide:
     * Update documentation to include `Find the person’s contact or team by any part of the name.` in find function.
     * Update documentation to include `Shows a list of all contact names and contact details (contact name, team name, mobile number, email address) in the list` in list function.
+  * Developer Guide:
+    * Update documentation to include `sort` in the sort implementations.
+    
+* **Community**:
+  * PRs reviewed for Team members
+  
