@@ -220,6 +220,28 @@ BUDDY App leverages on Java Stream and jSON data structures, to allow a single u
 
 _{more aspects and alternatives to be added}_
 
+### Relate feature
+Relate Command extends `Command` Abstract Class.
+
+Relate Command serves 2 purposes with one command keyword `relate`: 
+1. create relationship 
+2. display people's related contacts. 
+
+Which relies on `RelateCommandParser` to identify `Index to` and `Optional<List<Index>> from`, as well as `RelateToPersonPredicate` that filters matched `Person` from `Model`.
+
+The sequence diagram of how `RelateCommand` related to various components: 
+![RelateSequenceDiagram](images/RelateSeqDiag.png)
+
+
+
+#### Design considerations: 
+The data structure to hold the mutual relationship chosen to be `Set`. Because in a pool of people related to a person should not have any duplicated one. 
+
+Originally, `Set<Person>` seem to be a natural choice which largely aligns with logic: Person has relation with another person. However, relation would be one of attributes of a person which later will be store in the `json` file. It could be difficult to store a list of JS Object under an Object. Unless we create another `json` file just for mapping relations, which could be more like a DataBase tables kind of storage. 
+
+I noticed that the `id` to identify a person in the original code base is actually `name`, which is why it does not allow person with same name. So for the ease of storage, I decidede to use `Set<Name>` to store the relation of person.
+
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
@@ -398,7 +420,25 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
+
+
+### Relate
+
+1. Relate a group of persons to a person
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    2. Test case: `relate 2 <- 1 4 5`
+    3. Expect: contact 1 2 4 5 displayed (potentially other existing related contacts). Output message shows: contact2_Name has relation with: ["contact1_Name" "contact4_Name" "contact5_Name" "otherExistingNames"]
+    4. Test case: `relate 2 <- 1000`
+    5. Expect: Invalid contact index message 
+    6. Test case: `relate 1000 <- 1`
+    7. Expect: Invalid contact index message
+2. Display all related persons of a person  
+    2. Test case: `relate 2 `
+    3. Expect: contact 1 2 4 5 displayed (potentially other existing related contacts). Output message shows: contact2_Name has relation with: ["contact1_Name" "contact4_Name" "contact5_Name" "otherExistingNames"]
+    4. Test case: `relate 1000`
+    5. Expect: Invalid contact index message
+
 
 ### Saving data
 

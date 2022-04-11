@@ -245,7 +245,9 @@ Example:
 ```
 relate 2 <- 1 4 5
 ```
-+ **Recommended usage**: you could first `filter` by tag like a class no. `g503`, then use `relate` to relate from all the students to a teacher in that class one at a time.
+**Recommended usage**:
++ you could first `filter` by tag like a class no. `g503`, then use `relate` to relate from all the students to a teacher in that class one at a time.
++ the SEQ_No_OF_CONTACT refers to the index no. of current displayed list, you could go back to the all contact list using `list`.
 #### Show everyone related to a particular person
 Format: `relate SEQ_NO_OF_CONTACT`
 + When there is no `<-` action symbol used, `relate` acts like a listing command that displays the person and whose every related persons
@@ -255,6 +257,12 @@ Example:
 relate 2
 ```
 
+
+
+
+
+
+So far, `relate` command does not support undo or deletion in v1.4, which could be considered for future updates. 
 
 
 ### Exit the program:
