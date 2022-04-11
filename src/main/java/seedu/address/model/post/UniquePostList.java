@@ -70,6 +70,16 @@ public class UniquePostList implements Iterable<Post> {
         }
     }
 
+    /**
+     * Removes the post list from the main list.
+     */
+    public void removeAll(List<Post> toRemove) {
+        requireNonNull(toRemove);
+        if (!internalList.removeAll(toRemove)) {
+            throw new PostNotFoundException();
+        }
+    }
+
     public void setPosts(UniquePostList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
@@ -99,6 +109,10 @@ public class UniquePostList implements Iterable<Post> {
         if (index == -1) {
             throw new PostNotFoundException();
         }
+
+        // Can not directly update the sent client id
+        // otherwise the javafx not able to refresh the post list successfully although the json updated
+        // must set the whole post object
 
         //internalList.get(index).updateSentCid(updatedSentCid);
         Post postCopy = targetPost;
