@@ -57,7 +57,6 @@ public class AddressBookParserTest {
         targetIndex.add(INDEX_FIRST_PERSON);
         assertEquals(new DeleteCommand(ListType.CLIENT, targetIndex), command);
     }
-    
     @Test
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
