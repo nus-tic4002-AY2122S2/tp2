@@ -158,12 +158,13 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Command Execution
-Command execution is initiated via the `handleCommandEntered()` function of the `CommandBox` class.
+### Command Input Execution
 
-It is then passed to the `executeCommand()` function of the `MainWindow` class.
+The *Sequence Diagram* below shows the **generic** flow of function calls between different components' classes, upon the user supplying a command input.
 
-{More to be added}
+![CommandExecutionSequenceDiagram](images/CommandExecutionSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `c:Command` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 ### \[Proposed\] Undo/redo feature
 
