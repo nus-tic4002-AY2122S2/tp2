@@ -50,18 +50,20 @@
     "category" : "notice",
     "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
     "sentCid" : [ "Bernice Yu", "Alex Yeoh", "Charlotte Oliveiro", "Roy Balakrishnan" ]
+
   }, {
     "title" : "Celebrate Our 6th Birthday with $6.6 OFF",
     "content" : "Birthday Sales coming! Birthday goodies for everyone! Celebrate our Birthday with BEST Deals!",
     "postDate" : "19/03/2022 06:06",
     "category" : "promotion",
     "notes" : "remember sent out by 20/03, too all the registered client",
-    "sentCid" : [ "Bernice Yu", "Charlotte Oliveiro" ]
+    "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Charlotte Oliveiro" ]
   }, {
     "title" : "Important Notice：Warehouse Location changed in Guangzhou",
     "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
     "postDate" : "18/03/2022 18:00",
     "category" : "notice",
+
     "notes" : "send to all the clients, remember sent out by 18/03",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro" ]
   }, {

@@ -84,9 +84,9 @@ Examples:
 * `add p t/a dummy title two c/a dummy example content two p/20220805 0900 ca/notice n/remember sent to all VIP1`
 
 Expected outcome:
-
+![AddPost](images/AddPost.PNG)
 ```
-
+New person/post added: a dummy title two; Content: a dummy example content two; PostDate: 05/08/2022 09:00; Category: notice; Notes: remember sent to all VIP1
 ```
 
 ### `delete` - Delete a client or a post (for mass delete haven't implement)
