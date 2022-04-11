@@ -161,6 +161,23 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Commands
+
+#### list/find Command (e.g. list, listfav, listpfg, find, findr, findg)
+
+The list/find command help to list/filter out the contact which the user added based on the type of command. e.g. `list` will show all the contact, `listfav` will show all the contact that was favourite and `findr` will show all contact with the keyword in their remarks.
+These command make use of the `Model#updateFilteredPersonList()` and the predicate function/class to help filter based on the command.
+
+**predicate used**   
+_functions_   
+`list`: `PREDICATE_SHOW_ALL_PERSONS`   
+`listfav`: `getFavouritePredicate()`   
+`listpfg`: `predicateShowAllPersonsInGroup()`   
+_classes_   
+`find`: `ContactDetailsContainsKeywordsPredicate`   
+`findg`: `GroupContainsKeywordsPredicate`   
+`findr`: `RemarkContainsKeywordsPredicate`   
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
