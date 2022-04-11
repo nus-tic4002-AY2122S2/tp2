@@ -103,7 +103,11 @@ public class UniquePostList implements Iterable<Post> {
             throw new PostNotFoundException();
         }
 
-        internalList.get(index).updateSentCid(updatedSentCid);
+        //internalList.get(index).updateSentCid(updatedSentCid);
+        Post postCopy = targetPost;
+        postCopy.updateSentCid(updatedSentCid);
+        internalList.set(index,postCopy);
+
     }
 
     public void clear() {
