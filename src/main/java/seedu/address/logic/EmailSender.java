@@ -2,11 +2,9 @@ package seedu.address.logic;
 
 import seedu.address.ui.email.EmailSendFailAlertWindow;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -32,9 +30,9 @@ public class EmailSender {
                        String content,
                        String password) {
 
-        this.from = "tic4003tp5@gmail.com";
+        this.from = from;
         this.to = to;
-        this.password = "nusyear4";
+        this.password = password;
         this.subject = subject;
         this.content = content;
     }
@@ -51,7 +49,7 @@ public class EmailSender {
             // Set MimeMessage
             Message msg = getMimeMessage(props);
             Transport.send(msg);
-        } catch (Exception e) {
+        } catch (MessagingException e) {
             //Pop out new window to notify user.
             EmailSendFailAlertWindow emailSendFailAlertWindow = new EmailSendFailAlertWindow();
             emailSendFailAlertWindow.show();
@@ -64,8 +62,13 @@ public class EmailSender {
      * @return MimeMessage
      */
     private Message getMimeMessage(Properties props) {
-
-        Session session = Session.getInstance(props);
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            @Override
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(props.getProperty("mail.smtp.username"),
+                        props.getProperty("mail.smtp.password"));
+            }
+        });
         session.setDebug(true);
         MimeMessage msg = new MimeMessage(session);
 
@@ -88,12 +91,13 @@ public class EmailSender {
         return msg;
     }
 
-    private static void gmailTls(Properties props) {
+    private void gmailTls(Properties props) {
+        //props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.auth", "true");
         props.setProperty("mail.smtp.ssl.enable", "true");
         props.setProperty("mail.smtp.starttls.enable", "true");
-        props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", "smtp.gmail.com");
         props.setProperty("mail.smtp.port", "587");
+        props.setProperty("mail.smtp.password", this.password);
     }
 }

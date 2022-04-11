@@ -45,8 +45,9 @@ public class EmailCommand extends Command {
 
             return new CommandResult("Person found.", true);
         } else {
-            String fromEmailAddress = personList.get(0).getEmail().toString();
-            EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "nusyear4", fromEmailAddress);
+            String toEmailAddress = personList.get(0).getEmail().toString();
+            //EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "nusyear4", toEmailAddress);
+            EmailWindow emailWindow = new EmailWindow("tic4003tp5@gmail.com", "srcrinnjrewaxohg", toEmailAddress);
             emailWindow.show();
             return new CommandResult("Person found.", true);
         }
