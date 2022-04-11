@@ -57,5 +57,12 @@
 - Readme
   - [#PR12](https://github.com/AY2122S2-TIC4002-F18-6/tp2/pull/12)
 
+## Team Contribution
+
+- basically all (code, documentation, class demo, release, deliverable etc.)
+
+## Code contribution
+- [Ruiting1 RepoSense](https://nus-tic4002-ay2122s2.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-11&tabOpen=true&tabType=authorship&tabAuthor=Ruiting1&tabRepo=AY2122S2-TIC4002-F18-6%2Ftp2%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
+
 
 
