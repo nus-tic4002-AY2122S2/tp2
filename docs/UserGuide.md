@@ -3,10 +3,10 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands. Teachers can enter contact information for a swift search and retrieve desired contact information within a few keystrokes. The application provides an all-in-one display of the contacts related information and their details are presented in a beautiful scrolling view.
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -14,9 +14,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `BUDDY.jar` from [here](https://github.com/AY2122S2-TIC4002-F18-3/tp2/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your Project BUDDY.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -24,151 +24,250 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+    * **`add`**`n/John Doe b/2020-01-01 p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
-   * **`clear`** : Deletes all contacts.
+    * **`clear`** : Deletes all contacts.
 
-   * **`exit`** : Exits the app.
+    * **`exit`** : Exits the app.
 
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## Command corresponding to Feature
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Notes about the command format:**<br>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
-
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
-
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+* Record people’s name, birthday, phone number, email and address:
+  Format:      add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS
+  Example:     add n/Duke b/2020-01-01 p/98001234 e/duke@gmail.com a/Duke street, block 1, #05-01
 
 </div>
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a contact: `add`
 
-Adds a person to the address book.
+Create a new contact with info such as name, hp, email, address and optional number of tags.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+```
+add n/Nana Park b/2000-01-01 p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
+```
+<span style="color:red">Remarks: Date validation will be updated in future version after 1.4</span>
+`Birthday format` <yyyy-mm-dd>
 
-### Listing all persons : `list`
+### Editing a contact: `edit`
 
-Shows a list of all persons in the address book.
+Edit an existing contact with info such as name, hp, email, address and optional number of tags.
 
-Format: `list`
+Format: `edit SEQ_NO_OF_CONTACT n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
-### Editing a person : `edit`
-
-Edits an existing person in the address book.
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
-
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
-
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-
-### Locating persons by name: `find`
-
-Finds persons whose names contain any of the given keywords.
-
-Format: `find KEYWORD [MORE_KEYWORDS]`
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
-
-### Deleting a person : `delete`
-
-Deletes the specified person from the address book.
-
-Format: `delete INDEX`
-
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
-### Clearing all entries : `clear`
-
-Clears all entries from the address book.
-
-Format: `clear`
-
-### Exiting the program : `exit`
-
-Exits the program.
-
-Format: `exit`
-
-### Saving the data
-
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
-### Editing the data file
-
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
-
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
 </div>
 
-### Archiving data files `[coming in v2.0]`
+Examples:
+```
+edit 1 n/John p/9001 4232 e/john@example.com a/621 Bedok Rd, 470623 t/colleague t/Math-department
+```
 
-_Details coming soon ..._
+### Batch editing contacts: `edit -batch`
+
+Edit existing contacts with info such as hp, email, address and optional number of tags.
+
+Format: `edit -batch SEQ_NO_OF_CONTACT,SEQ_NO_OF_CONTACT p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+
++ SEQ_NO_OF_CONTACT must be a positive integer.
++ Cannot batch edit the name fields of the contacts.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
+</div>
+
+Examples:
+```
+edit 1,2,3 p/9001 4232 t/Engineering-department
+```
+
+### Delete a contact: `delete`
+
+Format:      `delete SEQ_NO_OF_CONTACT`
+
++ SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
++ SEQ_NO_OF_CONTACT must be a positive integer.
+
+Example:
+```
+delete 2
+```
+
+### View a list of contacts: `list`
+
+Format:      `list`
++ All contacts’ name, phone number, email and address will be displayed.
+
+Example:
+```
+list
+```
+
+
+### Search contact by name: `find`
+
+Format:      `find NAME`
+
++ NAME is case-insensitive. I.e. `find DUKE` will return `Duke`’s contact.
++ NAME has to be a full word. I.e. `find DUK` will not return `Duke`’s contact.
++ If NAME consists of two words, the sequence of words will not affect the search result. I.e. `find Duke John` will return both `John Duke`’s and `Duke John`’s contacts.
++ Contacts matching either one of the NAME will be returned. I.e. `find Duke John` will return both `Duke Mark` and `Charles Duke`’s contacts.
+
+Example:
+```
+find Duke
+```
+
+
+### Undo the previous command: `undo`
+
+Format:      `undo`
++ The previous contact list will be recovered.
++ Does not support command `rename`
+
+Example:
+```
+undo
+```
+
+### Copy a contacts: `copy`
+
+Format:      `copy SEQ_NO_OF_CONTACT`
++ SEQ_NO_OF_CONTACT refers to the numbering of the contact in the list.
++ SEQ_NO_OF_CONTACT must be a positive integer.
++ A string of text of the contact details will be copied to clipboard.
++ User can paste (CMD/CTL v) the details to a text field.
+
+Example:
+```
+copy 1
+```
+
+### Search contact by tag: `filter`
+
+Format:      `filter TAG`
+
++ TAG is case-insensitive. I.e. `filter G501` will return `g501`’s contact.
++ TAG has to be a full word. I.e. `filter G50` will not return `g501`’s contact.
++ Contacts matching either one of the TAG returning a combined result set, the sequence of words will not affect the search result. I.e. `filter g501 g502` will return both `g501`’s and `g502`’s contacts.
+
+Example:
+```
+filter g501
+```
+
+### Rename tag from contacts: `rename`
+
+Format:      `rename TAG t/TAG`
+
++ To rename TAG for all contacts with TAG specified.
++ TAG has to be a full word matching existing tag in the records.
++ TAG is the existing tag that needs to be renamed.
++ t/TAG is the tag to be renamed into.
++ For TAG to be renamed into multiple TAG, you may do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
+
+Example:
+```
+rename g501 t/graduated t/NUS
+```
+
+### Remove tag from all contact: `rename TAG t/`
+
+Format:      `rename TAG t/`
+
++ TAG is case-sensitive. I.e. `rename student t/` will remove `student` tag from all contact.
++ TAG has to be a full word. I.e. `find G50` will not remove tag `g501`.
+
+Example:
+```
+rename student t/
+```
+
+### Search contact by birthday month: `bday MONTH`
+
+Format:      `bday MONTH`
+
++ MONTH has to be within 1 to 12. I.e. `bday 1` will return contact with birthday month of January.
++ Contacts matching either one of the month returning a combined result set, the sequence of words will not affect the search result. I.e. `bday 1 2` will return all contact with birthday month in either January or February.
+
+Example:
+```
+bday 1
+```
+
+
+
+### Create relation among persons: `relate`
+#### Relate multiple persons to someone
+
+Format: `relate TO_SEQ_NO_OF_CONTACT <- FROM_SEQ_NO_OF_CONTACT1 FROM_SEQ_NO_OF_CONTACT2 ...`
++ The `relate` command has a 1 to n relationship 
++ TO_SEQ_NO_OF_CONTACT on the left hand side of `<-` is the target whom persons going to relate to
++ FROM_SEQ_NO_OF_CONTACTi on the right hand side of `<-` is the group to relate to the target one by one 
++ Relation is _mutual_. So A related to B, B also related to A automatically
+
+Example:
+```
+relate 2 <- 1 4 5
+```
+**Recommended usage**:
++ you could first `filter` by tag like a class no. `g503`, then use `relate` to relate from all the students to a teacher in that class one at a time.
++ the SEQ_No_OF_CONTACT refers to the index no. of current displayed list, you could go back to the all contact list using `list`.
+#### Show everyone related to a particular person
+Format: `relate SEQ_NO_OF_CONTACT`
++ When there is no `<-` action symbol used, `relate` acts like a listing command that displays the person and whose every related persons
+
+Example:
+```
+relate 2
+```
+
+
+
+
+
+
+So far, `relate` command does not support undo or deletion in v1.4, which could be considered for future updates. 
+
+
+### Exit the program:
+Format:      `exit`
++ The contact list will not be deleted after exiting.
+
+Example:
+```
+exit
+```
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -181,12 +280,19 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action     | Format, Examples                                                                                                                                                          |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME b/BIRTHDAY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Edit**    | `edit INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit 1 p/91234567 e/johndoe@example.com a/111, Clementi Rd, 1234665 t/student` |
+| **Batch edit**    | `edit -batch INDEX,INDEX n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g. <br> `edit -batch 1,2,3 p/92234567 e/johndoe@gmail.com ` |
+| **Bday** | `bday MONTH` <br> e.g. <br> `bday 12`
+| **Delete** | `delete INDEX` <br> e.g. <br> `delete 2`                                                                                                                                  |
+| **List**   | `list`    
+| **Filter**   | `filter TAG` <br> e.g. <br> `filter student`                                                                                                                             
+| **Find**   | `find NAME` <br> e.g. <br> `find steve`                                                                                                                                   
+| **Rename**   | `rename TAG t/TAG` <br> e.g. <br> `rename student t/graduated t/NUS`                                                                                                      
+| **Remove tag**   | `rename TAG t/` <br> e.g. <br> `rename student t/`
+| **Undo**   | `undo`                                                                                                                                                                    |
+| **Copy** | `Copy INDEX` <br> e.g. <br> `copy 1`                                                                                                                                      |
+| **Relate** | `relate INDEX_TO <- INDEX1 INDEX2 INDEX3 ...` <br> e.g. <br> `relate 2 <- 1 4 5` <br><br> `relate INDEX` <br> e.g. <br> `relate 2`                                        |
+| **Exit**   | `exit`                                                                                                                                                                    |

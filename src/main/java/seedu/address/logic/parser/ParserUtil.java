@@ -2,14 +2,18 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Birthday;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
@@ -33,6 +37,24 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
+     * trimmed.
+     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     */
+    public static List<Index> parseIndexList(Optional<String> string) throws ParseException {
+        assert !string.isEmpty();
+        List<Index> from = new ArrayList<>();
+        String[] indices = string.get().strip().split(" ");
+        for (int i = 0; i < indices.length; i++) {
+            if (!StringUtil.isNonZeroUnsignedInteger(indices[i].strip())) {
+                throw new ParseException(MESSAGE_INVALID_INDEX);
+            }
+            from.add(Index.fromOneBased(Integer.parseInt(indices[i].strip())));
+        }
+        return from;
     }
 
     /**
@@ -117,8 +139,23 @@ public class ParserUtil {
         requireNonNull(tags);
         final Set<Tag> tagSet = new HashSet<>();
         for (String tagName : tags) {
-            tagSet.add(parseTag(tagName));
+            tagSet.add(parseTag(tagName.toLowerCase()));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String birthday} into an {@code birthday}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code birthday} is invalid.
+     */
+    public static Birthday parseBirthday(String birthday) throws ParseException {
+        requireNonNull(birthday);
+        String trimmedBirthday = birthday.trim();
+        if (!Birthday.isValidName(trimmedBirthday)) {
+            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
+        }
+        return new Birthday(trimmedBirthday);
     }
 }

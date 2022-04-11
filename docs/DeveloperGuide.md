@@ -2,20 +2,31 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
+Table of Contents
+* *[Acknowledgements](DeveloperGuide.md#acknowledgements)*
+* *[Setting up, getting started](DeveloperGuide.md#setting-up-getting-started)*
+* *[Design](DeveloperGuide.md#design)*
+* *[Implementation](DeveloperGuide.md#implementation-sequence-diagram)*
+* *[Documentation, logging, testing](DeveloperGuide.md#documentation-logging-testing)*
+* *[Appendix: Requirements](DeveloperGuide.md#appendix-requirements)*
+* *[Use Cases](DeveloperGuide.md#use-cases)*
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
+
+*Quick Set-up*
+1. Ensure that you have Java 11 or above installed.
+2.  **Fork** this [repo](https://github.com/AY2122S2-TIC4002-F18-3/tp2), and **clone** the fork into your local computer.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -154,44 +165,25 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### Undo feature
 
-#### Proposed Implementation
+It extends `AddressBook` with an undo history, stored internally as a `ReadOnlyAddressBook`. 
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The operation is exposed in the `Model` interface as `Model#setAddressBook().
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+Given below is an example usage scenario and how the undo mechanism behaves at each step.
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `originalAddressBook` will be initialized with the initial address book state.
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `LogicManager#updateOriginalAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `ReadOnlyAddressBook`, and the `exCommand` is updated to `delete 5`.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+Step 3. The user decides that deleting the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will determine the `exCommand` is a delete command and call `Model#setAddressBook()`, which will reset the address book to the `originalAddressBook`.
 
 ![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
 
 The following sequence diagram shows how the undo operation works:
 
@@ -201,25 +193,9 @@ The following sequence diagram shows how the undo operation works:
 
 </div>
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
-
 #### Design considerations:
+
+BUDDY App leverages on Java Stream and jSON data structures, to allow a single user create and edit contracts to their preference:
 
 **Aspect: How undo & redo executes:**
 
@@ -232,7 +208,39 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
+**Aspect: How filter executes:**
+
+* **Alternative 1 (current choice):** filter down to one category tag
+    * Pros: Easy to manage contracts in one category tag.
+    * Cons: Not able to view other contact in the listing.
+
+* **Alternative 2:** filter multiple category tag
+    * Pros: Combine two category tag into one result view
+    * Cons: May have to navigate through all contacts within tag.
+
 _{more aspects and alternatives to be added}_
+
+### Relate feature
+Relate Command extends `Command` Abstract Class.
+
+Relate Command serves 2 purposes with one command keyword `relate`: 
+1. create relationship 
+2. display people's related contacts. 
+
+Which relies on `RelateCommandParser` to identify `Index to` and `Optional<List<Index>> from`, as well as `RelateToPersonPredicate` that filters matched `Person` from `Model`.
+
+The sequence diagram of how `RelateCommand` related to various components: 
+![RelateSequenceDiagram](images/RelateSeqDiag.png)
+
+
+
+#### Design considerations: 
+The data structure to hold the mutual relationship chosen to be `Set`. Because in a pool of people related to a person should not have any duplicated one. 
+
+Originally, `Set<Person>` seem to be a natural choice which largely aligns with logic: Person has relation with another person. However, relation would be one of attributes of a person which later will be store in the `json` file. It could be difficult to store a list of JS Object under an Object. Unless we create another `json` file just for mapping relations, which could be more like a DataBase tables kind of storage. 
+
+I noticed that the `id` to identify a person in the original code base is actually `name`, which is why it does not allow person with same name. So for the ease of storage, I decidede to use `Set<Name>` to store the relation of person.
+
 
 ### \[Proposed\] Data archiving
 
@@ -255,44 +263,87 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+Karen, secondary school teacher with work commitments
+As a typical teacher managing 40 students in a class and in charge of
+other co-curricular activities, it is always a hassle to manage the contacts of students’
+and parents’ information. In addition, manage contact information of external vendors that are involved
+in co-curricular activities and school’s event.
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
 
+**Value proposition**
+
+Project BUDDY is a Teacher’s Contact Management Application supported by CLI text input commands.
+Teachers can enter contact information for a swift search and retrieve desired contact information
+within a few keystrokes. The application provides an all-in-one display of the contacts related information
+and their details are presented in a beautiful scrolling view.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| no. | As a                                        | I want to                                                            | so that I can                                               |
+|-----|---------------------------------------------|----------------------------------------------------------------------|-------------------------------------------------------------|
+| 1   | forgetful user                              | record down people’s number and address                              | contact them later                                          |
+| 2   | organized user                              | group contacts into different labels                                 | quickly filter out the category I want                      |
+| 3   | productive user                             | search contact by name or number                                     | find a contact easily                                       |
+| 4   | school teacher                              | know which student and parents belong to the same family             | call the parents of the student                             |
+| 5   | school teacher that uses multiple softwares | copy a particular contact info                                       | paste it in other app to make use of the info               |
+| 6   | school teacher                              | know which students belong to which class                            | use the filtered list to take attendance                    |
+| 7   | contacts user                               | take notes for a particular contact                                  | record down happenings involving this contact               |
+| 8   | GUI user                                    | have different tags in different colors                              | be visually pleased and easily distinguish them             |
+| 9   | contacts user                               | quickly filter out all contacts without a tag                        | assign at least one tag to them                             |
+| 10  | contacts user                               | batch select a list of contacts for editing                          | assign tags to multiple contacts at once                    |
+| 11  | careless user                               | undo the previous command                                            | I will not lose my students' contact details.               |
+| 12  | typo-prone user                             | edit the contact                                                     | correct the typo                                            |
+| 13  | visual person                               | add photos to the contacts                                           | recall their identities                                     |
+| 14  | school teacher                              | record students’ birthdays and filter contacts by birthday months    | prepare gifts in advance                                    |
+| 15  | school teacher                              | record contacts’ email address                                       | contact them later                                          |
+| 16  | Diligent school teacher                     | Which students needs help in particular subject                      | Keep a close update on student’s subject progress           |
+| 17  | Health concerning teacher                   | Get quick access to student’s emergency contact                      | Call the contact immediately                                |
+| 18  | Achievement motivating teacher              | highlight students with high flying result                           | identity them to partake in school or national competitions |
+| 19  | Co-curricular teacher                       | group my co-curricular students                                      | Send updates on co-curricular activities                    |
+| 20  | Concerning teacher                          | Highlight students who often skipped classes or missed homework      | Contact student for a one to one session                    |
+| 21  | Starter                                     | Add some sample data within the code                                 | get familiar with the app interface and features            |
+| 22  | Organized person                            | sort by Alphabetical order                                           | quickly find out someone based on name                      |
+| 23  | Visual Person                               | Setting preference - colors or notification                          | distinguish people more easily                              |
+
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Project BUDDY` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add a person**
+
+**add n/NAME p/PHONE_NUMBER b/BIRTHDAY e/EMAIL a/ADDRESS [t/TAG]
+
+**Use case: Edit a person**
+**edit INDEX (must be a positive integer) [n/NAME] [b/BIRTHDAY] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]
+…​
+
+
+**Use case: Undo a command**
+
+**MSS**
+
+1.  User accidentally deletes a wrong person from the contact list
+2.  User requests to undo the delete command
+3.  AddressBook recovered to the original list
+
+    Use case ends.
+
+
+**Use case: Copy a contact**
 
 **MSS**
 
 1.  User requests to list persons
 2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+3.  User requests to copy a specific person in the list
+4.  The contact details are copied
 
     Use case ends.
 
@@ -308,20 +359,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+
+
 *{More to be added}*
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+* Should work on any mainstream OS as long as it has Java 11 or above installed.
+* Should be able to hold up to 1000 persons without a noticeable sluggishness in performance.
+* The command should be simple enough so that users are able to accomplish most of the tasks faster using typing than using the mouse.
+* Should be easy for new users to get used to usage fast.
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
+**Mainstream OS**:  Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+*{More to be added}*
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -366,7 +420,25 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
+
+
+### Relate
+
+1. Relate a group of persons to a person
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    2. Test case: `relate 2 <- 1 4 5`
+    3. Expect: contact 1 2 4 5 displayed (potentially other existing related contacts). Output message shows: contact2_Name has relation with: ["contact1_Name" "contact4_Name" "contact5_Name" "otherExistingNames"]
+    4. Test case: `relate 2 <- 1000`
+    5. Expect: Invalid contact index message 
+    6. Test case: `relate 1000 <- 1`
+    7. Expect: Invalid contact index message
+2. Display all related persons of a person  
+    2. Test case: `relate 2 `
+    3. Expect: contact 1 2 4 5 displayed (potentially other existing related contacts). Output message shows: contact2_Name has relation with: ["contact1_Name" "contact4_Name" "contact5_Name" "otherExistingNames"]
+    4. Test case: `relate 1000`
+    5. Expect: Invalid contact index message
+
 
 ### Saving data
 

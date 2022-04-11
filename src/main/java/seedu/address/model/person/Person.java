@@ -24,16 +24,44 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
+    private final Birthday birthday;
+    private Relation relation = new Relation();
+    // private final Set<String> relations = new HashSet<>();
+
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address,
+                  Set<Tag> tags, Birthday birthday, Relation relation) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+
+        this.birthday = birthday;
+        this.relation = relation;
+    }
+
+    /**
+     *
+     * @param name
+     * @param phone
+     * @param email
+     * @param address
+     * @param tags
+     * @param birthday
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday birthday) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+
+        this.birthday = birthday;
     }
 
     public Name getName() {
@@ -58,6 +86,23 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public Birthday getBirthday() {
+        return birthday;
+    }
+
+    //    public Set<String> getRelations() {
+    //        return relations;
+    //    }
+    public Relation getRelation() {
+        return relation;
+    }
+    //    public void addRelation(String name) {
+    //        relations.add(name);
+    //    }
+    public void relatedWith(Person person) {
+        relation.add(person.getName());
     }
 
     /**
@@ -92,13 +137,15 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getBirthday().equals(getBirthday())
+                && otherPerson.getRelation().equals(getRelation());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, tags, birthday, relation);
     }
 
     @Override
@@ -110,7 +157,9 @@ public class Person {
                 .append("; Email: ")
                 .append(getEmail())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Birthday:")
+                .append(getBirthday());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
