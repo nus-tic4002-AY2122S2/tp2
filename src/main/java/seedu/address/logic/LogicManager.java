@@ -45,6 +45,9 @@ public class LogicManager implements Logic {
         Command command = addressBookParser.parseCommand(commandText);
         commandResult = command.execute(model);
 
+        model.updateTotalMoney();
+        model.updateContactsWithMoneyCount();
+
         try {
             storage.saveAddressBook(model.getAddressBook());
         } catch (IOException ioe) {
