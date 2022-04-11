@@ -22,8 +22,8 @@ import java.util.regex.*;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.EditCommand.EditContentDescriptor;
+import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.*;
 import seedu.address.model.tag.Tag;
@@ -55,7 +55,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             if (listType == ListType.CLIENT) {
 
                 ArgumentMultimap argMultimap =
-                        ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                        ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                                PREFIX_ADDRESS, PREFIX_TAG);
 
                 Index index;
 
@@ -63,7 +64,8 @@ public class EditCommandParser implements Parser<EditCommand> {
                     index = ParserUtil.parseIndex(argMultimap.getPreamble());
                 }
                 catch (ParseException pe) {
-                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            EditCommand.MESSAGE_USAGE), pe);
                 }
 
                 EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
@@ -90,7 +92,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             } else if (listType == ListType.POST) {
 
                 ArgumentMultimap argMultimap =
-                        ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE, PREFIX_CATEGORY, PREFIX_NOTES);
+                        ArgumentTokenizer.tokenize(args, PREFIX_TITLE, PREFIX_CONTENT, PREFIX_POSTDATE,
+                                PREFIX_CATEGORY, PREFIX_NOTES);
 
                 Index index;
 
@@ -98,7 +101,8 @@ public class EditCommandParser implements Parser<EditCommand> {
                     index = ParserUtil.parseIndex(argMultimap.getPreamble());
                 }
                 catch (ParseException pe) {
-                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE_2), pe);
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            EditCommand.MESSAGE_USAGE_2), pe);
                 }
 
                 EditContentDescriptor editContentDescriptor = new EditContentDescriptor();

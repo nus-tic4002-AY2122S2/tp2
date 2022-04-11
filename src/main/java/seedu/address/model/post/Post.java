@@ -30,6 +30,9 @@ public class Post {
         this.sentCid.addAll(sentCid);
     }
 
+    /**
+     * Constructor to create a Post without sentCid
+     */
     public Post(Title title, Content content, PostDate postDate, Category category, Notes notes) {
         requireAllNonNull(title, content, postDate, category, notes);
         this.title = title;
