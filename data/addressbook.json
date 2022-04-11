@@ -6,7 +6,7 @@
     "address" : "Blk 30 Geylang Street 29, #06-40",
     "tagged" : [ "home" ]
   }, {
-    "name" : "Bernice Yu",
+    "name" : "hellot",
     "phone" : "99272758",
     "email" : "berniceyu@example.com",
     "address" : "Blk 30 Lorong 3 Serangoon Gardens, #07-18",
@@ -37,11 +37,11 @@
     "tagged" : [ "clients", "inactive" ]
   } ],
   "posts" : [ {
-    "title" : "hot",
+    "title" : "cold",
     "content" : "hello",
     "postDate" : "05/08/2022 09:00",
     "category" : "notice",
-    "notes" : "remember sent to all VIP1",
+    "notes" : "hot",
     "sentCid" : [ ]
   }, {
     "title" : "[Notice] Drop in China Shipping Rate for all Sea shipment",
@@ -50,7 +50,6 @@
     "category" : "notice",
     "notes" : "can not sent before the postdate, the shipping rate only start from April 1st",
     "sentCid" : [ "Bernice Yu", "Alex Yeoh", "Charlotte Oliveiro", "Roy Balakrishnan" ]
-
   }, {
     "title" : "Celebrate Our 6th Birthday with $6.6 OFF",
     "content" : "Birthday Sales coming! Birthday goodies for everyone! Celebrate our Birthday with BEST Deals!",
@@ -63,7 +62,6 @@
     "content" : "Dear Customers, please notice that our ware house location changed to xx xxx xxxxx",
     "postDate" : "18/03/2022 18:00",
     "category" : "notice",
-
     "notes" : "send to all the clients, remember sent out by 18/03",
     "sentCid" : [ "Bernice Yu", "Irfan Ibrahim", "Alex Yeoh", "Charlotte Oliveiro" ]
   }, {

@@ -25,7 +25,7 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditContentDescriptor;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.*;
+import seedu.address.model.ListType;
 import seedu.address.model.tag.Tag;
 
 /**

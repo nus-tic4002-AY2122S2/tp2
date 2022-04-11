@@ -20,7 +20,11 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.post.*;
+import seedu.address.model.post.Category;
+import seedu.address.model.post.Content;
+import seedu.address.model.post.Notes;
+import seedu.address.model.post.PostDate;
+import seedu.address.model.post.Title;
 import seedu.address.model.tag.Tag;
 
 /**
