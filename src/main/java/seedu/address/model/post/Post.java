@@ -1,5 +1,7 @@
 package seedu.address.model.post;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -19,12 +21,25 @@ public class Post {
      * Constructor to create a Post
      */
     public Post(Title title, Content content, PostDate postDate, Category category, Notes notes, Set<String> sentCid) {
+        requireAllNonNull(title, content, postDate, category, notes);
         this.title = title;
         this.content = content;
         this.postDate = postDate;
         this.category = category;
         this.notes = notes;
         this.sentCid.addAll(sentCid);
+    }
+
+    /**
+     * Constructor to create a Post without sentCid
+     */
+    public Post(Title title, Content content, PostDate postDate, Category category, Notes notes) {
+        requireAllNonNull(title, content, postDate, category, notes);
+        this.title = title;
+        this.content = content;
+        this.postDate = postDate;
+        this.category = category;
+        this.notes = notes;
     }
 
     public Title getTitle() {
