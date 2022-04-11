@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -39,7 +41,16 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private Label remark;
+    @FXML
     private FlowPane tags;
+    @FXML
+    private Label group;
+    @FXML
+    private ImageView favourite;
+
+    private Image favouriteImage = new Image(this.getClass().getResourceAsStream("/images/favourite.png"));
+    private Image notFavouriteImage = new Image(this.getClass().getResourceAsStream("/images/not_favourite.png"));
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -52,9 +63,16 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        remark.setText(person.getRemark().value);
+        if (person.getFavourite().favourite) {
+            favourite.setImage(favouriteImage);
+        } else if (!person.getFavourite().favourite) {
+            favourite.setImage(notFavouriteImage);
+        }
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        group.setText(person.getGroup().toString());
     }
 
     @Override

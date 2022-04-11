@@ -20,6 +20,8 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.group.Group;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -114,6 +116,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public Person getPerson(Name personName) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void assignToGroup(Group group, Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
             throw new AssertionError("This method should not be called.");
         }
@@ -125,6 +137,11 @@ public class AddCommandTest {
 
         @Override
         public boolean hasPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasSamePersonName(Person person) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -147,6 +164,41 @@ public class AddCommandTest {
         public void updateFilteredPersonList(Predicate<Person> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public int countPersonInGroup(Predicate<Person> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasGroup(Group toAdd) {
+            return true;
+        }
+
+        @Override
+        public void addGroup(Group toAdd) {
+            return;
+        }
+
+        @Override
+        public void renameGroup(int i, String name) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public int getGroupSize() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ArrayList<Person> getPersonListInThisGroup(Group group) {
+            return null;
+        }
+
+        @Override
+        public void unAssignToGroup(Person person) {
+
+        }
     }
 
     /**
@@ -165,6 +217,12 @@ public class AddCommandTest {
             requireNonNull(person);
             return this.person.isSamePerson(person);
         }
+
+        @Override
+        public boolean hasSamePersonName(Person person) {
+            requireNonNull(person);
+            return this.person.isSameName(person);
+        }
     }
 
     /**
@@ -178,6 +236,13 @@ public class AddCommandTest {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
         }
+
+        @Override
+        public boolean hasSamePersonName(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSameName);
+        }
+
 
         @Override
         public void addPerson(Person person) {
