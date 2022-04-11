@@ -184,7 +184,7 @@ Example:
 filter g501
 ```
 
-### Search contact by name: `rename`
+### Rename tag from contacts: `rename`
 
 Format:      `rename TAG t/TAG`
 
@@ -192,7 +192,7 @@ Format:      `rename TAG t/TAG`
 + TAG has to be a full word matching existing tag in the records.
 + TAG is the existing tag that needs to be renamed.
 + t/TAG is the tag to be renamed into.
-+ For TAG to be renamed into multiple TAG, you may do do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
++ For TAG to be renamed into multiple TAG, you may do by adding more parameter. I.e. `rename g501 t/graduated t/NUS` will remove all contact with existing 'g501' tag and add on new tag 'graduated' and 'NUS'.
 
 Example:
 ```
