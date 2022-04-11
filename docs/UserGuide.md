@@ -115,7 +115,8 @@ Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 * `edit 1 f/5.55` Edits money owed of the 1st person to be `5.55`.
-* `edit 1 tk/buy birthday cace` Edits the task to `buy birthday cake`.
+* `edit 1 tk/buy birthday cake` Edits the task to `buy birthday cake`.
+* `edit 1 tk/-` Edits the task to `-` which indicate no more task for this person.
 
 
 ### Overview of money owed

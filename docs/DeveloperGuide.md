@@ -128,6 +128,8 @@ The `Model` component,
 
 Each attribute of the `Person` class (e.g. `Money`) is implemented as a separate class.
 
+Note: that `task` attribute of the `Person` is a string instead of a class because it does not have any validation.
+
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
@@ -329,6 +331,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. ContactManager shows a list of persons
 3. User requests to add money owed to a specific person in the list
 4. ContactManager update money owed to the person
+
+**Use case: Add task to a contact**
+
+1. When create a contact, user can add a task to that contact
+2. ContactManager shows a list of persons
+3. User is able to see the task that he/she need to do for the contact
+
+**Use case: Edit task to a contact**
+
+1. User requests to list persons
+2. ContactManager shows a list of persons
+3. User is able to edit the contact to update the task to that contact, if no task, user can put `-`
 
 *{More to be added}*
 
