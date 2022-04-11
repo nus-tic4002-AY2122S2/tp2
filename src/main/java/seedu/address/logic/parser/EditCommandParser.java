@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
-import java.util.regex.*;
+import java.util.regex.Matcher;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
