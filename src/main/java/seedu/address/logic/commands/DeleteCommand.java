@@ -48,7 +48,7 @@ public class DeleteCommand extends Command {
         if (listType == ListType.CLIENT) {
             List<Person> lastShownList = model.getFilteredPersonList();
 
-            for(Index targetIndex : targetIndexes) {
+            for (Index targetIndex : targetIndexes) {
                 if (targetIndex.getZeroBased() >= lastShownList.size()) {
                     throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
                 }
@@ -71,7 +71,7 @@ public class DeleteCommand extends Command {
         } else {
             List<Post> lastShownList = model.getFilteredPostList();
 
-            for(Index targetIndex : targetIndexes) {
+            for (Index targetIndex : targetIndexes) {
                 if (targetIndex.getZeroBased() >= lastShownList.size()) {
                     throw new CommandException(Messages.MESSAGE_INVALID_POST_DISPLAYED_INDEX);
                 }
