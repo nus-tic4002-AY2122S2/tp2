@@ -166,7 +166,7 @@ Syntax: `exit`
 
 
 
-### `edit` - Edit a client or a post (haven't implemented)
+### `edit` - Edit a client or a post
 
 Edit an existing client in the **Client List** or an existing post in the **Post List** based on the specified INDEX in
 each list.
@@ -182,14 +182,14 @@ each list.
 * You can remove all the client's tags by typing `t/` without specifying any tags after it.
 
 Syntax: `edit client|c INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` or
-`delete post|p INDEX [t/TITLE] [c/CONTENT]...`
+`edit post|p INDEX [t/TITLE] [c/CONTENT]...`
 
 Example: `edit c 3 a/a new address`
 
 Expected outcome:
-
+![EditPost](images/editPost.PNG)
 ```
-
+Edited Person: bernice; Phone: 93210283; Email: charlotte@example.com; Address: a new address; Tags: [clients]
 ```
 
 
