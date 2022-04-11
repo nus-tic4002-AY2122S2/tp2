@@ -73,6 +73,8 @@ Examples:
 ```
 add n/Nana Park b/2000-01-01 p/9666 4222 e/nana@example.com a/620 Bedok Rd, 470620 t/student t/G5-C02
 ```
+<span style="color:red">Remarks: Date validation will be updated in future version after 1.4</span>
+`Birthday format` <yyyy-mm-dd>
 
 ### Editing a contact: `edit`
 
