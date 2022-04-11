@@ -125,7 +125,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                 if (argMultimap.getValue(PREFIX_NOTES).isPresent()) {
                     editContentDescriptor.setNotes(ParserUtil.parseNotes(argMultimap.getValue(PREFIX_NOTES).get()));
                 }
-
                 if (!editContentDescriptor.isAnyFieldEdited()) {
                     throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
                 }
