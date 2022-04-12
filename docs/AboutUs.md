@@ -29,3 +29,11 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](http://github.com/ivanhlb)]
 [[portfolio](team/ivanho.md)]
+
+### Lim Kang
+
+<img src="images/limkang.png" width="200px">
+
+[[github](https://github.com/Opkko)]
+[[portfolio](team/limkang.md)]
+
