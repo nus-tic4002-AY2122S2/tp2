@@ -84,4 +84,23 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Commits the latest AddressBook state.
+     */
+    void commitAddressBook(ReadOnlyAddressBook addressBook);
+
+    /**
+     * Undo the latest commit stored in history.
+     * Returns true if there is a commit to undo. AddressBook state must have a previous state to undo.
+     */
+    boolean undoAddressBook();
+
+    /**
+     * Redo the previous state.
+     * Returns true if there is a commit to redo. AddressBook state must have a previous undone state to redo.
+     */
+    boolean redoAddressBook();
+
+    void sortAddressBook();
 }

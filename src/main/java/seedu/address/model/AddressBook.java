@@ -2,11 +2,15 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+
 
 /**
  * Wraps all data at the address-book level
@@ -117,4 +121,25 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return persons.hashCode();
     }
+
+    /**
+     * Sort person name list {@code persons} in ascending order.
+     */
+    public void sort(List<Person> persons) {
+        List<Person> sortedPersonNames = new ArrayList<>();
+        sortedPersonNames.addAll(persons);
+        Collections.sort(sortedPersonNames, new Comparator<Person>() {
+
+            public int compare(Person p1, Person p2) {
+                String personNameFirst = p1.getName().toString();
+                String personNameSecond = p2.getName().toString();
+
+                // ascending order
+                return personNameFirst.compareTo(
+                        personNameSecond);
+            }
+        });
+        this.persons.setPersons(sortedPersonNames);
+    }
+
 }

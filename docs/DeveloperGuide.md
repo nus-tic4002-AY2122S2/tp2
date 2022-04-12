@@ -9,8 +9,11 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+* [TECHIE DELIGHT </> Singleton Pattern – Java Implementation](https://www.techiedelight.com/implement-singleton-pattern-in-java/)
+* [tutorials.jenkov.com - Java Synchronized Blocks](http://tutorials.jenkov.com/java-concurrency/synchronized.html)
+* [docs.oracle.com Class](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Class.html)
+* [Java Coding Community - JavaFX and Scene Builder Tutorial](https://www.youtube.com/watch?v=HBBtlwGpBek)
+* [Glucon ScreenBuilder](https://gluonhq.com/products/scene-builder/)
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -59,7 +62,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -158,11 +161,17 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+`addressBookStateList` can be implemented as an ArrayList to store all previous states of addressBook in history.
+`currentStatePointer` can be implemented as a counter indicating the current index of history.
+
+Additionally, it implements the following operations:
 
 * `VersionedAddressBook#commit()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
 * `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+
+The above operations should inform user of errors indicated why it failed to perform the operation.
 
 These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
@@ -231,13 +240,131 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
+* **Alternative 3:** Saves only the person list within the address book.
+  * Pros: Easy to implement and uses less memory compared to Alternative 1.
+  * Cons: May have performance issues in terms of memory usage.
 
-_{more aspects and alternatives to be added}_
+### Software Security Feature 01: A GUI Login Front Screen
+
+Sample:-
+
+![Sample Login Screen](images/loginScreen.png)
+
+#### Implementation
+
+**_The motive for this online login security feature is to protect the sensitive data, displayed in TeamContact 24/7 App,
+from undesirable exposure to unwanted and or public viewing_**.
+
+The idea is to first load and only display the Login GUI Screen
+upon main App startup: so the user will have to enter in his or her login credentials before preview and access to the
+main App data is granted.
+
+Leveraging on JavaFx capabilities to hide and show stages, the frontend GUI Login Screen was made to load and displayed
+visually first, after the MainWindow GUI for TeamContact 24/7 App was initialised but rendered invisible meanwhile.
+
+ScreenBuilder was used to create the layout and specification of the Login GUI Screen and the data was saved to a Login.fxml file.
+
+A corresponding controller file, **LoginController.java**, was created to facilitate the creation and register of the various
+login checking methods (using TextFields) and the rendering of the error messages (using Label), under an ActionEvent handler
+**#handleButtonAction**.
+
+The start method of **MainApp.java** was adapted for the above purpose: to first initialise the main App loading, get
+its stage hidden, then load and show another newly created stage with the Login Screen Scene.
+
+Sample **SingletonLogin** UML Class Diagram:-
+
+<img src="images/UMLClass_Singleton.png" width="550" />
+
+
+#### Design considerations:
+
+- **MainWindow.java** was modified to not show the mainWindow of the main App upon first load
+- Username was made case-sensitive and Password is set to "pin" format instead of the usual expected text string,
+to make it harder to guess
+- The Login Screen object (from the SIngletonLogin class) is patterned after the Singleton creational design pattern to further increase security against possible rogue substitutes or false replacement
+- The SingletonLogin class was also made final to block any subclass attempt, it's getInstance() public static method made thread-safe and the constructor was modified to throw an exception if it's made to create a second instance reflectively 
+- The main App stage was also elevated as a class-level protected object (as appStage in MainApp.java), to increase security
+against unauthorised access or possible abuse
+
+The following activity diagram summarizes how the Login GUI Screen works upon TeamContact 24/7 App startup:-
+
+<img src="images/ActivityDiag_LoginScr.png" width="550" />
+
+
+### Software Security Feature 02: A Logout Shortcut `ESC` Key
+- To aid the Project Manager log out of a TeamContact 24/7 App Session as and when desired
+- The login screen comes back on, hiding the app's sensitive data from public view, upon 'ESC' key pressed
+
+Sample 'ESC' key Logout Screenshot:-
+
+![Sample Esc key logout Sequence](images/EscSignout.png)
+
+- **MainWindow.fxml** was modified to handle onKeyPressed event **#keyPressedHandle** at the scene level
+- **MainWindow.java** had the corresponding keyPressedHandle handler method added in
+
+### \[Proposed\] Introduce limit login attempt feature
+- Can limit to 3 attempts and user is locked out or
+- Increase the login credentials processing duration each time login failed
+
+_{coming feature}_
+
+### \[Proposed\] Increase login data CIA via secure password storage feature code in
+- Along the lines of [Happy Coding](https://happycoding.io/tutorials/java-server/secure-password-storage)
+
+_{coming feature}_
+
+### \[Proposed\] Attachment of a useful mini-digital clock on top left-hand side of TeamContact 24/7 - for quick time lookup
+
+A Sample Picture:-
+
+![Sample Esc key logout Sequence](images/digitalclock.png)
+
+_{coming feature}_
+
+### Email Feature (Send email to particular contact person):
+
+Sample:
+
+![Sample Email Screen](images/emailWindow.png)
+
+Implementation:
+ 
+**_This email feature allowed user to send email to particular group member in the app easily and directly._**
+
+In the main page of the app, user can type the email command to select the contact and open the email window to prepare email and send email.
+
+For the current version, the sender email address and password is built in actual gmail for the testing purpose specific for this app only.
+
+First step: 
+* type the command with keyword, `email KEYWORD`. The keyword is the name of the contact that user want to send email to. 
+* Once the command entered, email window will be popped out if the contact found as shown above (Sender email is the user's and the Receiver email is the contact found by the `KEYWORD`). 
+* If the contact not found, there will be a message to inform user.
+
+Second step: 
+* Key in subject and email content
+* click `button` to send the email 
+
+The follwoing sequence Diagram shows how this command triggered and work in the system:
+
+![EmailCommand_Sequence_Diagram](images/EmailCommand_Sequencial_Diagram.png)
+
+### Export Feature (Export all contacts' details to a text file)
+
+Sample command input: `export`
+
+Implementation:
+
+**_This export feature allowed user to export all contacts' details to a text file. The text file save locally and it's readable. Hence user can transfer the details to other location or PCs._**
+
+In the main page of the app, user can type the export command (`export`) to get a text file which contain all the contacts' information. 
+
+The following sequence diagram show how this command triggered and work in the system:
+
+![ExportCommand_Sequence_Diagram](images/ExportCommand_Sequencial_Diagram.png)
 
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -257,42 +384,48 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* On-the-go Software Project Manager
+* has a need to manage a significant number of contacts on-the-fly
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
+* prefers to use the CLI - for its quick zoom abilities - to track his communication tasks, logged communications with stakeholders, or do simple housekeeping, throughout his day
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage contacts faster than a typical mouse/GUI driven app, in an error-free and secure manner
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                       | So that I can…​                                                        |
+|----------|--------------------------------------------|------------------------------------|------------------------------------------------------------------------|
+| `* * *`  | new user                                   | see or find the usage instructions | refer to instructions when I forget how to use the App                 |
+| `* * *`  | user                                       | add a new person                   |                                                                        |
+| `* * *`  | main Project Communicator                  | log a brief communication note     | have a quick glance at the last intercourse done with contact          |
+| `* * *`  | user                                       | delete a person                    | remove entries that I no longer need                                   |
+| `* * *`  | user                                       | export contact to txt file         | transfer data to other place                                           |
+| `* * *`  | user                                       | find person by tag/information     | find a group of people related                                         |
+| `* * *`  | user                                       | find a person by name/partial name | locate details of persons without having to go through the entire list | | `* *`    | user                                       | can send email to specific person  | communicate each other directly            
+| `* *`    | user                                       | hide private contact details       | minimize chance of someone else seeing them by accident                |
+| `* *`    | user                                       | add a remark on the contact        | note down some information on the contact                              |
+| `*`      | user with many persons in the address book | sort persons by name               | locate a person easily                                                 |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `TeamContact 24/7` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  TeamContact 24/7 shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  TeamContact 24/7 deletes the person
 
     Use case ends.
 
@@ -304,17 +437,67 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. TeamContact 24/7 shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Email a person**
+
+**MSS**
+
+1. User type email command with keyword to request to email a specific person
+2. System shows the specific person found message and Email window display
+3. User key in email subject and email content and click button to send email
+4. System send email and the email window close
+
+   Use case ends.
+   
+**Use case: Add a person**
+
+**MSS**
+
+1. User type add command with personal details
+2. System add the person to the list and save to json file
+3. System shows the person added successful message
+
+   Use case ends.
+   
+**Extension**
+
+* 1a. Personal details contain: 
+    * Name (short-form used: a/)
+    * Phone number (short-form used: p/)
+    * Address (short-form used: a/)
+    * Email (short-form used: e/)
+    * Remark (short-form used: r/)
+    * Tag (short-form used: t/)
+    * Date join (short-form used: d/, formate: DD/MM/YYYY)
+
+**Use case: Find a person**
+
+**MSS**
+
+1. User type find command with KEYWORD
+2. System find and match person from the list
+3. System shows the find information to user
+4. System list out the matched person(s) in the main page
+
+   Use case ends.
+
+**Extension**
+
+* 3a. Find information:
+    * If has matched person, shows people found
+    * If no matched person, shows no matched person found
 
 *{More to be added}*
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. App is secure to use and protects sensitive date from public view.
 
 *{More to be added}*
 
@@ -322,6 +505,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **log**: refers to a brief intercourse update note on a contact entered by Project Manager
 
 --------------------------------------------------------------------------------------------------------------------
 
