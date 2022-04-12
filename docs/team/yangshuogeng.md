@@ -10,11 +10,11 @@ Given below are my contributions to the project.
 
 ### Summary of Contributions
 
-* **New Feature**: Added the ability to send email in a new window. 
+* **New Feature**[[#156]](https://github.com/nus-tic4002-AY2122s2/forum/issues/156): Added the ability to send email in a new window. 
     * What it does: allows the user to send an email to a specific contact person in the list.
     * Justification: This feature improves productivity and save time to transfer to email software.
 
-* **New Feature**: Added the ability to export contact person details
+* **New Feature**[[#55]](https://github.com/nus-tic4002-AY2122s2/forum/issues/55): Added the ability to export contact person details
     * What it does: allows the user to export all contact person's details to a text file in local disk
     * Justification: This feature allowed user to transfer contact details to other place and readable
 
@@ -32,4 +32,4 @@ Given below are my contributions to the project.
         * Update documentation to include `email` remarks in the User stories section.
 
 * **Community**:
-    * PRs reviewed for Team members
+    * PRs reviewed for Team members: [[#56]](https://github.com/nus-tic4002-AY2122s2/forum/issues/56), [[#58]](https://github.com/nus-tic4002-AY2122s2/forum/issues/58), [[#62]](https://github.com/nus-tic4002-AY2122s2/forum/issues/62), [[#78]](https://github.com/nus-tic4002-AY2122s2/forum/issues/78), [[#137]](https://github.com/nus-tic4002-AY2122s2/forum/issues/137), [[#138]](https://github.com/nus-tic4002-AY2122s2/forum/issues/138), [[#151]](https://github.com/nus-tic4002-AY2122s2/forum/issues/151), [[#153]](https://github.com/nus-tic4002-AY2122s2/forum/issues/153)
