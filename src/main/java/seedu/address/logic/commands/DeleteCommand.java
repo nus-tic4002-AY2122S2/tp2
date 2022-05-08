@@ -60,6 +60,7 @@ public class DeleteCommand extends Command {
             for (Index i : targetIndexes) {
                 Person pToRemove = lastShownList.get(i.getZeroBased());
                 personToRemove.add(pToRemove);
+                model.saveStateAddresses(model.getAddressBook());
                 outputMsg += String.format(MESSAGE_DELETE_PERSON_SUCCESS, pToRemove) + "\n";
             }
 

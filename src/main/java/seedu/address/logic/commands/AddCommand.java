@@ -89,6 +89,7 @@ public class AddCommand extends Command {
                 throw new CommandException(MESSAGE_DUPLICATE_PERSON);
             }
             model.addPerson(toAdd);
+            model.saveStateAddresses(model.getAddressBook());
             outputMsg += String.format(MESSAGE_SUCCESS, toAdd);
         } else if (postToAdd != null) {
             if (model.hasPost(postToAdd)) {

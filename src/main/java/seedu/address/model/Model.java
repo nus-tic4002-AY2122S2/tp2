@@ -150,5 +150,22 @@ public interface Model {
      */
     void updateWholePostList(List<Post> postList);
 
+    /**
+     * Saves the latest AddressBook state.
+     */
+    void saveStateAddresses(ReadOnlyAddressBook addressBook);
+
+    /**
+     * Undo the latest state stored in history.
+     * Returns true if there is a commit to undo. AddressBook state must have a previous state to undo.
+     */
+    boolean undoAddressBook();
+
+    /**
+     * Redo the previous state.
+     * Returns true if there is a commit to redo. AddressBook state must have a previous undone state to redo.
+     */
+    boolean redoAddressBook();
+
 
 }
