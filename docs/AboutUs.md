@@ -9,51 +9,44 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Khor Kee Yong
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/khorkeeyong.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/kaydenkhor)]
+[[portfolio](team/kaydenkhor.md)]
+
+
 
 * Role: Project Advisor
 
-### Jane Doe
+### Nie Ruiting
+
+<img src="images/ruiting1.png" width="200px">
+
+[[github](https://github.com/Ruiting1)]
+[[portfolio](team/ruiting1.md)]
+
+* Role: Developer
+* Responsibilities: coding / UI / Documentation
+
+### Tan Li Hao, Broderick
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](https://github.com/e0262191)]
 [[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Gimpaya Yralle Lesly John Caday
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](https://github.com/Mr-YaRou)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI

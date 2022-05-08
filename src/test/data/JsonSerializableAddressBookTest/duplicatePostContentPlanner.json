@@ -1,0 +1,16 @@
+{
+  "persons": [ ],
+  "posts": [ {
+    "title" : "A sample post subject title",
+    "content" : "a test content1",
+    "postdate" : "postdate1",
+    "category" : "category1",
+    "notes" : "notes1"
+  }, {
+    "title" : "A sample post subject title",
+    "content" : "a test content2",
+    "postdate" : "postdate2",
+    "category" : "category2",
+    "notes" : "notes2"
+  }]
+}

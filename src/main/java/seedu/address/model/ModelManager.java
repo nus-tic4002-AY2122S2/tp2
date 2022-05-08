@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,6 +14,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
+import seedu.address.model.post.Post;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -19,9 +22,11 @@ import seedu.address.model.person.Person;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+
+    private final VersionedAddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Post> filteredPosts;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -31,13 +36,14 @@ public class ModelManager implements Model {
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.addressBook = new VersionedAddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        filteredPosts = new FilteredList<>(this.addressBook.getPostList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new VersionedAddressBook(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -94,8 +100,29 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasPost(Post post) {
+        requireNonNull(post);
+        return addressBook.hasPost(post);
+    }
+
+    @Override
     public void deletePerson(Person target) {
         addressBook.removePerson(target);
+    }
+
+    @Override
+    public void deletePersonAll(List<Person> targets) {
+        addressBook.removePersonAll(targets);
+    }
+
+    @Override
+    public void deletePost(Post target) {
+        addressBook.removePost(target);
+    }
+
+    @Override
+    public void deletePostAll(List<Post> targets) {
+        addressBook.removePostAll(targets);
     }
 
     @Override
@@ -105,11 +132,41 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void addPost(Post post) {
+        addressBook.addPost(post);
+        updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
+    }
+
+
+    @Override
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
 
         addressBook.setPerson(target, editedPerson);
     }
+
+    @Override
+    public void setPost(Post target, Post editedPost) {
+        requireAllNonNull(target, editedPost);
+
+        addressBook.setPost(target, editedPost);
+    }
+
+    @Override
+    public void saveStateAddresses(ReadOnlyAddressBook toBeCommitted) {
+        addressBook.commit(toBeCommitted);
+    }
+
+    @Override
+    public boolean undoAddressBook() {
+        return addressBook.undo();
+    }
+
+    @Override
+    public boolean redoAddressBook() {
+        return addressBook.redo();
+    }
+
 
     //=========== Filtered Person List Accessors =============================================================
 
@@ -122,10 +179,40 @@ public class ModelManager implements Model {
         return filteredPersons;
     }
 
+    /**
+     * Returns an unmodifiable view of the list of {@code Post} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Post> getFilteredPostList() {
+        return filteredPosts;
+    }
+
     @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public void updateFilteredPostList(Predicate<Post> predicate) {
+        requireNonNull(predicate);
+        filteredPosts.setPredicate(predicate);
+    }
+
+
+
+    @Override
+    public void updatePostSentCid(Set<String> updatedSentCid, Post targetPost) {
+        requireAllNonNull(updatedSentCid, targetPost);
+        addressBook.updatePostSentCid(updatedSentCid, targetPost);
+        updateFilteredPostList(PREDICATE_SHOW_ALL_POSTS);
+    }
+
+    @Override
+    public void updateWholePostList(List<Post> postList) {
+        addressBook.clearPostList();
+        addressBook.addAllPosts(postList);
     }
 
     @Override
@@ -144,7 +231,8 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return addressBook.equals(other.addressBook)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredPersons.equals(other.filteredPersons)
+                && filteredPosts.equals(other.filteredPosts);
     }
 
 }
